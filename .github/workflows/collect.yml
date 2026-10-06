@@ -1,0 +1,40 @@
+name: collect-notes
+
+on:
+  workflow_dispatch:
+    inputs:
+      adapter:
+        description: "adapter name (e.g. davidoff)"
+        required: true
+        default: davidoff
+      limit:
+        description: "max pages (blank = all)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run adapter
+        run: |
+          touch scripts/__init__.py scripts/adapters/__init__.py
+          if [ -n "${{ github.event.inputs.limit }}" ]; then
+            python scripts/collect.py "${{ github.event.inputs.adapter }}" --limit "${{ github.event.inputs.limit }}"
+          else
+            python scripts/collect.py "${{ github.event.inputs.adapter }}"
+          fi
+      - name: Commit results
+        run: |
+          git config user.name "cigar-db-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add db/cigars.json
+          git diff --cached --quiet || git commit -m "collect: ${{ github.event.inputs.adapter }} ($(date -u +%F))"
+          git push
