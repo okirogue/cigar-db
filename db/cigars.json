@@ -19415,7 +19415,11 @@
     "grass",
     "spice",
     "cocoa",
-    "sweet"
+    "sweet",
+    "cedar",
+    "vanilla",
+    "woody",
+    "dried_fruit"
    ]
   },
   "note_sources": [
@@ -19441,6 +19445,24 @@
     "score": 89,
     "url": "https://cigardojo.com/2020/11/hoyo-de-monterrey-epicure-seleccion-no-1/",
     "title": "Hoyo de Monterrey Epicure Selección No.1"
+   },
+   {
+    "source": "review:manual",
+    "tags": [
+     "cream",
+     "cocoa",
+     "cedar",
+     "vanilla",
+     "woody",
+     "dried_fruit",
+     "spice"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/hoyo-de-monterrey/epicure-no1",
+     "https://cigar-coop.com/2020/11/cigar-review-hoyo-de-monterrey-epicure-seleccion-no-1.html"
+    ]
    }
   ],
   "verified": false,
@@ -19462,7 +19484,8 @@
    "length_in": "5.6",
    "ring_gauge": "46",
    "strength": "Light",
-   "factory_vitola": "Coronas Gordas"
+   "factory_vitola": "Coronas Gordas",
+   "strength_felt": "medium"
   },
   "updated": "2026-10-06",
   "seed": {
@@ -21780,7 +21803,22 @@
   "name": "Julieta",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cedar",
+    "earth",
+    "pepper",
+    "cream",
+    "cocoa",
+    "vanilla",
+    "nuts",
+    "leather",
+    "honey",
+    "hay",
+    "coffee",
+    "spice",
+    "bread",
+    "cinnamon"
+   ]
   },
   "note_sources": [
    {
@@ -21788,6 +21826,24 @@
     "vitola": "",
     "tags": [],
     "text": " The XXV Festival del Habano began with a spectacular opening night. The event celebrated the 150th anniversary of Romeo y Julieta. The exclusive Salón de Protocolo Cubanacán hosted 1,200 guests. Distributors, experts and enthusiasts from all over the world were in attendance. The theme of the evening was Venice, with a romantic atmosphere. The colour red dominated, reflecting the passion of the brand. The new Amantes vitola has a ring gauge of 53 and a length of 153 mm. It was specially designed for the 150th anniversary. The vitola combines tradition with excellent craftsmanship. It offers medium strength and the classic Romeo y Julieta aroma. It is ideal for experienced passionados and newcomers alike. Vice President Jorge Pérez Martel presented two formats: the elegant box of 20 is ideal for collectors and enthusiasts, and an exclusive gift box of 5 was offered in advance to festival guests. The gift box will be available in Switzerland at La Casa del Habano on 17 February 2026 and at Habanos Specialist on 24 February 2026. Romeo y Julieta Amantes &#8211; Gift Box with 5 cigars will retail at 372.- Swiss Francs, representing 74.40 Swiss Francs per cigar. "
+   },
+   {
+    "source": "review:manual",
+    "tags": [
+     "nuts",
+     "earth",
+     "coffee",
+     "spice",
+     "leather",
+     "bread",
+     "cinnamon"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://bespokeunit.com/articles/cigars/romeo-y-julieta-petit-churchill/",
+     "https://mitchellswine.co.uk/?p=930"
+    ]
    }
   ],
   "verified": false,
@@ -21802,7 +21858,8 @@
    "length_in": "4.7",
    "ring_gauge": "33",
    "strength": "Medium",
-   "factory_vitola": "Julieta No.6"
+   "factory_vitola": "Julieta No.6",
+   "strength_felt": "medium"
   }
  },
  "romeo-y-julieta-amantes": {
@@ -21873,7 +21930,15 @@
   "name": "Magnum 54",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "nuts",
+    "pepper",
+    "coffee",
+    "cocoa",
+    "toast",
+    "spice",
+    "cinnamon"
+   ]
   },
   "note_sources": [
    {
@@ -21881,6 +21946,25 @@
     "vitola": "",
     "tags": [],
     "text": " A new wooden humidor box with five H. Upmann Magnum 54 cigars is now available in Spanish tobacconists&#8217; shops, standing out as an ideal gift for any Habanos passionado. The Magnum 54 is one of the most emblematic vitolas of the H. Upmann brand. It is a 120 mm long, 54 ring gauge and mild-medium strength vitola. For the final stretch of 2024, this cigar arrives in a special presentation: a new wooden case with a humidifier bearing the brand&#8217;s insignia and containing five cigars, already available only in Spanish tobacconists at a price of €120. This is certainly a very interesting idea for those who want to give Habanos as a gift during the upcoming Christmas season, or on any other occasion. H. Upmann is one of the oldest and most prestigious Habanos brands, founded in 1844 by Herman Upmann, a German banker who was also a great lover of Cuban tobacco. The brand is known for its exceptional quality in crafting cigars of mild-medium strength. "
+   },
+   {
+    "source": "review:manual",
+    "tags": [
+     "nuts",
+     "pepper",
+     "coffee",
+     "cocoa",
+     "toast",
+     "spice",
+     "cinnamon"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/h-upmann/magnum-54",
+     "https://bespokeunit.com/articles/cigars/h-upmann-magnum-54/",
+     "https://cigarobsession.com/?p=40489"
+    ]
    }
   ],
   "verified": false,
@@ -21895,7 +21979,8 @@
    "length_in": "4.7",
    "ring_gauge": "54",
    "strength": "Light to Medium",
-   "factory_vitola": "Magnum 54"
+   "factory_vitola": "Magnum 54",
+   "strength_felt": "medium"
   }
  },
  "punch": {
@@ -21904,7 +21989,15 @@
   "name": "Punch Punch",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "leather",
+    "cedar",
+    "cream",
+    "spice",
+    "citrus",
+    "woody",
+    "honey"
+   ]
   },
   "note_sources": [
    {
@@ -21912,6 +22005,25 @@
     "vitola": "",
     "tags": [],
     "text": " Punch Cigars is honoring its iconic (and “devastatingly handsome”) mascot, Mr. Punch, with a new cigar that bears his name. Mr. Punch by Punch Cigars is a full-time blend that delivers a signature Punch smoking experience with a flavor profile tailored to the modern smoker. Mr. Punch by Punch features an Ecuadorian Sumatra wrapper, a Nicaraguan Jalapa Seco binder, and fillers from Nicaragua. The cigar was produced at the Scandinavian Tobacco Group Factory in Estelí, Nicaragua. Mr. Punch by Punch is available in three sizes: Toro (6 X 54), Gigante (6 X 60), and the largest Punch Cigar ever released, The Big Slapper (7 X 70). SRPs (suggested retail price) for the respective cigars are $7.89, $8.99, and $10.09. Each size is packaged in boxes of 20. Scott Abney, Brand Manager for Punch Cigars, said, “Mr. Punch is a true icon not just in the cigar industry, but in pop culture. So it only made sense to create a cigar that captures his spirit. This new blend delivers a classic Punch smoking experience with a flavor profile tailored to the modern consumer. We know it’s going to be a hit.” Mr. Punch by Punch is a full-time release. It will begin shipping to retailers in July 2026. "
+   },
+   {
+    "source": "review:manual",
+    "tags": [
+     "leather",
+     "cedar",
+     "cream",
+     "spice",
+     "citrus",
+     "woody",
+     "honey"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/punch/punch-punch",
+     "https://www.cigarinspector.com/ci/cigar-review-punch-punch-cuban/",
+     "https://blindmanspuff.com/blind-cigar-review-punch-punch-punch/"
+    ]
    }
   ],
   "verified": false,
@@ -21926,7 +22038,8 @@
    "length_in": "5.6",
    "ring_gauge": "46",
    "strength": "Medium",
-   "factory_vitola": "Coronas Gordas"
+   "factory_vitola": "Coronas Gordas",
+   "strength_felt": "medium"
   }
  },
  "punch-triunfos": {
@@ -21970,7 +22083,15 @@
   "name": "Únicos",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "leather",
+    "earth",
+    "mineral",
+    "cream",
+    "spice",
+    "coffee",
+    "pepper"
+   ]
   },
   "note_sources": [
    {
@@ -21978,6 +22099,24 @@
     "vitola": "",
     "tags": [],
     "text": " Serie Sevilla is the name of a collection, exclusive to the Spanish market, of Habanos cigars presented in English earthenware jars. The jars, made by “La Cartuja de Sevilla”, are a replica of those made by the same firm in the middle of the last century for the Partagás and Ramón Allones brands, which are now genuine museum pieces. The first edition of Serie Sevilla, produced in 2016, featured Montecristo No.3, followed in 2017 by Hoyo de Monterrey Epicure Especial, H. Upmann Magnum 50 in 2018, Partagás Serie P No.2 in 2019, Romeo y Julieta Short Churchills in 2020 and Ramón Allones Allones Specially Selected in 2021. This 7 th edition consists of 1,000 numbered pieces. Each of them contains 21 Únicos, the brand&#8217;s Pirámides (156 mm in length and 52 filler), entirely hand-rolled and preserved in the best conditions. It is priced at €25 per cigar and €525 per box. "
+   },
+   {
+    "source": "review:manual",
+    "tags": [
+     "leather",
+     "earth",
+     "mineral",
+     "cream",
+     "spice",
+     "coffee",
+     "pepper"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarinspector.com/ci/cigar-review-vegas-robaina-unicos/",
+     "https://cigarsunlimited.co.uk/product/vegas-robaina-unicos-single-cigar"
+    ]
    }
   ],
   "verified": false,
@@ -21992,7 +22131,8 @@
    "length_in": "6.1",
    "ring_gauge": "52",
    "strength": "Medium to Full",
-   "factory_vitola": "Pirámides"
+   "factory_vitola": "Pirámides",
+   "strength_felt": "medium"
   }
  },
  "vegueros-centrogordos": {
@@ -42127,9 +42267,36 @@
   "name": "Lanceros",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "honey",
+    "grass",
+    "hay",
+    "coffee",
+    "vanilla",
+    "butter",
+    "spice"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "honey",
+     "grass",
+     "hay",
+     "coffee",
+     "vanilla",
+     "butter",
+     "spice"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/cohiba/lanceros",
+     "https://www.cigarinspector.com/ci/cohiba-lancero/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -42141,7 +42308,8 @@
    "length_in": "7.6",
    "ring_gauge": "38",
    "strength": "Medium to Full",
-   "factory_vitola": "Laguito No.1"
+   "factory_vitola": "Laguito No.1",
+   "strength_felt": "medium"
   }
  },
  "cohiba-coronas-especiales": {
@@ -42196,9 +42364,37 @@
   "name": "Espléndidos",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "honey",
+    "coffee",
+    "butter",
+    "hay",
+    "grass",
+    "vanilla",
+    "cream"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "honey",
+     "coffee",
+     "butter",
+     "hay",
+     "grass",
+     "vanilla",
+     "cream"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/cohiba/esplendidos",
+     "https://mitchellswine.co.uk/?p=766",
+     "https://www.cigarsunlimited.co.uk/product/cohiba-esplendidos-single"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -42210,7 +42406,8 @@
    "length_in": "7.0",
    "ring_gauge": "47",
    "strength": "Medium to Full",
-   "factory_vitola": "Julieta No.2"
+   "factory_vitola": "Julieta No.2",
+   "strength_felt": "medium-full"
   }
  },
  "cohiba-exquisitos": {
@@ -42242,9 +42439,37 @@
   "name": "Robustos",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "honey",
+    "coffee",
+    "grass",
+    "citrus",
+    "vanilla",
+    "cream",
+    "cedar"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "honey",
+     "coffee",
+     "grass",
+     "citrus",
+     "vanilla",
+     "cream",
+     "cedar"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/cohiba/robustos",
+     "https://www.boozemakers.com/articles/cohiba-robusto-cuban-review",
+     "https://www.cigarinspector.com/?p=12446"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -42256,7 +42481,8 @@
    "length_in": "4.9",
    "ring_gauge": "50",
    "strength": "Medium to Full",
-   "factory_vitola": "Robustos"
+   "factory_vitola": "Robustos",
+   "strength_felt": "medium-full"
   }
  },
  "cohiba-piramides-extra": {
@@ -42311,9 +42537,36 @@
   "name": "Siglo I",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "honey",
+    "coffee",
+    "grass",
+    "hay",
+    "vanilla",
+    "leather",
+    "citrus"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "honey",
+     "coffee",
+     "grass",
+     "hay",
+     "vanilla",
+     "leather",
+     "citrus"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/cohiba/siglo-i",
+     "https://www.smoke-king.co.uk/cohiba-siglo-i-cuban-cigar-single"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -42325,7 +42578,8 @@
    "length_in": "4.0",
    "ring_gauge": "40",
    "strength": "Medium",
-   "factory_vitola": "Perlas"
+   "factory_vitola": "Perlas",
+   "strength_felt": "mild-medium"
   }
  },
  "cohiba-siglo-ii": {
@@ -42334,9 +42588,37 @@
   "name": "Siglo II",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "grass",
+    "honey",
+    "citrus",
+    "cream",
+    "coffee",
+    "hay",
+    "cedar"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "grass",
+     "honey",
+     "citrus",
+     "cream",
+     "coffee",
+     "hay",
+     "cedar"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/cohiba/siglo-ii",
+     "https://blindmanspuff.com/blind-cigar-review-cohiba-siglo-ii/",
+     "https://cigarobsession.com/2021/05/25/cuban-cohiba-siglo-ii-cigar-review/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -42348,7 +42630,8 @@
    "length_in": "5.1",
    "ring_gauge": "42",
    "strength": "Medium",
-   "factory_vitola": "Marevas"
+   "factory_vitola": "Marevas",
+   "strength_felt": "mild-medium"
   }
  },
  "cohiba-siglo-iii": {
@@ -42357,9 +42640,37 @@
   "name": "Siglo III",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "grass",
+    "hay",
+    "citrus",
+    "honey",
+    "woody",
+    "coffee",
+    "cream"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "grass",
+     "hay",
+     "citrus",
+     "honey",
+     "woody",
+     "coffee",
+     "cream"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/cohiba/siglo-iii",
+     "https://cigarobsession.com/?p=39847",
+     "https://www.cigarinspector.com/?p=12482"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -42371,7 +42682,8 @@
    "length_in": "6.1",
    "ring_gauge": "42",
    "strength": "Medium",
-   "factory_vitola": "Coronas Grandes"
+   "factory_vitola": "Coronas Grandes",
+   "strength_felt": "medium"
   }
  },
  "cohiba-siglo-iv": {
@@ -42380,9 +42692,37 @@
   "name": "Siglo IV",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "hay",
+    "honey",
+    "coffee",
+    "grass",
+    "spice",
+    "vanilla",
+    "cedar"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "hay",
+     "honey",
+     "coffee",
+     "grass",
+     "spice",
+     "vanilla",
+     "cedar"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/cohiba/siglo-iv",
+     "https://www.cigarsunlimited.co.uk/product/cohiba-siglo-iv-single-cigar",
+     "https://www.puroexpress.com/cohiba-siglo-iv"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -42394,7 +42734,8 @@
    "length_in": "5.6",
    "ring_gauge": "46",
    "strength": "Medium",
-   "factory_vitola": "Coronas Gordas"
+   "factory_vitola": "Coronas Gordas",
+   "strength_felt": "medium"
   }
  },
  "cohiba-siglo-v": {
@@ -42426,9 +42767,36 @@
   "name": "Siglo VI",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "honey",
+    "coffee",
+    "hay",
+    "cream",
+    "butter",
+    "vanilla",
+    "pepper"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "honey",
+     "coffee",
+     "hay",
+     "cream",
+     "butter",
+     "vanilla",
+     "pepper"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/cohiba/siglo-vi",
+     "https://blindmanspuff.com/blind-cigar-review-cohiba-siglo-vi/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -42440,7 +42808,8 @@
    "length_in": "5.9",
    "ring_gauge": "52",
    "strength": "Medium",
-   "factory_vitola": "Cañonazo"
+   "factory_vitola": "Cañonazo",
+   "strength_felt": "medium"
   }
  },
  "cohiba-medio-siglo": {
@@ -42449,9 +42818,37 @@
   "name": "Medio Siglo",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "butter",
+    "coffee",
+    "hay",
+    "honey",
+    "bread",
+    "spice",
+    "floral"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "butter",
+     "coffee",
+     "hay",
+     "honey",
+     "bread",
+     "spice",
+     "floral"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/cohiba/medio-siglo",
+     "https://farehamwinecellar.co.uk/?p=78118",
+     "https://www.cigarsense.com/?p=32059"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -42463,7 +42860,8 @@
    "length_in": "4.0",
    "ring_gauge": "52",
    "strength": "Medium",
-   "factory_vitola": "Medio Siglo"
+   "factory_vitola": "Medio Siglo",
+   "strength_felt": "medium-full"
   }
  },
  "cohiba-genios": {
@@ -42632,9 +43030,35 @@
   "name": "No.1",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "woody",
+    "nuts",
+    "earth",
+    "cocoa",
+    "spice",
+    "mineral"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "woody",
+     "nuts",
+     "earth",
+     "cocoa",
+     "spice",
+     "mineral"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarslover.com/?p=63951",
+     "https://www.simplycigars.co.uk/montecristo-cigar-single-p-1588.html",
+     "https://www.cigarsense.com/?p=29775"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -42646,7 +43070,8 @@
    "length_in": "6.5",
    "ring_gauge": "42",
    "strength": "Medium to Full",
-   "factory_vitola": "Cervantes"
+   "factory_vitola": "Cervantes",
+   "strength_felt": "medium"
   }
  },
  "montecristo-no-2": {
@@ -42655,9 +43080,39 @@
   "name": "No.2",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "coffee",
+    "cocoa",
+    "cedar",
+    "earth",
+    "pepper",
+    "leather",
+    "nuts",
+    "cream",
+    "bread",
+    "spice"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cedar",
+     "nuts",
+     "cream",
+     "bread",
+     "cocoa",
+     "pepper",
+     "spice"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://blindmanspuff.com/blind-cigar-review-montecristo-petit-no-2/",
+     "https://www.cubancigarwebsite.com/cigar/montecristo/petit-no-2"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -42669,7 +43124,8 @@
    "length_in": "6.1",
    "ring_gauge": "52",
    "strength": "Medium to Full",
-   "factory_vitola": "Pirámides"
+   "factory_vitola": "Pirámides",
+   "strength_felt": "medium"
   }
  },
  "montecristo-no-3": {
@@ -42678,9 +43134,36 @@
   "name": "No.3",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cream",
+    "coffee",
+    "earth",
+    "leather",
+    "woody",
+    "nuts",
+    "floral"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cream",
+     "coffee",
+     "earth",
+     "leather",
+     "woody",
+     "nuts",
+     "floral"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://cigarobsession.com/?p=40178",
+     "https://www.cigarslover.com/en/montecristo-no-3/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -42692,7 +43175,8 @@
    "length_in": "5.6",
    "ring_gauge": "42",
    "strength": "Medium to Full",
-   "factory_vitola": "Coronas"
+   "factory_vitola": "Coronas",
+   "strength_felt": "mild-medium"
   }
  },
  "montecristo-no-4": {
@@ -42701,9 +43185,36 @@
   "name": "No.4",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cocoa",
+    "coffee",
+    "cedar",
+    "hay",
+    "bread",
+    "white_pepper",
+    "spice"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cocoa",
+     "coffee",
+     "cedar",
+     "hay",
+     "bread",
+     "white_pepper",
+     "spice"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://cigarobsession.com/?p=40454",
+     "https://www.simplycigars.co.uk/montecristo-no4-pack-cigars-p-1474.html"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -42715,7 +43226,8 @@
    "length_in": "5.1",
    "ring_gauge": "42",
    "strength": "Medium to Full",
-   "factory_vitola": "Marevas"
+   "factory_vitola": "Marevas",
+   "strength_felt": "medium"
   }
  },
  "montecristo-no-5": {
@@ -42724,9 +43236,37 @@
   "name": "No.5",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "earth",
+    "nuts",
+    "coffee",
+    "pepper",
+    "leather",
+    "sweet",
+    "dried_fruit"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "earth",
+     "nuts",
+     "coffee",
+     "pepper",
+     "leather",
+     "sweet",
+     "dried_fruit"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.jjfox.co.uk/montecristo-no-5-753.html",
+     "https://www.cgarsltd.co.uk/montecristo-cigar-single-p-509.html?page=9",
+     "https://www.smoke-king.co.uk/single-montecristo-no-5-cuban-handmade-cigar"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -42738,7 +43278,8 @@
    "length_in": "4.0",
    "ring_gauge": "40",
    "strength": "Medium to Full",
-   "factory_vitola": "Perlas"
+   "factory_vitola": "Perlas",
+   "strength_felt": "medium"
   }
  },
  "montecristo-tubos": {
@@ -42862,9 +43403,40 @@
   "name": "Edmundo",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cedar",
+    "earth",
+    "woody",
+    "vanilla",
+    "coffee",
+    "oak",
+    "sweet",
+    "cocoa",
+    "leather",
+    "cream",
+    "nuts"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cocoa",
+     "coffee",
+     "woody",
+     "earth",
+     "cream",
+     "cedar"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/montecristo/double-edmundo",
+     "https://cigarsunlimited.co.uk/product/montecristo-double-edmundo-single",
+     "https://www.cigarsunlimited.co.uk/reviewcategories/recent-reviews/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -42876,7 +43448,8 @@
    "length_in": "5.3",
    "ring_gauge": "52",
    "strength": "Medium to Full",
-   "factory_vitola": "Edmundo"
+   "factory_vitola": "Edmundo",
+   "strength_felt": "medium-full"
   }
  },
  "montecristo-media-corona": {
@@ -42885,9 +43458,36 @@
   "name": "Media Corona",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "tobacco",
+    "coffee",
+    "cocoa",
+    "cream",
+    "leather",
+    "spice",
+    "nuts"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "tobacco",
+     "coffee",
+     "cocoa",
+     "cream",
+     "leather",
+     "spice",
+     "nuts"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/montecristo/media-corona",
+     "https://www.cigarinspector.com/ci/review-montecristo-media-corona/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -42899,7 +43499,8 @@
    "length_in": "3.5",
    "ring_gauge": "44",
    "strength": "Medium to Full",
-   "factory_vitola": "Half Corona"
+   "factory_vitola": "Half Corona",
+   "strength_felt": "medium-full"
   }
  },
  "montecristo-wide-edmundo": {
@@ -42931,9 +43532,32 @@
   "name": "Open Eagle",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cream",
+    "floral",
+    "nuts",
+    "pepper",
+    "sweet"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cream",
+     "floral",
+     "nuts",
+     "pepper",
+     "sweet"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://cigarobsession.com/?p=40435",
+     "https://www.smoke-king.co.uk/montecristo-open-eagle-cuban-cigar-single"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -42945,7 +43569,8 @@
    "length_in": "5.9",
    "ring_gauge": "54",
    "strength": "Medium",
-   "factory_vitola": "Geniales"
+   "factory_vitola": "Geniales",
+   "strength_felt": "mild-medium"
   }
  },
  "montecristo-open-master": {
@@ -42954,9 +43579,34 @@
   "name": "Open Master",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "woody",
+    "cream",
+    "oak",
+    "cedar",
+    "leather",
+    "pepper"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "woody",
+     "cream",
+     "oak",
+     "cedar",
+     "leather",
+     "pepper"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://cigarobsession.com/?p=39350",
+     "https://robertgraham1874.com/?p=7429"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -42968,7 +43618,8 @@
    "length_in": "4.9",
    "ring_gauge": "50",
    "strength": "Medium",
-   "factory_vitola": "Robustos"
+   "factory_vitola": "Robustos",
+   "strength_felt": "mild-medium"
   }
  },
  "montecristo-open-regata": {
@@ -43137,9 +43788,36 @@
   "name": "Exhibición No.4",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "woody",
+    "nuts",
+    "earth",
+    "cream",
+    "honey",
+    "sweet",
+    "pepper"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "woody",
+     "nuts",
+     "earth",
+     "cream",
+     "honey",
+     "sweet",
+     "pepper"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://blindmanspuff.com/?p=306",
+     "https://www.cigarslover.com/romeo-y-julieta-exhibicion-no-4/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -43151,7 +43829,8 @@
    "length_in": "5.0",
    "ring_gauge": "48",
    "strength": "Medium",
-   "factory_vitola": "Hermosos No.4"
+   "factory_vitola": "Hermosos No.4",
+   "strength_felt": "medium"
   }
  },
  "romeo-y-julieta-belicosos": {
@@ -43160,9 +43839,36 @@
   "name": "Belicosos",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "woody",
+    "nuts",
+    "earth",
+    "coffee",
+    "spice",
+    "mineral",
+    "floral"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "woody",
+     "nuts",
+     "earth",
+     "coffee",
+     "spice",
+     "mineral",
+     "floral"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarslover.com/?p=63103",
+     "https://www.cigarslover.com/?p=46273"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -43174,7 +43880,8 @@
    "length_in": "5.5",
    "ring_gauge": "52",
    "strength": "Medium",
-   "factory_vitola": "Campanas"
+   "factory_vitola": "Campanas",
+   "strength_felt": "medium"
   }
  },
  "romeo-y-julieta-cazadores": {
@@ -43229,9 +43936,34 @@
   "name": "Cedros de Luxe No.2",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cedar",
+    "leather",
+    "earth",
+    "coffee",
+    "spice",
+    "sweet"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cedar",
+     "leather",
+     "earth",
+     "coffee",
+     "spice",
+     "sweet"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://robertgraham1874.com/?p=7143",
+     "https://www.cgarsltd.co.uk/romeo-julieta-cedros-luxe-cigar-box-p-359.html"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -43243,7 +43975,8 @@
    "length_in": "5.6",
    "ring_gauge": "42",
    "strength": "Medium",
-   "factory_vitola": "Coronas"
+   "factory_vitola": "Coronas",
+   "strength_felt": "medium"
   }
  },
  "romeo-y-julieta-cedros-de-luxe-no-3": {
@@ -43298,9 +44031,36 @@
   "name": "Romeo No.1",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cedar",
+    "cream",
+    "coffee",
+    "cocoa",
+    "nuts",
+    "floral",
+    "vanilla"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cedar",
+     "cream",
+     "coffee",
+     "cocoa",
+     "nuts",
+     "floral",
+     "vanilla"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.simplycigars.co.uk/romeo-julieta-no1-tubos-single-cigar-p-1574.html",
+     "https://www.cgarsltd.co.uk/romeo-julieta-tubed-cigar-box-p-4083.html?page=3"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -43312,7 +44072,8 @@
    "length_in": "5.5",
    "ring_gauge": "40",
    "strength": "Medium",
-   "factory_vitola": "Cremas"
+   "factory_vitola": "Cremas",
+   "strength_felt": "medium"
   }
  },
  "romeo-y-julieta-romeo-no-2": {
@@ -43321,9 +44082,36 @@
   "name": "Romeo No.2",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "earth",
+    "cedar",
+    "leather",
+    "coffee",
+    "pepper",
+    "vanilla",
+    "bread"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "earth",
+     "cedar",
+     "leather",
+     "coffee",
+     "pepper",
+     "vanilla",
+     "bread"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://cigarobsession.com/?p=41391",
+     "https://jjfox.co.uk/romeo-y-julieta-tubos-no-2-910.html"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -43335,7 +44123,8 @@
    "length_in": "5.1",
    "ring_gauge": "42",
    "strength": "Medium",
-   "factory_vitola": "Marevas"
+   "factory_vitola": "Marevas",
+   "strength_felt": "medium"
   }
  },
  "romeo-y-julieta-romeo-no-3": {
@@ -43344,9 +44133,36 @@
   "name": "Romeo No.3",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "floral",
+    "woody",
+    "coffee",
+    "pepper",
+    "cocoa",
+    "nuts",
+    "earth"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "floral",
+     "woody",
+     "coffee",
+     "pepper",
+     "cocoa",
+     "nuts",
+     "earth"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarslover.com/romeo-y-julieta-romeo-no-3/",
+     "https://www.watchcollectinglifestyle.com/home/experience-romeo-y-julieta-romeo-no3-the-perfect-cigar-for-ladies"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -43358,7 +44174,8 @@
    "length_in": "4.6",
    "ring_gauge": "40",
    "strength": "Medium",
-   "factory_vitola": "Coronitas"
+   "factory_vitola": "Coronitas",
+   "strength_felt": "mild-medium"
   }
  },
  "romeo-y-julieta-mille-fleurs": {
@@ -43689,9 +44506,34 @@
   "name": "Coronas Junior",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "spice",
+    "pepper",
+    "earth",
+    "leather",
+    "woody",
+    "coffee"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "spice",
+     "pepper",
+     "earth",
+     "leather",
+     "woody",
+     "coffee"
+    ],
+    "text": "",
+    "confidence": "low",
+    "urls": [
+     "https://www.cigarsense.com/?p=31379",
+     "https://www.cgarsltd.co.uk/partagas-coronas-cigars-p-516.html?page=2"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -43703,7 +44545,8 @@
    "length_in": "4.6",
    "ring_gauge": "40",
    "strength": "Full",
-   "factory_vitola": "Coronitas"
+   "factory_vitola": "Coronitas",
+   "strength_felt": "medium-full"
   }
  },
  "partagas-coronas-senior": {
@@ -43758,9 +44601,36 @@
   "name": "Lusitanias",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "leather",
+    "bread",
+    "coffee",
+    "spice",
+    "nuts",
+    "honey",
+    "cedar"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "leather",
+     "bread",
+     "coffee",
+     "spice",
+     "nuts",
+     "honey",
+     "cedar"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/partagas/lusitanias",
+     "https://www.cigarinspector.com/?p=123"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -43772,7 +44642,8 @@
    "length_in": "7.6",
    "ring_gauge": "49",
    "strength": "Full",
-   "factory_vitola": "Prominentes"
+   "factory_vitola": "Prominentes",
+   "strength_felt": "full"
   }
  },
  "partagas-mille-fleurs": {
@@ -43781,9 +44652,37 @@
   "name": "Mille Fleurs",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "leather",
+    "pepper",
+    "spice",
+    "woody",
+    "earth",
+    "nuts",
+    "coffee"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "leather",
+     "pepper",
+     "spice",
+     "woody",
+     "earth",
+     "nuts",
+     "coffee"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/partagas/mille-fleurs",
+     "https://bespokeunit.com/articles/cigars/partagas-mille-fleurs/",
+     "https://www.cigarslover.com/en/partagas-mille-fleurs/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -43795,7 +44694,8 @@
    "length_in": "5.1",
    "ring_gauge": "42",
    "strength": "Full",
-   "factory_vitola": "Marevas"
+   "factory_vitola": "Marevas",
+   "strength_felt": "medium"
   }
  },
  "partagas-de-luxe": {
@@ -43873,9 +44773,36 @@
   "name": "Shorts",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "leather",
+    "bread",
+    "coffee",
+    "spice",
+    "earth",
+    "pepper",
+    "woody"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "leather",
+     "bread",
+     "coffee",
+     "spice",
+     "earth",
+     "pepper",
+     "woody"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/partagas/shorts",
+     "https://www.cigarinspector.com/?p=1063"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -43887,7 +44814,8 @@
    "length_in": "4.3",
    "ring_gauge": "42",
    "strength": "Full",
-   "factory_vitola": "Minutos"
+   "factory_vitola": "Minutos",
+   "strength_felt": "medium-full"
   }
  },
  "partagas-super-partagas": {
@@ -43919,9 +44847,36 @@
   "name": "8-9-8",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "leather",
+    "earth",
+    "woody",
+    "spice",
+    "pepper",
+    "cocoa",
+    "butter"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "leather",
+     "earth",
+     "woody",
+     "spice",
+     "pepper",
+     "cocoa",
+     "butter"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarinspector.com/ci/partagas-8-9-8/",
+     "https://www.cigarslover.com/2-cuba-partagas-8-9-8/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -43933,7 +44888,8 @@
    "length_in": "6.7",
    "ring_gauge": "43",
    "strength": "Full",
-   "factory_vitola": "Dalias"
+   "factory_vitola": "Dalias",
+   "strength_felt": "medium-full"
   }
  },
  "partagas-serie-d-no-4": {
@@ -43942,9 +44898,37 @@
   "name": "Serie D No.4",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "spice",
+    "pepper",
+    "toast",
+    "tobacco",
+    "earth",
+    "woody",
+    "nuts"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "spice",
+     "pepper",
+     "toast",
+     "tobacco",
+     "earth",
+     "woody",
+     "nuts"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/partagas/serie-d-no4",
+     "https://www.cgarsltd.co.uk/partagas-serie-cigar-box-p-250.html?page=3",
+     "https://www.cigarsense.com/?p=29457"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -43956,7 +44940,8 @@
    "length_in": "4.9",
    "ring_gauge": "50",
    "strength": "Full",
-   "factory_vitola": "Robustos"
+   "factory_vitola": "Robustos",
+   "strength_felt": "medium-full"
   }
  },
  "partagas-serie-d-no-5": {
@@ -43965,9 +44950,37 @@
   "name": "Serie D No.5",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "leather",
+    "woody",
+    "pepper",
+    "honey",
+    "almond",
+    "vanilla",
+    "hay"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "leather",
+     "woody",
+     "pepper",
+     "honey",
+     "almond",
+     "vanilla",
+     "hay"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/partagas/serie-d-no5",
+     "https://cigarobsession.com/?p=39586",
+     "https://www.cigarsense.com/?p=31565"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -43979,7 +44992,8 @@
    "length_in": "4.3",
    "ring_gauge": "50",
    "strength": "Full",
-   "factory_vitola": "D No.5"
+   "factory_vitola": "D No.5",
+   "strength_felt": "medium-full"
   }
  },
  "partagas-serie-d-no-6": {
@@ -43988,9 +45002,36 @@
   "name": "Serie D No.6",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "pepper",
+    "tobacco",
+    "spice",
+    "toast",
+    "leather",
+    "earth",
+    "coffee"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "pepper",
+     "tobacco",
+     "spice",
+     "toast",
+     "leather",
+     "earth",
+     "coffee"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/partagas/serie-d-no6",
+     "https://robertgraham1874.com/?p=7233"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -44002,7 +45043,8 @@
    "length_in": "3.5",
    "ring_gauge": "50",
    "strength": "Full",
-   "factory_vitola": "D No.6"
+   "factory_vitola": "D No.6",
+   "strength_felt": "full"
   }
  },
  "partagas-serie-e-no-2": {
@@ -44011,9 +45053,37 @@
   "name": "Serie E No.2",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "spice",
+    "pepper",
+    "leather",
+    "coffee",
+    "earth",
+    "woody",
+    "cocoa"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "spice",
+     "pepper",
+     "leather",
+     "coffee",
+     "earth",
+     "woody",
+     "cocoa"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/partagas/serie-e-no2",
+     "https://www.cigarslover.com/partagas-serie-e-no-2/",
+     "https://www.cigarslover.com/4-cuba-partagas-serie-e-no-2/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -44025,7 +45095,8 @@
    "length_in": "5.5",
    "ring_gauge": "54",
    "strength": "Full",
-   "factory_vitola": "Duke"
+   "factory_vitola": "Duke",
+   "strength_felt": "medium-full"
   }
  },
  "partagas-serie-p-no-2": {
@@ -44034,9 +45105,38 @@
   "name": "Serie P No.2",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "coffee",
+    "bread",
+    "cocoa",
+    "earth",
+    "cedar",
+    "cream",
+    "spice"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "coffee",
+     "bread",
+     "cocoa",
+     "earth",
+     "cedar",
+     "cream",
+     "spice"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/partagas/serie-p-no2",
+     "https://cigarobsession.com/?p=39239",
+     "https://robertgraham1874.com/?p=7211",
+     "https://cigarsunlimited.co.uk/product/partagas-serie-p-2-single-2"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -44048,7 +45148,8 @@
    "length_in": "6.1",
    "ring_gauge": "52",
    "strength": "Full",
-   "factory_vitola": "Pirámides"
+   "factory_vitola": "Pirámides",
+   "strength_felt": "medium-full"
   }
  },
  "partagas-culebras": {
@@ -44057,9 +45158,34 @@
   "name": "Culebras",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "earth",
+    "spice",
+    "pepper",
+    "leather",
+    "woody",
+    "toast"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "earth",
+     "spice",
+     "pepper",
+     "leather",
+     "woody",
+     "toast"
+    ],
+    "text": "",
+    "confidence": "low",
+    "urls": [
+     "https://www.cgarsltd.co.uk/lcdh-partagas-culebras-cigars-one-twist-cigars-p-15599.html",
+     "https://www.cubancigarwebsite.com/cigar/partagas/culebras"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -44071,7 +45197,8 @@
    "length_in": "5.7",
    "ring_gauge": "39",
    "strength": "Full",
-   "factory_vitola": "Culebras"
+   "factory_vitola": "Culebras",
+   "strength_felt": "full"
   }
  },
  "partagas-maduro-no-1": {
@@ -44080,9 +45207,37 @@
   "name": "Maduro No.1",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cocoa",
+    "cherry",
+    "bread",
+    "coffee",
+    "leather",
+    "spice",
+    "pepper"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cocoa",
+     "cherry",
+     "bread",
+     "coffee",
+     "leather",
+     "spice",
+     "pepper"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/partagas/maduro-no-1",
+     "https://www.cigarslover.com/partagas-maduro-1-2/",
+     "https://cigarsunlimited.co.uk/product/partagas-maduro-no-1-box-of-25"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -44094,7 +45249,8 @@
    "length_in": "5.1",
    "ring_gauge": "52",
    "strength": "Full",
-   "factory_vitola": "Discretos"
+   "factory_vitola": "Discretos",
+   "strength_felt": "medium-full"
   }
  },
  "partagas-maduro-no-2": {
@@ -44287,9 +45443,37 @@
   "name": "Double Coronas",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cream",
+    "vanilla",
+    "cocoa",
+    "cedar",
+    "clove",
+    "floral",
+    "caramel"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cream",
+     "vanilla",
+     "cocoa",
+     "cedar",
+     "clove",
+     "floral",
+     "caramel"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/hoyo-de-monterrey/double-coronas",
+     "https://www.cgarsltd.co.uk/hoyo-monterrey-double-coronas-cigar-cabinet-p-201.html?page=2",
+     "https://www.cigarsense.com/?p=31373"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -44301,7 +45485,8 @@
    "length_in": "7.6",
    "ring_gauge": "49",
    "strength": "Light",
-   "factory_vitola": "Prominentes"
+   "factory_vitola": "Prominentes",
+   "strength_felt": "mild-medium"
   }
  },
  "hoyo-de-monterrey-epicure-no-2": {
@@ -44310,9 +45495,37 @@
   "name": "Epicure No.2",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cream",
+    "cedar",
+    "cocoa",
+    "vanilla",
+    "spice",
+    "honey",
+    "cinnamon"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cream",
+     "cedar",
+     "cocoa",
+     "vanilla",
+     "spice",
+     "honey",
+     "cinnamon"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/hoyo-de-monterrey/epicure-no2",
+     "https://cigarobsession.com/2020/10/15/cuban-hoyo-de-monterrey-epicure-no-2-cigar-review/",
+     "https://robertgraham1874.com/an-epicures-delight/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -44324,7 +45537,8 @@
    "length_in": "4.9",
    "ring_gauge": "50",
    "strength": "Light",
-   "factory_vitola": "Robustos"
+   "factory_vitola": "Robustos",
+   "strength_felt": "medium"
   }
  },
  "hoyo-de-monterrey-epicure-no-3": {
@@ -44356,9 +45570,36 @@
   "name": "Epicure Especial",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cedar",
+    "cocoa",
+    "cream",
+    "vanilla",
+    "grass",
+    "spice",
+    "honey"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cedar",
+     "cocoa",
+     "cream",
+     "vanilla",
+     "grass",
+     "spice",
+     "honey"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/hoyo-de-monterrey/epicure-especial",
+     "https://www.simplycigars.co.uk/hoyo-monterrey-epicure-especial-single-cigar-p-2785.html"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -44370,7 +45611,8 @@
    "length_in": "5.6",
    "ring_gauge": "50",
    "strength": "Light",
-   "factory_vitola": "Gorditos"
+   "factory_vitola": "Gorditos",
+   "strength_felt": "mild-medium"
   }
  },
  "hoyo-de-monterrey-petit-robustos": {
@@ -44379,9 +45621,37 @@
   "name": "Petit Robustos",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cedar",
+    "toast",
+    "spice",
+    "pepper",
+    "cocoa",
+    "almond",
+    "coffee"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cedar",
+     "toast",
+     "spice",
+     "pepper",
+     "cocoa",
+     "almond",
+     "coffee"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/hoyo-de-monterrey/petit-robustos",
+     "https://www.cigarinspector.com/?p=16829",
+     "https://www.cigarslover.com/4-cuba-hoyo-de-monterrey-petit-robusto/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -44393,7 +45663,8 @@
    "length_in": "4.0",
    "ring_gauge": "50",
    "strength": "Light",
-   "factory_vitola": "Petit Robustos"
+   "factory_vitola": "Petit Robustos",
+   "strength_felt": "medium"
   }
  },
  "hoyo-de-monterrey-coronations": {
@@ -44494,9 +45765,37 @@
   "name": "Le Hoyo de San Juan",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cedar",
+    "cream",
+    "tea",
+    "vanilla",
+    "earth",
+    "spice",
+    "cinnamon"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cedar",
+     "cream",
+     "tea",
+     "vanilla",
+     "earth",
+     "spice",
+     "cinnamon"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/hoyo-de-monterrey/le-hoyo-de-san-juan",
+     "https://cigarobsession.com/2021/04/09/cuban-hoyo-de-monterrey-le-hoyo-de-san-juan-cigar-review/",
+     "https://robertgraham1874.com/product/hoyo-de-monterrey-le-hoyo-de-san-juan-single-cigar/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -44508,7 +45807,8 @@
    "length_in": "5.9",
    "ring_gauge": "54",
    "strength": "Light",
-   "factory_vitola": "Geniales"
+   "factory_vitola": "Geniales",
+   "strength_felt": "medium"
   }
  },
  "hoyo-de-monterrey-le-hoyo-de-rio-seco": {
@@ -44517,9 +45817,37 @@
   "name": "Le Hoyo de Río Seco",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cream",
+    "spice",
+    "cedar",
+    "clove",
+    "cinnamon",
+    "earth",
+    "oak"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cream",
+     "spice",
+     "cedar",
+     "clove",
+     "cinnamon",
+     "earth",
+     "oak"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/hoyo-de-monterrey/le-hoyo-de-rio-seco",
+     "https://robertgraham1874.com/product/hoyo-de-monterrey-le-hoyo-de-rio-seco-single-cigar/",
+     "https://www.cigarsense.com/?p=30429"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -44531,7 +45859,8 @@
    "length_in": "5.5",
    "ring_gauge": "56",
    "strength": "Light",
-   "factory_vitola": "Aromosos"
+   "factory_vitola": "Aromosos",
+   "strength_felt": "medium"
   }
  },
  "hoyo-de-monterrey-souvenir-de-luxe": {
@@ -44632,9 +45961,36 @@
   "name": "Connoisseur No.1",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cream",
+    "coffee",
+    "almond",
+    "cedar",
+    "woody",
+    "sweet",
+    "honey"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cream",
+     "coffee",
+     "almond",
+     "cedar",
+     "woody",
+     "sweet",
+     "honey"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarinspector.com/?p=17851",
+     "https://robertgraham1874.com/product/h-upmann-connoisseur-no-1-cigar/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -44646,7 +46002,8 @@
    "length_in": "5.0",
    "ring_gauge": "48",
    "strength": "Light to Medium",
-   "factory_vitola": "Hermosos No.4"
+   "factory_vitola": "Hermosos No.4",
+   "strength_felt": "mild-medium"
   }
  },
  "h-upmann-coronas-major": {
@@ -44724,9 +46081,36 @@
   "name": "Magnum 46",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "bread",
+    "coffee",
+    "cedar",
+    "cream",
+    "leather",
+    "nuts",
+    "cocoa"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "bread",
+     "coffee",
+     "cedar",
+     "cream",
+     "leather",
+     "nuts",
+     "cocoa"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/h-upmann/magnum-46",
+     "https://robertgraham1874.com/product/h-upmann-magnum-46-cigar-1-single/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -44738,7 +46122,8 @@
    "length_in": "5.6",
    "ring_gauge": "46",
    "strength": "Light to Medium",
-   "factory_vitola": "Coronas Gordas"
+   "factory_vitola": "Coronas Gordas",
+   "strength_felt": "mild-medium"
   }
  },
  "h-upmann-magnum-50": {
@@ -44747,9 +46132,37 @@
   "name": "Magnum 50",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cream",
+    "woody",
+    "honey",
+    "leather",
+    "coffee",
+    "caramel",
+    "toast"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cream",
+     "woody",
+     "honey",
+     "leather",
+     "coffee",
+     "caramel",
+     "toast"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/h-upmann/magnum-50",
+     "https://farehamwinecellar.co.uk/?p=76553",
+     "https://www.cgarsltd.co.uk/upmann-magnum-cigar-cab-p-5720.html?page=2"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -44761,7 +46174,8 @@
    "length_in": "6.3",
    "ring_gauge": "50",
    "strength": "Light to Medium",
-   "factory_vitola": "Magnum 50"
+   "factory_vitola": "Magnum 50",
+   "strength_felt": "medium"
   }
  },
  "h-upmann-magnum-52": {
@@ -44839,9 +46253,36 @@
   "name": "Sir Winston",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "bread",
+    "coffee",
+    "cream",
+    "nuts",
+    "cedar",
+    "honey",
+    "leather"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "bread",
+     "coffee",
+     "cream",
+     "nuts",
+     "cedar",
+     "honey",
+     "leather"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/h-upmann/sir-winston",
+     "https://www.cigarslover.com/h-upmann-sir-winston/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -44853,7 +46294,8 @@
    "length_in": "7.0",
    "ring_gauge": "47",
    "strength": "Light to Medium",
-   "factory_vitola": "Julieta No.2"
+   "factory_vitola": "Julieta No.2",
+   "strength_felt": "medium"
   }
  },
  "h-upmann-no-2": {
@@ -44885,9 +46327,36 @@
   "name": "Half Corona",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "tobacco",
+    "bread",
+    "coffee",
+    "toast",
+    "leather",
+    "cream",
+    "cedar"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "tobacco",
+     "bread",
+     "coffee",
+     "toast",
+     "leather",
+     "cream",
+     "cedar"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/h-upmann/half-corona",
+     "https://www.boozemakers.com/articles/h-upmann-half-corona-review"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -44899,7 +46368,8 @@
    "length_in": "3.5",
    "ring_gauge": "44",
    "strength": "Light to Medium",
-   "factory_vitola": "Half Corona"
+   "factory_vitola": "Half Corona",
+   "strength_felt": "mild-medium"
   }
  },
  "h-upmann-connossieur-no-2": {
@@ -45022,9 +46492,37 @@
   "name": "Belicosos Finos",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "leather",
+    "earth",
+    "cocoa",
+    "spice",
+    "cedar",
+    "cream",
+    "woody"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "leather",
+     "earth",
+     "cocoa",
+     "spice",
+     "cedar",
+     "cream",
+     "woody"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/bolivar/belicosos-finos",
+     "https://grapeexpectations.com.mv/product/belicosos-finos/",
+     "https://www.cigarsense.com/?p=30382"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45036,7 +46534,8 @@
    "length_in": "5.5",
    "ring_gauge": "52",
    "strength": "Full",
-   "factory_vitola": "Campanas"
+   "factory_vitola": "Campanas",
+   "strength_felt": "full"
   }
  },
  "bolivar-tubos-no-2": {
@@ -45068,9 +46567,36 @@
   "name": "Coronas Junior",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "earth",
+    "leather",
+    "cocoa",
+    "cedar",
+    "coffee",
+    "nuts",
+    "woody"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "earth",
+     "leather",
+     "cocoa",
+     "cedar",
+     "coffee",
+     "nuts",
+     "woody"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/bolivar/coronas-junior",
+     "https://www.cigarinspector.com/?p=17992"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45082,7 +46608,8 @@
    "length_in": "4.3",
    "ring_gauge": "42",
    "strength": "Full",
-   "factory_vitola": "Minutos"
+   "factory_vitola": "Minutos",
+   "strength_felt": "medium-full"
   }
  },
  "bolivar-petit-coronas": {
@@ -45091,9 +46618,36 @@
   "name": "Petit Coronas",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "earth",
+    "leather",
+    "cocoa",
+    "woody",
+    "hay",
+    "honey",
+    "dried_fruit"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "earth",
+     "leather",
+     "cocoa",
+     "woody",
+     "hay",
+     "honey",
+     "dried_fruit"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/bolivar/petit-coronas",
+     "https://cigarobsession.com/?p=40009"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45105,7 +46659,8 @@
    "length_in": "5.1",
    "ring_gauge": "42",
    "strength": "Full",
-   "factory_vitola": "Marevas"
+   "factory_vitola": "Marevas",
+   "strength_felt": "medium"
   }
  },
  "bolivar-royal-coronas": {
@@ -45114,9 +46669,37 @@
   "name": "Royal Coronas",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "earth",
+    "leather",
+    "cocoa",
+    "cedar",
+    "spice",
+    "pepper",
+    "cream"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "earth",
+     "leather",
+     "cocoa",
+     "cedar",
+     "spice",
+     "pepper",
+     "cream"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/bolivar/royal-coronas",
+     "https://cigarobsession.com/2020/09/24/cuban-bolivar-royal-coronas-cigar-review/",
+     "https://farehamwinecellar.co.uk/?p=44507"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45128,7 +46711,8 @@
    "length_in": "4.9",
    "ring_gauge": "50",
    "strength": "Full",
-   "factory_vitola": "Robustos"
+   "factory_vitola": "Robustos",
+   "strength_felt": "medium-full"
   }
  },
  "bolivar-libertador-lcdh": {
@@ -45182,9 +46766,40 @@
   "name": "Coronations",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "nuts",
+    "cedar",
+    "spice",
+    "coffee",
+    "cream",
+    "dried_fruit",
+    "woody",
+    "cinnamon",
+    "pepper",
+    "mineral"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "woody",
+     "spice",
+     "nuts",
+     "cinnamon",
+     "coffee",
+     "pepper",
+     "mineral"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cgarsltd.co.uk/punch-petit-coronations-tubed-cigar-single-p-4625.html?page=2",
+     "https://www.smoke-king.co.uk/punch-petit-coronations-tubed-cuban-cigar-single",
+     "https://www.cigarsense.com/?p=31568"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45196,7 +46811,8 @@
    "length_in": "5.1",
    "ring_gauge": "42",
    "strength": "Medium",
-   "factory_vitola": "Marevas"
+   "factory_vitola": "Marevas",
+   "strength_felt": "medium"
   }
  },
  "punch-double-coronas": {
@@ -45205,9 +46821,36 @@
   "name": "Double Coronas",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "leather",
+    "cedar",
+    "dried_fruit",
+    "cream",
+    "woody",
+    "earth",
+    "citrus"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "leather",
+     "cedar",
+     "dried_fruit",
+     "cream",
+     "woody",
+     "earth",
+     "citrus"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/punch/double-coronas",
+     "https://www.cgarsltd.co.uk/punch-double-coronas-cigar-single-p-51038.html"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45219,7 +46862,8 @@
    "length_in": "7.6",
    "ring_gauge": "49",
    "strength": "Medium",
-   "factory_vitola": "Prominentes"
+   "factory_vitola": "Prominentes",
+   "strength_felt": "medium"
   }
  },
  "punch-48-lcdh": {
@@ -45251,9 +46895,37 @@
   "name": "Short de Punch",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cedar",
+    "leather",
+    "cream",
+    "nuts",
+    "honey",
+    "spice",
+    "coffee"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cedar",
+     "leather",
+     "cream",
+     "nuts",
+     "honey",
+     "spice",
+     "coffee"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/punch/short-de-punch",
+     "https://www.cigarslover.com/en/punch-short-de-punch-2/",
+     "https://farehamwinecellar.co.uk/product/punch-short-de-punch-cigar/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45265,7 +46937,8 @@
    "length_in": "4.7",
    "ring_gauge": "50",
    "strength": "Medium",
-   "factory_vitola": "Paraísos"
+   "factory_vitola": "Paraísos",
+   "strength_felt": "medium"
   }
  },
  "ramon-allones-small-club-coronas": {
@@ -45274,9 +46947,36 @@
   "name": "Small Club Coronas",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cocoa",
+    "woody",
+    "dried_fruit",
+    "leather",
+    "earth",
+    "nuts",
+    "spice"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cocoa",
+     "woody",
+     "dried_fruit",
+     "leather",
+     "earth",
+     "nuts",
+     "spice"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/ramon-allones/small-club-coronas",
+     "https://cigarobsession.com/2021/02/06/cuban-ramon-allones-small-club-corona-cigar-review/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45288,7 +46988,8 @@
    "length_in": "4.3",
    "ring_gauge": "42",
    "strength": "Full",
-   "factory_vitola": "Minutos"
+   "factory_vitola": "Minutos",
+   "strength_felt": "medium"
   }
  },
  "ramon-allones-specially-selected": {
@@ -45297,9 +46998,37 @@
   "name": "Specially Selected",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "earth",
+    "nuts",
+    "pepper",
+    "coffee",
+    "leather",
+    "cedar",
+    "cocoa"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "earth",
+     "nuts",
+     "pepper",
+     "coffee",
+     "leather",
+     "cedar",
+     "cocoa"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarslover.com/ramon-allones-specially-selected/",
+     "https://www.cigarinspector.com/?p=17442",
+     "https://www.cgarsltd.co.uk/ramon-allones-specially-selected-cigar-box-p-319.html?page=5"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45311,7 +47040,8 @@
    "length_in": "4.9",
    "ring_gauge": "50",
    "strength": "Full",
-   "factory_vitola": "Robustos"
+   "factory_vitola": "Robustos",
+   "strength_felt": "medium-full"
   }
  },
  "ramon-allones-gigantes": {
@@ -45320,9 +47050,37 @@
   "name": "Gigantes",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "nuts",
+    "woody",
+    "leather",
+    "earth",
+    "pepper",
+    "spice",
+    "cocoa"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "nuts",
+     "woody",
+     "leather",
+     "earth",
+     "pepper",
+     "spice",
+     "cocoa"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarslover.com/2-cuba-ramon-allones-gigantes/",
+     "https://www.cigarslover.com/en/ramon-allones-gigantes/",
+     "https://www.cgarsltd.co.uk/ramon-allones-gigantes-cigar-single-p-4018.html"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45334,7 +47092,8 @@
    "length_in": "7.6",
    "ring_gauge": "49",
    "strength": "Full",
-   "factory_vitola": "Prominentes"
+   "factory_vitola": "Prominentes",
+   "strength_felt": "medium-full"
   }
  },
  "ramon-allones-superiores-lcdh": {
@@ -45389,9 +47148,36 @@
   "name": "Fundadores",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "coffee",
+    "bread",
+    "almond",
+    "woody",
+    "nuts",
+    "earth",
+    "floral"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "coffee",
+     "bread",
+     "almond",
+     "woody",
+     "nuts",
+     "earth",
+     "floral"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/trinidad/fundadores",
+     "https://thecigarauthority.com/trinidad-cuba-lancero-cigar-review/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45403,7 +47189,8 @@
    "length_in": "7.6",
    "ring_gauge": "40",
    "strength": "Medium",
-   "factory_vitola": "Laguito Especial"
+   "factory_vitola": "Laguito Especial",
+   "strength_felt": "mild-medium"
   }
  },
  "trinidad-coloniales": {
@@ -45412,9 +47199,36 @@
   "name": "Coloniales",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "spice",
+    "butter",
+    "coffee",
+    "bread",
+    "cream",
+    "honey",
+    "nuts"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "spice",
+     "butter",
+     "coffee",
+     "bread",
+     "cream",
+     "honey",
+     "nuts"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/trinidad/coloniales",
+     "https://www.cigarinspector.com/?p=14390"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45426,7 +47240,8 @@
    "length_in": "5.2",
    "ring_gauge": "44",
    "strength": "Medium",
-   "factory_vitola": "Coloniales"
+   "factory_vitola": "Coloniales",
+   "strength_felt": "medium"
   }
  },
  "trinidad-reyes": {
@@ -45435,9 +47250,37 @@
   "name": "Reyes",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "coffee",
+    "honey",
+    "spice",
+    "grass",
+    "bread",
+    "cocoa",
+    "almond"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "coffee",
+     "honey",
+     "spice",
+     "grass",
+     "bread",
+     "cocoa",
+     "almond"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/trinidad/reyes",
+     "https://cigarobsession.com/?p=37591",
+     "https://robertgraham1874.com/?p=7120"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45449,7 +47292,8 @@
    "length_in": "4.3",
    "ring_gauge": "40",
    "strength": "Medium",
-   "factory_vitola": "Reyes"
+   "factory_vitola": "Reyes",
+   "strength_felt": "medium"
   }
  },
  "trinidad-robustos-extra": {
@@ -45481,9 +47325,36 @@
   "name": "Vigía",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "butter",
+    "coffee",
+    "spice",
+    "nuts",
+    "earth",
+    "oak",
+    "hay"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "butter",
+     "coffee",
+     "spice",
+     "nuts",
+     "earth",
+     "oak",
+     "hay"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/trinidad/vigia",
+     "https://robertgraham1874.com/product/trinidad-vigia-single-cigar"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45495,7 +47366,8 @@
    "length_in": "4.3",
    "ring_gauge": "54",
    "strength": "Medium",
-   "factory_vitola": "Torres"
+   "factory_vitola": "Torres",
+   "strength_felt": "medium"
   }
  },
  "trinidad-esmeralda": {
@@ -45504,9 +47376,37 @@
   "name": "Esmeralda",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "coffee",
+    "butter",
+    "woody",
+    "earth",
+    "bread",
+    "floral",
+    "cocoa"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "coffee",
+     "butter",
+     "woody",
+     "earth",
+     "bread",
+     "floral",
+     "cocoa"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/trinidad/esmeralda",
+     "https://cigarobsession.com/?p=43434",
+     "https://robertgraham1874.com/product/trinidad-esmeralda-cigar/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45518,7 +47418,8 @@
    "length_in": "5.7",
    "ring_gauge": "53",
    "strength": "Medium",
-   "factory_vitola": "Dinora"
+   "factory_vitola": "Dinora",
+   "strength_felt": "medium"
   }
  },
  "trinidad-media-luna": {
@@ -45527,9 +47428,37 @@
   "name": "Media Luna",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "coffee",
+    "earth",
+    "nuts",
+    "butter",
+    "woody",
+    "leather",
+    "bread"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "coffee",
+     "earth",
+     "nuts",
+     "butter",
+     "woody",
+     "leather",
+     "bread"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/trinidad/media-luna",
+     "https://therake.com/default/stories/cigar-of-the-week-media-luna",
+     "https://mitchellswine.co.uk/?p=942"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45541,7 +47470,8 @@
    "length_in": "4.5",
    "ring_gauge": "50",
    "strength": "Medium",
-   "factory_vitola": "Marinas"
+   "factory_vitola": "Marinas",
+   "strength_felt": "medium"
   }
  },
  "trinidad-topes": {
@@ -45642,9 +47572,34 @@
   "name": "Coronas Claro",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "woody",
+    "white_pepper",
+    "cocoa",
+    "mineral",
+    "earth",
+    "cream"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "woody",
+     "white_pepper",
+     "cocoa",
+     "mineral",
+     "earth",
+     "cream"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarslover.com/quai-dorsay-coronas-claro-2/",
+     "https://robertgraham1874.com/?p=7191"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45656,7 +47611,8 @@
    "length_in": "5.6",
    "ring_gauge": "42",
    "strength": "Light",
-   "factory_vitola": "Coronas"
+   "factory_vitola": "Coronas",
+   "strength_felt": "mild-medium"
   }
  },
  "quai-d-orsay-no-50": {
@@ -45665,9 +47621,36 @@
   "name": "No.50",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cedar",
+    "cream",
+    "bread",
+    "almond",
+    "white_pepper",
+    "citrus",
+    "leather"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cedar",
+     "cream",
+     "bread",
+     "almond",
+     "white_pepper",
+     "citrus",
+     "leather"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://puninwine.com/products/quai-d-orsay-no-50",
+     "https://cigarsunlimited.co.uk/product/quai-dorsay-no-50-box-of-10"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45679,7 +47662,8 @@
    "length_in": "4.3",
    "ring_gauge": "50",
    "strength": "Light",
-   "factory_vitola": "D No.5"
+   "factory_vitola": "D No.5",
+   "strength_felt": "mild"
   }
  },
  "quai-d-orsay-no-54": {
@@ -45688,9 +47672,37 @@
   "name": "No.54",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cedar",
+    "vanilla",
+    "nuts",
+    "cream",
+    "floral",
+    "dried_fruit",
+    "toast"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cedar",
+     "vanilla",
+     "nuts",
+     "cream",
+     "floral",
+     "dried_fruit",
+     "toast"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarslover.com/?p=25945",
+     "https://www.cgarsltd.co.uk/quai-orsay-cigar-box-p-34099.html?page=2",
+     "https://robertgraham1874.com/product/quai-dorsay-no-54-single/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45702,7 +47714,8 @@
    "length_in": "5.3",
    "ring_gauge": "54",
    "strength": "Light",
-   "factory_vitola": "Edmundo Grueso"
+   "factory_vitola": "Edmundo Grueso",
+   "strength_felt": "mild"
   }
  },
  "quai-d-orsay-no-52": {
@@ -45734,9 +47747,37 @@
   "name": "Petit Coronas",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "caramel",
+    "honey",
+    "coffee",
+    "woody",
+    "toast",
+    "cream",
+    "cedar"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "caramel",
+     "honey",
+     "coffee",
+     "woody",
+     "toast",
+     "cream",
+     "cedar"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/por-larranaga/petit-coronas",
+     "https://cigarinspector.com/ci/por-larranaga-petit-corona-2/",
+     "https://www.cgarsltd.co.uk/por-larranaga-petit-coronas-cigar-single-p-5108.html?page=4"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45748,7 +47789,8 @@
    "length_in": "5.1",
    "ring_gauge": "42",
    "strength": "Light to Medium",
-   "factory_vitola": "Marevas"
+   "factory_vitola": "Marevas",
+   "strength_felt": "mild-medium"
   }
  },
  "por-larranaga-montecarlos": {
@@ -45826,9 +47868,36 @@
   "name": "Medaille d'Or No.4",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "coffee",
+    "cedar",
+    "cream",
+    "almond",
+    "leather",
+    "sweet",
+    "woody"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "coffee",
+     "cedar",
+     "cream",
+     "almond",
+     "leather",
+     "sweet",
+     "woody"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://farehamwinecellar.co.uk/?p=1009760",
+     "https://robertgraham1874.com/?p=15171"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45840,7 +47909,8 @@
    "length_in": "6.0",
    "ring_gauge": "32",
    "strength": "Medium",
-   "factory_vitola": "Palmitas"
+   "factory_vitola": "Palmitas",
+   "strength_felt": "medium"
   }
  },
  "la-gloria-cubana-turquinos": {
@@ -45918,9 +47988,37 @@
   "name": "Selección No.2",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "coffee",
+    "citrus",
+    "toast",
+    "tobacco",
+    "cocoa",
+    "cedar",
+    "earth"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "coffee",
+     "citrus",
+     "toast",
+     "tobacco",
+     "cocoa",
+     "cedar",
+     "earth"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/juan-lopez/seleccion-no2",
+     "https://www.cigarinspector.com/?p=16135",
+     "https://cigarobsession.com/2013/10/05/juan-lopez-seleccion-no-2-cigar-review/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45932,7 +48030,8 @@
    "length_in": "4.9",
    "ring_gauge": "50",
    "strength": "Medium to Full",
-   "factory_vitola": "Robustos"
+   "factory_vitola": "Robustos",
+   "strength_felt": "medium-full"
   }
  },
  "juan-lopez-seleccion-especial-lcdh": {
@@ -45964,9 +48063,37 @@
   "name": "Choix Suprême",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "citrus",
+    "almond",
+    "nuts",
+    "bread",
+    "floral",
+    "honey",
+    "woody"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "citrus",
+     "almond",
+     "nuts",
+     "bread",
+     "floral",
+     "honey",
+     "woody"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/el-rey-del-mundo/choix-supreme",
+     "https://www.cigarinspector.com/?p=17682",
+     "https://www.cgarsltd.co.uk/rey-del-mundo-choix-supreme-cigar-single-p-442.html?page=4"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -45978,7 +48105,8 @@
    "length_in": "5.0",
    "ring_gauge": "48",
    "strength": "Light to Medium",
-   "factory_vitola": "Hermosos No.4"
+   "factory_vitola": "Hermosos No.4",
+   "strength_felt": "mild-medium"
   }
  },
  "el-rey-del-mundo-demi-tasse": {
@@ -45987,9 +48115,37 @@
   "name": "Demi Tasse",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "citrus",
+    "bread",
+    "honey",
+    "dried_fruit",
+    "floral",
+    "toast",
+    "mineral"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "citrus",
+     "bread",
+     "honey",
+     "dried_fruit",
+     "floral",
+     "toast",
+     "mineral"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/el-rey-del-mundo/demi-tasse",
+     "https://www.cgarsltd.co.uk/rey-del-mundo-demi-tasse-cigar-box-p-5019.html?page=4",
+     "https://www.jjfox.co.uk/el-rey-del-mundo-demi-tasse-658.html"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -46001,7 +48157,8 @@
    "length_in": "3.9",
    "ring_gauge": "30",
    "strength": "Light to Medium",
-   "factory_vitola": "Entreactos"
+   "factory_vitola": "Entreactos",
+   "strength_felt": "mild"
   }
  },
  "el-rey-del-mundo-royal-series-lcdh": {
@@ -46033,9 +48190,36 @@
   "name": "No.2",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "nuts",
+    "caramel",
+    "pepper",
+    "cinnamon",
+    "oak",
+    "cocoa",
+    "mineral"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "nuts",
+     "caramel",
+     "pepper",
+     "cinnamon",
+     "oak",
+     "cocoa",
+     "mineral"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://blindmanspuff.com/diplomaticos-no-2-blind-cigar-review/",
+     "https://www.cigarsense.com/?p=31510"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -46047,7 +48231,8 @@
    "length_in": "6.1",
    "ring_gauge": "52",
    "strength": "Medium to Full",
-   "factory_vitola": "Pirámides"
+   "factory_vitola": "Pirámides",
+   "strength_felt": "medium"
   }
  },
  "diplomaticos-cancilleres": {
@@ -46079,9 +48264,33 @@
   "name": "Divinos",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "woody",
+    "dried_fruit",
+    "sweet",
+    "nuts",
+    "grass"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "woody",
+     "dried_fruit",
+     "sweet",
+     "nuts",
+     "grass"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarinspector.com/?p=17746",
+     "https://robertgraham1874.com/product/cuaba-divinos-cigar-1-single/",
+     "https://www.cigarsunlimited.co.uk/reviewcategories/small-cigars/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -46093,7 +48302,8 @@
    "length_in": "4.0",
    "ring_gauge": "43",
    "strength": "Medium to Full",
-   "factory_vitola": "Petit Bouquet"
+   "factory_vitola": "Petit Bouquet",
+   "strength_felt": "medium-full"
   }
  },
  "cuaba-exclusivos": {
@@ -46171,9 +48381,37 @@
   "name": "Salomón",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "bread",
+    "leather",
+    "citrus",
+    "cream",
+    "nuts",
+    "cocoa",
+    "tea"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "bread",
+     "leather",
+     "citrus",
+     "cream",
+     "nuts",
+     "cocoa",
+     "tea"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/cuaba/salomon",
+     "https://robertgraham1874.com/?p=7577",
+     "https://www.cgarsltd.co.uk/cuaba-salomones-cigar-single-p-440.html"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -46185,7 +48423,8 @@
    "length_in": "7.2",
    "ring_gauge": "57",
    "strength": "Medium to Full",
-   "factory_vitola": "Salomón"
+   "factory_vitola": "Salomón",
+   "strength_felt": "medium-full"
   }
  },
  "la-flor-de-cano-petit-coronas": {
@@ -46240,9 +48479,33 @@
   "name": "Petit Coronas",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "nuts",
+    "leather",
+    "hay",
+    "floral",
+    "woody",
+    "butter"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "nuts",
+     "leather",
+     "hay",
+     "floral",
+     "woody",
+     "butter"
+    ],
+    "text": "",
+    "confidence": "low",
+    "urls": [
+     "https://www.cgarsltd.co.uk/rafael-gonzalez-petit-coronas-cigar-single-p-4015.html?page=2"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -46254,7 +48517,8 @@
    "length_in": "5.1",
    "ring_gauge": "42",
    "strength": "Light",
-   "factory_vitola": "Marevas"
+   "factory_vitola": "Marevas",
+   "strength_felt": "mild"
   }
  },
  "rafael-gonzalez-perlas": {
@@ -46263,9 +48527,36 @@
   "name": "Perlas",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "woody",
+    "spice",
+    "coffee",
+    "cream",
+    "nuts",
+    "sweet",
+    "dark_chocolate"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "woody",
+     "spice",
+     "coffee",
+     "cream",
+     "nuts",
+     "sweet",
+     "dark_chocolate"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarinspector.com/ci/cigar-review-rafael-gonzales-perla/",
+     "https://www.cgarsltd.co.uk/rafael-gonzalez-perlas-cigar-single-p-12896.html?page=4"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -46277,7 +48568,8 @@
    "length_in": "4.0",
    "ring_gauge": "40",
    "strength": "Light",
-   "factory_vitola": "Perlas"
+   "factory_vitola": "Perlas",
+   "strength_felt": "mild"
   }
  },
  "rafael-gonzalez-panetelas-extra": {
@@ -46332,9 +48624,35 @@
   "name": "Cosacos",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "woody",
+    "nuts",
+    "hay",
+    "oak",
+    "leather",
+    "citrus"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "woody",
+     "nuts",
+     "hay",
+     "oak",
+     "leather",
+     "citrus"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cgarsltd.co.uk/fonseca-cosacos-cigar-single-p-455.html?page=2",
+     "https://www.cigarslover.com/en/?p=45691",
+     "https://cigarsunlimited.co.uk/product/fonseca-cosacos-single"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -46346,7 +48664,8 @@
    "length_in": "5.3",
    "ring_gauge": "42",
    "strength": "Light",
-   "factory_vitola": "Cosacos"
+   "factory_vitola": "Cosacos",
+   "strength_felt": "mild"
   }
  },
  "fonseca-delicias": {
@@ -46424,9 +48743,37 @@
   "name": "El Príncipe",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "molasses",
+    "cocoa",
+    "coffee",
+    "spice",
+    "cream",
+    "honey",
+    "woody"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "molasses",
+     "cocoa",
+     "coffee",
+     "spice",
+     "cream",
+     "honey",
+     "woody"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/san-cristobal/el-principe",
+     "https://www.cigarinspector.com/?p=10697",
+     "https://halfashed.com/cigar/san-cristobal-de-la-habana-el-principe/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -46438,7 +48785,8 @@
    "length_in": "4.3",
    "ring_gauge": "42",
    "strength": "Light to Medium",
-   "factory_vitola": "Minutos"
+   "factory_vitola": "Minutos",
+   "strength_felt": "medium"
   }
  },
  "san-cristobal-de-la-habana-la-fuerza": {
@@ -46447,9 +48795,36 @@
   "name": "La Fuerza",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "earth",
+    "toast",
+    "pepper",
+    "leather",
+    "dried_fruit",
+    "cocoa",
+    "molasses"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "earth",
+     "toast",
+     "pepper",
+     "leather",
+     "dried_fruit",
+     "cocoa",
+     "molasses"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarinspector.com/?p=4683",
+     "https://www.cigarslover.com/en/?p=59800"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -46461,7 +48836,8 @@
    "length_in": "5.6",
    "ring_gauge": "50",
    "strength": "Light to Medium",
-   "factory_vitola": "Gorditos"
+   "factory_vitola": "Gorditos",
+   "strength_felt": "medium"
   }
  },
  "san-cristobal-de-la-habana-la-punta": {
@@ -46516,9 +48892,36 @@
   "name": "Belicosos",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "oak",
+    "woody",
+    "nuts",
+    "earth",
+    "bread",
+    "spice",
+    "pepper"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "oak",
+     "woody",
+     "nuts",
+     "earth",
+     "bread",
+     "spice",
+     "pepper"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://cigarobsession.com/?p=39716",
+     "https://www.cigarslover.com/sancho-panza-belicoso-2/"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -46530,7 +48933,8 @@
    "length_in": "5.5",
    "ring_gauge": "52",
    "strength": "Medium",
-   "factory_vitola": "Campanas"
+   "factory_vitola": "Campanas",
+   "strength_felt": "medium"
   }
  },
  "vegas-robaina-famosos": {
@@ -46539,9 +48943,37 @@
   "name": "Famosos",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "spice",
+    "grass",
+    "tobacco",
+    "dried_fruit",
+    "leather",
+    "cocoa",
+    "floral"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "spice",
+     "grass",
+     "tobacco",
+     "dried_fruit",
+     "leather",
+     "cocoa",
+     "floral"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/vegas-robaina/famosos",
+     "https://watchcollectinglifestyle.com/home/vegas-robaina-famosos-cigar-review",
+     "https://www.cigarsense.com/?p=29742"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -46553,7 +48985,8 @@
    "length_in": "5.0",
    "ring_gauge": "48",
    "strength": "Medium to Full",
-   "factory_vitola": "Hermosos No.4"
+   "factory_vitola": "Hermosos No.4",
+   "strength_felt": "medium-full"
   }
  },
  "vegueros-entretiempos": {
@@ -46562,9 +48995,34 @@
   "name": "Entretiempos",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "earth",
+    "grass",
+    "pepper",
+    "cream",
+    "nuts",
+    "cocoa"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "earth",
+     "grass",
+     "pepper",
+     "cream",
+     "nuts",
+     "cocoa"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://thecigarauthority.com/vegueros-cigar-review",
+     "https://robertgraham1874.com/?p=9125"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -46576,7 +49034,8 @@
    "length_in": "4.3",
    "ring_gauge": "52",
    "strength": "Full",
-   "factory_vitola": "Petit Edmundo"
+   "factory_vitola": "Petit Edmundo",
+   "strength_felt": "medium-full"
   }
  },
  "vegueros-mananitas": {
@@ -46608,9 +49067,36 @@
   "name": "Tapados",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "tobacco",
+    "nuts",
+    "dried_fruit",
+    "woody",
+    "pepper",
+    "spice",
+    "leather"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "tobacco",
+     "nuts",
+     "dried_fruit",
+     "woody",
+     "pepper",
+     "spice",
+     "leather"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/vegueros/tapados",
+     "https://cigarobsession.com/?p=39542"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -46621,7 +49107,8 @@
   "specs": {
    "length_in": "4.7",
    "ring_gauge": "46",
-   "strength": "Full"
+   "strength": "Full",
+   "strength_felt": "medium-full"
   }
  },
  "vegueros-centrofinos": {
@@ -46630,9 +49117,32 @@
   "name": "Centrofinos",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "earth",
+    "grass",
+    "pepper",
+    "cream",
+    "woody"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "earth",
+     "grass",
+     "pepper",
+     "cream",
+     "woody"
+    ],
+    "text": "",
+    "confidence": "low",
+    "urls": [
+     "https://robertgraham1874.com/product/vegueros-centrofinos-single-cigar",
+     "https://www.cgarsltd.co.uk/vegueros-centrofinos-cigar-single-p-36809.html"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -46644,7 +49154,8 @@
    "length_in": "5.1",
    "ring_gauge": "50",
    "strength": "Full",
-   "factory_vitola": "Centrofinos"
+   "factory_vitola": "Centrofinos",
+   "strength_felt": "medium-full"
   }
  },
  "quintero-brevas": {
@@ -46836,9 +49347,36 @@
   "name": "Cazadores",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "woody",
+    "coffee",
+    "cream",
+    "grass",
+    "almond",
+    "leather",
+    "mineral"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "woody",
+     "coffee",
+     "cream",
+     "grass",
+     "almond",
+     "leather",
+     "mineral"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://robertgraham1874.com/product/jose-l-piedra-cazadores-cigar-1-single/",
+     "https://www.cgarsltd.co.uk/jose-piedra-cazadores-cigar-single-p-487.html?page=3"
+    ]
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
@@ -46850,7 +49388,8 @@
    "length_in": "6.0",
    "ring_gauge": "43",
    "strength": "Medium to Full",
-   "factory_vitola": "Cazadores JLP"
+   "factory_vitola": "Cazadores JLP",
+   "strength_felt": "medium"
   }
  },
  "jose-l-piedra-conservas": {
@@ -46921,5 +49460,807 @@
    "strength": "Medium to Full",
    "factory_vitola": "Hermoso Especial"
   }
+ },
+ "cohiba-behike-52": {
+  "id": "cohiba-behike-52",
+  "brand": "Cohiba",
+  "name": "Behike 52",
+  "notes": {
+   "official": [],
+   "review": [
+    "coffee",
+    "cedar",
+    "nuts",
+    "cocoa",
+    "earth",
+    "leather",
+    "pepper"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "coffee",
+     "cedar",
+     "nuts",
+     "cocoa",
+     "earth",
+     "leather",
+     "pepper"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://robertgraham1874.com/product/cohiba-behike-bhk-52-cigar-1-single/",
+     "https://www.cigarsense.com/?p=32056"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": true
+  },
+  "specs": {
+   "strength_felt": "medium-full"
+  },
+  "updated": "2026-10-06"
+ },
+ "cohiba-behike-54": {
+  "id": "cohiba-behike-54",
+  "brand": "Cohiba",
+  "name": "Behike 54",
+  "notes": {
+   "official": [],
+   "review": [
+    "cedar",
+    "earth",
+    "cocoa",
+    "leather",
+    "cream",
+    "nuts",
+    "espresso"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cedar",
+     "earth",
+     "cocoa",
+     "leather",
+     "cream",
+     "nuts",
+     "espresso"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://robertgraham1874.com/product/cohiba-behike-bhk-54-cigar-1-single/",
+     "https://www.cigarsense.com/?p=31295"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": true
+  },
+  "specs": {
+   "strength_felt": "medium-full"
+  },
+  "updated": "2026-10-06"
+ },
+ "cohiba-behike-56": {
+  "id": "cohiba-behike-56",
+  "brand": "Cohiba",
+  "name": "Behike 56",
+  "notes": {
+   "official": [],
+   "review": [
+    "coffee",
+    "butter",
+    "honey",
+    "leather",
+    "citrus",
+    "cocoa",
+    "pepper"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "coffee",
+     "butter",
+     "honey",
+     "leather",
+     "citrus",
+     "cocoa",
+     "pepper"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/cohiba/bhk-56",
+     "https://www.cgarsltd.co.uk/cohiba-behike-bhk-cigar-single-p-8639.html",
+     "https://robertgraham1874.com/?p=24494"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": true
+  },
+  "specs": {
+   "strength_felt": "full"
+  },
+  "updated": "2026-10-06"
+ },
+ "cohiba-maduro-5-magicos": {
+  "id": "cohiba-maduro-5-magicos",
+  "brand": "Cohiba",
+  "name": "Maduro 5 Magicos",
+  "notes": {
+   "official": [],
+   "review": [
+    "dark_chocolate",
+    "coffee",
+    "pepper",
+    "leather",
+    "earth",
+    "spice",
+    "cream"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "dark_chocolate",
+     "coffee",
+     "pepper",
+     "leather",
+     "earth",
+     "spice",
+     "cream"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://cigarsunlimited.co.uk/product/cohiba-maduro-5-magicos-box-of-25",
+     "https://robertgraham1874.com/?p=7603"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": true
+  },
+  "specs": {
+   "strength_felt": "medium-full"
+  },
+  "updated": "2026-10-06"
+ },
+ "cohiba-maduro-5-genios": {
+  "id": "cohiba-maduro-5-genios",
+  "brand": "Cohiba",
+  "name": "Maduro 5 Genios",
+  "notes": {
+   "official": [],
+   "review": [
+    "cocoa",
+    "caramel",
+    "earth",
+    "leather",
+    "cedar",
+    "coffee",
+    "spice"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cocoa",
+     "caramel",
+     "earth",
+     "leather",
+     "cedar",
+     "coffee",
+     "spice"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/cohiba/genios",
+     "https://www.cigarinspector.com/?p=9323",
+     "https://www.cigarsense.com/cigar_analysis_cohiba-maduro-5-genios/"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": true
+  },
+  "specs": {
+   "strength_felt": "medium"
+  },
+  "updated": "2026-10-06"
+ },
+ "montecristo-linea-1935-maltes": {
+  "id": "montecristo-linea-1935-maltes",
+  "brand": "Montecristo",
+  "name": "Linea 1935 Maltes",
+  "notes": {
+   "official": [],
+   "review": [
+    "earth",
+    "coffee",
+    "pepper",
+    "grass",
+    "hay",
+    "woody",
+    "tea"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "earth",
+     "coffee",
+     "pepper",
+     "grass",
+     "hay",
+     "woody",
+     "tea"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://cigar-coop.com/2019/11/cigar-review-montecristo-linea-1935-maltes.html",
+     "https://www.cigarinspector.com/ci/cigar-review-montecristo-maltes-linea-1935/"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": true
+  },
+  "specs": {
+   "strength_felt": "medium-full"
+  },
+  "updated": "2026-10-06"
+ },
+ "montecristo-linea-1935-leyenda": {
+  "id": "montecristo-linea-1935-leyenda",
+  "brand": "Montecristo",
+  "name": "Linea 1935 Leyenda",
+  "notes": {
+   "official": [],
+   "review": [
+    "cedar",
+    "cream",
+    "almond",
+    "cocoa",
+    "earth",
+    "coffee",
+    "toast"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cedar",
+     "cream",
+     "almond",
+     "cocoa",
+     "earth",
+     "coffee",
+     "toast"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cubancigarwebsite.com/cigar/montecristo/leyenda",
+     "https://www.cigarinspector.com/?p=18140",
+     "https://www.cigarslover.com/montecristo-linea-1935-leyenda/"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": true
+  },
+  "specs": {
+   "strength_felt": "medium-full"
+  },
+  "updated": "2026-10-06"
+ },
+ "romeo-y-julieta-wide-churchill": {
+  "id": "romeo-y-julieta-wide-churchill",
+  "brand": "Romeo y Julieta",
+  "name": "Wide Churchill",
+  "notes": {
+   "official": [],
+   "review": [
+    "woody",
+    "sweet",
+    "honey",
+    "coffee",
+    "cream",
+    "earth",
+    "leather"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "woody",
+     "sweet",
+     "honey",
+     "coffee",
+     "cream",
+     "earth",
+     "leather"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarslover.com/romeo-y-julieta-wide-churchills/",
+     "https://farehamwinecellar.co.uk/?p=44668"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": true
+  },
+  "specs": {
+   "strength_felt": "medium"
+  },
+  "updated": "2026-10-06"
+ },
+ "romeo-y-julieta-linea-de-oro-dianas": {
+  "id": "romeo-y-julieta-linea-de-oro-dianas",
+  "brand": "Romeo y Julieta",
+  "name": "Linea de Oro Dianas",
+  "notes": {
+   "official": [],
+   "review": [
+    "cedar",
+    "coffee",
+    "cream",
+    "white_pepper",
+    "woody",
+    "nuts",
+    "brown_sugar"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cedar",
+     "coffee",
+     "cream",
+     "white_pepper",
+     "woody",
+     "nuts",
+     "brown_sugar"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarslover.com/romeo-y-julieta-linea-de-oro-dianas/",
+     "https://robertgraham1874.com/product/romeo-y-julieta-linea-de-oro-dianas-single-cigar/",
+     "https://www.zigarren.zone/en/?p=69745"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": true
+  },
+  "specs": {
+   "strength_felt": "medium-full"
+  },
+  "updated": "2026-10-06"
+ },
+ "romeo-y-julieta-linea-de-oro-hidalgos": {
+  "id": "romeo-y-julieta-linea-de-oro-hidalgos",
+  "brand": "Romeo y Julieta",
+  "name": "Linea de Oro Hidalgos",
+  "notes": {
+   "official": [],
+   "review": [
+    "cedar",
+    "coffee",
+    "cream",
+    "pepper",
+    "woody",
+    "sweet"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "cedar",
+     "coffee",
+     "cream",
+     "pepper",
+     "woody",
+     "sweet"
+    ],
+    "text": "",
+    "confidence": "low",
+    "urls": [
+     "https://cigarsunlimited.co.uk/product/romeo-y-julieta-linea-de-oro-hidalgos-box-of-20",
+     "https://www.cgarsltd.co.uk/romeo-julieta-linea-oro-hidalgos-cigar-box-p-49273.html"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": true
+  },
+  "specs": {
+   "strength_felt": "medium-full"
+  },
+  "updated": "2026-10-06"
+ },
+ "h-upmann-connoisseur-a": {
+  "id": "h-upmann-connoisseur-a",
+  "brand": "H. Upmann",
+  "name": "Connoisseur A",
+  "notes": {
+   "official": [],
+   "review": [
+    "leather",
+    "cedar",
+    "spice",
+    "cream",
+    "sweet",
+    "tobacco"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "leather",
+     "cedar",
+     "spice",
+     "cream",
+     "sweet",
+     "tobacco"
+    ],
+    "text": "",
+    "confidence": "low",
+    "urls": [
+     "https://robertgraham1874.com/?p=7984",
+     "https://www.cigarsense.com/?p=31270"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": true
+  },
+  "specs": {
+   "strength_felt": "mild-medium"
+  },
+  "updated": "2026-10-06"
+ },
+ "h-upmann-connoisseur-b": {
+  "id": "h-upmann-connoisseur-b",
+  "brand": "H. Upmann",
+  "name": "Connoisseur B",
+  "notes": {
+   "official": [],
+   "review": [
+    "woody",
+    "pepper",
+    "nuts",
+    "toast",
+    "spice",
+    "cream"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "woody",
+     "pepper",
+     "nuts",
+     "toast",
+     "spice",
+     "cream"
+    ],
+    "text": "",
+    "confidence": "low",
+    "urls": [
+     "https://www.cigarslover.com/en/h-upmann-connossieur-b-2/"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": true
+  },
+  "specs": {
+   "strength_felt": "medium"
+  },
+  "updated": "2026-10-06"
+ },
+ "h-upmann-royal-robusto": {
+  "id": "h-upmann-royal-robusto",
+  "brand": "H. Upmann",
+  "name": "Royal Robusto",
+  "notes": {
+   "official": [],
+   "review": [
+    "toast",
+    "spice",
+    "cinnamon",
+    "dried_fruit",
+    "honey",
+    "woody",
+    "leather"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "toast",
+     "spice",
+     "cinnamon",
+     "dried_fruit",
+     "honey",
+     "woody",
+     "leather"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarinspector.com/?p=11158",
+     "https://www.cigarsense.com/?p=32115"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": true
+  },
+  "specs": {
+   "strength_felt": "medium-full"
+  },
+  "updated": "2026-10-06"
+ },
+ "bolivar-libertador": {
+  "id": "bolivar-libertador",
+  "brand": "Bolivar",
+  "name": "Libertador",
+  "notes": {
+   "official": [],
+   "review": [
+    "dried_fruit",
+    "cedar",
+    "leather",
+    "citrus",
+    "cinnamon",
+    "earth",
+    "cream"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "dried_fruit",
+     "cedar",
+     "leather",
+     "citrus",
+     "cinnamon",
+     "earth",
+     "cream"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://blindmanspuff.com/blind-cigar-review-bolivar-cuba-libertador/",
+     "https://www.cgarsltd.co.uk/lcdh-bolivar-libertador-cigar-box-p-15611.html"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": true
+  },
+  "specs": {
+   "strength_felt": "medium-full"
+  },
+  "updated": "2026-10-06"
+ },
+ "trinidad-la-trova": {
+  "id": "trinidad-la-trova",
+  "brand": "Trinidad",
+  "name": "La Trova",
+  "notes": {
+   "official": [],
+   "review": [
+    "earth",
+    "coffee",
+    "nuts",
+    "cream",
+    "cedar",
+    "leather",
+    "cocoa"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "earth",
+     "coffee",
+     "nuts",
+     "cream",
+     "cedar",
+     "leather",
+     "cocoa"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarslover.com/trinidad-la-trova/",
+     "https://quillandpad.com/2018/12/03/trinidad-la-trova-cuban-cigars-exceptional-in-every-way/"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": true
+  },
+  "specs": {
+   "strength_felt": "medium"
+  },
+  "updated": "2026-10-06"
+ },
+ "quai-d-orsay-senadores": {
+  "id": "quai-d-orsay-senadores",
+  "brand": "Quai d'Orsay",
+  "name": "Senadores",
+  "notes": {
+   "official": [],
+   "review": [
+    "woody",
+    "white_pepper",
+    "nuts",
+    "honey",
+    "sweet",
+    "spice"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "woody",
+     "white_pepper",
+     "nuts",
+     "honey",
+     "sweet",
+     "spice"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarslover.com/quai-dorsay-senadores-edicion-limitada-2019-2/",
+     "https://www.zigarren.zone/en/wp-json/wp/v2/posts/43108",
+     "https://www.cigarsense.com/?p=32124"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": true
+  },
+  "specs": {
+   "strength_felt": "mild-medium"
+  },
+  "updated": "2026-10-06"
+ },
+ "por-larranaga-picadores": {
+  "id": "por-larranaga-picadores",
+  "brand": "Por Larranaga",
+  "name": "Picadores",
+  "notes": {
+   "official": [],
+   "review": [
+    "honey",
+    "nuts",
+    "woody",
+    "almond",
+    "floral",
+    "citrus",
+    "cream"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "honey",
+     "nuts",
+     "woody",
+     "almond",
+     "floral",
+     "citrus",
+     "cream"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarinspector.com/?p=17789",
+     "https://www.cigarslover.com/por-larranaga-picadores-3/"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": true
+  },
+  "specs": {
+   "strength_felt": "mild-medium"
+  },
+  "updated": "2026-10-06"
+ },
+ "jose-l-piedra-petit-cazadores": {
+  "id": "jose-l-piedra-petit-cazadores",
+  "brand": "Jose L. Piedra",
+  "name": "Petit Cazadores",
+  "notes": {
+   "official": [],
+   "review": [
+    "nuts",
+    "cream",
+    "cedar",
+    "woody",
+    "earth"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "tags": [
+     "nuts",
+     "cream",
+     "cedar",
+     "woody",
+     "earth"
+    ],
+    "text": "",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarinspector.com/?p=17809",
+     "https://www.cgarsltd.co.uk/jose-piedra-petit-cazadores-cigar-pack-p-5814.html?page=2"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": true
+  },
+  "specs": {
+   "strength_felt": "medium"
+  },
+  "updated": "2026-10-06"
  }
 }
