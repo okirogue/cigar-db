@@ -31,17 +31,33 @@ BRANDS = {
                                      "https://casacarrillocigars.com/la-historia/", "https://casacarrillocigars.com/deep-blue/",
                                      "https://casacarrillocigars.com/essence-sumatra/", "https://casacarrillocigars.com/inch-natural/",
                                      "https://casacarrillocigars.com/allegiance/"],
-                         skip=r"pledge98|about|contact|shop|retailer|privacy|terms|news|events|home|cart|checkout|account|blog|crm|epc_view", delay=2),
+                         skip=r"pledge98|about|contact|shop|retailer|privacy|terms|news|events|home|cart|checkout|account|blog|crm|epc_view|locator|campaign|giveaway|not-found|anniversary|\d{4,}|sample|thank|landing|press|careers|faq|policy|family|story|team", delay=2),
     "alecbradley": dict(brand="Alec Bradley", sitemaps=["https://www.alecbradley.com/sitemap.xml"],
                         pattern=r"https://www\.alecbradley\.com/cigars/[^/]+", delay=2),
+    "plasencia": dict(brand="Plasencia", sitemaps=["https://www.plasenciacigars.com/sitemap.xml"],
+                      pattern=r"https://www\.plasenciacigars\.com/collections/[^/]+/?", delay=2),
+    "joya": dict(brand="Joya de Nicaragua", sitemaps=["https://joyacigars.com/cigars-sitemap.xml"],
+                 pattern=r"https://joyacigars\.com/cigars/[^/]+/", skip=r"/es/", delay=2),
+    "kristoff": dict(brand="Kristoff", sitemaps=["https://kristoff.com/product-sitemap.xml"],
+                     pattern=r"https://kristoff\.com/product/[^/]+/", skip=r"sampler|gift|hat|shirt|cutter|lighter|ashtray|humidor|pack", delay=2),
+    "aganorsa": dict(brand="Aganorsa Leaf", sitemaps=["https://aganorsaleaf.com/wp-sitemap-posts-page-1.xml"],
+                     pattern=r"https://aganorsaleaf\.com/cigars/[^/]+/", delay=2),
+    "espinosa": dict(brand="Espinosa", sitemaps=[], pattern=r"https://espinosacigars\.com/core-lines/[^/]+/",
+                     index_url="https://espinosacigars.com/", delay=2),
     "ajfernandez": dict(brand="AJ Fernandez", sitemaps=["https://ajfcigars.com/page-sitemap.xml"],
                         pattern=r"https://ajfcigars\.com/cigars/[^/]+/(?:[^/]+/)?", delay=2,
-                        rest="https://ajfcigars.com/wp-json/wp/v2/pages?per_page=100&slug="),
+                        meta_only=True),
 }
 
 
 def line_urls(cfg):
     urls = set(cfg.get("extra_urls", []))
+    if cfg.get("index_url"):
+        try:
+            page = fetch(cfg["index_url"])
+            urls |= set(u.rstrip('"\'') for u in re.findall(r'href="(' + cfg["pattern"] + r')"', page))
+        except Exception:
+            pass
     for sm in cfg["sitemaps"]:
         try:
             xml = fetch(sm)
@@ -67,11 +83,21 @@ def meta_desc(page):
     return html.unescape(m.group(1)) if m else ""
 
 
-def body_note_sentences(text):
+def body_note_sentences(text, name=""):
+    """Note sentences from the main content only: stop at footer/related-product markers,
+    and prefer the region after the first mention of the line name."""
+    cut = re.search(r"(related products|you may also like|other cigars|our cigars|explore|footer|all rights reserved|©)", text, re.I)
+    if cut and cut.start() > 300:
+        text = text[:cut.start()]
+    if name:
+        key = name.split()[0]
+        i = text.lower().find(key.lower())
+        if i > 0:
+            text = text[i:]
     sents = re.split(r"(?<=[.!?])\s+", text)
     keep = [s for s in sents if re.search(NOTE_WORDS, s, re.I) and 30 < len(s) < 400
-            and not re.search(r"cookie|privacy|newsletter|subscribe|copyright|age|21\+|retailer", s, re.I)]
-    return " ".join(keep[:6])
+            and not re.search(r"cookie|privacy|newsletter|subscribe|copyright|age|21\+|retailer|sign up|shop now", s, re.I)]
+    return " ".join(keep[:4])
 
 
 def parse_specs(text):
@@ -80,9 +106,10 @@ def parse_specs(text):
         k = m.group(1).lower()
         if k not in spec:
             spec[k] = m.group(2).strip(" .")
-    m = re.search(STRENGTH, text, re.I)
+    m = re.search(r"(strength|body|bodied)\s*[:\-–—]?\s*" + STRENGTH, text, re.I) or \
+        re.search(STRENGTH + r"\s*(bodied|body|strength)", text, re.I)
     if m:
-        spec["strength"] = m.group(0).strip()
+        spec["strength"] = re.search(STRENGTH, m.group(0), re.I).group(0).strip()
     vits = []
     for m in VITOLA.finditer(text):
         nm = m.group(1).strip(" -—–:")
@@ -97,16 +124,8 @@ def parse_specs(text):
 def fetch_page(cfg, url):
     page = fetch(url)
     text = strip_html(page)
-    if cfg.get("rest") and len(text) < 1500:   # age gate: try WP REST
-        slug = [p for p in urlparse(url).path.split("/") if p][-1]
-        try:
-            import json
-            data = json.loads(fetch(cfg["rest"] + slug))
-            if data:
-                page = data[0]["content"]["rendered"]
-                text = strip_html(page)
-        except Exception:
-            pass
+    if cfg.get("meta_only"):   # age-gated body: specs/notes only from meta description
+        text = meta_desc(page)
     return page, text
 
 
@@ -124,7 +143,7 @@ def run(limit=None, delay=None, brand_key=None):
             out.append({"brand": cfg["brand"], "name": name_from_url(u), "error": str(e)})
             continue
         md = meta_desc(page)
-        note = body_note_sentences(text)
+        note = body_note_sentences(text, name_from_url(u))
         if re.search(NOTE_WORDS, md, re.I) and md not in note:
             note = md + " " + note
         out.append({"brand": cfg["brand"], "name": name_from_url(u), "vitola": "",

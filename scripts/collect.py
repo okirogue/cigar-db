@@ -74,6 +74,12 @@ def main():
         e["updated"] = today
         added += 1
 
+    texts = [r.get("note_text", "") for r in rows if r.get("note_text")]
+    if len(texts) >= 5:
+        from collections import Counter
+        top, n = Counter(texts).most_common(1)[0]
+        if n / len(texts) > 0.5:
+            print(f"WARNING {a.adapter}: {n}/{len(texts)} rows share the same note text -> likely boilerplate")
     DB.write_text(json.dumps(db, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{a.adapter}: {len(rows)} rows, {added} rows merged, {errors} errors, db={len(db)}")
 
