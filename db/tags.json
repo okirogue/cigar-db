@@ -508,11 +508,13 @@
           "ko": "담배",
           "hint": "담뱃잎 그 자체의 맛, 다른 노트 없이",
           "synonyms": [
-            "tobacco",
             "natural tobacco",
             "sweet tobacco",
             "tobacco sweetness",
-            "cigar"
+            "pure tobacco",
+            "tobacco flavor",
+            "tobacco flavour",
+            "tobacco notes"
           ]
         }
       ]

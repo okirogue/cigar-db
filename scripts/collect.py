@@ -51,8 +51,13 @@ def main():
                                 "notes": {"official": [], "review": []},
                                 "note_sources": [], "verified": False})
         kind = "official" if r["source"].startswith("official") else "review"
-        e["note_sources"] = [s for s in e["note_sources"] if s["source"] != r["source"]]
-        e["note_sources"].append({"source": r["source"], "tags": tags, "text": r["note_text"]})
+        key = (r["source"], r.get("vitola", ""))
+        e["note_sources"] = [s for s in e["note_sources"] if (s["source"], s.get("vitola", "")) != key]
+        if r["note_text"]:
+            e["note_sources"].append({"source": r["source"], "vitola": r.get("vitola", ""), "tags": tags, "text": r["note_text"]})
+        vit = e.setdefault("vitolas", [])
+        if r.get("vitola") and r["vitola"] not in vit:
+            vit.append(r["vitola"])
         merged = []
         for s in e["note_sources"]:
             if (s["source"].startswith("official")) == (kind == "official"):
@@ -61,13 +66,10 @@ def main():
                         merged.append(t)
         e["notes"][kind] = merged
         e["updated"] = today
-        if len(e["note_sources"]) == 1:
-            added += 1
-        else:
-            updated += 1
+        added += 1
 
     DB.write_text(json.dumps(db, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"{a.adapter}: {len(rows)} rows, {added} new, {updated} updated, {errors} errors, db={len(db)}")
+    print(f"{a.adapter}: {len(rows)} rows, {added} rows merged, {errors} errors, db={len(db)}")
 
 
 if __name__ == "__main__":

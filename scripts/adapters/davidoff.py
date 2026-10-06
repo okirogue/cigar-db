@@ -11,13 +11,23 @@ from .base import fetch, strip_html
 
 BRAND = "Davidoff"
 SITEMAP = "https://us.davidoffgeneva.com/sitemap.xml"
-SKIP = re.compile(r"limited-edition|sampler|gift|assortment|humidor|cutter|lighter|ashtray|accessor|pipe|flask|glass|bucket|pouch|set\b|selection|collection|band\b|promo|chefs-edition|year-of-the|exclusive|boutique|small-batch|oro-blanco|royal-release|davpipe|cigarillo|demi-tasse|real-especial|ritual|collectors|cleaner|mixture|tobacco", re.I)
+SKIP = re.compile(r"limited-edition|sampler|gift|assortment|humidor|cutter|lighter|ashtray|accessor|pipe|flask|glass|bucket|pouch|set\b|selection|collection|band\b|promo|chefs-edition|year-of-the|exclusive|boutique|small-batch|oro-blanco|royal-release|davpipe|cigarillo|demi-tasse|real-especial|ritual|collectors|cleaner|mixture|tobacco|cigar-case", re.I)
 
 
 def product_urls():
     xml = fetch(SITEMAP)
     urls = re.findall(r"<loc>(https://us\.davidoffgeneva\.com/product/davidoff-[^<]+)</loc>", xml)
     return [u for u in urls if not SKIP.search(u)]
+
+
+VITOLAS = r"(petit corona|short corona|corona gorda|corona larga|double corona|petit churchill|short robusto|petit robusto|petit panetela|gran perfecto|short perfecto|gran toro|box pressed robusto|box pressed toro|robusto|toro|churchill|corona|piramides|belicoso|diadema|perfecto|lancero|salomones|entreacto|double r|special r|special t|no \\d+|\\d{4}|ambassadrice|exquisitos)$"
+
+
+def line_of(name):
+    """strip the vitola suffix so vitolas of one line share a DB entry"""
+    n = re.sub(VITOLAS, "", name, flags=re.I).strip()
+    n = re.sub(r"\\bthe (original|late hour) series\\b", r"\\1", n)
+    return n or name
 
 
 def parse_name(url):
@@ -51,7 +61,8 @@ def run(limit=None, delay=1.5):
             continue
         out.append({
             "brand": BRAND,
-            "name": parse_name(u),
+            "name": line_of(parse_name(u)),
+            "vitola": parse_name(u),
             "note_text": html.unescape(note_text(page)),
             "source": "official:davidoff",
         })
