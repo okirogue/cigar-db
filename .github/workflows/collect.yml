@@ -11,6 +11,10 @@ on:
         description: "max pages (blank = all)"
         required: false
         default: ""
+      offset:
+        description: "start offset (review adapters)"
+        required: false
+        default: "0"
 
 permissions:
   contents: write
@@ -18,6 +22,7 @@ permissions:
 jobs:
   collect:
     runs-on: ubuntu-latest
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -28,9 +33,9 @@ jobs:
           touch scripts/__init__.py scripts/adapters/__init__.py
           for a in ${{ github.event.inputs.adapter }}; do
             if [ -n "${{ github.event.inputs.limit }}" ]; then
-              python scripts/collect.py "$a" --limit "${{ github.event.inputs.limit }}" || echo "FAILED $a"
+              python scripts/collect.py "$a" --limit "${{ github.event.inputs.limit }}" --offset "${{ github.event.inputs.offset }}" || echo "FAILED $a"
             else
-              python scripts/collect.py "$a" || echo "FAILED $a"
+              python scripts/collect.py "$a" --offset "${{ github.event.inputs.offset }}" || echo "FAILED $a"
             fi
           done
       - name: Commit results

@@ -23,16 +23,27 @@ from scripts.tagger import extract_tags  # noqa: E402
 DB = ROOT / "db" / "cigars.json"
 
 
+import unicodedata
+STOP = {"cigars", "cigar", "the", "by"}
+
+
 def slug(brand, name):
-    s = f"{brand} {name}".lower()
-    s = re.sub(r"[^a-z0-9]+", "-", s).strip("-")
-    return s
+    s = unicodedata.normalize("NFKD", f"{brand} {name}")
+    s = "".join(c for c in s if not unicodedata.combining(c)).lower()
+    words = [w for w in re.sub(r"[^a-z0-9]+", " ", s).split() if w not in STOP]
+    # drop a repeated brand word inside the line part (e.g. "oliva oliva serie v")
+    out = []
+    for w in words:
+        if not out or w != out[-1]:
+            out.append(w)
+    return "-".join(out)
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("adapter")
     ap.add_argument("--limit", type=int, default=None)
+    ap.add_argument("--offset", type=int, default=0)
     a = ap.parse_args()
 
     from scripts.adapters import wp_generic
@@ -40,7 +51,11 @@ def main():
         rows = wp_generic.run(limit=a.limit, brand_key=a.adapter)
     else:
         mod = importlib.import_module(f"scripts.adapters.{a.adapter}")
-        rows = mod.run(limit=a.limit)
+        import inspect
+        kw = {"limit": a.limit}
+        if "offset" in inspect.signature(mod.run).parameters:
+            kw["offset"] = a.offset
+        rows = mod.run(**kw)
 
     db = json.loads(DB.read_text(encoding="utf-8")) if DB.exists() else {}
     today = datetime.date.today().isoformat()
@@ -58,7 +73,12 @@ def main():
         key = (r["source"], r.get("vitola", ""))
         e["note_sources"] = [s for s in e["note_sources"] if (s["source"], s.get("vitola", "")) != key]
         if r["note_text"]:
-            e["note_sources"].append({"source": r["source"], "vitola": r.get("vitola", ""), "tags": tags, "text": r["note_text"]})
+            src = {"source": r["source"], "vitola": r.get("vitola", ""), "tags": tags, "text": r["note_text"]}
+            if r.get("score") is not None:
+                src["score"] = r["score"]; src["url"] = r.get("review_url"); src["title"] = r.get("review_title")
+            e["note_sources"].append(src)
+        if r.get("score") is not None:
+            e.setdefault("ratings", {})[r["source"].split(":")[1]] = {"score": r["score"], "url": r.get("review_url")}
         vit = e.setdefault("vitolas", [])
         if r.get("vitola") and r["vitola"] not in vit:
             vit.append(r["vitola"])
