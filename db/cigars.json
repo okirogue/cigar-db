@@ -216,7 +216,11 @@
    "official": [
     "leather",
     "pepper",
-    "toast"
+    "toast",
+    "coffee",
+    "spice",
+    "dark_chocolate",
+    "cocoa"
    ],
    "review": [
     "musty",
@@ -268,6 +272,17 @@
     "score": 95,
     "url": "https://cigardojo.com/2017/04/davidoff-702-series-special-r/",
     "title": "Davidoff 702 Series Special R"
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "coffee",
+     "spice",
+     "dark_chocolate",
+     "cocoa"
+    ],
+    "text": "Coffee , Spice , Dark Chocolate Available. Learn about Davidoff 702 Cigars. Check out reviews and get details on 702"
    }
   ],
   "verified": false,
@@ -285,7 +300,15 @@
   "seed": {
    "shops": "cigarplace",
    "cuban": false
-  }
+  },
+  "specs": {
+   "binder": "Dominican",
+   "filler": "Dominican",
+   "strength": "medium"
+  },
+  "aliases": [
+   "davidoff 702"
+  ]
  },
  "davidoff-702-series-signature-2000": {
   "id": "davidoff-702-series-signature-2000",
@@ -762,7 +785,12 @@
   "brand": "Davidoff",
   "name": "aniversario",
   "notes": {
-   "official": [],
+   "official": [
+    "leather",
+    "nuts",
+    "pepper",
+    "spice"
+   ],
    "review": []
   },
   "note_sources": [
@@ -789,6 +817,17 @@
     "vitola": "aniversario special t",
     "tags": [],
     "text": "The Aniversario Special «T» is a patented torpedo cigar which presents a crescendo of the Aniversario blend flavours. Order online now. Free shipping when spending $500."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "leather",
+     "nuts",
+     "pepper",
+     "spice"
+    ],
+    "text": "Leather , Nuts , Black Pepper , Spices Available. Learn about Davidoff Aniversario Series Cigars. Check out reviews and get details on Aniversario Series"
    }
   ],
   "verified": false,
@@ -802,7 +841,15 @@
   "seed": {
    "shops": "cigarplace",
    "cuban": false
-  }
+  },
+  "specs": {
+   "binder": "Dominican",
+   "filler": "Dominican",
+   "strength": "medium"
+  },
+  "aliases": [
+   "aniversario series"
+  ]
  },
  "davidoff-aniversario-no-3": {
   "id": "davidoff-aniversario-no-3",
@@ -1031,7 +1078,11 @@
   "brand": "Davidoff",
   "name": "grand cru",
   "notes": {
-   "official": [],
+   "official": [
+    "woody",
+    "nuts",
+    "spice"
+   ],
    "review": []
   },
   "note_sources": [
@@ -1046,6 +1097,16 @@
     "vitola": "grand cru toro",
     "tags": [],
     "text": "The Davidoff Grand Cru Toro is the largest cigar of the line. It is ideally paired with a Bordeaux wine. Order online now. Free shipping when spending $500."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "woody",
+     "nuts",
+     "spice"
+    ],
+    "text": "Woody , Nutty , Spice Available. Learn about Davidoff Grand Cru Series Cigars. Check out reviews and get details on Grand Cru Series"
    }
   ],
   "verified": false,
@@ -1057,14 +1118,28 @@
   "seed": {
    "shops": "cigarplace",
    "cuban": false
-  }
+  },
+  "specs": {
+   "binder": "Dominican",
+   "filler": "Dominican",
+   "strength": "mild to medium"
+  },
+  "aliases": [
+   "grand cru series"
+  ]
  },
  "davidoff-millennium": {
   "id": "davidoff-millennium",
   "brand": "Davidoff",
   "name": "millennium",
   "notes": {
-   "official": [],
+   "official": [
+    "cocoa",
+    "caramel",
+    "white_pepper",
+    "pepper",
+    "spice"
+   ],
    "review": []
   },
   "note_sources": [
@@ -1097,6 +1172,18 @@
     "vitola": "millennium toro",
     "tags": [],
     "text": "Davidoff Millennium Toro with its proprietary 151 wrapper from Ecuador provides aficionados with a medium-intense enjoyment of 50 minutes. Buy online now. Free shipping when spending $500."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "cocoa",
+     "caramel",
+     "white_pepper",
+     "pepper",
+     "spice"
+    ],
+    "text": "Chocolate , Caramel , White Pepper , Spice Available. Learn about Davidoff Millennium Series Cigars. Check out reviews and get details on Millennium Series"
    }
   ],
   "verified": false,
@@ -1107,7 +1194,15 @@
    "millennium short robusto",
    "millennium toro"
   ],
-  "updated": "2026-10-06"
+  "updated": "2026-10-06",
+  "specs": {
+   "binder": "Dominican",
+   "filler": "Dominican",
+   "strength": "full"
+  },
+  "aliases": [
+   "millennium series"
+  ]
  },
  "davidoff-primeros-dominican-maduro": {
   "id": "davidoff-primeros-dominican-maduro",
@@ -1247,7 +1342,8 @@
     "cedar",
     "spice",
     "cream",
-    "woody"
+    "woody",
+    "earth"
    ],
    "review": []
   },
@@ -1286,6 +1382,17 @@
      "woody"
     ],
     "text": "The Davidoff Signature Toro cigar delights aficionados with notes of barley, cream and cedar wood. Buy online now. Free shipping when spending $500."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "cream",
+     "floral",
+     "earth",
+     "woody"
+    ],
+    "text": "Creamy , Floral , Earthy , Wood Available. Learn about Davidoff Signature Series Cigars. Check out reviews and get details on Signature Series"
    }
   ],
   "verified": false,
@@ -1299,7 +1406,15 @@
   "seed": {
    "shops": "cigarplace",
    "cuban": false
-  }
+  },
+  "specs": {
+   "binder": "Dominican",
+   "filler": "Dominican",
+   "strength": "mild to medium"
+  },
+  "aliases": [
+   "signature series"
+  ]
  },
  "rocky-patel-alr-second-edition": {
   "id": "rocky-patel-alr-second-edition",
@@ -3170,7 +3285,8 @@
     "earth",
     "leather",
     "cocoa",
-    "sweet"
+    "sweet",
+    "cream"
    ],
    "review": []
   },
@@ -3186,6 +3302,19 @@
      "sweet"
     ],
     "text": "Gilberto Oliva Reserva cigars feature a dark and oily Sumatra Wrapper over a special Ecuadorian binder and aged Nicaraguan filler tobaccos. With tones of spice, earth, leather, cocoa and a delicate sweetness. --> --> --> --> --> Search for: Search Primary Navigation Go to main content MENU MENU Home Cigars Serie V Melanio Serie V Melanio Serie V Melanio Maduro Serie V Melanio is hand rolled using expertly fermented ligero fillers, leaves known for their robust and rich flavor."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "spice",
+     "earth",
+     "leather",
+     "cream",
+     "cocoa",
+     "sweet"
+    ],
+    "text": "Spice , Earth , Leather , Creamy , Cocoa , Sweetness Available. Learn about Oliva Gilberto Oliva Reserva Cigars. Check out reviews and get details on Gilberto Oliva Reserva"
    }
   ],
   "verified": false,
@@ -3198,9 +3327,15 @@
     "Torpedo 6x50",
     "Toro 5.7 5x43",
     "Corona 5x50"
-   ]
+   ],
+   "wrapper": ". The",
+   "binder": "Ecuadorian Habano",
+   "filler": "Nicaraguan"
   },
-  "updated": "2026-10-06"
+  "updated": "2026-10-06",
+  "aliases": [
+   "gilberto oliva reserva"
+  ]
  },
  "oliva-master-blends-3": {
   "id": "oliva-master-blends-3",
@@ -5429,18 +5564,28 @@
   },
   "updated": "2026-10-06"
  },
- "my-father-don-pepin-garcia-series-jj": {
-  "id": "my-father-don-pepin-garcia-series-jj",
+ "my-father-don-pepin-garcia-serie-jj": {
+  "id": "my-father-don-pepin-garcia-serie-jj",
   "brand": "My Father",
-  "name": "don pepin garcia series jj",
+  "name": "don pepin garcia serie jj",
   "notes": {
    "official": [
     "earth",
+    "leather",
     "cedar"
    ],
    "review": []
   },
   "note_sources": [
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "leather"
+    ],
+    "text": "Earth , Ginger , Leather Available. Learn about My Father Don Pepin Garcia Serie JJ Cigars. Check out reviews and get details on Don Pepin Garcia Serie JJ"
+   },
    {
     "source": "official:myfather",
     "vitola": "",
@@ -5454,14 +5599,18 @@
   "verified": false,
   "vitolas": [],
   "specs": {
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan",
+   "strength": "medium to full",
    "wrapper": "Corojo Rosado",
-   "binder": "Nicaragua",
-   "strength": "Full-Bodied",
    "vitolas": [
     "Belicosos 53/4x52"
    ]
   },
-  "updated": "2026-10-06"
+  "updated": "2026-10-06",
+  "aliases": [
+   "don pepin garcia series jj"
+  ]
  },
  "my-father-don-pepin-garcia-vegas-cubanas": {
   "id": "my-father-don-pepin-garcia-vegas-cubanas",
@@ -5991,15 +6140,31 @@
   },
   "updated": "2026-10-06"
  },
- "my-father-my-father-connecticut": {
-  "id": "my-father-my-father-connecticut",
+ "my-father-connecticut": {
+  "id": "my-father-connecticut",
   "brand": "My Father",
-  "name": "my father connecticut",
+  "name": "connecticut",
   "notes": {
-   "official": [],
+   "official": [
+    "cream",
+    "floral",
+    "cocoa",
+    "spice"
+   ],
    "review": []
   },
   "note_sources": [
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "cream",
+     "floral",
+     "cocoa",
+     "spice"
+    ],
+    "text": "Creamy , Floral , Chocolate , Spices Available. Learn about My Father Connecticut Cigars. Check out reviews and get details on Connecticut"
+   },
    {
     "source": "official:myfather",
     "vitola": "",
@@ -6010,27 +6175,48 @@
   "verified": false,
   "vitolas": [],
   "specs": {
+   "binder": "Nicaraguan Habano Criollo",
+   "filler": "Nicaraguan Corojo",
+   "strength": "mild to medium",
    "wrapper": "Ecuadorian Connecticut",
-   "binder": "Nicaraguan Corojo 99",
    "vitolas": [
     "Robusto 51/4x52"
    ]
   },
   "updated": "2026-10-06",
-  "seed": {
-   "shops": "cigarpage+cigarplace",
-   "cuban": false
-  }
+  "aliases": [
+   "my father connecticut"
+  ]
  },
- "my-father-my-father-la-gran-oferta": {
-  "id": "my-father-my-father-la-gran-oferta",
+ "my-father-la-gran-oferta": {
+  "id": "my-father-la-gran-oferta",
   "brand": "My Father",
-  "name": "my father la gran oferta",
+  "name": "la gran oferta",
   "notes": {
-   "official": [],
+   "official": [
+    "spice",
+    "earth",
+    "pepper",
+    "almond",
+    "cocoa",
+    "caramel"
+   ],
    "review": []
   },
   "note_sources": [
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "spice",
+     "earth",
+     "pepper",
+     "almond",
+     "cocoa",
+     "caramel"
+    ],
+    "text": "Spicy , Earthy , Black Pepper , Almonds , Chocolate , Caramel Available. Learn about My Father La Gran Oferta Cigars. Check out reviews and get details on La Gran Oferta"
+   },
    {
     "source": "official:myfather",
     "vitola": "",
@@ -6041,17 +6227,18 @@
   "verified": false,
   "vitolas": [],
   "specs": {
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan",
+   "strength": "medium to full",
    "wrapper": "Habano Rosado",
-   "binder": "Nicaragua",
    "vitolas": [
     "Robusto 5x50"
    ]
   },
   "updated": "2026-10-06",
-  "seed": {
-   "shops": "cigarpage+cigarplace",
-   "cuban": false
-  }
+  "aliases": [
+   "my father la gran oferta"
+  ]
  },
  "my-father-my-father-la-lealtad": {
   "id": "my-father-my-father-la-lealtad",
@@ -11438,17 +11625,28 @@
   },
   "updated": "2026-10-06"
  },
- "joya-de-nicaragua-joya-black": {
-  "id": "joya-de-nicaragua-joya-black",
+ "joya-de-nicaragua-black": {
+  "id": "joya-de-nicaragua-black",
   "brand": "Joya de Nicaragua",
-  "name": "joya black",
+  "name": "black",
   "notes": {
    "official": [
+    "cocoa",
+    "leather",
     "toast"
    ],
    "review": []
   },
   "note_sources": [
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "cocoa",
+     "leather"
+    ],
+    "text": "Dark Fruit , Cocoa , Leather Available. Learn about Joya de Nicaragua Black Cigars. Check out reviews and get details on Black"
+   },
    {
     "source": "official:joya",
     "vitola": "",
@@ -11461,7 +11659,9 @@
   "verified": false,
   "vitolas": [],
   "specs": {
-   "strength": "medium-bodied",
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan",
+   "strength": "medium",
    "vitolas": [
     "Nocturno 61/4x50",
     "Toro 6x52",
@@ -11470,17 +11670,20 @@
    ]
   },
   "updated": "2026-10-06",
-  "seed": {
-   "shops": "cigarpage+cigarplace",
-   "cuban": false
-  }
+  "aliases": [
+   "joya black"
+  ]
  },
- "joya-de-nicaragua-joya-cabinetta": {
-  "id": "joya-de-nicaragua-joya-cabinetta",
+ "joya-de-nicaragua-cabinetta": {
+  "id": "joya-de-nicaragua-cabinetta",
   "brand": "Joya de Nicaragua",
-  "name": "joya cabinetta",
+  "name": "cabinetta",
   "notes": {
    "official": [
+    "woody",
+    "vanilla",
+    "cocoa",
+    "dried_fruit",
     "cream",
     "pepper",
     "toast"
@@ -11488,6 +11691,17 @@
    "review": []
   },
   "note_sources": [
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "woody",
+     "vanilla",
+     "cocoa",
+     "dried_fruit"
+    ],
+    "text": "Woody , Vanilla , Chocolate , Raisin Available. Learn about Joya de Nicaragua Cabinetta Cigars. Check out reviews and get details on Cabinetta"
+   },
    {
     "source": "official:joya",
     "vitola": "",
@@ -11502,7 +11716,10 @@
   "verified": false,
   "vitolas": [],
   "specs": {
-   "strength": "medium bodied",
+   "wrapper": "with a creamy, light Ecuadorian Connecticut Shade main",
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan",
+   "strength": "mild to medium",
    "vitolas": [
     "Churchill 67/8x46",
     "Belicoso 6x54",
@@ -11512,23 +11729,38 @@
    ]
   },
   "updated": "2026-10-06",
-  "seed": {
-   "shops": "cigarpage+cigarplace",
-   "cuban": false
-  }
+  "aliases": [
+   "joya cabinetta"
+  ]
  },
- "joya-de-nicaragua-joya-red": {
-  "id": "joya-de-nicaragua-joya-red",
+ "joya-de-nicaragua-red": {
+  "id": "joya-de-nicaragua-red",
   "brand": "Joya de Nicaragua",
-  "name": "joya red",
+  "name": "red",
   "notes": {
    "official": [
-    "toast",
-    "nuts"
+    "nuts",
+    "pepper",
+    "bread",
+    "leather",
+    "coffee",
+    "toast"
    ],
    "review": []
   },
   "note_sources": [
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "nuts",
+     "pepper",
+     "bread",
+     "leather",
+     "coffee"
+    ],
+    "text": "Nuts , Pepper , Toasty , Leather , Coffee Available. Learn about Joya de Nicaragua Red Cigars. Check out reviews and get details on Red"
+   },
    {
     "source": "official:joya",
     "vitola": "",
@@ -11542,7 +11774,9 @@
   "verified": false,
   "vitolas": [],
   "specs": {
-   "strength": "Medium bodied",
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan",
+   "strength": "medium",
    "vitolas": [
     "Half Corona 33/4x46",
     "Short Churchill 43/4x48",
@@ -11551,15 +11785,14 @@
    ]
   },
   "updated": "2026-10-06",
-  "seed": {
-   "shops": "cigarpage+cigarplace",
-   "cuban": false
-  }
+  "aliases": [
+   "joya red"
+  ]
  },
- "joya-de-nicaragua-joya-silver": {
-  "id": "joya-de-nicaragua-joya-silver",
+ "joya-de-nicaragua-silver": {
+  "id": "joya-de-nicaragua-silver",
   "brand": "Joya de Nicaragua",
-  "name": "joya silver",
+  "name": "silver",
   "notes": {
    "official": [
     "spice",
@@ -11569,6 +11802,15 @@
    "review": []
   },
   "note_sources": [
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "spice",
+     "cocoa"
+    ],
+    "text": "Spice , Chocolate , Dark Fruit Available. Learn about Joya de Nicaragua Silver Cigars. Check out reviews and get details on Silver"
+   },
    {
     "source": "official:joya",
     "vitola": "",
@@ -11583,16 +11825,18 @@
   "verified": false,
   "vitolas": [],
   "specs": {
+   "binder": "Mexican San Andres",
+   "filler": "Nicaraguan",
+   "strength": "medium",
    "vitolas": [
     "Toro 6x52",
     "Robusto 5x50"
    ]
   },
   "updated": "2026-10-06",
-  "seed": {
-   "shops": "cigarpage+cigarplace",
-   "cuban": false
-  }
+  "aliases": [
+   "joya silver"
+  ]
  },
  "joya-de-nicaragua-numero-uno": {
   "id": "joya-de-nicaragua-numero-uno",
@@ -14199,12 +14443,18 @@
    "cuban": false
   }
  },
- "brick-house-double-connecticut": {
-  "id": "brick-house-double-connecticut",
+ "brick-house-connecticut": {
+  "id": "brick-house-connecticut",
   "brand": "Brick House",
-  "name": "Double Connecticut",
+  "name": "connecticut",
   "notes": {
-   "official": [],
+   "official": [
+    "spice",
+    "white_pepper",
+    "pepper",
+    "cinnamon",
+    "grass"
+   ],
    "review": [
     "leather",
     "citrus",
@@ -14217,6 +14467,18 @@
    ]
   },
   "note_sources": [
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "spice",
+     "white_pepper",
+     "pepper",
+     "cinnamon",
+     "grass"
+    ],
+    "text": "Spicy , White Pepper , Cinnamon , Herbal Available. Learn about Brick House Connecticut Cigars. Check out reviews and get details on Connecticut"
+   },
    {
     "source": "review:dojo",
     "vitola": "5″ × 54 (Robusto)",
@@ -14237,27 +14499,27 @@
    }
   ],
   "verified": false,
+  "vitolas": [
+   "5″ × 54 (Robusto)"
+  ],
+  "specs": {
+   "binder": "Connecticut Broadleaf",
+   "filler": "Nicaraguan",
+   "strength": "mild to medium",
+   "vitola": "5″ × 54 (Robusto)",
+   "wrapper": "Connecticut Shade",
+   "factory": "J.C. Newman PENSA (Nicaragua) Production: Regular Production"
+  },
+  "updated": "2026-10-06",
   "ratings": {
    "dojo": {
     "score": 89,
     "url": "https://cigardojo.com/2018/05/brick-house-double-connecticut-robusto/"
    }
   },
-  "vitolas": [
-   "5″ × 54 (Robusto)"
-  ],
-  "specs": {
-   "vitola": "5″ × 54 (Robusto)",
-   "wrapper": "Connecticut Shade",
-   "binder": "Connecticut Broadleaf",
-   "filler": "Nicaraguan",
-   "factory": "J.C. Newman PENSA (Nicaragua) Production: Regular Production"
-  },
-  "updated": "2026-10-06",
-  "seed": {
-   "shops": "cigarpage+cigarplace",
-   "cuban": false
-  }
+  "aliases": [
+   "Double Connecticut"
+  ]
  },
  "cain-f": {
   "id": "cain-f",
@@ -19240,7 +19502,15 @@
   "brand": "Padron",
   "name": "1964 Anniversary Maduro",
   "notes": {
-   "official": [],
+   "official": [
+    "earth",
+    "woody",
+    "caramel",
+    "cocoa",
+    "coffee",
+    "white_pepper",
+    "pepper"
+   ],
    "review": [
     "cream",
     "leather",
@@ -19278,6 +19548,20 @@
     "score": 95,
     "url": "https://cigardojo.com/2018/04/padron-1964-anniversary-series-presidente-maduro/",
     "title": "Padrón 1964 Anniversary Series Presidente Maduro"
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "woody",
+     "caramel",
+     "cocoa",
+     "coffee",
+     "white_pepper",
+     "pepper"
+    ],
+    "text": "Earth , Wood , Caramel , Cocoa , Coffee , White Pepper Available. Learn about Padron 1964 Anniversary Series Maduro Cigars. Check out reviews and get details on 1964 Anniversary Series Maduro"
    }
   ],
   "verified": false,
@@ -19295,13 +19579,17 @@
    "wrapper": "Nicaraguan Sun-Grown (4-year-aged)",
    "binder": "Nicaraguan Sun-Grown (4-year-aged)",
    "filler": "Nicaraguan Sun-Grown (4-year-aged)",
-   "factory": "Tabacos Cubanica S.A. (Nicaragua) Production: Regular Production"
+   "factory": "Tabacos Cubanica S.A. (Nicaragua) Production: Regular Production",
+   "strength": "full"
   },
   "updated": "2026-10-06",
   "seed": {
    "shops": "cigarplace",
    "cuban": false
-  }
+  },
+  "aliases": [
+   "1964 anniversary series maduro"
+  ]
  },
  "padron-maduro": {
   "id": "padron-maduro",
@@ -22712,7 +23000,12 @@
   "brand": "Liga Privada",
   "name": "Unico",
   "notes": {
-   "official": [],
+   "official": [
+    "pepper",
+    "cedar",
+    "sweet",
+    "nuts"
+   ],
    "review": []
   },
   "note_sources": [
@@ -22721,17 +23014,34 @@
     "vitola": "",
     "tags": [],
     "text": " Drew Estate introduces the Liga Privada Unico Serie Bakkwa, a cigar crafted to honor Lunar New Year traditions, exclusively available through CoH Cigars in Hong Kong. This full-bodied Churchill-sized cigar features a Connecticut Stalk Cut wrapper, delivering a robust, complex flavor profile, designed to echo the festive Lunar New Year spirit. Inspired by the Chinese delicacy Bakkwa, a symbol of good fortune and prosperity, this cigar aims to blend cultural significance with a luxurious smoking experience. Jonathan Drew, Founder and Presidente of Drew Estate highlights “I’m inspired by Bakkwa&#8217;s role as a cultural bridge, encapsulating festivity and indulgence in the form of a premium cigar. Drew Estate is so diverse as a company and as a brand, our people and our philosophies. Our zest for life and passion is embodied beautifully in this new offering. It’s dope.” Presented in 12-count boxes, the Liga Privada Unico Serie Bakkwa is priced at retail of $235 per box. Bakkwa is a nod to the Unico Serie&#8217;s tradition of pork-themed cigars, poised to be a coveted item for Hong Kong&#8217;s cigar enthusiasts. "
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "pepper",
+     "cedar",
+     "sweet",
+     "nuts"
+    ],
+    "text": "Pepper , Cedar , Sweetness , Nutty Available. Learn about Liga Privada Unico Serie Cigars. Check out reviews and get details on Unico Serie"
    }
   ],
   "verified": false,
   "vitolas": [],
   "updated": "2026-10-06",
   "aliases": [
-   "Unico Serie"
+   "Unico Serie",
+   "unico serie"
   ],
   "seed": {
    "shops": "cigarplace",
    "cuban": false
+  },
+  "specs": {
+   "wrapper": ", and a Brazilian Mata Fina",
+   "filler": "Honduran , Nicaraguan",
+   "strength": "medium to full"
   }
  },
  "luciano-fiat-lux": {
@@ -25335,16 +25645,42 @@
   "brand": "Arturo Fuente",
   "name": "Chateau Natural",
   "notes": {
-   "official": [],
+   "official": [
+    "woody",
+    "earth",
+    "nuts",
+    "butter"
+   ],
    "review": []
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "woody",
+     "earth",
+     "nuts",
+     "butter"
+    ],
+    "text": "Wood , Earth , Nuts , Butter Available. Learn about Arturo Fuente Chateau Fuente Natural Cigars. Check out reviews and get details on Chateau Fuente Natural"
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
-  }
+  },
+  "vitolas": [],
+  "specs": {
+   "wrapper": "that thoughtfully bundles up lucious Dominican",
+   "binder": "and",
+   "strength": "medium"
+  },
+  "aliases": [
+   "chateau fuente natural"
+  ]
  },
  "arturo-fuente-don-carlos": {
   "id": "arturo-fuente-don-carlos",
@@ -31756,21 +32092,45 @@
    "strength": "medium"
   }
  },
- "el-mago-miami-art-deco-edition": {
-  "id": "el-mago-miami-art-deco-edition",
-  "brand": "El Mago",
-  "name": "Miami Art Deco Edition",
+ "el-mago-miami-art-deco": {
+  "id": "el-mago-miami-art-deco",
+  "brand": "El Mago Cigars",
+  "name": "miami art deco",
   "notes": {
-   "official": [],
+   "official": [
+    "dark_chocolate",
+    "cocoa",
+    "espresso",
+    "spice",
+    "earth"
+   ],
    "review": []
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "dark_chocolate",
+     "cocoa",
+     "espresso",
+     "spice",
+     "earth"
+    ],
+    "text": "Dark Chocolate , Espresso , Spices , Earthy Drink. The El Mago Miami Art Deco Edition cigar was created as a tribute to the grandparents of Nicholas Fusco, the company’s C. E. O"
+   }
+  ],
   "verified": false,
+  "vitolas": [],
+  "specs": {
+   "binder": "Broadleaf",
+   "filler": "Nicaraguan",
+   "strength": "medium"
+  },
   "updated": "2026-10-06",
-  "seed": {
-   "shops": "cigarpage",
-   "cuban": false
-  }
+  "aliases": [
+   "Miami Art Deco Edition"
+  ]
  },
  "el-mago-miami-maduro": {
   "id": "el-mago-miami-maduro",
@@ -41073,16 +41433,48 @@
   "brand": "Padron",
   "name": "1964 Anniversary Natural",
   "notes": {
-   "official": [],
+   "official": [
+    "earth",
+    "toast",
+    "oak",
+    "pepper",
+    "sweet",
+    "tobacco",
+    "espresso"
+   ],
    "review": []
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "toast",
+     "oak",
+     "pepper",
+     "sweet",
+     "tobacco",
+     "espresso"
+    ],
+    "text": "Earth , Charred Oak , Pepper , Sweet Tobacco , Espresso Available. Learn about Padron1964 Anniversary Series Natural Cigars. Check out reviews and get details on1964 Anniversary Series Natural"
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
    "shops": "cigarplace",
    "cuban": false
-  }
+  },
+  "vitolas": [],
+  "specs": {
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan",
+   "strength": "full"
+  },
+  "aliases": [
+   "1964 anniversary series natural"
+  ]
  },
  "padron-black-natural": {
   "id": "padron-black-natural",
@@ -46434,16 +46826,40 @@
   "brand": "Zino",
   "name": "Platinum Scepter",
   "notes": {
-   "official": [],
+   "official": [
+    "coffee",
+    "cocoa",
+    "nuts"
+   ],
    "review": []
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "coffee",
+     "cocoa",
+     "nuts"
+    ],
+    "text": "Coffee , Cocoa , Nutty Available. Learn about Zino Platinum Scepter Series Cigars. Check out reviews and get details on Platinum Scepter Series"
+   }
+  ],
   "verified": false,
   "updated": "2026-10-06",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
-  }
+  },
+  "vitolas": [],
+  "specs": {
+   "binder": "and finishes off with a Connecticut Ecuador",
+   "filler": "Dominican , Peruvian",
+   "strength": "mild to medium"
+  },
+  "aliases": [
+   "platinum scepter series"
+  ]
  },
  "zino-platinum-z-class": {
   "id": "zino-platinum-z-class",
@@ -56050,41 +56466,6 @@
   },
   "updated": "2026-10-06"
  },
- "arturo-fuente-chateau-fuente-natural": {
-  "id": "arturo-fuente-chateau-fuente-natural",
-  "brand": "Arturo Fuente",
-  "name": "chateau fuente natural",
-  "notes": {
-   "official": [
-    "woody",
-    "earth",
-    "nuts",
-    "butter"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "woody",
-     "earth",
-     "nuts",
-     "butter"
-    ],
-    "text": "Wood , Earth , Nuts , Butter Available. Learn about Arturo Fuente Chateau Fuente Natural Cigars. Check out reviews and get details on Chateau Fuente Natural"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "wrapper": "that thoughtfully bundles up lucious Dominican",
-   "binder": "and",
-   "strength": "medium"
-  },
-  "updated": "2026-10-06"
- },
  "arturo-fuente-chateau-fuente-sun-grown": {
   "id": "arturo-fuente-chateau-fuente-sun-grown",
   "brand": "Arturo Fuente",
@@ -57538,43 +57919,6 @@
    "wrapper": ", a Brazilian Arapiraca",
    "filler": "Brazilian Mata Fina , Colombian , Nicaraguan Condega , Nicaraguan Esteli",
    "strength": "medium"
-  },
-  "updated": "2026-10-06"
- },
- "brick-house-connecticut": {
-  "id": "brick-house-connecticut",
-  "brand": "Brick House",
-  "name": "connecticut",
-  "notes": {
-   "official": [
-    "spice",
-    "white_pepper",
-    "pepper",
-    "cinnamon",
-    "grass"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "spice",
-     "white_pepper",
-     "pepper",
-     "cinnamon",
-     "grass"
-    ],
-    "text": "Spicy , White Pepper , Cinnamon , Herbal Available. Learn about Brick House Connecticut Cigars. Check out reviews and get details on Connecticut"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Connecticut Broadleaf",
-   "filler": "Nicaraguan",
-   "strength": "mild to medium"
   },
   "updated": "2026-10-06"
  },
@@ -62105,146 +62449,6 @@
   },
   "updated": "2026-10-06"
  },
- "davidoff-aniversario-series": {
-  "id": "davidoff-aniversario-series",
-  "brand": "Davidoff",
-  "name": "aniversario series",
-  "notes": {
-   "official": [
-    "leather",
-    "nuts",
-    "pepper",
-    "spice"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "leather",
-     "nuts",
-     "pepper",
-     "spice"
-    ],
-    "text": "Leather , Nuts , Black Pepper , Spices Available. Learn about Davidoff Aniversario Series Cigars. Check out reviews and get details on Aniversario Series"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Dominican",
-   "filler": "Dominican",
-   "strength": "medium"
-  },
-  "updated": "2026-10-06"
- },
- "davidoff-702": {
-  "id": "davidoff-702",
-  "brand": "Davidoff",
-  "name": "davidoff 702",
-  "notes": {
-   "official": [
-    "coffee",
-    "spice",
-    "dark_chocolate",
-    "cocoa"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "coffee",
-     "spice",
-     "dark_chocolate",
-     "cocoa"
-    ],
-    "text": "Coffee , Spice , Dark Chocolate Available. Learn about Davidoff 702 Cigars. Check out reviews and get details on 702"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Dominican",
-   "filler": "Dominican",
-   "strength": "medium"
-  },
-  "updated": "2026-10-06"
- },
- "davidoff-grand-cru-series": {
-  "id": "davidoff-grand-cru-series",
-  "brand": "Davidoff",
-  "name": "grand cru series",
-  "notes": {
-   "official": [
-    "woody",
-    "nuts",
-    "spice"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "woody",
-     "nuts",
-     "spice"
-    ],
-    "text": "Woody , Nutty , Spice Available. Learn about Davidoff Grand Cru Series Cigars. Check out reviews and get details on Grand Cru Series"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Dominican",
-   "filler": "Dominican",
-   "strength": "mild to medium"
-  },
-  "updated": "2026-10-06"
- },
- "davidoff-millennium-series": {
-  "id": "davidoff-millennium-series",
-  "brand": "Davidoff",
-  "name": "millennium series",
-  "notes": {
-   "official": [
-    "cocoa",
-    "caramel",
-    "white_pepper",
-    "pepper",
-    "spice"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "cocoa",
-     "caramel",
-     "white_pepper",
-     "pepper",
-     "spice"
-    ],
-    "text": "Chocolate , Caramel , White Pepper , Spice Available. Learn about Davidoff Millennium Series Cigars. Check out reviews and get details on Millennium Series"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Dominican",
-   "filler": "Dominican",
-   "strength": "full"
-  },
-  "updated": "2026-10-06"
- },
  "davidoff-mini-cigarillos-gold": {
   "id": "davidoff-mini-cigarillos-gold",
   "brand": "Davidoff",
@@ -62473,41 +62677,6 @@
    "binder": "Ecuadorian Habano",
    "filler": "Dominican",
    "strength": "medium to full"
-  },
-  "updated": "2026-10-06"
- },
- "davidoff-signature-series": {
-  "id": "davidoff-signature-series",
-  "brand": "Davidoff",
-  "name": "signature series",
-  "notes": {
-   "official": [
-    "cream",
-    "floral",
-    "earth",
-    "woody"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "cream",
-     "floral",
-     "earth",
-     "woody"
-    ],
-    "text": "Creamy , Floral , Earthy , Wood Available. Learn about Davidoff Signature Series Cigars. Check out reviews and get details on Signature Series"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Dominican",
-   "filler": "Dominican",
-   "strength": "mild to medium"
   },
   "updated": "2026-10-06"
  },
@@ -64453,43 +64622,6 @@
    "binder": "Nicaraguan",
    "filler": "Nicaraguan",
    "strength": "medium to full"
-  },
-  "updated": "2026-10-06"
- },
- "el-mago-miami-art-deco": {
-  "id": "el-mago-miami-art-deco",
-  "brand": "El Mago Cigars",
-  "name": "miami art deco",
-  "notes": {
-   "official": [
-    "dark_chocolate",
-    "cocoa",
-    "espresso",
-    "spice",
-    "earth"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "dark_chocolate",
-     "cocoa",
-     "espresso",
-     "spice",
-     "earth"
-    ],
-    "text": "Dark Chocolate , Espresso , Spices , Earthy Drink. The El Mago Miami Art Deco Edition cigar was created as a tribute to the grandparents of Nicholas Fusco, the company’s C. E. O"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Broadleaf",
-   "filler": "Nicaraguan",
-   "strength": "medium"
   },
   "updated": "2026-10-06"
  },
@@ -66712,73 +66844,6 @@
   },
   "updated": "2026-10-06"
  },
- "joya-de-nicaragua-black": {
-  "id": "joya-de-nicaragua-black",
-  "brand": "Joya de Nicaragua",
-  "name": "black",
-  "notes": {
-   "official": [
-    "cocoa",
-    "leather"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "cocoa",
-     "leather"
-    ],
-    "text": "Dark Fruit , Cocoa , Leather Available. Learn about Joya de Nicaragua Black Cigars. Check out reviews and get details on Black"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "medium"
-  },
-  "updated": "2026-10-06"
- },
- "joya-de-nicaragua-cabinetta": {
-  "id": "joya-de-nicaragua-cabinetta",
-  "brand": "Joya de Nicaragua",
-  "name": "cabinetta",
-  "notes": {
-   "official": [
-    "woody",
-    "vanilla",
-    "cocoa",
-    "dried_fruit"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "woody",
-     "vanilla",
-     "cocoa",
-     "dried_fruit"
-    ],
-    "text": "Woody , Vanilla , Chocolate , Raisin Available. Learn about Joya de Nicaragua Cabinetta Cigars. Check out reviews and get details on Cabinetta"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "wrapper": "with a creamy, light Ecuadorian Connecticut Shade main",
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "mild to medium"
-  },
-  "updated": "2026-10-06"
- },
  "joya-de-nicaragua-cinco-decades": {
   "id": "joya-de-nicaragua-cinco-decades",
   "brand": "Joya de Nicaragua",
@@ -66809,74 +66874,6 @@
    "binder": "Mexican",
    "filler": "Nicaraguan",
    "strength": "medium to full"
-  },
-  "updated": "2026-10-06"
- },
- "joya-de-nicaragua-red": {
-  "id": "joya-de-nicaragua-red",
-  "brand": "Joya de Nicaragua",
-  "name": "red",
-  "notes": {
-   "official": [
-    "nuts",
-    "pepper",
-    "bread",
-    "leather",
-    "coffee"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "nuts",
-     "pepper",
-     "bread",
-     "leather",
-     "coffee"
-    ],
-    "text": "Nuts , Pepper , Toasty , Leather , Coffee Available. Learn about Joya de Nicaragua Red Cigars. Check out reviews and get details on Red"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "medium"
-  },
-  "updated": "2026-10-06"
- },
- "joya-de-nicaragua-silver": {
-  "id": "joya-de-nicaragua-silver",
-  "brand": "Joya de Nicaragua",
-  "name": "silver",
-  "notes": {
-   "official": [
-    "spice",
-    "cocoa"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "spice",
-     "cocoa"
-    ],
-    "text": "Spice , Chocolate , Dark Fruit Available. Learn about Joya de Nicaragua Silver Cigars. Check out reviews and get details on Silver"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Mexican San Andres",
-   "filler": "Nicaraguan",
-   "strength": "medium"
   },
   "updated": "2026-10-06"
  },
@@ -68832,41 +68829,6 @@
   },
   "updated": "2026-10-06"
  },
- "liga-privada-unico-serie": {
-  "id": "liga-privada-unico-serie",
-  "brand": "Liga Privada",
-  "name": "unico serie",
-  "notes": {
-   "official": [
-    "pepper",
-    "cedar",
-    "sweet",
-    "nuts"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "pepper",
-     "cedar",
-     "sweet",
-     "nuts"
-    ],
-    "text": "Pepper , Cedar , Sweetness , Nutty Available. Learn about Liga Privada Unico Serie Cigars. Check out reviews and get details on Unico Serie"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "wrapper": ", and a Brazilian Mata Fina",
-   "filler": "Honduran , Nicaraguan",
-   "strength": "medium to full"
-  },
-  "updated": "2026-10-06"
- },
  "los-statos-deluxe-connecticut": {
   "id": "los-statos-deluxe-connecticut",
   "brand": "Los Statos Deluxe",
@@ -70770,41 +70732,6 @@
   },
   "updated": "2026-10-06"
  },
- "my-father-connecticut": {
-  "id": "my-father-connecticut",
-  "brand": "My Father",
-  "name": "connecticut",
-  "notes": {
-   "official": [
-    "cream",
-    "floral",
-    "cocoa",
-    "spice"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "cream",
-     "floral",
-     "cocoa",
-     "spice"
-    ],
-    "text": "Creamy , Floral , Chocolate , Spices Available. Learn about My Father Connecticut Cigars. Check out reviews and get details on Connecticut"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan Habano Criollo",
-   "filler": "Nicaraguan Corojo",
-   "strength": "mild to medium"
-  },
-  "updated": "2026-10-06"
- },
  "my-father-don-pepin-garcia-blue-label": {
   "id": "my-father-don-pepin-garcia-blue-label",
   "brand": "My Father",
@@ -70835,76 +70762,6 @@
    "binder": "Nicaraguan",
    "filler": "Nicaraguan",
    "strength": "full"
-  },
-  "updated": "2026-10-06"
- },
- "my-father-don-pepin-garcia-serie-jj": {
-  "id": "my-father-don-pepin-garcia-serie-jj",
-  "brand": "My Father",
-  "name": "don pepin garcia serie jj",
-  "notes": {
-   "official": [
-    "earth",
-    "leather"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "earth",
-     "leather"
-    ],
-    "text": "Earth , Ginger , Leather Available. Learn about My Father Don Pepin Garcia Serie JJ Cigars. Check out reviews and get details on Don Pepin Garcia Serie JJ"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "medium to full"
-  },
-  "updated": "2026-10-06"
- },
- "my-father-la-gran-oferta": {
-  "id": "my-father-la-gran-oferta",
-  "brand": "My Father",
-  "name": "la gran oferta",
-  "notes": {
-   "official": [
-    "spice",
-    "earth",
-    "pepper",
-    "almond",
-    "cocoa",
-    "caramel"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "spice",
-     "earth",
-     "pepper",
-     "almond",
-     "cocoa",
-     "caramel"
-    ],
-    "text": "Spicy , Earthy , Black Pepper , Almonds , Chocolate , Caramel Available. Learn about My Father La Gran Oferta Cigars. Check out reviews and get details on La Gran Oferta"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "medium to full"
   },
   "updated": "2026-10-06"
  },
@@ -71251,46 +71108,6 @@
   },
   "updated": "2026-10-06"
  },
- "oliva-gilberto-oliva-reserva": {
-  "id": "oliva-gilberto-oliva-reserva",
-  "brand": "Oliva",
-  "name": "gilberto oliva reserva",
-  "notes": {
-   "official": [
-    "spice",
-    "earth",
-    "leather",
-    "cream",
-    "cocoa",
-    "sweet"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "spice",
-     "earth",
-     "leather",
-     "cream",
-     "cocoa",
-     "sweet"
-    ],
-    "text": "Spice , Earth , Leather , Creamy , Cocoa , Sweetness Available. Learn about Oliva Gilberto Oliva Reserva Cigars. Check out reviews and get details on Gilberto Oliva Reserva"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "wrapper": ". The",
-   "binder": "Ecuadorian Habano",
-   "filler": "Nicaraguan",
-   "strength": "medium"
-  },
-  "updated": "2026-10-06"
- },
  "oliva-master-blends-iii": {
   "id": "oliva-master-blends-iii",
   "brand": "Oliva",
@@ -71391,88 +71208,6 @@
    "binder": "Nicaraguan",
    "filler": "Nicaraguan",
    "strength": "medium"
-  },
-  "updated": "2026-10-06"
- },
- "padron-1964-anniversary-series-maduro": {
-  "id": "padron-1964-anniversary-series-maduro",
-  "brand": "Padron",
-  "name": "1964 anniversary series maduro",
-  "notes": {
-   "official": [
-    "earth",
-    "woody",
-    "caramel",
-    "cocoa",
-    "coffee",
-    "white_pepper",
-    "pepper"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "earth",
-     "woody",
-     "caramel",
-     "cocoa",
-     "coffee",
-     "white_pepper",
-     "pepper"
-    ],
-    "text": "Earth , Wood , Caramel , Cocoa , Coffee , White Pepper Available. Learn about Padron 1964 Anniversary Series Maduro Cigars. Check out reviews and get details on 1964 Anniversary Series Maduro"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "full"
-  },
-  "updated": "2026-10-06"
- },
- "padron-1964-anniversary-series-natural": {
-  "id": "padron-1964-anniversary-series-natural",
-  "brand": "Padron",
-  "name": "1964 anniversary series natural",
-  "notes": {
-   "official": [
-    "earth",
-    "toast",
-    "oak",
-    "pepper",
-    "sweet",
-    "tobacco",
-    "espresso"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "earth",
-     "toast",
-     "oak",
-     "pepper",
-     "sweet",
-     "tobacco",
-     "espresso"
-    ],
-    "text": "Earth , Charred Oak , Pepper , Sweet Tobacco , Espresso Available. Learn about Padron1964 Anniversary Series Natural Cigars. Check out reviews and get details on1964 Anniversary Series Natural"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "full"
   },
   "updated": "2026-10-06"
  },
@@ -74855,12 +74590,16 @@
   },
   "updated": "2026-10-06"
  },
- "romeo-y-julieta-us-1875-romeo-y-julieta": {
-  "id": "romeo-y-julieta-us-1875-romeo-y-julieta",
+ "romeo-y-julieta-us-romeo-y-julieta-1875": {
+  "id": "romeo-y-julieta-us-romeo-y-julieta-1875",
   "brand": "Romeo Y Julieta (US)",
-  "name": "1875 by romeo y julieta",
+  "name": "romeo y julieta 1875",
   "notes": {
    "official": [
+    "bread",
+    "woody",
+    "leather",
+    "sweet",
     "spice",
     "dark_chocolate",
     "cocoa"
@@ -74868,6 +74607,17 @@
    "review": []
   },
   "note_sources": [
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "bread",
+     "woody",
+     "leather",
+     "sweet"
+    ],
+    "text": "Toasty , Wood , Leather , Sweetness Available. Learn about Romeo y Julieta 1875 Cigars. Check out reviews and get details on Romeo y Julieta 1875"
+   },
    {
     "source": "official:stg",
     "vitola": "",
@@ -74882,11 +74632,14 @@
   "verified": false,
   "vitolas": [],
   "specs": {
-   "binder": "Dominican Piloto",
-   "filler": "Dominican Olor , Dominican Piloto",
+   "binder": "Dominican",
+   "filler": "Dominican",
    "strength": "medium"
   },
-  "updated": "2026-10-06"
+  "updated": "2026-10-06",
+  "aliases": [
+   "1875 by romeo y julieta"
+  ]
  },
  "romeo-y-julieta-us-1875-connecticut-nicaragua": {
   "id": "romeo-y-julieta-us-1875-connecticut-nicaragua",
@@ -75335,41 +75088,6 @@
    "binder": "Nicaraguan",
    "filler": "Dominican , Nicaraguan",
    "strength": "medium to full"
-  },
-  "updated": "2026-10-06"
- },
- "romeo-y-julieta-us-romeo-y-julieta-1875": {
-  "id": "romeo-y-julieta-us-romeo-y-julieta-1875",
-  "brand": "Romeo Y Julieta (US)",
-  "name": "romeo y julieta 1875",
-  "notes": {
-   "official": [
-    "bread",
-    "woody",
-    "leather",
-    "sweet"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "bread",
-     "woody",
-     "leather",
-     "sweet"
-    ],
-    "text": "Toasty , Wood , Leather , Sweetness Available. Learn about Romeo y Julieta 1875 Cigars. Check out reviews and get details on Romeo y Julieta 1875"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Dominican",
-   "filler": "Dominican",
-   "strength": "medium"
   },
   "updated": "2026-10-06"
  },
@@ -76363,21 +76081,32 @@
   },
   "updated": "2026-10-06"
  },
- "silencio-serie-m-double-robusto": {
-  "id": "silencio-serie-m-double-robusto",
+ "silencio-serie-m": {
+  "id": "silencio-serie-m",
   "brand": "Silencio",
-  "name": "serie m double robusto",
+  "name": "serie m",
   "notes": {
    "official": [
-    "sweet",
     "cocoa",
     "cedar",
     "leather",
-    "spice"
+    "spice",
+    "sweet"
    ],
    "review": []
   },
   "note_sources": [
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "cocoa",
+     "cedar",
+     "leather",
+     "spice"
+    ],
+    "text": "Cocoa , Cedar , Leather , Spice Drink. Silencio is proud to announce the First release of Serie M to\r\nbe launched in a Prominente size. Handcrafted in the USA by\r\nmaster rollers, Silencio Serie M is a testament to the passion,\r\ncommitment, and artistry that drives the cigar community"
+   },
    {
     "source": "official:stg",
     "vitola": "",
@@ -76398,42 +76127,10 @@
    "filler": "Dominican , Nicaraguan",
    "strength": "medium to full"
   },
-  "updated": "2026-10-06"
- },
- "silencio-serie-m": {
-  "id": "silencio-serie-m",
-  "brand": "Silencio",
-  "name": "serie m",
-  "notes": {
-   "official": [
-    "cocoa",
-    "cedar",
-    "leather",
-    "spice"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "cocoa",
-     "cedar",
-     "leather",
-     "spice"
-    ],
-    "text": "Cocoa , Cedar , Leather , Spice Drink. Silencio is proud to announce the First release of Serie M to\r\nbe launched in a Prominente size. Handcrafted in the USA by\r\nmaster rollers, Silencio Serie M is a testament to the passion,\r\ncommitment, and artistry that drives the cigar community"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Dominican , Nicaraguan",
-   "strength": "medium to full"
-  },
-  "updated": "2026-10-06"
+  "updated": "2026-10-06",
+  "aliases": [
+   "serie m double robusto"
+  ]
  },
  "silencio-serie-m-reserva-roja": {
   "id": "silencio-serie-m-reserva-roja",
@@ -77157,39 +76854,6 @@
    "binder": "Nicaraguan Habano",
    "filler": "Paraguay , Dominican Piloto , Pennsylvania Broadleaf , Jalapa",
    "strength": "medium to full"
-  },
-  "updated": "2026-10-06"
- },
- "zino-platinum-scepter-series": {
-  "id": "zino-platinum-scepter-series",
-  "brand": "Zino",
-  "name": "platinum scepter series",
-  "notes": {
-   "official": [
-    "coffee",
-    "cocoa",
-    "nuts"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "coffee",
-     "cocoa",
-     "nuts"
-    ],
-    "text": "Coffee , Cocoa , Nutty Available. Learn about Zino Platinum Scepter Series Cigars. Check out reviews and get details on Platinum Scepter Series"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "and finishes off with a Connecticut Ecuador",
-   "filler": "Dominican , Peruvian",
-   "strength": "mild to medium"
   },
   "updated": "2026-10-06"
  },
