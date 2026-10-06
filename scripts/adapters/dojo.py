@@ -47,12 +47,15 @@ SPEC_KEYS = ["vitola", "wrapper", "binder", "filler", "strength", "body", "count
 
 def parse_review(page):
     text = strip_html(page)
-    m = re.search(r"\b(\d{2,3})\s?%", text[-6000:])
-    if not m:
+    tail = text[-8000:]
+    # the rating block: a verdict label followed by the overall percentage, e.g. "Old Guard 95%"
+    cands = [int(x) for x in re.findall(r"(?:Overall|Rating|Score|Verdict)[^%]{0,80}?(\d{2})\s?%", tail, re.I)]
+    if not cands:
+        cands = [int(x) for x in re.findall(r"\b(\d{2})\s?%", tail)]
+    cands = [c for c in cands if 60 <= c <= 99]
+    if not cands:
         return None
-    score = int(m.group(1))
-    if not 50 <= score <= 100:
-        return None
+    score = cands[-1]
     spec = {}
     for k in SPEC_KEYS:
         mm = re.search(rf"\b{k}\s*[:\-–—]\s*([^|]{{2,80}}?)(?=\s{{2,}}|\s+(?:{'|'.join(SPEC_KEYS)})\s*[:\-–—]|$)", text[:4000], re.I)
