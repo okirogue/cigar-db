@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: app-build
@@ -49,13 +50,43 @@ jobs:
         run: flutter pub get
 
       - name: Analyze
-        run: flutter analyze --no-fatal-infos
+        run: |
+          set -o pipefail
+          flutter analyze --no-fatal-infos 2>&1 | tee ../ci-analyze.txt
 
       - name: Test
-        run: flutter test
+        run: |
+          set -o pipefail
+          flutter test 2>&1 | tee ../ci-test.txt
 
       - name: Build APK (debug-signed release)
-        run: flutter build apk --release
+        run: |
+          set -o pipefail
+          flutter build apk --release 2>&1 | tee ../ci-build.txt
+
+      # 실패 시 로그를 이슈 코멘트로 남김 (로그 blob 저장소가 외부에서 안 열릴 때 대비)
+      - name: Post failure log to issue
+        if: failure()
+        working-directory: .
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "### app-build failed · ${GITHUB_SHA::7} · run ${{ github.run_id }}"
+            for f in ci-analyze.txt ci-test.txt ci-build.txt; do
+              if [ -f "$f" ]; then
+                echo; echo "<details><summary>$f</summary>"; echo; echo '```'
+                grep -vE '^\s*$' "$f" | tail -n 150
+                echo '```'; echo '</details>'
+              fi
+            done
+          } > body.md
+          NUM=$(gh issue list --label ci-log --state open --json number --jq '.[0].number' || true)
+          if [ -z "$NUM" ]; then
+            gh label create ci-log --color 777777 --force >/dev/null 2>&1 || true
+            NUM=$(gh issue create --title "CI log (app-build)" --label ci-log --body "자동 생성: 빌드 실패 로그가 코멘트로 쌓입니다." | grep -oE '[0-9]+$')
+          fi
+          gh issue comment "$NUM" --body-file body.md
 
       - uses: actions/upload-artifact@v4
         with:
