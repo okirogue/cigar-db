@@ -1,0 +1,28 @@
+name: debug-fetch
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "URL to fetch and save as debug/page.html"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch
+        run: |
+          mkdir -p debug
+          curl -sSL -A "Mozilla/5.0 (cigar-db-bot)" "${{ github.event.inputs.url }}" -o debug/page.html
+          wc -c debug/page.html
+      - name: Commit
+        run: |
+          git config user.name "cigar-db-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add debug/page.html
+          git commit -m "debug: fetch page" && git push
