@@ -5085,15 +5085,58 @@
   },
   "updated": "2026-10-06"
  },
- "my-father-my-father-la-opulencia": {
-  "id": "my-father-my-father-la-opulencia",
+ "my-father-la-opulencia": {
+  "id": "my-father-la-opulencia",
   "brand": "My Father",
-  "name": "my father la opulencia",
+  "name": "La Opulencia",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "leather",
+    "sweet",
+    "toast",
+    "hay",
+    "coffee",
+    "pepper",
+    "cedar",
+    "cinnamon",
+    "cocoa",
+    "tea",
+    "grass",
+    "spice",
+    "clove",
+    "cream",
+    "nuts",
+    "butter"
+   ]
   },
   "note_sources": [
+   {
+    "source": "review:dojo",
+    "vitola": "5¼&#8221; × 52 (Robusto)",
+    "tags": [
+     "leather",
+     "sweet",
+     "toast",
+     "hay",
+     "coffee",
+     "pepper",
+     "cedar",
+     "cinnamon",
+     "cocoa",
+     "tea",
+     "grass",
+     "spice",
+     "clove",
+     "cream",
+     "nuts",
+     "butter"
+    ],
+    "text": "Pre-light aroma from the foot is straight-up brownie batter, giving way to some cigarette tobacco aroma, followed by a leathery chemical smell. The cold draw offers sensations of sweetness, more of that brownie batter; not much else. As I toast the cigar, the girth, excessive labels, and box-press make it feel clunky and unwieldy—I almost drop it several times as I try to roll it over the soft flame. Smoke output starts out pretty heavy, despite the draw being a touch (or two) looser than what I would like; akin to drinking root beer through a straw with a hole in it, rather than a drinking a milkshake. I used a v-cut, as larger ring gauges with box-press seem to smoke pretty well that way (guillotine-style cutters can occasionally damage pressed cigars, as the square shape of the cigar is met with the rounded blade). Initial flavors are of coffee, black pepper, heavy doses of cedar, and cinnamon bark (to be differentiated from the more pleasant, ground cinnamon flavor). Ten minutes or so in and the pepper has faded into the mix—pretty on-par for a MF release. I’m blasting through this cigar pretty quickly; the light draw starts to seem kind of airy, and after 21 minutes, I move into the second third. Body is not quite medium (I hope it makes it that far), with flavor and strength not far ahead, although they are at least asking to be let into the building where medium resides&#8230; The second third brings a pretty enjoyable chocolate shortbread flavor, which is the first hint of the gooey, sweet flavors from the cold draw. Cinnamon has transitioned from the tannic, herbal, medicinal tree bark flavor of the first third into the more pleasant baking spice realm. The mild black pepper sits right on the back of the tongue. Some mild anise and licorice root join the fold (think those little candy-coated fennel seeds you get at Indian restaurants). I feel more like I’m picking flavors out of the ether, than deciphering a palate-full experience. I’m looking, reaching, waiting for the cigar to really present itself. The cigar&#8217;s airy draw is really holding it back, I think. Opulence (in reference to the cigar&#8217;s title) is typically used to describe extravagance, lavishness, richness; whereas the experience speaks more towards elegance, refinement, or restraint. It’s certainly tasteful, but I was expecting more of a big, chewy, full-bodied experience. The robusto does begin to gain traction, but still not even into medium territory, as the second third closes after a much-improved 35 minutes. Into the final third, the cigar is not as light, both in terms of smoke production and flavor. The draw has firmed up a little, and the spiciness is coming back into the picture. This is more along the lines of what I had expected. There’s big coffee flavor, some creaminess, black tea with garden mint, even a little raspberry jam to kick in some sweetness. There is lots of cocoa going into the final inch, backed by nutty brown butter. Finishing with spice and anise, this cigar completes its nearly two-hour journey into finally reaching medium strength and body, with flavor nearing the medium-full line. The burn was dead straight throughout the experience, with nary a touchup required. Ash was firm and held over an inch throughout.",
+    "score": 88,
+    "url": "https://cigardojo.com/2019/03/my-father-la-opulencia-robusto/",
+    "title": "My Father La Opulencia Robusto"
+   },
    {
     "source": "official:myfather",
     "vitola": "",
@@ -5102,25 +5145,77 @@
    }
   ],
   "verified": false,
-  "vitolas": [],
+  "ratings": {
+   "dojo": {
+    "score": 88,
+    "url": "https://cigardojo.com/2019/03/my-father-la-opulencia-robusto/"
+   }
+  },
+  "vitolas": [
+   "5¼&#8221; × 52 (Robusto)"
+  ],
   "specs": {
-   "wrapper": "Mexico Rosado Oscuro",
+   "vitola": "5¼&#8221; × 52 (Robusto)",
+   "wrapper": "Mexican Rosado Oscuro",
+   "factory": "My Father Cigars S.A. (Nicaragua) Production: Regular Production",
    "binder": "Nicaragua",
    "vitolas": [
     "Petite 41/2x48"
    ]
   },
-  "updated": "2026-10-06"
+  "updated": "2026-10-06",
+  "aliases": [
+   "my father la opulencia"
+  ]
  },
- "my-father-my-father-la-promesa": {
-  "id": "my-father-my-father-la-promesa",
+ "my-father-la-promesa": {
+  "id": "my-father-la-promesa",
   "brand": "My Father",
-  "name": "my father la promesa",
+  "name": "La Promesa",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "leather",
+    "hay",
+    "musty",
+    "spice",
+    "sweet",
+    "cinnamon",
+    "bread",
+    "caramel",
+    "cocoa",
+    "cream",
+    "nuts",
+    "white_pepper",
+    "pepper",
+    "earth"
+   ]
   },
   "note_sources": [
+   {
+    "source": "review:dojo",
+    "vitola": "6″ × 52 (Toro)",
+    "tags": [
+     "leather",
+     "hay",
+     "musty",
+     "spice",
+     "sweet",
+     "cinnamon",
+     "bread",
+     "caramel",
+     "cocoa",
+     "cream",
+     "nuts",
+     "white_pepper",
+     "pepper",
+     "earth"
+    ],
+    "text": "La Promesa&#8217;s wrapper gave off notes of peppercorn, leather, and hay, with a faint barnyard aroma. The foot offered notes of baking spice, sweet cinnamon, and nutmeg, while the cold draw tasted of cinnamon toast. The first thing I wrote in my notes was &#8220;interesting start.&#8221; This was due to an assortment of caramel, mild milk chocolate, and nuts throughout the first third, with a bright white pepper kick on the retrohale. The nutty flavor was in the driver’s seat for the first two inches. The rest of the flavor notes were a distant second to the nutty characteristics and the white-pepper-filled retro. It was a pleasant beginning and I was looking forward to some transitions. The middle third was pretty much the same as the first. Nutty notes were running wild and the white pepper continued its domination of the nostrils. There were some notes of chocolate and caramel, but they were not highlighted and were not gaining any strength. A creamy cedar note arrived at the midpoint and was a welcomed addition. The strength and body picked up a bit crossing the halfway mark, verging into medium-plus territory. The final third was a bit disappointing, unfortunately. Earthy notes picked up and a bitterness kicked in as things came to a close. My second experience smoking La Promesa was a carbon copy of the first. The flavors and transitions were exactly the same.",
+    "score": 87,
+    "url": "https://cigardojo.com/2019/12/my-father-la-promesa-toro/",
+    "title": "My Father La Promesa Toro"
+   },
    {
     "source": "official:myfather",
     "vitola": "",
@@ -5129,25 +5224,52 @@
    }
   ],
   "verified": false,
-  "vitolas": [],
+  "ratings": {
+   "dojo": {
+    "score": 87,
+    "url": "https://cigardojo.com/2019/12/my-father-la-promesa-toro/"
+   }
+  },
+  "vitolas": [
+   "6″ × 52 (Toro)"
+  ],
   "specs": {
-   "wrapper": "Nicaragua Habano",
+   "vitola": "6″ × 52 (Toro)",
+   "wrapper": "Ecuador Habano Rosado Oscuro",
    "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "factory": "My Father Cigars S.A. (Nicaragua) Production: Regular Production",
    "vitolas": [
     "X 48. Corona Gorda 51/2x48"
    ]
   },
-  "updated": "2026-10-06"
+  "updated": "2026-10-06",
+  "aliases": [
+   "my father la promesa"
+  ]
  },
- "my-father-my-father-le-bijou-1922": {
-  "id": "my-father-my-father-le-bijou-1922",
+ "my-father-le-bijou-1922": {
+  "id": "my-father-le-bijou-1922",
   "brand": "My Father",
-  "name": "my father le bijou 1922",
+  "name": "Le Bijou 1922",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "toast"
+   ]
   },
   "note_sources": [
+   {
+    "source": "review:dojo",
+    "vitola": "",
+    "tags": [
+     "toast"
+    ],
+    "text": " on enjoying the delicious and relaxing smoke. When all the smoke clears this cigar is medium to full bodied and the strength is matching. I really love the My Father line of cigars and this one is no exception. Short Link: My Father Le Bijou 1922 Grand Robusto A solid cigar in almost every category and a great example of a cigar that gets better with age. Appearance 86% Burn/Construction 89% Draw 91% Flavor 90% Complexity 90% Price/Value 89% Pros Satisfying smoke Gets better with age Excellent Construction Cons Needs some time in humidor 2012-07-10 89 % Flavor Bomb Reader Rating: ( 1 Vote) 98% Habano Medium/Full Bodied My Father Cigars Oscuro Booker&#8217;s Bourbon Acid Kuba Kuba About The Author Eric Guttormson Owner Cigars are just one of my many interests. I also love dreaming about living near a beach with palm trees and hammocks. I still hold out hope for freedom and liberty! You can find me on Facebook , or Twitter . But mainly you will find me on the Cigar Dojo app. Sponsored By&#8230; About Us Welcome to Cigar Dojo. If you are looking for easy-to-read, straight-to-the-point cigar reviews, you have come to the right place. At the Dojo, it’s all about cigar smoking. Cigar Dojo consists of a dedicated group of cigar smokers whose goal is to present the best cigar reviews on the web. Cigar Dojo app The all-new Cigar Dojo app for iPhone, iPad, and Android is the world&#8217;s first and most popular social cigar app. The Dojoverse is the place to hang out when you&#8217;re smoking. Checkin to your favorite cigars and earn belts, badges and more. In the words of Master Sensei, &#8220;Never Smoke Alone!&#8221;. To use the new app simply direct your phone&#8217;s browser to Dojoverse.com Members Of Important Links Advertising Overview Cigar Coupon Codes Cigar Dojo App Cigar Dojo Merch Cigar of the Year Archives Cigar Review Archives Contact Us Dojo Cigars Dojo Partners Flavor Odyssey Podcast Join Our Mailing List Privacy Policy Refund and Returns Policy Shop Smoke Night LIVE Podcast Terms and Conditions of Use © 2026 - Cigar Dojo ",
+    "score": 98,
+    "url": "https://cigardojo.com/2012/07/my-father-lil-bijou-grand-robusto/",
+    "title": "My Father Le Bijou 1922 Grand Robusto"
+   },
    {
     "source": "official:myfather",
     "vitola": "",
@@ -5156,13 +5278,22 @@
    }
   ],
   "verified": false,
+  "ratings": {
+   "dojo": {
+    "score": 98,
+    "url": "https://cigardojo.com/2012/07/my-father-lil-bijou-grand-robusto/"
+   }
+  },
   "vitolas": [],
+  "updated": "2026-10-06",
   "specs": {
    "wrapper": "Habano Oscuro-Oscuro",
    "binder": "Nicaragua",
    "strength": "Full-Bodied"
   },
-  "updated": "2026-10-06"
+  "aliases": [
+   "my father le bijou 1922"
+  ]
  },
  "my-father-my-father-mf-judge": {
   "id": "my-father-my-father-mf-judge",
@@ -15969,177 +16100,6 @@
   },
   "updated": "2026-10-06"
  },
- "my-father-la-opulencia": {
-  "id": "my-father-la-opulencia",
-  "brand": "My Father",
-  "name": "La Opulencia",
-  "notes": {
-   "official": [],
-   "review": [
-    "leather",
-    "sweet",
-    "toast",
-    "hay",
-    "coffee",
-    "pepper",
-    "cedar",
-    "cinnamon",
-    "cocoa",
-    "tea",
-    "grass",
-    "spice",
-    "clove",
-    "cream",
-    "nuts",
-    "butter"
-   ]
-  },
-  "note_sources": [
-   {
-    "source": "review:dojo",
-    "vitola": "5¼&#8221; × 52 (Robusto)",
-    "tags": [
-     "leather",
-     "sweet",
-     "toast",
-     "hay",
-     "coffee",
-     "pepper",
-     "cedar",
-     "cinnamon",
-     "cocoa",
-     "tea",
-     "grass",
-     "spice",
-     "clove",
-     "cream",
-     "nuts",
-     "butter"
-    ],
-    "text": "Pre-light aroma from the foot is straight-up brownie batter, giving way to some cigarette tobacco aroma, followed by a leathery chemical smell. The cold draw offers sensations of sweetness, more of that brownie batter; not much else. As I toast the cigar, the girth, excessive labels, and box-press make it feel clunky and unwieldy—I almost drop it several times as I try to roll it over the soft flame. Smoke output starts out pretty heavy, despite the draw being a touch (or two) looser than what I would like; akin to drinking root beer through a straw with a hole in it, rather than a drinking a milkshake. I used a v-cut, as larger ring gauges with box-press seem to smoke pretty well that way (guillotine-style cutters can occasionally damage pressed cigars, as the square shape of the cigar is met with the rounded blade). Initial flavors are of coffee, black pepper, heavy doses of cedar, and cinnamon bark (to be differentiated from the more pleasant, ground cinnamon flavor). Ten minutes or so in and the pepper has faded into the mix—pretty on-par for a MF release. I’m blasting through this cigar pretty quickly; the light draw starts to seem kind of airy, and after 21 minutes, I move into the second third. Body is not quite medium (I hope it makes it that far), with flavor and strength not far ahead, although they are at least asking to be let into the building where medium resides&#8230; The second third brings a pretty enjoyable chocolate shortbread flavor, which is the first hint of the gooey, sweet flavors from the cold draw. Cinnamon has transitioned from the tannic, herbal, medicinal tree bark flavor of the first third into the more pleasant baking spice realm. The mild black pepper sits right on the back of the tongue. Some mild anise and licorice root join the fold (think those little candy-coated fennel seeds you get at Indian restaurants). I feel more like I’m picking flavors out of the ether, than deciphering a palate-full experience. I’m looking, reaching, waiting for the cigar to really present itself. The cigar&#8217;s airy draw is really holding it back, I think. Opulence (in reference to the cigar&#8217;s title) is typically used to describe extravagance, lavishness, richness; whereas the experience speaks more towards elegance, refinement, or restraint. It’s certainly tasteful, but I was expecting more of a big, chewy, full-bodied experience. The robusto does begin to gain traction, but still not even into medium territory, as the second third closes after a much-improved 35 minutes. Into the final third, the cigar is not as light, both in terms of smoke production and flavor. The draw has firmed up a little, and the spiciness is coming back into the picture. This is more along the lines of what I had expected. There’s big coffee flavor, some creaminess, black tea with garden mint, even a little raspberry jam to kick in some sweetness. There is lots of cocoa going into the final inch, backed by nutty brown butter. Finishing with spice and anise, this cigar completes its nearly two-hour journey into finally reaching medium strength and body, with flavor nearing the medium-full line. The burn was dead straight throughout the experience, with nary a touchup required. Ash was firm and held over an inch throughout.",
-    "score": 88,
-    "url": "https://cigardojo.com/2019/03/my-father-la-opulencia-robusto/",
-    "title": "My Father La Opulencia Robusto"
-   }
-  ],
-  "verified": false,
-  "ratings": {
-   "dojo": {
-    "score": 88,
-    "url": "https://cigardojo.com/2019/03/my-father-la-opulencia-robusto/"
-   }
-  },
-  "vitolas": [
-   "5¼&#8221; × 52 (Robusto)"
-  ],
-  "specs": {
-   "vitola": "5¼&#8221; × 52 (Robusto)",
-   "wrapper": "Mexican Rosado Oscuro",
-   "factory": "My Father Cigars S.A. (Nicaragua) Production: Regular Production"
-  },
-  "updated": "2026-10-06"
- },
- "my-father-la-promesa": {
-  "id": "my-father-la-promesa",
-  "brand": "My Father",
-  "name": "La Promesa",
-  "notes": {
-   "official": [],
-   "review": [
-    "leather",
-    "hay",
-    "musty",
-    "spice",
-    "sweet",
-    "cinnamon",
-    "bread",
-    "caramel",
-    "cocoa",
-    "cream",
-    "nuts",
-    "white_pepper",
-    "pepper",
-    "earth"
-   ]
-  },
-  "note_sources": [
-   {
-    "source": "review:dojo",
-    "vitola": "6″ × 52 (Toro)",
-    "tags": [
-     "leather",
-     "hay",
-     "musty",
-     "spice",
-     "sweet",
-     "cinnamon",
-     "bread",
-     "caramel",
-     "cocoa",
-     "cream",
-     "nuts",
-     "white_pepper",
-     "pepper",
-     "earth"
-    ],
-    "text": "La Promesa&#8217;s wrapper gave off notes of peppercorn, leather, and hay, with a faint barnyard aroma. The foot offered notes of baking spice, sweet cinnamon, and nutmeg, while the cold draw tasted of cinnamon toast. The first thing I wrote in my notes was &#8220;interesting start.&#8221; This was due to an assortment of caramel, mild milk chocolate, and nuts throughout the first third, with a bright white pepper kick on the retrohale. The nutty flavor was in the driver’s seat for the first two inches. The rest of the flavor notes were a distant second to the nutty characteristics and the white-pepper-filled retro. It was a pleasant beginning and I was looking forward to some transitions. The middle third was pretty much the same as the first. Nutty notes were running wild and the white pepper continued its domination of the nostrils. There were some notes of chocolate and caramel, but they were not highlighted and were not gaining any strength. A creamy cedar note arrived at the midpoint and was a welcomed addition. The strength and body picked up a bit crossing the halfway mark, verging into medium-plus territory. The final third was a bit disappointing, unfortunately. Earthy notes picked up and a bitterness kicked in as things came to a close. My second experience smoking La Promesa was a carbon copy of the first. The flavors and transitions were exactly the same.",
-    "score": 87,
-    "url": "https://cigardojo.com/2019/12/my-father-la-promesa-toro/",
-    "title": "My Father La Promesa Toro"
-   }
-  ],
-  "verified": false,
-  "ratings": {
-   "dojo": {
-    "score": 87,
-    "url": "https://cigardojo.com/2019/12/my-father-la-promesa-toro/"
-   }
-  },
-  "vitolas": [
-   "6″ × 52 (Toro)"
-  ],
-  "specs": {
-   "vitola": "6″ × 52 (Toro)",
-   "wrapper": "Ecuador Habano Rosado Oscuro",
-   "binder": "Nicaragua",
-   "filler": "Nicaragua",
-   "factory": "My Father Cigars S.A. (Nicaragua) Production: Regular Production"
-  },
-  "updated": "2026-10-06"
- },
- "my-father-le-bijou-1922": {
-  "id": "my-father-le-bijou-1922",
-  "brand": "My Father",
-  "name": "Le Bijou 1922",
-  "notes": {
-   "official": [],
-   "review": [
-    "toast"
-   ]
-  },
-  "note_sources": [
-   {
-    "source": "review:dojo",
-    "vitola": "",
-    "tags": [
-     "toast"
-    ],
-    "text": " on enjoying the delicious and relaxing smoke. When all the smoke clears this cigar is medium to full bodied and the strength is matching. I really love the My Father line of cigars and this one is no exception. Short Link: My Father Le Bijou 1922 Grand Robusto A solid cigar in almost every category and a great example of a cigar that gets better with age. Appearance 86% Burn/Construction 89% Draw 91% Flavor 90% Complexity 90% Price/Value 89% Pros Satisfying smoke Gets better with age Excellent Construction Cons Needs some time in humidor 2012-07-10 89 % Flavor Bomb Reader Rating: ( 1 Vote) 98% Habano Medium/Full Bodied My Father Cigars Oscuro Booker&#8217;s Bourbon Acid Kuba Kuba About The Author Eric Guttormson Owner Cigars are just one of my many interests. I also love dreaming about living near a beach with palm trees and hammocks. I still hold out hope for freedom and liberty! You can find me on Facebook , or Twitter . But mainly you will find me on the Cigar Dojo app. Sponsored By&#8230; About Us Welcome to Cigar Dojo. If you are looking for easy-to-read, straight-to-the-point cigar reviews, you have come to the right place. At the Dojo, it’s all about cigar smoking. Cigar Dojo consists of a dedicated group of cigar smokers whose goal is to present the best cigar reviews on the web. Cigar Dojo app The all-new Cigar Dojo app for iPhone, iPad, and Android is the world&#8217;s first and most popular social cigar app. The Dojoverse is the place to hang out when you&#8217;re smoking. Checkin to your favorite cigars and earn belts, badges and more. In the words of Master Sensei, &#8220;Never Smoke Alone!&#8221;. To use the new app simply direct your phone&#8217;s browser to Dojoverse.com Members Of Important Links Advertising Overview Cigar Coupon Codes Cigar Dojo App Cigar Dojo Merch Cigar of the Year Archives Cigar Review Archives Contact Us Dojo Cigars Dojo Partners Flavor Odyssey Podcast Join Our Mailing List Privacy Policy Refund and Returns Policy Shop Smoke Night LIVE Podcast Terms and Conditions of Use © 2026 - Cigar Dojo ",
-    "score": 98,
-    "url": "https://cigardojo.com/2012/07/my-father-lil-bijou-grand-robusto/",
-    "title": "My Father Le Bijou 1922 Grand Robusto"
-   }
-  ],
-  "verified": false,
-  "ratings": {
-   "dojo": {
-    "score": 98,
-    "url": "https://cigardojo.com/2012/07/my-father-lil-bijou-grand-robusto/"
-   }
-  },
-  "vitolas": [],
-  "updated": "2026-10-06"
- },
  "my-father-judge": {
   "id": "my-father-judge",
   "brand": "My Father",
@@ -16897,56 +16857,6 @@
   },
   "updated": "2026-10-06"
  },
- "perdomo-reserve-10th-anniversary-box-pressed-maduro": {
-  "id": "perdomo-reserve-10th-anniversary-box-pressed-maduro",
-  "brand": "Perdomo",
-  "name": "Reserve 10th Anniversary Box-Pressed Maduro",
-  "notes": {
-   "official": [],
-   "review": [
-    "cinnamon",
-    "cocoa",
-    "mineral",
-    "earth",
-    "toast"
-   ]
-  },
-  "note_sources": [
-   {
-    "source": "review:dojo",
-    "vitola": "6″ × 54 &#8220;Epicure&#8221; (Toro)",
-    "tags": [
-     "cinnamon",
-     "cocoa",
-     "mineral",
-     "earth",
-     "toast"
-    ],
-    "text": "The Maduro lights up with a fair bit of zestiness, not letting the opportunity to grab your attention go to waste. Raw peppercorn is dry on the palate and cinnamon zips through the nostrils. There is a bitter baking cocoa on the center of the palate, and mineral-rich soil shines through on the finish. The profile holds largely similar within the first two-plus inches, having a solid flavor foundation and impressing in the construction department as well. This includes a straight medium-gray ash (holding for at least two inches) and an unwavering burn line. As the pre-light draw hinted, the smoking draw is slightly firm, though only in the most scrupulous of standards. This also translates to a medium-light smoke output, with the",
-    "score": 91,
-    "url": "https://cigardojo.com/2020/09/perdomo-reserve-10th-anniversary-box-pressed-maduro-epicure/",
-    "title": "Perdomo Reserve 10th Anniversary Box-Pressed Maduro Epicure"
-   }
-  ],
-  "verified": false,
-  "ratings": {
-   "dojo": {
-    "score": 91,
-    "url": "https://cigardojo.com/2020/09/perdomo-reserve-10th-anniversary-box-pressed-maduro-epicure/"
-   }
-  },
-  "vitolas": [
-   "6″ × 54 &#8220;Epicure&#8221; (Toro)"
-  ],
-  "specs": {
-   "vitola": "6″ × 54 &#8220;Epicure&#8221; (Toro)",
-   "wrapper": "Nicaraguan (Cuban-Seed)",
-   "binder": "Nicaraguan (Cuban-Seed)",
-   "filler": "Nicaraguan (Cuban-Seed)",
-   "factory": "Tabacalera Perdomo S.A. (Nicaragua) Production: Regular Production"
-  },
-  "updated": "2026-10-06"
- },
  "perdomo-reserve-10th-anniversary-maduro": {
   "id": "perdomo-reserve-10th-anniversary-maduro",
   "brand": "Perdomo",
@@ -16995,7 +16905,10 @@
    "filler": "Nicaraguan (Cuban-Seed)",
    "factory": "Tabacalera Perdomo S.A. (Nicaragua) Production: Regular Production"
   },
-  "updated": "2026-10-06"
+  "updated": "2026-10-06",
+  "aliases": [
+   "Reserve 10th Anniversary Box-Pressed Maduro"
+  ]
  },
  "perla-del-mar-corojo": {
   "id": "perla-del-mar-corojo",

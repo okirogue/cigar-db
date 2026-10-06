@@ -27,6 +27,18 @@ def query_words(brand, line):
     return words
 
 
+def title_matches(title_norm, brand, line):
+    bw = [w for w in norm(brand).split() if w not in STOP]
+    lw = [w for w in norm(line).split() if w not in STOP and w not in bw]
+    tw = set(title_norm.split())
+    if not all(w in tw or w in title_norm for w in bw):
+        return False
+    if not lw:
+        return True
+    hit = sum(1 for w in lw if w in tw or (len(w) > 3 and w in title_norm))
+    return hit / len(lw) >= 0.7
+
+
 def search(brand, line):
     words = query_words(brand, line)
     q = " ".join(words)
@@ -37,7 +49,7 @@ def search(brand, line):
     hits = []
     for it in data:
         title = norm(html.unescape(it.get("title", "")))
-        if all(w in title.split() or w in title for w in words):
+        if title_matches(title, brand, line):
             hits.append({"title": html.unescape(it["title"]), "url": it["url"]})
     return hits[:3]
 
