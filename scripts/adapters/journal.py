@@ -24,7 +24,8 @@ def search(brand, line):
     for p in data:
         title = html.unescape(p["title"]["rendered"])
         nt = norm(title)
-        if not title_matches(nt, brand, line) or SKIP_TITLE.search(title):
+        words = query_words(brand, line)
+        if not all(w in nt for w in words) or SKIP_TITLE.search(title):
             continue
         body = strip_html(p["content"]["rendered"])
         if not re.search(r"\b(notes?|aromas?|palate|flavou?r|spic|sweet|cream|wood|pepper|leather|earth)", body, re.I):

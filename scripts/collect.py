@@ -74,8 +74,10 @@ def main():
         e["note_sources"] = [s for s in e["note_sources"] if (s["source"], s.get("vitola", "")) != key]
         if r["note_text"]:
             src = {"source": r["source"], "vitola": r.get("vitola", ""), "tags": tags, "text": r["note_text"]}
+            if r.get("review_url"):
+                src["url"] = r["review_url"]; src["title"] = r.get("review_title")
             if r.get("score") is not None:
-                src["score"] = r["score"]; src["url"] = r.get("review_url"); src["title"] = r.get("review_title")
+                src["score"] = r["score"]
             e["note_sources"].append(src)
         if r.get("score") is not None:
             e.setdefault("ratings", {})[r["source"].split(":")[1]] = {"score": r["score"], "url": r.get("review_url")}
