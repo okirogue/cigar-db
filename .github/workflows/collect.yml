@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       adapter:
-        description: "adapter name (e.g. davidoff)"
+        description: "adapter name(s), space-separated (e.g. davidoff rockypatel oliva)"
         required: true
         default: davidoff
       limit:
@@ -26,11 +26,13 @@ jobs:
       - name: Run adapter
         run: |
           touch scripts/__init__.py scripts/adapters/__init__.py
-          if [ -n "${{ github.event.inputs.limit }}" ]; then
-            python scripts/collect.py "${{ github.event.inputs.adapter }}" --limit "${{ github.event.inputs.limit }}"
-          else
-            python scripts/collect.py "${{ github.event.inputs.adapter }}"
-          fi
+          for a in ${{ github.event.inputs.adapter }}; do
+            if [ -n "${{ github.event.inputs.limit }}" ]; then
+              python scripts/collect.py "$a" --limit "${{ github.event.inputs.limit }}" || echo "FAILED $a"
+            else
+              python scripts/collect.py "$a" || echo "FAILED $a"
+            fi
+          done
       - name: Commit results
         run: |
           git config user.name "cigar-db-bot"

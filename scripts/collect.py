@@ -35,8 +35,12 @@ def main():
     ap.add_argument("--limit", type=int, default=None)
     a = ap.parse_args()
 
-    mod = importlib.import_module(f"scripts.adapters.{a.adapter}")
-    rows = mod.run(limit=a.limit)
+    from scripts.adapters import wp_generic
+    if a.adapter in wp_generic.BRANDS:
+        rows = wp_generic.run(limit=a.limit, brand_key=a.adapter)
+    else:
+        mod = importlib.import_module(f"scripts.adapters.{a.adapter}")
+        rows = mod.run(limit=a.limit)
 
     db = json.loads(DB.read_text(encoding="utf-8")) if DB.exists() else {}
     today = datetime.date.today().isoformat()
@@ -65,6 +69,8 @@ def main():
                     if t not in merged:
                         merged.append(t)
         e["notes"][kind] = merged
+        for k, v in (r.get("specs") or {}).items():
+            e.setdefault("specs", {}).setdefault(k, v)
         e["updated"] = today
         added += 1
 
