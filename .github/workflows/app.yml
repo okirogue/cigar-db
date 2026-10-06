@@ -1,0 +1,76 @@
+name: app-build
+
+on:
+  push:
+    paths:
+      - "app/**"
+      - ".github/workflows/app.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: app-build
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Flutter version
+        run: flutter --version
+
+      # android/ 폴더가 아직 없으면 생성 (기존 lib/pubspec은 건드리지 않음)
+      - name: Scaffold android project if missing
+        run: |
+          if [ ! -d android ]; then
+            flutter create --platforms=android --org com.okirogue --project-name cigar_log .
+            git status --short
+          fi
+
+      - name: Pub get
+        run: flutter pub get
+
+      - name: Analyze
+        run: flutter analyze --no-fatal-infos
+
+      - name: Test
+        run: flutter test
+
+      - name: Build APK (debug-signed release)
+        run: flutter build apk --release
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cigar_log-apk
+          path: app/build/app/outputs/flutter-apk/app-release.apk
+          retention-days: 14
+
+      # 새로 생성된 android/ 스캐폴드는 저장소에 커밋해 둔다 (권한·매니페스트 편집용)
+      - name: Commit scaffold
+        run: |
+          cd ..
+          git add app/android app/.gitignore app/.metadata 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git commit -m "chore(app): add android scaffold from flutter create"
+            git push
+          fi
