@@ -11,7 +11,7 @@ from .base import fetch, strip_html
 
 BRAND = "Davidoff"
 SITEMAP = "https://us.davidoffgeneva.com/sitemap.xml"
-SKIP = re.compile(r"limited-edition|sampler|gift|assortment|humidor|cutter|lighter|ashtray|case|accessor", re.I)
+SKIP = re.compile(r"limited-edition|sampler|gift|assortment|humidor|cutter|lighter|ashtray|accessor|pipe|flask|glass|bucket|pouch|set\b|selection|collection|band\b|promo|chefs-edition|year-of-the|exclusive|boutique|small-batch|oro-blanco|royal-release|davpipe|cigarillo|demi-tasse|real-especial|ritual|collectors|cleaner|mixture|tobacco", re.I)
 
 
 def product_urls():
@@ -29,7 +29,10 @@ def parse_name(url):
 
 
 def note_text(page_html):
-    # The description sits in a <p> containing "Cigars allow" / "notes" / "aroma"
+    # 1) meta description carries the tasting sentence on this store
+    m = re.search(r'<meta\s+name="description"\s+content="([^"]+)"', page_html, re.I)
+    if m and len(m.group(1)) > 40:
+        return m.group(1)
     text = strip_html(page_html)
     m = re.search(r"([^.]{0,200}\b(notes?|aromas?|flavou?rs?|palate|aftertaste|taste)\b[^.]{0,300}\.)", text, re.I)
     return m.group(1).strip() if m else ""
