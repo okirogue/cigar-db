@@ -165,7 +165,7 @@ class _CigarRow extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
             child: Row(children: [
-              const Thumb(size: 40),
+              const CigarThumb(size: 40),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

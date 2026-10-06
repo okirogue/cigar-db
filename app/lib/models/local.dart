@@ -1,4 +1,4 @@
-/// 로컬(sqflite)에 저장되는 사용자 데이터 모델.
+// 로컬(sqflite)에 저장되는 사용자 데이터 모델.
 
 class Humidor {
   final int id;

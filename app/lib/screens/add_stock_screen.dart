@@ -89,7 +89,7 @@ class _AddStockScreenState extends State<AddStockScreen> {
                     child: Padding(
                       padding: const EdgeInsets.all(14),
                       child: Row(children: [
-                        const Thumb(size: 48),
+                        const CigarThumb(size: 48),
                         const SizedBox(width: 12),
                         Expanded(
                           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -113,7 +113,7 @@ class _AddStockScreenState extends State<AddStockScreen> {
                       const SizedBox(height: 4),
                       if (vitolas.isNotEmpty)
                         DropdownButtonFormField<String>(
-                          value: _vitola,
+                          initialValue: _vitola,
                           hint: const Text('선택'),
                           items: [
                             for (final v in vitolas) DropdownMenuItem(value: v, child: Text(_stripBrand(v, cigar!.name))),
@@ -158,7 +158,7 @@ class _AddStockScreenState extends State<AddStockScreen> {
                         const SizedBox(width: 8),
                         Expanded(
                           child: DropdownButtonFormField<String>(
-                            value: _cur,
+                            initialValue: _cur,
                             items: [for (final c in _currencies) DropdownMenuItem(value: c, child: Text(c))],
                             onChanged: (v) => setState(() => _cur = v ?? 'USD'),
                           ),

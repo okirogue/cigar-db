@@ -92,9 +92,9 @@ class SubText extends StatelessWidget {
   Widget build(BuildContext context) => Text(text, style: TextStyle(fontSize: size, color: C.sub));
 }
 
-class Thumb extends StatelessWidget {
+class CigarThumb extends StatelessWidget {
   final double size;
-  const Thumb({super.key, this.size = 44});
+  const CigarThumb({super.key, this.size = 44});
   @override
   Widget build(BuildContext context) => Container(
         width: size,

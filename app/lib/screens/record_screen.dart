@@ -106,7 +106,7 @@ class _RecordScreenState extends State<RecordScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(14),
                     child: Row(children: [
-                      const Thumb(size: 48),
+                      const CigarThumb(size: 48),
                       const SizedBox(width: 12),
                       Expanded(
                         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -257,15 +257,19 @@ class _RecordScreenState extends State<RecordScreen> {
                         onChanged: (v) => setState(() => _deduct = v ?? false),
                       ),
                       if (_deduct && _stockCandidates.length > 1)
-                        for (final s in _stockCandidates)
-                          RadioListTile<int>(
-                            dense: true,
-                            value: s.id,
-                            groupValue: _deductStockId,
-                            activeColor: C.accent,
-                            title: Text('${st.humidors.where((h) => h.id == s.humidorId).map((h) => h.name).join()} · ${s.vitola ?? ''} · 재고 ${s.qty}', style: const TextStyle(fontSize: 13)),
-                            onChanged: (v) => setState(() => _deductStockId = v),
-                          ),
+                        RadioGroup<int>(
+                          groupValue: _deductStockId,
+                          onChanged: (v) => setState(() => _deductStockId = v),
+                          child: Column(children: [
+                            for (final s in _stockCandidates)
+                              RadioListTile<int>(
+                                dense: true,
+                                value: s.id,
+                                activeColor: C.accent,
+                                title: Text('${st.humidors.where((h) => h.id == s.humidorId).map((h) => h.name).join()} · ${s.vitola ?? ''} · 재고 ${s.qty}', style: const TextStyle(fontSize: 13)),
+                              ),
+                          ]),
+                        ),
                     ]),
                   ),
                 const SizedBox(height: 20),

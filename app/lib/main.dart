@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
     if (!ready) {
       return const Scaffold(body: Center(child: CircularProgressIndicator(color: C.accent)));
     }
-    final pages = const [HumidorScreen(), DiaryScreen(), ExploreScreen()];
+    const pages = [HumidorScreen(), DiaryScreen(), ExploreScreen()];
     return Scaffold(
       body: IndexedStack(index: _tab, children: pages),
       bottomNavigationBar: NavigationBar(
