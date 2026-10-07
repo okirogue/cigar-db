@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'data/cigar_repo.dart';
 import 'data/local_db.dart';
 import 'data/recommender.dart';
+import 'models/cigar.dart';
 import 'models/local.dart';
 
 /// 화면들이 공유하는 사용자 데이터 상태. DB 변경 후 reload() 호출.
@@ -18,6 +19,9 @@ class AppState extends ChangeNotifier {
 
   Future<void> init() async {
     await repo.load();
+    for (final j in await db.customCigars()) {
+      repo.addCustom(Cigar.fromJson(j));
+    }
     await reload();
     ready = true;
     notifyListeners();

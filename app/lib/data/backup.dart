@@ -6,6 +6,7 @@ import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../models/cigar.dart';
 import '../state.dart';
 import 'local_db.dart';
 
@@ -20,6 +21,8 @@ class Backup {
       'exported': DateTime.now().toIso8601String().substring(0, 10),
       'source': 'MyHumidor',
       'humidors': st.humidors.map((h) => h.name).toList(),
+      // 직접 추가한 시가 (DB에 없는 것) — 가져올 때 먼저 복원
+      'custom_cigars': [for (final c in st.repo.customs) c.toJson()],
       'stock': [
         for (final s in st.allStock)
           {
@@ -74,6 +77,13 @@ class Backup {
   static Future<(int, int, int)> importMap(AppState st, Map<String, dynamic> data, {bool replace = false}) async {
     final db = st.db;
     if (replace) await db.wipeUserData();
+
+    // 직접 추가한 시가 먼저 (재고/기록이 참조하므로)
+    for (final j in ((data['custom_cigars'] as List?) ?? const []).cast<Map<String, dynamic>>()) {
+      if (st.repo.byId(j['id'] as String) != null) continue;
+      await db.addCustomCigar(j);
+      st.repo.addCustom(Cigar.fromJson(j));
+    }
 
     // 휴미더: 이름으로 매칭, 없으면 생성 (최대 한도 넘으면 첫 휴미더로)
     var humidors = await db.humidors();

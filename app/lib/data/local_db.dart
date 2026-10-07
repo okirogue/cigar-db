@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:path/path.dart' as p;
 import 'package:sqflite/sqflite.dart';
 
@@ -17,7 +19,10 @@ class LocalDb {
     final dir = await getDatabasesPath();
     _db = await openDatabase(
       p.join(dir, 'cigar_log.db'),
-      version: 1,
+      version: 2,
+      onUpgrade: (d, oldV, newV) async {
+        if (oldV < 2) await d.execute(_customDdl);
+      },
       onCreate: (d, v) async {
         await d.execute('''
           CREATE TABLE humidors(
@@ -53,10 +58,30 @@ class LocalDb {
             pairing TEXT,
             stock_item_id INTEGER
           )''');
+        await d.execute(_customDdl);
         await d.insert('humidors', {'name': '내 휴미더', 'sort_order': 0});
       },
     );
     return _db!;
+  }
+
+  // 사용자가 직접 추가한 시가(DB에 없는 한정판 등). json = Cigar.fromJson 형식 그대로.
+  static const _customDdl = '''
+          CREATE TABLE IF NOT EXISTS custom_cigars(
+            id TEXT PRIMARY KEY,
+            json TEXT NOT NULL,
+            created TEXT NOT NULL
+          )''';
+
+  Future<List<Map<String, dynamic>>> customCigars() async {
+    final d = await db;
+    final rows = await d.query('custom_cigars', orderBy: 'created ASC');
+    return [for (final r in rows) jsonDecode(r['json'] as String) as Map<String, dynamic>];
+  }
+
+  Future<void> addCustomCigar(Map<String, dynamic> j) async {
+    final d = await db;
+    await d.insert('custom_cigars', {'id': j['id'], 'json': jsonEncode(j), 'created': DateTime.now().toIso8601String()}, conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
   /// 백업 복원(덮어쓰기)용 — 모든 사용자 데이터 삭제 후 기본 휴미더 하나
@@ -65,6 +90,7 @@ class LocalDb {
     await d.delete('logs');
     await d.delete('stock');
     await d.delete('humidors');
+    await d.delete('custom_cigars');
     await d.insert('humidors', {'name': '내 휴미더', 'sort_order': 0});
   }
 

@@ -45,6 +45,15 @@ class CigarRepo {
 
   Cigar? byId(String id) => _byId[id];
 
+  /// 사용자가 직접 추가한 시가 (앱 시작 시 로컬 DB에서, 추가 시 즉시)
+  List<Cigar> get customs => _cigars.where((c) => c.isCustom).toList();
+
+  void addCustom(Cigar c) {
+    if (_byId.containsKey(c.id)) return;
+    _cigars.add(c);
+    _byId[c.id] = c;
+  }
+
   String tagKo(String id) => _tagById[id]?.ko ?? id;
   TagDef? tag(String id) => _tagById[id];
 

@@ -5,7 +5,7 @@ import '../models/cigar.dart';
 import '../models/local.dart';
 import '../state.dart';
 import '../theme.dart';
-import 'scan_sheet.dart';
+import 'custom_cigar_sheet.dart';
 
 /// 선택 결과. DB에 없는 시가는 cigar == null, customName 사용.
 class PickResult {
@@ -70,20 +70,6 @@ class _PickerScreenState extends State<PickerScreen> {
                   onChanged: (v) => setState(() => _q = v),
                 ),
               ),
-              const SizedBox(width: 8),
-              Container(
-                width: 48,
-                height: 48,
-                decoration: BoxDecoration(color: C.accent, borderRadius: BorderRadius.circular(12)),
-                child: IconButton(
-                  icon: const Icon(Icons.photo_camera_outlined, color: Colors.white),
-                  tooltip: '밴드 스캔',
-                  onPressed: () async {
-                    final c = await runScan(context);
-                    if (c != null && context.mounted) Navigator.pop(context, PickResult(cigar: c));
-                  },
-                ),
-              ),
             ]),
           ),
           Expanded(
@@ -112,10 +98,14 @@ class _PickerScreenState extends State<PickerScreen> {
                       onTap: () => Navigator.pop(context, PickResult(cigar: c)),
                     ),
                   const SizedBox(height: 8),
-                  OutlinedButton(
+                  OutlinedButton.icon(
                     style: OutlinedButton.styleFrom(side: const BorderSide(color: Color(0xFFB8A999)), foregroundColor: C.accent),
-                    onPressed: () => Navigator.pop(context, PickResult(customName: _q.trim())),
-                    child: Text('못 찾겠어요 · "${_q.trim()}" 직접 입력'),
+                    icon: const Icon(Icons.add, size: 18),
+                    onPressed: () async {
+                      final c = await addCustomCigar(context, initial: _q.trim());
+                      if (c != null && context.mounted) Navigator.pop(context, PickResult(cigar: c));
+                    },
+                    label: Text('못 찾겠어요 · "${_q.trim()}" 직접 추가'),
                   ),
                 ] else if (stock.isEmpty)
                   const Padding(padding: EdgeInsets.only(top: 40), child: Center(child: SubText('브랜드 이름부터 쳐보세요 (예: romeo, oliva)', size: 13))),

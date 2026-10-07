@@ -1,7 +1,7 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // 스캔 카운터: 본인(익명 UID) 문서만, 하루 3회까지, 카운터는 1씩만 증가
+    // 스캔 카운터: 본인(익명 UID) 문서만, 하루 3회까지, 카운터는 1씩만 증감
     match /scan_quota/{uid} {
       allow read: if request.auth != null && request.auth.uid == uid;
       allow create: if request.auth != null && request.auth.uid == uid
@@ -12,13 +12,26 @@ service cloud.firestore {
         && (
           // 날짜 바뀌면 1부터
           (request.resource.data.date != resource.data.date && request.resource.data.count == 1)
-          // 같은 날이면 +1, 최대 3
+          // 같은 날이면 +1(최대 3) 또는 -1(서버 붐빔으로 실패했을 때 되돌리기, 최소 0)
           || (request.resource.data.date == resource.data.date
-              && request.resource.data.count == resource.data.count + 1
-              && request.resource.data.count <= 3)
+              && (request.resource.data.count == resource.data.count + 1
+                  || request.resource.data.count == resource.data.count - 1)
+              && request.resource.data.count <= 3
+              && request.resource.data.count >= 0)
         );
       allow delete: if false;
     }
+
+    // 시가 DB 제안: 로그인(익명 포함)한 사용자가 새 문서만 추가. 읽기/수정/삭제는 콘솔에서만.
+    match /cigar_suggestions/{id} {
+      allow create: if request.auth != null
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.brand is string && request.resource.data.brand.size() > 0 && request.resource.data.brand.size() <= 80
+        && request.resource.data.line is string && request.resource.data.line.size() <= 120
+        && request.resource.data.keys().hasOnly(['uid', 'brand', 'line', 'vitola', 'country', 'strength', 'wrapper', 'note', 'created']);
+      allow read, update, delete: if false;
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }

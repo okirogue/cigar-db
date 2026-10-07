@@ -6,7 +6,7 @@ import '../models/cigar.dart';
 import '../state.dart';
 import '../theme.dart';
 import 'detail_screen.dart';
-import 'scan_sheet.dart';
+import 'custom_cigar_sheet.dart';
 
 /// 탐색: 시가 검색 → 상세. 검색 전엔 내가 피운/보유한 시가와 브랜드 바로가기.
 class ExploreScreen extends StatefulWidget {
@@ -67,20 +67,6 @@ class _ExploreScreenState extends State<ExploreScreen> {
                 onChanged: (v) => setState(() => _q = v),
               ),
             ),
-            const SizedBox(width: 8),
-            Container(
-              width: 48,
-              height: 48,
-              decoration: BoxDecoration(color: C.accent, borderRadius: BorderRadius.circular(12)),
-              child: IconButton(
-                icon: const Icon(Icons.photo_camera_outlined, color: Colors.white),
-                tooltip: '밴드 스캔',
-                onPressed: () async {
-                  final c = await runScan(context);
-                  if (c != null && context.mounted) Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen(cigar: c)));
-                },
-              ),
-            ),
           ]),
         ),
         Padding(
@@ -120,7 +106,21 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   ],
                 )
               : results.isEmpty
-                  ? const Center(child: SubText('검색 결과가 없어요', size: 13))
+                  ? Center(
+                      child: Column(mainAxisSize: MainAxisSize.min, children: [
+                        const SubText('검색 결과가 없어요', size: 13),
+                        const SizedBox(height: 12),
+                        OutlinedButton.icon(
+                          style: OutlinedButton.styleFrom(side: const BorderSide(color: Color(0xFFB8A999)), foregroundColor: C.accent),
+                          icon: const Icon(Icons.add, size: 18),
+                          onPressed: () async {
+                            final c = await addCustomCigar(context, initial: _q.trim());
+                            if (c != null && context.mounted) setState(() {});
+                          },
+                          label: const Text('직접 추가'),
+                        ),
+                      ]),
+                    )
                   : ListView.builder(
                       padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
                       itemCount: results.length,

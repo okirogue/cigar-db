@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-import '../data/update_check.dart';
 
 import '../state.dart';
 import '../theme.dart';
@@ -16,16 +14,6 @@ class BadgesScreen extends StatefulWidget {
 }
 
 class _BadgesScreenState extends State<BadgesScreen> {
-  UpdateInfo? _update;
-
-  @override
-  void initState() {
-    super.initState();
-    UpdateCheck.check().then((u) {
-      if (mounted && u != null) setState(() => _update = u);
-    });
-  }
-
   static const _grades = [('입문', 0.0), ('애호가', 0.05), ('탐험가', 0.15), ('마스터', 0.40)];
   static const _tasteBadges = [(10, '노트 입문'), (19, '구분 좀 함'), (25, '맛잘알'), (32, '시가 소믈리에')];
 
@@ -90,84 +78,6 @@ class _BadgesScreenState extends State<BadgesScreen> {
               if (st.logs.isNotEmpty) SubText('${st.logs.length}회 · 평균 ${st.avgScore.round()}점', size: 13),
             ]),
           ),
-          // 업데이트 배너
-          if (_update != null)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 14),
-              child: Material(
-                color: C.accent,
-                borderRadius: BorderRadius.circular(14),
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(14),
-                  onTap: () => launchUrl(Uri.parse(_update!.apkUrl), mode: LaunchMode.externalApplication),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                    child: Row(children: [
-                      const Icon(Icons.system_update_alt, color: Colors.white, size: 20),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                          Text('새 버전 ${_update!.tag} 있어요', style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 14)),
-                          const Text('눌러서 다운로드 → 설치하면 업데이트돼요 (데이터 유지)', style: TextStyle(color: Colors.white70, fontSize: 11)),
-                        ]),
-                      ),
-                      const Icon(Icons.chevron_right, color: Colors.white70),
-                    ]),
-                  ),
-                ),
-              ),
-            ),
-          // 추천
-          if (st.profile != null && st.profile!.ready && st.recos.isNotEmpty) ...[
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(18),
-                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  const Text('나와 잘 맞을 시가', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
-                  const SizedBox(height: 4),
-                  SubText(
-                    st.topRatedNames.isEmpty
-                        ? '내가 자주 체크한 노트(${st.profile!.topTags(3).map(repo.tagKo).join('·')})와 비슷한 시가예요'
-                        : '점수 높게 준 ${st.topRatedNames.join(', ')} 와 비슷해요',
-                    size: 12,
-                  ),
-                  const SizedBox(height: 12),
-                  for (final r in st.recos)
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: InkWell(
-                        borderRadius: BorderRadius.circular(10),
-                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen(cigar: r.cigar))),
-                        child: Row(children: [
-                          const CigarThumb(size: 40),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                              Text(r.cigar.fullName, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500), maxLines: 1, overflow: TextOverflow.ellipsis),
-                              SubText(r.reason, size: 11),
-                            ]),
-                          ),
-                          const Icon(Icons.chevron_right, size: 18, color: C.hint),
-                        ]),
-                      ),
-                    ),
-                ]),
-              ),
-            ),
-            const SizedBox(height: 14),
-          ] else if (st.logs.isNotEmpty && st.logs.length < 5) ...[
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(18),
-                child: Row(children: [
-                  const Icon(Icons.auto_awesome_outlined, color: C.accent, size: 20),
-                  const SizedBox(width: 12),
-                  Expanded(child: SubText('기록 ${5 - st.logs.length}개만 더 남기면 취향 기반 추천이 열려요', size: 13)),
-                ]),
-              ),
-            ),
-            const SizedBox(height: 14),
-          ],
           // 도감 등급
           Container(
             padding: const EdgeInsets.all(20),
@@ -294,6 +204,58 @@ class _BadgesScreenState extends State<BadgesScreen> {
               ]),
             ),
           ),
+          // 추천 (맨 아래)
+          const SizedBox(height: 14),
+          if (st.profile != null && st.profile!.ready && st.recos.isNotEmpty) ...[
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(18),
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  const Text('나와 잘 맞을 시가', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+                  const SizedBox(height: 4),
+                  SubText(
+                    st.topRatedNames.isEmpty
+                        ? '내가 자주 체크한 노트(${st.profile!.topTags(3).map(repo.tagKo).join('·')})와 비슷한 시가예요'
+                        : '점수 높게 준 ${st.topRatedNames.join(', ')} 와 비슷해요',
+                    size: 12,
+                  ),
+                  const SizedBox(height: 12),
+                  for (final r in st.recos)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(10),
+                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen(cigar: r.cigar))),
+                        child: Row(children: [
+                          const CigarThumb(size: 40),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                              Text(r.cigar.fullName, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500), maxLines: 1, overflow: TextOverflow.ellipsis),
+                              SubText(r.reason, size: 11),
+                            ]),
+                          ),
+                          const Icon(Icons.chevron_right, size: 18, color: C.hint),
+                        ]),
+                      ),
+                    ),
+                ]),
+              ),
+            ),
+            const SizedBox(height: 14),
+          ] else if (st.logs.isNotEmpty && st.logs.length < 5) ...[
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(18),
+                child: Row(children: [
+                  const Icon(Icons.auto_awesome_outlined, color: C.accent, size: 20),
+                  const SizedBox(width: 12),
+                  Expanded(child: SubText('기록 ${5 - st.logs.length}개만 더 남기면 취향 기반 추천이 열려요', size: 13)),
+                ]),
+              ),
+            ),
+            const SizedBox(height: 14),
+          ],
         ],
       ),
       ),

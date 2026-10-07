@@ -68,6 +68,24 @@ class Cigar {
 
   bool get hasNotes => official.isNotEmpty || review.isNotEmpty;
 
+  /// 사용자가 직접 추가한 시가 (중앙 DB에 없음)
+  bool get isCustom => id.startsWith('custom:');
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'brand': brand,
+        'name': name,
+        'cuban': cuban,
+        'vitolas': vitolas,
+        'official': official,
+        'review': review,
+        'votes': votes,
+        'specs': specs,
+        if (dojoScore != null) 'rating': {'dojo': dojoScore},
+        'aliases': aliases,
+        'tubos': tubos,
+      };
+
   String get country => cuban ? '쿠바' : '';
 
   /// 검색용 소문자 문자열

@@ -20,7 +20,7 @@ class ScanService {
   static const dailyLimit = 3;
 
   /// 시도 순서. 첫 번째가 안 되면 다음으로.
-  static const _modelCandidates = ['gemini-3.8-flash', 'gemini-flash-latest', 'gemini-2.5-flash'];
+  static const _modelCandidates = ['gemini-3.8-flash', 'gemini-3.5-flash-lite', 'gemini-flash-latest', 'gemini-2.5-flash'];
   bool _ready = false;
   String? _error;
 
@@ -97,9 +97,24 @@ class ScanService {
     }
   }
 
-  /// 카메라로 찍기 → 리사이즈된 JPEG 바이트 (취소하면 null)
-  Future<Uint8List?> takePhoto() async {
-    final x = await ImagePicker().pickImage(source: ImageSource.camera, maxWidth: 1280, imageQuality: 85);
+  /// 서버 실패(붐빔)로 인식을 못 했을 때 카운트 되돌리기 (best-effort)
+  Future<void> _refund() async {
+    final n = await _localCount();
+    if (n > 0) await _localSet(n - 1);
+    try {
+      await FirebaseFirestore.instance.runTransaction((tx) async {
+        final snap = await tx.get(_quotaDoc);
+        final m = snap.data();
+        if (m == null || m['date'] != _today) return;
+        final c = (m['count'] as num?)?.toInt() ?? 0;
+        if (c > 0) tx.update(_quotaDoc, {'count': c - 1});
+      }).timeout(const Duration(seconds: 6));
+    } catch (_) {}
+  }
+
+  /// 카메라로 찍기 / 갤러리에서 고르기 → 리사이즈된 JPEG 바이트 (취소하면 null)
+  Future<Uint8List?> takePhoto({bool gallery = false}) async {
+    final x = await ImagePicker().pickImage(source: gallery ? ImageSource.gallery : ImageSource.camera, maxWidth: 1280, imageQuality: 85);
     if (x == null) return null;
     final bytes = await x.readAsBytes();
     // 혹시 큰 경우 한 번 더 축소 (Gemini 비용·속도)
@@ -126,24 +141,42 @@ Return ONLY JSON: {"brand": string, "line": string, "vitola": string|null, "coun
     ];
     String? text;
     Object? lastErr;
+    var busy = false;
+    outer:
     for (final name in _modelCandidates) {
-      try {
-        final model = FirebaseAI.googleAI().generativeModel(
-          model: name,
-          generationConfig: GenerationConfig(responseMimeType: 'application/json', temperature: 0.1),
-        );
-        final res = await model.generateContent(content).timeout(const Duration(seconds: 40));
-        text = res.text ?? '{}';
-        break;
-      } catch (e) {
-        lastErr = e;
-        final msg = e.toString().toLowerCase();
-        // 모델 자체 문제(없음/차단/지원종료)면 다음 후보로, 그 외(네트워크 등)는 바로 중단
-        final modelIssue = msg.contains('not found') || msg.contains('no longer available') || msg.contains('not supported') || msg.contains('deprecated') || msg.contains('404');
-        if (!modelIssue) break;
+      // 같은 모델로 최대 2번 (바쁠 때 2초 쉬고 한 번 더)
+      for (var attempt = 0; attempt < 2; attempt++) {
+        try {
+          final model = FirebaseAI.googleAI().generativeModel(
+            model: name,
+            generationConfig: GenerationConfig(responseMimeType: 'application/json', temperature: 0.1),
+          );
+          final res = await model.generateContent(content).timeout(const Duration(seconds: 40));
+          text = res.text ?? '{}';
+          break outer;
+        } catch (e) {
+          lastErr = e;
+          final msg = e.toString().toLowerCase();
+          final isBusy = msg.contains('busy') || msg.contains('overloaded') || msg.contains('503') || msg.contains('unavailable') || msg.contains('429') || msg.contains('resource') || msg.contains('quota');
+          final modelIssue = msg.contains('not found') || msg.contains('no longer available') || msg.contains('not supported') || msg.contains('deprecated') || msg.contains('404');
+          if (isBusy) {
+            busy = true;
+            if (attempt == 0) {
+              await Future.delayed(const Duration(seconds: 2));
+              continue; // 같은 모델 재시도
+            }
+            break; // 다음 모델로
+          }
+          if (modelIssue) break; // 다음 모델로
+          break outer; // 네트워크 등 → 중단
+        }
       }
     }
     if (text == null) {
+      if (busy) {
+        await _refund();
+        throw ScanException('지금 인식 서버가 붐벼요. 잠시 후 다시 시도해 주세요. (이번 시도는 횟수에서 차감되지 않아요)');
+      }
       final m = lastErr.toString();
       throw ScanException(m.length > 160 ? '${m.substring(0, 160)}…' : m);
     }
