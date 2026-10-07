@@ -113,10 +113,15 @@ jobs:
           VER=$(grep '^version:' app/pubspec.yaml | sed 's/version: *//; s/+.*//')
           TAG="v${VER}-b${{ github.run_number }}"
           FILES="MyHumidor.apk"; [ -f MyHumidor.aab ] && FILES="$FILES MyHumidor.aab"
-          gh release create "$TAG" $FILES \
-            --title "MyHumidor $TAG" \
-            --notes "빌드 ${{ github.run_number }} · ${GITHUB_SHA::7} — $(git log -1 --pretty=%s)" \
-            --latest
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            # 재실행이면 파일만 덮어쓰기
+            gh release upload "$TAG" $FILES --clobber
+          else
+            gh release create "$TAG" $FILES \
+              --title "MyHumidor $TAG" \
+              --notes "빌드 ${{ github.run_number }} · ${GITHUB_SHA::7} — $(git log -1 --pretty=%s)" \
+              --latest
+          fi
 
       # Google Play 내부 테스트 트랙에 자동 업로드 (키 파일 없이 WIF로 인증)
       - name: Auth to Google Cloud (WIF)
