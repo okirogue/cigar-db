@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:image/image.dart' as img;
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/cigar.dart';
 import 'cigar_repo.dart';
@@ -44,26 +45,53 @@ class ScanService {
 
   DocumentReference<Map<String, dynamic>> get _quotaDoc => FirebaseFirestore.instance.collection('scan_quota').doc(FirebaseAuth.instance.currentUser!.uid);
 
-  /// 오늘 남은 횟수
-  Future<int> remaining() async {
-    if (!_ready) return 0;
-    final d = await _quotaDoc.get();
-    final m = d.data();
-    if (m == null || m['date'] != _today) return dailyLimit;
-    return (dailyLimit - ((m['count'] as num?)?.toInt() ?? 0)).clamp(0, dailyLimit);
+  // ---- 로컬 백업 카운터 (서버에 못 붙을 때) ----
+  Future<int> _localCount() async {
+    final p = await SharedPreferences.getInstance();
+    if (p.getString('scan_date') != _today) return 0;
+    return p.getInt('scan_count') ?? 0;
   }
 
-  /// 카운터 +1 (트랜잭션). 한도 넘으면 false.
+  Future<void> _localSet(int n) async {
+    final p = await SharedPreferences.getInstance();
+    await p.setString('scan_date', _today);
+    await p.setInt('scan_count', n);
+  }
+
+  /// 오늘 남은 횟수 (서버 우선, 실패 시 로컬)
+  Future<int> remaining() async {
+    if (!_ready) return 0;
+    try {
+      final d = await _quotaDoc.get(const GetOptions(source: Source.server)).timeout(const Duration(seconds: 6));
+      final m = d.data();
+      final used = (m == null || m['date'] != _today) ? 0 : ((m['count'] as num?)?.toInt() ?? 0);
+      await _localSet(used); // 로컬도 동기화
+      return (dailyLimit - used).clamp(0, dailyLimit);
+    } catch (_) {
+      return (dailyLimit - await _localCount()).clamp(0, dailyLimit);
+    }
+  }
+
+  /// 카운터 +1. 서버 트랜잭션 실패(네트워크 등)면 로컬 카운터로 대체. 한도 넘으면 false.
   Future<bool> _consume() async {
-    return FirebaseFirestore.instance.runTransaction((tx) async {
-      final snap = await tx.get(_quotaDoc);
-      final m = snap.data();
-      var count = 0;
-      if (m != null && m['date'] == _today) count = (m['count'] as num?)?.toInt() ?? 0;
-      if (count >= dailyLimit) return false;
-      tx.set(_quotaDoc, {'date': _today, 'count': count + 1, 'updated': FieldValue.serverTimestamp()});
+    try {
+      final ok = await FirebaseFirestore.instance.runTransaction((tx) async {
+        final snap = await tx.get(_quotaDoc);
+        final m = snap.data();
+        var count = 0;
+        if (m != null && m['date'] == _today) count = (m['count'] as num?)?.toInt() ?? 0;
+        if (count >= dailyLimit) return false;
+        tx.set(_quotaDoc, {'date': _today, 'count': count + 1, 'updated': FieldValue.serverTimestamp()});
+        await _localSet(count + 1);
+        return true;
+      }).timeout(const Duration(seconds: 8));
+      return ok;
+    } catch (_) {
+      final n = await _localCount();
+      if (n >= dailyLimit) return false;
+      await _localSet(n + 1);
       return true;
-    });
+    }
   }
 
   /// 카메라로 찍기 → 리사이즈된 JPEG 바이트 (취소하면 null)
