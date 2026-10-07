@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import '../models/local.dart';
 import '../state.dart';
 import '../theme.dart';
-import 'badges_screen.dart';
 import 'detail_screen.dart';
 import 'record_screen.dart';
 
@@ -31,11 +30,6 @@ class _DiaryScreenState extends State<DiaryScreen> {
       appBar: AppBar(
         title: const Text('다이어리', style: TextStyle(fontSize: 24)),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.military_tech_outlined),
-            tooltip: '내 업적',
-            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const BadgesScreen())),
-          ),
           Padding(
             padding: const EdgeInsets.only(right: 20),
             child: Center(child: SubText(logs.isEmpty ? '' : '${logs.length}회 · 평균 ${st.avgScore.round()}점', size: 14)),

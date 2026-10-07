@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../state.dart';
 import '../theme.dart';
 
-/// 내 업적: 도감(경험 범위) · 미각(구분한 노트). 횟수·연속 같은 건 없음.
+/// 홈: 브랜드 헤더 + 내 업적(도감·미각). 횟수·연속 같은 건 없음.
 class BadgesScreen extends StatelessWidget {
   const BadgesScreen({super.key});
 
@@ -51,10 +51,27 @@ class BadgesScreen extends StatelessWidget {
     final gotTaste = _tasteBadges.where((b) => tasted.length >= b.$1).map((b) => b.$2).toList();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('내 업적')),
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+      body: SafeArea(
+        child: ListView(
+        padding: const EdgeInsets.fromLTRB(20, 12, 20, 24),
         children: [
+          // 브랜드 헤더
+          Padding(
+            padding: const EdgeInsets.only(bottom: 18, top: 4),
+            child: Row(children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset('assets/brand/play_icon_512.png', width: 44, height: 44),
+              ),
+              const SizedBox(width: 12),
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                const Text('MyHumidor', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, letterSpacing: -0.5, color: C.text, fontFamily: 'serif')),
+                const SubText('내 휴미더 · 시가 노트', size: 12),
+              ]),
+              const Spacer(),
+              if (st.logs.isNotEmpty) SubText('${st.logs.length}회 · 평균 ${st.avgScore.round()}점', size: 13),
+            ]),
+          ),
           // 도감 등급
           Container(
             padding: const EdgeInsets.all(20),
@@ -182,6 +199,7 @@ class BadgesScreen extends StatelessWidget {
             ),
           ),
         ],
+      ),
       ),
     );
   }

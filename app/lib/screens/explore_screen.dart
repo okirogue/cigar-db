@@ -5,7 +5,6 @@ import '../data/cigar_repo.dart';
 import '../models/cigar.dart';
 import '../state.dart';
 import '../theme.dart';
-import 'badges_screen.dart';
 import 'detail_screen.dart';
 
 /// 탐색: 시가 검색 → 상세. 검색 전엔 내가 피운/보유한 시가와 브랜드 바로가기.
@@ -44,14 +43,6 @@ class _ExploreScreenState extends State<ExploreScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('탐색', style: TextStyle(fontSize: 24)),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.military_tech_outlined),
-            tooltip: '내 업적',
-            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const BadgesScreen())),
-          ),
-          const SizedBox(width: 8),
-        ],
       ),
       body: Column(children: [
         Padding(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'screens/badges_screen.dart';
 import 'screens/diary_screen.dart';
 import 'screens/explore_screen.dart';
 import 'screens/humidor_screen.dart';
@@ -46,13 +47,14 @@ class _HomeState extends State<Home> {
     if (!ready) {
       return const Scaffold(body: Center(child: CircularProgressIndicator(color: C.accent)));
     }
-    const pages = [HumidorScreen(), DiaryScreen(), ExploreScreen()];
+    const pages = [BadgesScreen(), HumidorScreen(), DiaryScreen(), ExploreScreen()];
     return Scaffold(
       body: IndexedStack(index: _tab, children: pages),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _tab,
         onDestinationSelected: (i) => setState(() => _tab = i),
         destinations: const [
+          NavigationDestination(icon: Icon(Icons.home_outlined), selectedIcon: Icon(Icons.home), label: '홈'),
           NavigationDestination(icon: Icon(Icons.inventory_2_outlined), selectedIcon: Icon(Icons.inventory_2), label: '휴미더'),
           NavigationDestination(icon: Icon(Icons.menu_book_outlined), selectedIcon: Icon(Icons.menu_book), label: '다이어리'),
           NavigationDestination(icon: Icon(Icons.search), selectedIcon: Icon(Icons.search), label: '탐색'),

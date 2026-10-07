@@ -27,3 +27,4 @@ flutter:
   assets:
     - assets/cigars.json
     - assets/tags.json
+    - assets/brand/play_icon_512.png
