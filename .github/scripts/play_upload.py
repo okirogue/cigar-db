@@ -2,7 +2,7 @@
 """Google Play 내부 테스트 트랙에 .aab 업로드 (androidpublisher v3, 표준 라이브러리만 사용).
 
 env: TOKEN (OAuth access token), PKG (package name), NOTE (release note, optional)
-usage: play_upload.py path/to/app.aab [track]
+usage: play_upload.py path/to/app.aab [track ...]  (예: internal alpha)
 """
 import json
 import os
@@ -11,7 +11,7 @@ import urllib.error
 import urllib.request
 
 AAB = sys.argv[1]
-TRACK = sys.argv[2] if len(sys.argv) > 2 else "internal"
+TRACKS = sys.argv[2:] or ["internal"]
 TOKEN = os.environ["TOKEN"]
 PKG = os.environ["PKG"]
 NOTE = os.environ.get("NOTE", "")
@@ -36,7 +36,7 @@ def call(method, url, body=None, ctype="application/json", timeout=600):
         raise SystemExit(1)
 
 
-print(f"[play] package={PKG} track={TRACK} file={AAB} ({os.path.getsize(AAB)//1024} KB)")
+print(f"[play] package={PKG} tracks={TRACKS} file={AAB} ({os.path.getsize(AAB)//1024} KB)")
 
 edit = call("POST", f"{BASE}/edits")
 eid = edit["id"]
@@ -48,16 +48,17 @@ bundle = call("POST", f"{UPLOAD}/edits/{eid}/bundles?uploadType=media", aab, "ap
 vc = bundle["versionCode"]
 print(f"[play] uploaded bundle versionCode={vc}")
 
-track_body = {
-    "track": TRACK,
-    "releases": [{
-        "versionCodes": [str(vc)],
-        "status": "completed",
-        "releaseNotes": [{"language": "ko-KR", "text": NOTE[:500]}] if NOTE else [],
-    }],
-}
-call("PUT", f"{BASE}/edits/{eid}/tracks/{TRACK}", track_body)
-print(f"[play] track {TRACK} -> {vc} (completed)")
+for TRACK in TRACKS:
+    track_body = {
+        "track": TRACK,
+        "releases": [{
+            "versionCodes": [str(vc)],
+            "status": "completed",
+            "releaseNotes": [{"language": "ko-KR", "text": NOTE[:500]}] if NOTE else [],
+        }],
+    }
+    call("PUT", f"{BASE}/edits/{eid}/tracks/{TRACK}", track_body)
+    print(f"[play] track {TRACK} -> {vc} (completed)")
 
 res = call("POST", f"{BASE}/edits/{eid}:commit")
 print(f"[play] committed edit {res.get('id', eid)} ✔")

@@ -123,7 +123,7 @@ jobs:
               --latest
           fi
 
-      # Google Play 내부 테스트 트랙에 자동 업로드 (키 파일 없이 WIF로 인증)
+      # Google Play 내부 테스트 + 비공개 테스트(alpha) 트랙에 자동 업로드 (키 파일 없이 WIF로 인증)
       - name: Auth to Google Cloud (WIF)
         if: github.ref == 'refs/heads/main' && env.KS != ''
         id: gcp-auth
@@ -141,7 +141,7 @@ jobs:
           TOKEN: ${{ steps.gcp-auth.outputs.access_token }}
           PKG: com.okirogue.cigar_log
           NOTE: "빌드 ${{ github.run_number }} · ${{ github.sha }}"
-        run: python3 .github/scripts/play_upload.py MyHumidor.aab 2>&1 | tee ci-play.txt
+        run: python3 .github/scripts/play_upload.py MyHumidor.aab internal alpha 2>&1 | tee ci-play.txt
 
       # 새로 생성된 android/ 스캐폴드는 저장소에 커밋해 둔다 (권한·매니페스트 편집용)
       - name: Commit scaffold
