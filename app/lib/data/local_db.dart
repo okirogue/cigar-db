@@ -22,7 +22,7 @@ class LocalDb {
     final dir = await getDatabasesPath();
     _db = await openDatabase(
       p.join(dir, 'cigar_log.db'),
-      version: 5,
+      version: 6,
       onUpgrade: (d, oldV, newV) async {
         if (oldV < 2) await d.execute(_customDdl);
         if (oldV < 3) await d.execute('ALTER TABLE logs ADD COLUMN summary TEXT');
@@ -32,6 +32,7 @@ class LocalDb {
           await d.execute('UPDATE logs SET score = ROUND(score / 5.0) / 2.0 WHERE score > 10');
           scoresRescaled = true;
         }
+        if (oldV < 6) await d.execute('ALTER TABLE logs ADD COLUMN photos TEXT');
       },
       onCreate: (d, v) async {
         await d.execute('''
@@ -68,6 +69,7 @@ class LocalDb {
             summary TEXT,
             place TEXT,
             pairing TEXT,
+            photos TEXT,
             stock_item_id INTEGER
           )''');
         await d.execute(_customDdl);
@@ -210,6 +212,7 @@ class LocalDb {
     String? summary,
     String? place,
     String? pairing,
+    List<String> photos = const [],
     int? deductStockId,
   }) async {
     final d = await db;
@@ -227,6 +230,7 @@ class LocalDb {
         'summary': summary,
         'place': place,
         'pairing': pairing,
+        'photos': photos.isEmpty ? null : photos.join(','),
         'stock_item_id': deductStockId,
       });
       if (deductStockId != null) {

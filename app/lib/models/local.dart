@@ -76,6 +76,7 @@ class SmokeLog {
   final String? summary; // 총평 (한 줄 소감)
   final String? place;
   final String? pairing;
+  final List<String> photos; // photos/ 폴더의 파일 이름들
   final int? stockItemId; // 재고 차감했으면 어디서
 
   SmokeLog({
@@ -92,6 +93,7 @@ class SmokeLog {
     this.summary,
     this.place,
     this.pairing,
+    this.photos = const [],
     this.stockItemId,
   });
 
@@ -109,6 +111,7 @@ class SmokeLog {
         summary: m['summary'] as String?,
         place: m['place'] as String?,
         pairing: m['pairing'] as String?,
+        photos: ((m['photos'] as String?) ?? '').split(',').where((e) => e.isNotEmpty).toList(),
         stockItemId: m['stock_item_id'] as int?,
       );
 }

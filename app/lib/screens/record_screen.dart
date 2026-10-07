@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../l10n.dart';
 import '../models/local.dart';
+import '../data/photos.dart';
 import '../data/share_stats.dart';
 import '../state.dart';
 import '../theme.dart';
@@ -37,6 +40,8 @@ class _RecordScreenState extends State<RecordScreen> {
   final _summary = TextEditingController();
   final _place = TextEditingController();
   final _pairing = TextEditingController();
+  final List<String> _photos = [];
+  List<String> _origPhotos = const [];
   double _score = 8;
   DateTime _date = DateTime.now();
   bool _showAllTags = false;
@@ -60,6 +65,8 @@ class _RecordScreenState extends State<RecordScreen> {
       _summary.text = e.summary ?? '';
       _place.text = e.place ?? '';
       _pairing.text = e.pairing ?? '';
+      _photos.addAll(e.photos);
+      _origPhotos = List.of(e.photos);
       _score = e.score;
       _date = DateTime.tryParse(e.date) ?? DateTime.now();
       _deduct = false;
@@ -162,6 +169,9 @@ class _RecordScreenState extends State<RecordScreen> {
                 ]),
                 const SizedBox(height: 8),
                 TextField(controller: _pairing, decoration: InputDecoration(hintText: tr('페어링 (커피, 위스키, 제로사이다…)', 'Pairing (coffee, whisky, soda…)'), isDense: true)),
+                const SizedBox(height: 10),
+                // 사진 (폰 안에만 저장)
+                _PhotoRow(photos: _photos, onAdd: _addPhoto, onRemove: (n) => setState(() => _photos.remove(n))),
                 const SizedBox(height: 14),
 
                 // 노트 체크
@@ -314,7 +324,32 @@ class _RecordScreenState extends State<RecordScreen> {
     );
   }
 
+  Future<void> _addPhoto() async {
+    final gallery = await showModalBottomSheet<bool>(
+      context: context,
+      builder: (ctx) => SafeArea(
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
+          ListTile(leading: const Icon(Icons.photo_camera_outlined), title: Text(tr('사진 찍기', 'Take photo')), onTap: () => Navigator.pop(ctx, false)),
+          ListTile(leading: const Icon(Icons.photo_library_outlined), title: Text(tr('갤러리에서 선택', 'Choose from gallery')), onTap: () => Navigator.pop(ctx, true)),
+        ]),
+      ),
+    );
+    if (gallery == null) return;
+    try {
+      final name = await LogPhotos.instance.pick(gallery: gallery);
+      if (name != null && mounted) setState(() => _photos.add(name));
+    } catch (_) {
+      if (mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(tr('사진을 가져오지 못했어요', 'Could not get the photo'))));
+    }
+  }
+
+  /// 저장 시: 편집 중 뺀 원래 사진 파일 삭제
+  Future<void> _cleanupPhotos() async {
+    await LogPhotos.instance.deleteAll(_origPhotos.where((n) => !_photos.contains(n)));
+  }
+
   Future<void> _save() async {
+    await _cleanupPhotos();
     final st = context.read<AppState>();
     if (widget.edit != null) {
       await st.db.updateLog(widget.edit!.id, {
@@ -330,6 +365,7 @@ class _RecordScreenState extends State<RecordScreen> {
         'summary': _summary.text.trim().isEmpty ? null : _summary.text.trim(),
         'place': _place.text.trim().isEmpty ? null : _place.text.trim(),
         'pairing': _pairing.text.trim().isEmpty ? null : _pairing.text.trim(),
+        'photos': _photos.isEmpty ? null : joinPhotos(_photos),
       });
       await st.reload();
       final updated = st.logs.where((l) => l.id == widget.edit!.id).firstOrNull;
@@ -354,6 +390,7 @@ class _RecordScreenState extends State<RecordScreen> {
       summary: _summary.text.trim().isEmpty ? null : _summary.text.trim(),
       place: _place.text.trim().isEmpty ? null : _place.text.trim(),
       pairing: _pairing.text.trim().isEmpty ? null : _pairing.text.trim(),
+      photos: List.of(_photos),
       deductStockId: _deduct ? _deductStockId : null,
     );
     await st.reload();
@@ -389,6 +426,65 @@ class _Memo extends StatelessWidget {
       minLines: 2,
       maxLines: 5,
       decoration: InputDecoration(labelText: label, alignLabelWithHint: true),
+    );
+  }
+}
+
+/// 기록 폼의 사진 줄: 썸네일들 + 추가 버튼
+class _PhotoRow extends StatelessWidget {
+  final List<String> photos;
+  final VoidCallback onAdd;
+  final ValueChanged<String> onRemove;
+  const _PhotoRow({required this.photos, required this.onAdd, required this.onRemove});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 72,
+      child: ListView(scrollDirection: Axis.horizontal, children: [
+        for (final n in photos)
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: Stack(children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: FutureBuilder<File>(
+                  future: LogPhotos.instance.file(n),
+                  builder: (_, snap) => snap.hasData
+                      ? Image.file(snap.data!, width: 72, height: 72, fit: BoxFit.cover)
+                      : Container(width: 72, height: 72, color: C.chip),
+                ),
+              ),
+              Positioned(
+                top: 2,
+                right: 2,
+                child: GestureDetector(
+                  onTap: () => onRemove(n),
+                  child: Container(
+                    padding: const EdgeInsets.all(2),
+                    decoration: BoxDecoration(color: Colors.black54, borderRadius: BorderRadius.circular(10)),
+                    child: const Icon(Icons.close, size: 14, color: Colors.white),
+                  ),
+                ),
+              ),
+            ]),
+          ),
+        if (photos.length < 6)
+          InkWell(
+            borderRadius: BorderRadius.circular(10),
+            onTap: onAdd,
+            child: Container(
+              width: 72,
+              height: 72,
+              decoration: BoxDecoration(border: Border.all(color: C.line), borderRadius: BorderRadius.circular(10)),
+              child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+                const Icon(Icons.photo_camera_outlined, color: C.sub, size: 22),
+                const SizedBox(height: 2),
+                SubText(tr('사진', 'Photo'), size: 10),
+              ]),
+            ),
+          ),
+      ]),
     );
   }
 }

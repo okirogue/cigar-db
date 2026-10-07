@@ -1,9 +1,11 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../data/backup.dart';
+import '../data/photos.dart';
 import '../data/share_stats.dart';
 import '../l10n.dart';
 import '../models/local.dart';
@@ -239,6 +241,10 @@ void openLogSheet(BuildContext context, SmokeLog log) {
             ]),
             SubText([log.date, if (log.vitola != null) log.vitola!, if (log.place != null) log.place!, if (log.pairing != null) log.pairing!].join(' · '), size: 13),
             const SizedBox(height: 14),
+            if (log.photos.isNotEmpty) ...[
+              _PhotoStrip(photos: log.photos),
+              const SizedBox(height: 14),
+            ],
             if (log.tags.isNotEmpty) ...[
               Text(tr('느낀 노트', 'Notes'), style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
               const SizedBox(height: 8),
@@ -305,6 +311,7 @@ void openLogSheet(BuildContext context, SmokeLog log) {
                       ),
                     );
                     if (ok == true) {
+                      await LogPhotos.instance.deleteAll(log.photos);
                       await st.db.deleteLog(log.id);
                       ShareStats.instance.remove(log.id);
                       await st.reload();
@@ -391,4 +398,46 @@ void openLogSheet(BuildContext context, SmokeLog log) {
         ),
       ),
     );
+}
+
+/// 기록 상세의 사진 띠 (가로 스크롤, 탭하면 크게)
+class _PhotoStrip extends StatelessWidget {
+  final List<String> photos;
+  const _PhotoStrip({required this.photos});
+
+  @override
+  Widget build(BuildContext context) {
+    final single = photos.length == 1;
+    return SizedBox(
+      height: single ? 220 : 160,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: photos.length,
+        separatorBuilder: (_, __) => const SizedBox(width: 8),
+        itemBuilder: (_, i) => FutureBuilder<File>(
+          future: LogPhotos.instance.file(photos[i]),
+          builder: (ctx, snap) {
+            if (!snap.hasData) return Container(width: 160, decoration: BoxDecoration(color: C.chip, borderRadius: BorderRadius.circular(12)));
+            final f = snap.data!;
+            return GestureDetector(
+              onTap: () => showDialog<void>(
+                context: ctx,
+                builder: (d) => Dialog(
+                  backgroundColor: Colors.black,
+                  insetPadding: const EdgeInsets.all(8),
+                  child: GestureDetector(onTap: () => Navigator.pop(d), child: InteractiveViewer(child: Image.file(f, fit: BoxFit.contain))),
+                ),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: single
+                    ? SizedBox(width: MediaQuery.of(ctx).size.width - 40, child: Image.file(f, fit: BoxFit.cover))
+                    : Image.file(f, width: 160, height: 160, fit: BoxFit.cover),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
 }
