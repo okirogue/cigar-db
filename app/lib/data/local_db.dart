@@ -194,6 +194,10 @@ class LocalDb {
     });
   }
 
+  Future<void> updateLog(int id, Map<String, Object?> fields) async {
+    await (await db).update('logs', fields, where: 'id=?', whereArgs: [id]);
+  }
+
   Future<void> deleteLog(int id) async {
     await (await db).delete('logs', where: 'id=?', whereArgs: [id]);
   }

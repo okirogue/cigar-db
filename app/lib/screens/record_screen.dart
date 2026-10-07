@@ -12,7 +12,8 @@ class RecordScreen extends StatefulWidget {
   final String? cigarName;
   final String? vitola;
   final int? deductStockId;
-  const RecordScreen({super.key, this.cigarId, this.cigarName, this.vitola, this.deductStockId});
+  final SmokeLog? edit; // 수정 모드
+  const RecordScreen({super.key, this.cigarId, this.cigarName, this.vitola, this.deductStockId, this.edit});
 
   @override
   State<RecordScreen> createState() => _RecordScreenState();
@@ -43,7 +44,23 @@ class _RecordScreenState extends State<RecordScreen> {
     _cigarName = widget.cigarName;
     _vitola = widget.vitola;
     _deductStockId = widget.deductStockId;
+    final e = widget.edit;
+    if (e != null) {
+      _cigarId = e.cigarId;
+      _cigarName = e.cigarName;
+      _vitola = e.vitola;
+      _tags.addAll(e.tags);
+      _start.text = e.noteStart ?? '';
+      _mid.text = e.noteMid ?? '';
+      _end.text = e.noteEnd ?? '';
+      _place.text = e.place ?? '';
+      _pairing.text = e.pairing ?? '';
+      _score = e.score;
+      _date = DateTime.tryParse(e.date) ?? DateTime.now();
+      _deduct = false;
+    }
     WidgetsBinding.instance.addPostFrameCallback((_) async {
+      if (widget.edit != null) return;
       if (_cigarId == null) {
         await _choose();
       } else {
@@ -95,7 +112,7 @@ class _RecordScreenState extends State<RecordScreen> {
     final suggested = cigar?.allTags ?? const <String>[];
 
     return Scaffold(
-      appBar: AppBar(title: const Text('기록 추가')),
+      appBar: AppBar(title: Text(widget.edit == null ? '기록 추가' : '기록 수정')),
       body: _cigarId == null
           ? const SizedBox()
           : ListView(
@@ -245,8 +262,8 @@ class _RecordScreenState extends State<RecordScreen> {
                 ),
                 const SizedBox(height: 14),
 
-                // 재고 차감
-                if (_stockCandidates.isNotEmpty)
+                // 재고 차감 (수정 모드에선 안 보임)
+                if (widget.edit == null && _stockCandidates.isNotEmpty)
                   Card(
                     child: Column(children: [
                       CheckboxListTile(
@@ -285,6 +302,26 @@ class _RecordScreenState extends State<RecordScreen> {
 
   Future<void> _save() async {
     final st = context.read<AppState>();
+    if (widget.edit != null) {
+      await st.db.updateLog(widget.edit!.id, {
+        'cigar_id': _cigarId,
+        'cigar_name': _cigarName,
+        'vitola': _vitola,
+        'date': ymd(_date),
+        'score': _score,
+        'tags': _tags.join(','),
+        'note_start': _start.text.trim().isEmpty ? null : _start.text.trim(),
+        'note_mid': _mid.text.trim().isEmpty ? null : _mid.text.trim(),
+        'note_end': _end.text.trim().isEmpty ? null : _end.text.trim(),
+        'place': _place.text.trim().isEmpty ? null : _place.text.trim(),
+        'pairing': _pairing.text.trim().isEmpty ? null : _pairing.text.trim(),
+      });
+      await st.reload();
+      if (!mounted) return;
+      Navigator.pop(context);
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$_cigarName 기록 수정됨')));
+      return;
+    }
     await st.db.addLog(
       cigarId: _cigarId!,
       cigarName: _cigarName!,

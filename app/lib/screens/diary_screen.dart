@@ -196,6 +196,17 @@ class _LogCard extends StatelessWidget {
               ],
             const SizedBox(height: 8),
             Row(children: [
+              Expanded(
+                child: FilledButton(
+                  style: FilledButton.styleFrom(minimumSize: const Size(0, 44)),
+                  onPressed: () {
+                    Navigator.pop(ctx);
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => RecordScreen(edit: log)));
+                  },
+                  child: const Text('수정'),
+                ),
+              ),
+              const SizedBox(width: 8),
               if (repo.byId(log.cigarId) != null)
                 Expanded(
                   child: OutlinedButton(
