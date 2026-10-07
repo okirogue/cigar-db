@@ -1,13 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import '../data/update_check.dart';
 
 import '../state.dart';
 import '../theme.dart';
 import 'detail_screen.dart';
 
 /// 홈: 브랜드 헤더 + 내 업적(도감·미각). 횟수·연속 같은 건 없음.
-class BadgesScreen extends StatelessWidget {
+class BadgesScreen extends StatefulWidget {
   const BadgesScreen({super.key});
+  @override
+  State<BadgesScreen> createState() => _BadgesScreenState();
+}
+
+class _BadgesScreenState extends State<BadgesScreen> {
+  UpdateInfo? _update;
+
+  @override
+  void initState() {
+    super.initState();
+    UpdateCheck.check().then((u) {
+      if (mounted && u != null) setState(() => _update = u);
+    });
+  }
 
   static const _grades = [('입문', 0.0), ('애호가', 0.05), ('탐험가', 0.15), ('마스터', 0.40)];
   static const _tasteBadges = [(10, '노트 입문'), (19, '구분 좀 함'), (25, '맛잘알'), (32, '시가 소믈리에')];
@@ -73,6 +90,33 @@ class BadgesScreen extends StatelessWidget {
               if (st.logs.isNotEmpty) SubText('${st.logs.length}회 · 평균 ${st.avgScore.round()}점', size: 13),
             ]),
           ),
+          // 업데이트 배너
+          if (_update != null)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 14),
+              child: Material(
+                color: C.accent,
+                borderRadius: BorderRadius.circular(14),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(14),
+                  onTap: () => launchUrl(Uri.parse(_update!.apkUrl), mode: LaunchMode.externalApplication),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    child: Row(children: [
+                      const Icon(Icons.system_update_alt, color: Colors.white, size: 20),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                          Text('새 버전 ${_update!.tag} 있어요', style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 14)),
+                          const Text('눌러서 다운로드 → 설치하면 업데이트돼요 (데이터 유지)', style: TextStyle(color: Colors.white70, fontSize: 11)),
+                        ]),
+                      ),
+                      const Icon(Icons.chevron_right, color: Colors.white70),
+                    ]),
+                  ),
+                ),
+              ),
+            ),
           // 추천
           if (st.profile != null && st.profile!.ready && st.recos.isNotEmpty) ...[
             Card(

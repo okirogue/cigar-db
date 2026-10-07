@@ -65,7 +65,8 @@ jobs:
       - name: Build APK (debug-signed release)
         run: |
           set -o pipefail
-          flutter build apk --release 2>&1 | tee ../ci-build.txt
+          flutter build apk --release --build-number=${{ github.run_number }} 2>&1 | tee ../ci-build.txt
+          cp build/app/outputs/flutter-apk/app-release.apk ../MyHumidor.apk
 
       # 실패 시 로그를 이슈 코멘트로 남김 (로그 blob 저장소가 외부에서 안 열릴 때 대비)
       - name: Post failure log to issue
@@ -101,6 +102,20 @@ jobs:
           name: cigar_log-apk
           path: app/build/app/outputs/flutter-apk/app-release.apk
           retention-days: 14
+
+      # 고정 주소로 받을 수 있게 Releases에 등록: .../releases/latest/download/MyHumidor.apk
+      - name: Publish release
+        if: github.ref == 'refs/heads/main'
+        working-directory: .
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VER=$(grep '^version:' app/pubspec.yaml | sed 's/version: *//; s/+.*//')
+          TAG="v${VER}-b${{ github.run_number }}"
+          gh release create "$TAG" MyHumidor.apk \
+            --title "MyHumidor $TAG" \
+            --notes "빌드 ${{ github.run_number }} · ${GITHUB_SHA::7} — $(git log -1 --pretty=%s)" \
+            --latest
 
       # 새로 생성된 android/ 스캐폴드는 저장소에 커밋해 둔다 (권한·매니페스트 편집용)
       - name: Commit scaffold
