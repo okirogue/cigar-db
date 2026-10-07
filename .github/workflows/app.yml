@@ -19,6 +19,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 40
+    env:
+      KS: ${{ secrets.ANDROID_KEYSTORE_B64 }}
     defaults:
       run:
         working-directory: app
@@ -62,11 +64,31 @@ jobs:
           set -o pipefail
           flutter test 2>&1 | tee ../ci-test.txt
 
-      - name: Build APK (debug-signed release)
+      # 플레이 업로드 키 (GitHub Secrets에 있을 때만). 없으면 debug 키로 서명.
+      - name: Prepare upload keystore
+        if: env.KS != ''
+        run: |
+          echo "$KS" | base64 -d > android/upload-keystore.jks
+          cat > android/key.properties <<EOF
+          storeFile=../upload-keystore.jks
+          storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          keyPassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          keyAlias=upload
+          EOF
+
+      - name: Build APK
         run: |
           set -o pipefail
           flutter build apk --release --build-number=${{ github.run_number }} 2>&1 | tee ../ci-build.txt
           cp build/app/outputs/flutter-apk/app-release.apk ../MyHumidor.apk
+
+      # 플레이 스토어용 번들 (업로드 키 있을 때만 의미 있음)
+      - name: Build App Bundle (.aab)
+        if: env.KS != ''
+        run: |
+          set -o pipefail
+          flutter build appbundle --release --build-number=${{ github.run_number }} 2>&1 | tee -a ../ci-build.txt
+          cp build/app/outputs/bundle/release/app-release.aab ../MyHumidor.aab
 
       # 실패 시 로그를 이슈 코멘트로 남김 (로그 blob 저장소가 외부에서 안 열릴 때 대비)
       - name: Post failure log to issue
@@ -112,7 +134,8 @@ jobs:
         run: |
           VER=$(grep '^version:' app/pubspec.yaml | sed 's/version: *//; s/+.*//')
           TAG="v${VER}-b${{ github.run_number }}"
-          gh release create "$TAG" MyHumidor.apk \
+          FILES="MyHumidor.apk"; [ -f MyHumidor.aab ] && FILES="$FILES MyHumidor.aab"
+          gh release create "$TAG" $FILES \
             --title "MyHumidor $TAG" \
             --notes "빌드 ${{ github.run_number }} · ${GITHUB_SHA::7} — $(git log -1 --pretty=%s)" \
             --latest
