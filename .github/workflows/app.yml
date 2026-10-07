@@ -29,6 +29,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Google 인증 (키 파일 없이 WIF). 토큰은 Firestore 규칙 배포 + Play 업로드에 공용
+      - name: Auth to Google Cloud (WIF)
+        if: github.ref == 'refs/heads/main' && env.KS != ''
+        id: gcp-auth
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/878079125373/locations/global/workloadIdentityPools/github/providers/github
+          service_account: play-publisher@myhumidor-2482d.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/androidpublisher,https://www.googleapis.com/auth/cloud-platform
+
+      # Firestore 보안 규칙: 파일이 게시본과 다르면 먼저 게시 (앱보다 규칙이 먼저 바뀌어야 함)
+      - name: Deploy Firestore rules
+        if: github.ref == 'refs/heads/main' && env.KS != ''
+        working-directory: .
+        env:
+          TOKEN: ${{ steps.gcp-auth.outputs.access_token }}
+          PROJECT: myhumidor-2482d
+        run: python3 .github/scripts/firestore_rules_deploy.py app/firestore.rules 2>&1 | tee ci-rules.txt
+
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -123,17 +143,7 @@ jobs:
               --latest
           fi
 
-      # Google Play 내부 테스트 + 비공개 테스트(alpha) 트랙에 자동 업로드 (키 파일 없이 WIF로 인증)
-      - name: Auth to Google Cloud (WIF)
-        if: github.ref == 'refs/heads/main' && env.KS != ''
-        id: gcp-auth
-        uses: google-github-actions/auth@v2
-        with:
-          workload_identity_provider: projects/878079125373/locations/global/workloadIdentityPools/github/providers/github
-          service_account: play-publisher@myhumidor-2482d.iam.gserviceaccount.com
-          token_format: access_token
-          access_token_scopes: https://www.googleapis.com/auth/androidpublisher
-
+      # Google Play 내부 테스트 + 비공개 테스트(alpha) 트랙에 자동 업로드
       - name: Upload to Play internal track
         if: github.ref == 'refs/heads/main' && env.KS != ''
         working-directory: .
@@ -164,7 +174,7 @@ jobs:
         run: |
           {
             echo "### app-build failed · ${GITHUB_SHA::7} · run ${{ github.run_id }}"
-            for f in ci-analyze.txt ci-test.txt ci-build.txt ci-play.txt; do
+            for f in ci-rules.txt ci-analyze.txt ci-test.txt ci-build.txt ci-play.txt; do
               if [ -f "$f" ]; then
                 echo; echo "<details><summary>$f</summary>"; echo; echo '```'
                 grep -vE '^\s*$' "$f" | tail -n 150
