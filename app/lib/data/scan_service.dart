@@ -9,6 +9,7 @@ import 'package:image/image.dart' as img;
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../l10n.dart';
 import '../models/cigar.dart';
 import 'cigar_repo.dart';
 
@@ -126,8 +127,8 @@ class ScanService {
 
   /// 밴드 인식. 반환: 후보 시가 목록(유사도순) + 모델이 읽은 텍스트.
   Future<ScanResult> recognize(Uint8List jpeg, CigarRepo repo) async {
-    if (!_ready) throw ScanException('스캔 서버에 연결되지 않았어요. 네트워크를 확인해 주세요.');
-    if (!await _consume()) throw ScanException('오늘 스캔 $dailyLimit회를 다 썼어요. 내일 다시 열려요.');
+    if (!_ready) throw ScanException(tr('스캔 서버에 연결되지 않았어요. 네트워크를 확인해 주세요.', 'Could not reach the scan server. Check your network.'));
+    if (!await _consume()) throw ScanException(tr('오늘 스캔 $dailyLimit회를 다 썼어요. 내일 다시 열려요.', 'You have used all $dailyLimit scans for today. Try again tomorrow.'));
 
     const prompt = '''
 This is a photo of a cigar band (or a cigar box / tube). Read the brand and line name.
@@ -175,7 +176,7 @@ Return ONLY JSON: {"brand": string, "line": string, "vitola": string|null, "coun
     if (text == null) {
       if (busy) {
         await _refund();
-        throw ScanException('지금 인식 서버가 붐벼요. 잠시 후 다시 시도해 주세요. (이번 시도는 횟수에서 차감되지 않아요)');
+        throw ScanException(tr('지금 인식 서버가 붐벼요. 잠시 후 다시 시도해 주세요. (이번 시도는 횟수에서 차감되지 않아요)', 'The recognition server is busy. Please try again shortly. (This attempt does not count toward your limit)'));
       }
       final m = lastErr.toString();
       throw ScanException(m.length > 160 ? '${m.substring(0, 160)}…' : m);
@@ -184,7 +185,7 @@ Return ONLY JSON: {"brand": string, "line": string, "vitola": string|null, "coun
     try {
       j = jsonDecode(text) as Map<String, dynamic>;
     } catch (_) {
-      throw ScanException('밴드를 읽지 못했어요. 더 밝은 곳에서 밴드가 정면으로 보이게 찍어주세요.');
+      throw ScanException(tr('밴드를 읽지 못했어요. 더 밝은 곳에서 밴드가 정면으로 보이게 찍어주세요.', 'Could not read the band. Try better lighting with the band facing the camera.'));
     }
     final brand = (j['brand'] ?? '').toString().trim();
     final line = (j['line'] ?? '').toString().trim();

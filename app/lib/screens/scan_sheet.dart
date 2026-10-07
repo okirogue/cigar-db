@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../data/scan_service.dart';
+import '../l10n.dart';
 import '../models/cigar.dart';
 import '../state.dart';
 import '../theme.dart';
@@ -13,12 +14,12 @@ Future<Cigar?> runScan(BuildContext context) async {
   final sm = ScaffoldMessenger.of(context);
 
   if (!svc.ready) {
-    sm.showSnackBar(const SnackBar(content: Text('스캔 서버에 연결되지 않았어요. 잠시 후 다시 시도해 주세요.')));
+    sm.showSnackBar(SnackBar(content: Text(tr('스캔 서버에 연결되지 않았어요. 잠시 후 다시 시도해 주세요.', 'Could not reach the scan server. Please try again later.'))));
     return null;
   }
   final left = await svc.remaining();
   if (left <= 0) {
-    sm.showSnackBar(const SnackBar(content: Text('오늘 스캔 3회를 다 썼어요. 내일 다시 열려요.')));
+    sm.showSnackBar(SnackBar(content: Text(tr('오늘 스캔 3회를 다 썼어요. 내일 다시 열려요.', 'You have used all 3 scans for today. Try again tomorrow.'))));
     return null;
   }
 
@@ -29,11 +30,11 @@ Future<Cigar?> runScan(BuildContext context) async {
   showDialog<void>(
     context: context,
     barrierDismissible: false,
-    builder: (_) => const AlertDialog(
+    builder: (_) => AlertDialog(
       content: Row(children: [
-        SizedBox(width: 22, height: 22, child: CircularProgressIndicator(strokeWidth: 2, color: C.accent)),
-        SizedBox(width: 16),
-        Expanded(child: Text('밴드를 읽는 중…', style: TextStyle(fontSize: 14))),
+        const SizedBox(width: 22, height: 22, child: CircularProgressIndicator(strokeWidth: 2, color: C.accent)),
+        const SizedBox(width: 16),
+        Expanded(child: Text(tr('밴드를 읽는 중…', 'Reading the band…'), style: const TextStyle(fontSize: 14))),
       ]),
     ),
   );
@@ -62,15 +63,23 @@ Future<Cigar?> runScan(BuildContext context) async {
         padding: const EdgeInsets.fromLTRB(20, 16, 20, 20),
         child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
           Row(children: [
-            const Text('밴드 인식 결과', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+            Text(tr('밴드 인식 결과', 'Band scan result'), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
             const Spacer(),
-            SubText('오늘 $remain회 남음', size: 11),
+            SubText(tr('오늘 $remain회 남음', '$remain left today'), size: 11),
           ]),
           const SizedBox(height: 4),
-          SubText(r.readName.isEmpty ? '읽은 글자: ${r.rawText}' : '읽음: ${r.readName}${r.vitola != null ? ' · ${r.vitola}' : ''} (확신 ${(r.confidence * 100).round()}%)', size: 12),
+          SubText(
+            r.readName.isEmpty
+                ? tr('읽은 글자: ${r.rawText}', 'Text read: ${r.rawText}')
+                : tr(
+                    '읽음: ${r.readName}${r.vitola != null ? ' · ${r.vitola}' : ''} (확신 ${(r.confidence * 100).round()}%)',
+                    'Read: ${r.readName}${r.vitola != null ? ' · ${r.vitola}' : ''} (${(r.confidence * 100).round()}% confidence)',
+                  ),
+            size: 12,
+          ),
           const SizedBox(height: 12),
           if (r.candidates.isEmpty)
-            const Padding(padding: EdgeInsets.symmetric(vertical: 12), child: SubText('DB에서 일치하는 시가를 못 찾았어요. 검색창에 직접 입력해 주세요.', size: 13))
+            Padding(padding: const EdgeInsets.symmetric(vertical: 12), child: SubText(tr('DB에서 일치하는 시가를 못 찾았어요. 검색창에 직접 입력해 주세요.', 'No matching cigar in the database. Try typing it in the search box.'), size: 13))
           else
             Flexible(
               child: ListView(shrinkWrap: true, children: [
@@ -79,13 +88,13 @@ Future<Cigar?> runScan(BuildContext context) async {
                     contentPadding: EdgeInsets.zero,
                     leading: const CigarThumb(size: 40),
                     title: Text(c.fullName, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
-                    subtitle: SubText([if (c.cuban) '쿠바', if (c.specs['strength'] != null) c.specs['strength']!, if (c.hasNotes) '노트 有'].join(' · ')),
+                    subtitle: SubText([if (c.cuban) tr('쿠바', 'Cuban'), if (c.specs['strength'] != null) c.specs['strength']!, if (c.hasNotes) tr('노트 有', 'Has notes')].join(' · ')),
                     onTap: () => Navigator.pop(ctx, c),
                   ),
               ]),
             ),
           const SizedBox(height: 8),
-          OutlinedButton(onPressed: () => Navigator.pop(ctx), child: const Text('여기 없음 · 직접 검색')),
+          OutlinedButton(onPressed: () => Navigator.pop(ctx), child: Text(tr('여기 없음 · 직접 검색', 'Not here · search manually'))),
         ]),
       ),
     ),

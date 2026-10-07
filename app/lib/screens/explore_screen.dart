@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../data/cigar_repo.dart';
+import '../l10n.dart';
 import '../models/cigar.dart';
 import '../state.dart';
 import '../theme.dart';
@@ -43,7 +44,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('탐색', style: TextStyle(fontSize: 24)),
+        title: Text(tr('탐색', 'Explore'), style: const TextStyle(fontSize: 24)),
       ),
       body: Column(children: [
         Padding(
@@ -53,7 +54,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
               child: TextField(
                 controller: _c,
                 decoration: InputDecoration(
-                  hintText: '브랜드·라인 검색 (영문)',
+                  hintText: tr('브랜드·라인 검색 (영문)', 'Search brand or line'),
                   prefixIcon: const Icon(Icons.search, color: C.sub),
                   suffixIcon: _q.isEmpty
                       ? null
@@ -72,11 +73,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Row(children: [
-            PillChip(label: '쿠반만', selected: _cubanOnly, onTap: () => setState(() => _cubanOnly = !_cubanOnly)),
+            PillChip(label: tr('쿠반만', 'Cuban only'), selected: _cubanOnly, onTap: () => setState(() => _cubanOnly = !_cubanOnly)),
             const SizedBox(width: 8),
-            PillChip(label: '노트 있는 것만', selected: _notesOnly, onTap: () => setState(() => _notesOnly = !_notesOnly)),
+            PillChip(label: tr('노트 있는 것만', 'With notes'), selected: _notesOnly, onTap: () => setState(() => _notesOnly = !_notesOnly)),
             const Spacer(),
-            SubText('DB ${repo.all.length}라인', size: 11),
+            SubText(tr('DB ${repo.all.length}라인', 'DB ${repo.all.length} lines'), size: 11),
           ]),
         ),
         const SizedBox(height: 10),
@@ -86,12 +87,12 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
                   children: [
                     if (recentIds.isNotEmpty) ...[
-                      const SubText('최근 피운 시가'),
+                      SubText(tr('최근 피운 시가', 'Recently smoked')),
                       const SizedBox(height: 6),
                       for (final id in recentIds) _CigarRow(cigar: repo.byId(id)!),
                       const SizedBox(height: 10),
                     ],
-                    const SubText('브랜드 바로가기'),
+                    SubText(tr('브랜드 바로가기', 'Brands')),
                     const SizedBox(height: 6),
                     Wrap(spacing: 8, runSpacing: 8, children: [
                       for (final b in _topBrands(repo))
@@ -108,7 +109,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
               : results.isEmpty
                   ? Center(
                       child: Column(mainAxisSize: MainAxisSize.min, children: [
-                        const SubText('검색 결과가 없어요', size: 13),
+                        SubText(tr('검색 결과가 없어요', 'No results'), size: 13),
                         const SizedBox(height: 12),
                         OutlinedButton.icon(
                           style: OutlinedButton.styleFrom(side: const BorderSide(color: Color(0xFFB8A999)), foregroundColor: C.accent),
@@ -117,7 +118,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                             final c = await addCustomCigar(context, initial: _q.trim());
                             if (c != null && context.mounted) setState(() {});
                           },
-                          label: const Text('직접 추가'),
+                          label: Text(tr('직접 추가', 'Add manually')),
                         ),
                       ]),
                     )
@@ -146,9 +147,9 @@ class _CigarRow extends StatelessWidget {
     final st = context.read<AppState>();
     final smoked = st.smokedIds.contains(cigar.id);
     final sub = <String>[
-      if (cigar.cuban) '쿠바',
+      if (cigar.cuban) tr('쿠바', 'Cuban'),
       if (cigar.specs['strength'] != null) cigar.specs['strength']!,
-      if (cigar.vitolas.isNotEmpty) '${cigar.vitolas.length}종',
+      if (cigar.vitolas.isNotEmpty) tr('${cigar.vitolas.length}종', '${cigar.vitolas.length} vitolas'),
       if (cigar.dojoScore != null) 'Dojo ${cigar.dojoScore}',
     ];
     return Padding(
@@ -173,7 +174,7 @@ class _CigarRow extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                   decoration: BoxDecoration(color: C.chip, borderRadius: BorderRadius.circular(6)),
-                  child: Text('노트 ${cigar.allTags.length}', style: const TextStyle(fontSize: 11, color: C.accent)),
+                  child: Text(tr('노트 ${cigar.allTags.length}', 'Notes ${cigar.allTags.length}'), style: const TextStyle(fontSize: 11, color: C.accent)),
                 ),
             ]),
           ),

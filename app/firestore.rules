@@ -41,7 +41,7 @@ service cloud.firestore {
         && request.resource.data.cigar_id is string
         && request.resource.data.score is int && request.resource.data.score >= 0 && request.resource.data.score <= 100
         && request.resource.data.tags is list && request.resource.data.tags.size() <= 40
-        && request.resource.data.keys().hasOnly(['uid', 'log_id', 'cigar_id', 'cigar_name', 'vitola', 'date', 'score', 'tags', 'updated']);
+        && request.resource.data.keys().hasOnly(['uid', 'log_id', 'cigar_id', 'cigar_name', 'vitola', 'date', 'score', 'tags', 'lang', 'updated']);
       allow delete: if request.auth != null && id.matches('^' + request.auth.uid + '_[0-9]+$');
     }
 

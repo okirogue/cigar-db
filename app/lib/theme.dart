@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'l10n.dart';
+
 /// 목업 팔레트
 class C {
   static const bg = Color(0xFFF6F1EA);
@@ -167,14 +169,17 @@ String fmtWon(int v) {
     if (i > 0 && (s.length - i) % 3 == 0) b.write(',');
     b.write(s[i]);
   }
-  return '$b원';
+  return L10n.isKo ? '$b원' : '₩$b';
 }
 
-/// yyyy-MM-dd → M/d
+const _monthsEn = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+/// yyyy-MM-dd → ko: M/d, en: 'Oct 7'
 String fmtShort(String ymd) {
   final d = DateTime.tryParse(ymd);
   if (d == null) return ymd;
-  return '${d.month}/${d.day}';
+  if (L10n.isKo) return '${d.month}/${d.day}';
+  return '${_monthsEn[d.month - 1]} ${d.day}';
 }
 
 String todayYmd() {

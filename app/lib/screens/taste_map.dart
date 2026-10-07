@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../l10n.dart';
 import '../models/cigar.dart';
 import '../models/local.dart';
 import '../state.dart';
@@ -13,12 +14,12 @@ import 'diary_screen.dart';
 class TasteMap extends StatelessWidget {
   const TasteMap({super.key});
 
-  static const _origin = {
-    'cuba': (Color(0xFFC9963F), '쿠바'),
-    'nica': (Color(0xFF3F84C9), '니카라과'),
-    'domi': (Color(0xFFC95A8F), '도미니카'),
-    'other': (Color(0xFF6E9E3C), '혼합·기타'),
-  };
+  static Map<String, (Color, String)> get _origin => {
+        'cuba': (const Color(0xFFC9963F), tr('쿠바', 'Cuba')),
+        'nica': (const Color(0xFF3F84C9), tr('니카라과', 'Nicaragua')),
+        'domi': (const Color(0xFFC95A8F), tr('도미니카', 'Dominican')),
+        'other': (const Color(0xFF6E9E3C), tr('혼합·기타', 'Blend / other')),
+      };
 
   // 태그 → 밝기 가중치 (+ 밝은 결, − 묵직한 결)
   static const _bright = <String, double>{
@@ -94,13 +95,19 @@ class TasteMap extends StatelessWidget {
       pts.add(_Pt(i + 1, l, (_strengthX(l, c) + jx).clamp(.03, .97), (_brightY(l, c) + jy).clamp(.03, .97), _originKey(c)));
     }
 
+    final origin = _origin;
     return Card(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(14, 18, 14, 14),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const Padding(padding: EdgeInsets.only(left: 4), child: Text('취향 지도', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14))),
+          Padding(padding: const EdgeInsets.only(left: 4), child: Text(tr('취향 지도', 'Taste Map'), style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14))),
           const SizedBox(height: 2),
-          const Padding(padding: EdgeInsets.only(left: 4), child: SubText('가로 강도 · 세로 향의 결 · 색 산지 · 꽉 찬 점 80↑, 반 70대, 테두리만 70 미만', size: 11)),
+          Padding(
+              padding: const EdgeInsets.only(left: 4),
+              child: SubText(
+                  tr('가로 강도 · 세로 향의 결 · 색 산지 · 꽉 찬 점 80↑, 반 70대, 테두리만 70 미만',
+                      'X strength · Y flavor profile · color origin · filled 80+, half 70s, outline under 70'),
+                  size: 11)),
           const SizedBox(height: 12),
           LayoutBuilder(builder: (_, box) {
             final w = box.maxWidth;
@@ -115,13 +122,13 @@ class TasteMap extends StatelessWidget {
                   final hit = _hit(placed, d.localPosition, r);
                   if (hit != null) openLogSheet(context, hit.pt.log);
                 },
-                child: CustomPaint(painter: _MapPainter(placed, _origin, r)),
+                child: CustomPaint(painter: _MapPainter(placed, origin, r, L10n.code)),
               ),
             );
           }),
           const SizedBox(height: 10),
           Wrap(spacing: 14, runSpacing: 6, children: [
-            for (final e in _origin.entries)
+            for (final e in origin.entries)
               Row(mainAxisSize: MainAxisSize.min, children: [
                 Container(width: 10, height: 10, decoration: BoxDecoration(color: e.value.$1, shape: BoxShape.circle)),
                 const SizedBox(width: 5),
@@ -205,7 +212,8 @@ class _MapPainter extends CustomPainter {
   final List<_Placed> pts;
   final Map<String, (Color, String)> origin;
   final double r;
-  _MapPainter(this.pts, this.origin, this.r);
+  final String lang;
+  _MapPainter(this.pts, this.origin, this.r, this.lang);
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -238,11 +246,11 @@ class _MapPainter extends CustomPainter {
       canvas.restore();
     }
 
-    label('순함', Offset(padL, size.height - padB + 8));
-    label('강도 →', Offset(padL + pw / 2, size.height - padB + 8), align: TextAlign.center);
-    label('셈', Offset(padL + pw, size.height - padB + 8), align: TextAlign.right);
-    label('밝은 결 (시더·플로럴·건초)', Offset(14, padT + ph * .02), rotate: true, align: TextAlign.right);
-    label('묵직한 결 (흙·가죽·에스프레소)', Offset(14, padT + ph * .98), rotate: true);
+    label(tr('순함', 'Mild'), Offset(padL, size.height - padB + 8));
+    label(tr('강도 →', 'Strength →'), Offset(padL + pw / 2, size.height - padB + 8), align: TextAlign.center);
+    label(tr('셈', 'Full'), Offset(padL + pw, size.height - padB + 8), align: TextAlign.right);
+    label(tr('밝은 결 (시더·플로럴·건초)', 'Bright (cedar · floral · hay)'), Offset(14, padT + ph * .02), rotate: true, align: TextAlign.right);
+    label(tr('묵직한 결 (흙·가죽·에스프레소)', 'Heavy (earth · leather · espresso)'), Offset(14, padT + ph * .98), rotate: true);
 
     // 점
     for (final pl in pts) {
@@ -271,5 +279,6 @@ class _MapPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant _MapPainter old) => old.pts.length != pts.length || old.r != r || old.pts.any((p) => !pts.contains(p));
+  bool shouldRepaint(covariant _MapPainter old) =>
+      old.lang != lang || old.pts.length != pts.length || old.r != r || old.pts.any((p) => !pts.contains(p));
 }

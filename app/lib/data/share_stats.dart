@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../l10n.dart';
 import '../models/local.dart';
 import 'scan_service.dart';
 
@@ -39,6 +40,7 @@ class ShareStats {
         'date': l.date,
         'score': l.score,
         'tags': l.tags,
+        'lang': L10n.code, // 기록 당시 앱 언어 (ko/en) — 한국/글로벌 사용자 구분용
         'updated': FieldValue.serverTimestamp(),
       };
 
@@ -119,17 +121,23 @@ class ShareStats {
       context: context,
       barrierDismissible: false,
       builder: (ctx) => AlertDialog(
-        title: const Text('기록을 익명으로 공유할까요?'),
-        content: const Text(
-          '카페 회원들의 평균 점수·많이 느낀 노트 같은 통계를 만들기 위해, 기록을 저장할 때 아래 항목만 익명으로 모아요.\n\n'
-          '• 보내는 것: 시가 이름, 점수, 체크한 노트 태그, 날짜\n'
-          '• 안 보내는 것: 메모(초반/중반/후반), 장소, 페어링, 이름·이메일 등 개인정보\n\n'
-          '다이어리 메뉴(⋮)에서 언제든 끄고 켤 수 있어요.',
-          style: TextStyle(fontSize: 13.5, height: 1.5),
+        title: Text(tr('기록을 익명으로 공유할까요?', 'Share your logs anonymously?')),
+        content: Text(
+          tr(
+            '커뮤니티의 평균 점수·많이 느낀 노트 같은 통계를 만들기 위해, 기록을 저장할 때 아래 항목만 익명으로 모아요.\n\n'
+            '• 보내는 것: 시가 이름, 점수, 체크한 노트 태그, 날짜\n'
+            '• 안 보내는 것: 메모(초반/중반/후반), 장소, 페어링, 이름·이메일 등 개인정보\n\n'
+            '다이어리 메뉴(⋮)에서 언제든 끄고 켤 수 있어요.',
+            'To build community stats like average score and common notes, only the items below are collected anonymously when you save a log.\n\n'
+            '• Sent: cigar name, score, checked note tags, date\n'
+            '• Not sent: memo (first/second/final third), place, pairing, or personal info like name or email\n\n'
+            'You can turn this on or off anytime from the Diary menu (⋮).',
+          ),
+          style: const TextStyle(fontSize: 13.5, height: 1.5),
         ),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(ctx, false), child: const Text('공유 안 함')),
-          FilledButton(onPressed: () => Navigator.pop(ctx, true), child: const Text('익명 공유')),
+          TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text(tr('공유 안 함', 'Do not share'))),
+          FilledButton(onPressed: () => Navigator.pop(ctx, true), child: Text(tr('익명 공유', 'Share anonymously'))),
         ],
       ),
     );

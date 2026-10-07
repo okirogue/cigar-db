@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../l10n.dart';
 import '../state.dart';
 import '../theme.dart';
 import 'picker_screen.dart';
@@ -75,7 +76,7 @@ class _AddStockScreenState extends State<AddStockScreen> {
     final pps = _pricePerStick;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('시가 입고')),
+      appBar: AppBar(title: Text(tr('시가 입고', 'Add to humidor'))),
       body: _pick == null
           ? const SizedBox()
           : ListView(
@@ -93,12 +94,14 @@ class _AddStockScreenState extends State<AddStockScreen> {
                         const SizedBox(width: 12),
                         Expanded(
                           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                            const SubText('선택됨'),
+                            SubText(tr('선택됨', 'Selected')),
                             Text(_pick!.name, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
-                            SubText(cigar == null ? '직접 입력' : [if (cigar.cuban) '쿠바', cigar.hasNotes ? '노트 有' : '노트 없음'].join(' · ')),
+                            SubText(cigar == null
+                                ? tr('직접 입력', 'Entered manually')
+                                : [if (cigar.cuban) tr('쿠바', 'Cuban'), cigar.hasNotes ? tr('노트 有', 'Has notes') : tr('노트 없음', 'No notes')].join(' · ')),
                           ]),
                         ),
-                        const Text('변경', style: TextStyle(fontSize: 13, color: C.accent)),
+                        Text(tr('변경', 'Change'), style: const TextStyle(fontSize: 13, color: C.accent)),
                       ]),
                     ),
                   ),
@@ -109,25 +112,25 @@ class _AddStockScreenState extends State<AddStockScreen> {
                     padding: const EdgeInsets.all(14),
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                       // 비톨라
-                      const SubText('비톨라'),
+                      SubText(tr('비톨라', 'Vitola')),
                       const SizedBox(height: 4),
                       if (vitolas.isNotEmpty)
                         DropdownButtonFormField<String>(
                           initialValue: _vitola,
-                          hint: const Text('선택'),
+                          hint: Text(tr('선택', 'Select')),
                           items: [
                             for (final v in vitolas) DropdownMenuItem(value: v, child: Text(_stripBrand(v, cigar!.name))),
-                            const DropdownMenuItem(value: '__other', child: Text('직접 입력')),
+                            DropdownMenuItem(value: '__other', child: Text(tr('직접 입력', 'Enter manually'))),
                           ],
                           onChanged: (v) => setState(() => _vitola = v),
                         ),
                       if (vitolas.isEmpty || _vitola == '__other') ...[
                         const SizedBox(height: 6),
-                        TextField(controller: _vitolaCtl, decoration: const InputDecoration(hintText: '예: Robusto, No.4, 튜보')),
+                        TextField(controller: _vitolaCtl, decoration: InputDecoration(hintText: tr('예: Robusto, No.4, 튜보', 'e.g. Robusto, No.4, Tubo'))),
                       ],
                       const SizedBox(height: 12),
                       // 수량
-                      const SubText('수량'),
+                      SubText(tr('수량', 'Qty')),
                       const SizedBox(height: 4),
                       Row(children: [
                         _Sq(icon: Icons.remove, onTap: () => setState(() => _qty = (_qty - 1).clamp(1, 999))),
@@ -143,7 +146,7 @@ class _AddStockScreenState extends State<AddStockScreen> {
                       ]),
                       const SizedBox(height: 12),
                       // 가격
-                      const SubText('구매가 (선택, 총액)'),
+                      SubText(tr('구매가 (선택, 총액)', 'Price paid (optional, total)')),
                       const SizedBox(height: 4),
                       Row(children: [
                         Expanded(
@@ -151,7 +154,7 @@ class _AddStockScreenState extends State<AddStockScreen> {
                           child: TextField(
                             controller: _priceCtl,
                             keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                            decoration: const InputDecoration(hintText: '비우면 공란'),
+                            decoration: InputDecoration(hintText: tr('비우면 공란', 'Leave blank to skip')),
                             onChanged: (_) => setState(() {}),
                           ),
                         ),
@@ -167,14 +170,14 @@ class _AddStockScreenState extends State<AddStockScreen> {
                       if (_cur != 'KRW') ...[
                         const SizedBox(height: 8),
                         Row(children: [
-                          SubText('환율 1 $_cur ='),
+                          SubText(tr('환율 1 $_cur =', 'Rate 1 $_cur =')),
                           const SizedBox(width: 8),
                           SizedBox(
                             width: 110,
                             child: TextField(
                               controller: _rateCtl,
                               keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                              decoration: const InputDecoration(isDense: true, suffixText: '원'),
+                              decoration: InputDecoration(isDense: true, suffixText: tr('원', 'KRW')),
                               onChanged: (_) => setState(() {}),
                             ),
                           ),
@@ -184,15 +187,16 @@ class _AddStockScreenState extends State<AddStockScreen> {
                       if (pps != null)
                         RichText(
                           text: TextSpan(style: const TextStyle(fontSize: 12, color: C.sub), children: [
-                            const TextSpan(text: '개비당 약 '),
+                            TextSpan(text: tr('개비당 약 ', 'About ')),
                             TextSpan(text: fmtWon(pps), style: const TextStyle(color: C.text, fontWeight: FontWeight.w700)),
+                            if (!L10n.isKo) const TextSpan(text: ' per stick'),
                           ]),
                         )
                       else
-                        const SubText('구매가를 안 쓰면 카드에 가격이 표시되지 않아요'),
+                        SubText(tr('구매가를 안 쓰면 카드에 가격이 표시되지 않아요', 'Without a price, the card shows no price')),
                       const SizedBox(height: 12),
                       // 입고일
-                      const SubText('입고일'),
+                      SubText(tr('입고일', 'Date added')),
                       const SizedBox(height: 4),
                       OutlinedButton.icon(
                         icon: const Icon(Icons.calendar_today_outlined, size: 16),
@@ -206,7 +210,7 @@ class _AddStockScreenState extends State<AddStockScreen> {
                   ),
                 ),
                 const SizedBox(height: 14),
-                const SubText('넣을 휴미더'),
+                SubText(tr('넣을 휴미더', 'Humidor')),
                 const SizedBox(height: 6),
                 Wrap(spacing: 8, runSpacing: 8, children: [
                   for (final h in st.humidors)
@@ -230,11 +234,11 @@ class _AddStockScreenState extends State<AddStockScreen> {
                         final name = await showDialog<String>(
                           context: context,
                           builder: (dctx) => AlertDialog(
-                            title: const Text('휴미더 이름'),
+                            title: Text(tr('휴미더 이름', 'Humidor name')),
                             content: TextField(controller: c, autofocus: true),
                             actions: [
-                              TextButton(onPressed: () => Navigator.pop(dctx), child: const Text('취소')),
-                              TextButton(onPressed: () => Navigator.pop(dctx, c.text.trim()), child: const Text('확인')),
+                              TextButton(onPressed: () => Navigator.pop(dctx), child: Text(tr('취소', 'Cancel'))),
+                              TextButton(onPressed: () => Navigator.pop(dctx, c.text.trim()), child: Text(tr('확인', 'OK'))),
                             ],
                           ),
                         );
@@ -250,7 +254,7 @@ class _AddStockScreenState extends State<AddStockScreen> {
                 FilledButton(
                   style: FilledButton.styleFrom(minimumSize: const Size.fromHeight(52)),
                   onPressed: _save,
-                  child: Text('입고 ($_qty개비)'),
+                  child: Text(tr('입고 ($_qty개비)', 'Add ($_qty)')),
                 ),
               ],
             ),
@@ -272,7 +276,7 @@ class _AddStockScreenState extends State<AddStockScreen> {
     await st.reload();
     if (!mounted) return;
     Navigator.pop(context);
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('${_pick!.name} $_qty개비 입고')));
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(tr('${_pick!.name} $_qty개비 입고', 'Added $_qty × ${_pick!.name}'))));
   }
 }
 

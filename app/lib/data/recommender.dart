@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import '../l10n.dart';
 import '../models/cigar.dart';
 import '../models/local.dart';
 import 'cigar_repo.dart';
@@ -149,12 +150,15 @@ class Recommender {
   }
 
   String _reason(Cigar c, List<String> shared, {bool smoked = false}) {
+    final strength = c.specs['strength'];
     final parts = <String>[
-      shared.take(3).map(repo.tagKo).join('·'),
-      if (c.specs['strength'] != null) '강도 ${c.specs['strength']}',
-      if (c.cuban) '쿠바',
-      if (smoked) '피워봄',
+      shared.take(3).map(repo.tagName).join('·'),
+      if (strength != null) tr('강도 $strength', 'Strength ${_capFirst(strength.toString())}'),
+      if (c.cuban) tr('쿠바', 'Cuban'),
+      if (smoked) tr('피워봄', 'Smoked'),
     ];
     return parts.join(' · ');
   }
 }
+
+String _capFirst(String s) => s.isEmpty ? s : '${s[0].toUpperCase()}${s.substring(1)}';

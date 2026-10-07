@@ -34,11 +34,12 @@ class CigarRepo {
     for (final g in (tj['groups'] as List).cast<Map<String, dynamic>>()) {
       final defs = <TagDef>[];
       for (final t in (g['tags'] as List).cast<Map<String, dynamic>>()) {
-        final d = TagDef(t['id'] as String, t['ko'] as String, (t['hint'] ?? '') as String, g['id'] as String, g['ko'] as String);
+        final d = TagDef(t['id'] as String, t['ko'] as String, (t['hint'] ?? '') as String, g['id'] as String, g['ko'] as String,
+            en: (t['en'] ?? t['ko']) as String, hintEn: (t['hint_en'] ?? t['hint'] ?? '') as String, groupEn: (g['en'] ?? g['ko']) as String);
         defs.add(d);
         _tagById[d.id] = d;
       }
-      _groups.add(TagGroup(g['id'] as String, g['ko'] as String, defs));
+      _groups.add(TagGroup(g['id'] as String, g['ko'] as String, defs, en: (g['en'] ?? g['ko']) as String));
     }
     _loaded = true;
   }
@@ -54,7 +55,8 @@ class CigarRepo {
     _byId[c.id] = c;
   }
 
-  String tagKo(String id) => _tagById[id]?.ko ?? id;
+  /// 현재 언어의 노트 이름
+  String tagName(String id) => _tagById[id]?.name ?? id;
   TagDef? tag(String id) => _tagById[id];
 
   /// 단어 단위 AND 검색. 결과는 브랜드 일치 > 이름 일치 순.

@@ -6,6 +6,7 @@ import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../l10n.dart';
 import '../models/cigar.dart';
 import '../state.dart';
 import 'local_db.dart';
@@ -63,7 +64,7 @@ class Backup {
     final name = 'myhumidor_backup_${DateTime.now().toIso8601String().substring(0, 10)}.json';
     final f = File(p.join(dir.path, name));
     await f.writeAsString(json);
-    await Share.shareXFiles([XFile(f.path, mimeType: 'application/json')], subject: 'MyHumidor 백업');
+    await Share.shareXFiles([XFile(f.path, mimeType: 'application/json')], subject: tr('MyHumidor 백업', 'MyHumidor backup'));
   }
 
   /// 파일 선택 → 가져오기. 반환: (휴미더, 재고 줄, 기록) 추가 개수. 취소하면 null.

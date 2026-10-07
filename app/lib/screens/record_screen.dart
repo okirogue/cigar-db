@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../l10n.dart';
 import '../models/local.dart';
 import '../data/share_stats.dart';
 import '../state.dart';
@@ -116,7 +117,7 @@ class _RecordScreenState extends State<RecordScreen> {
     final suggested = cigar?.allTags ?? const <String>[];
 
     return Scaffold(
-      appBar: AppBar(title: Text(widget.edit == null ? '기록 추가' : '기록 수정')),
+      appBar: AppBar(title: Text(widget.edit == null ? tr('기록 추가', 'New log') : tr('기록 수정', 'Edit log'))),
       body: _cigarId == null
           ? const SizedBox()
           : ListView(
@@ -134,12 +135,12 @@ class _RecordScreenState extends State<RecordScreen> {
                           Text(_cigarName!, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
                           SubText([
                             if (_vitola != null && _vitola!.isNotEmpty) _vitola!,
-                            if (cigar != null && cigar.cuban) '쿠바',
-                            if (cigar != null && cigar.specs['strength'] != null) '강도 ${cigar.specs['strength']}',
+                            if (cigar != null && cigar.cuban) tr('쿠바', 'Cuban'),
+                            if (cigar != null && cigar.specs['strength'] != null) tr('강도 ${cigar.specs['strength']}', 'Strength ${cigar.specs['strength']}'),
                           ].join(' · ')),
                         ]),
                       ),
-                      TextButton(onPressed: _choose, child: const Text('변경')),
+                      TextButton(onPressed: _choose, child: Text(tr('변경', 'Change'))),
                     ]),
                   ),
                 ),
@@ -157,10 +158,10 @@ class _RecordScreenState extends State<RecordScreen> {
                     ),
                   ),
                   const SizedBox(width: 8),
-                  Expanded(child: TextField(controller: _place, decoration: const InputDecoration(hintText: '장소', isDense: true))),
+                  Expanded(child: TextField(controller: _place, decoration: InputDecoration(hintText: tr('장소', 'Place'), isDense: true))),
                 ]),
                 const SizedBox(height: 8),
-                TextField(controller: _pairing, decoration: const InputDecoration(hintText: '페어링 (커피, 위스키, 제로사이다…)', isDense: true)),
+                TextField(controller: _pairing, decoration: InputDecoration(hintText: tr('페어링 (커피, 위스키, 제로사이다…)', 'Pairing (coffee, whisky, soda…)'), isDense: true)),
                 const SizedBox(height: 14),
 
                 // 노트 체크
@@ -169,43 +170,43 @@ class _RecordScreenState extends State<RecordScreen> {
                     padding: const EdgeInsets.all(14),
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                       Row(children: [
-                        const Text('느낀 노트', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+                        Text(tr('느낀 노트', 'Notes'), style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
                         const Spacer(),
-                        SubText('${_tags.length}개 체크', size: 11),
+                        SubText(tr('${_tags.length}개 체크', '${_tags.length} selected'), size: 11),
                       ]),
                       const SizedBox(height: 4),
                       if (suggested.isNotEmpty) ...[
-                        SubText(cigar!.official.isNotEmpty ? '공식·리뷰 노트에서 고르기' : '리뷰 노트에서 고르기', size: 11),
+                        SubText(cigar!.official.isNotEmpty ? tr('공식·리뷰 노트에서 고르기', 'Pick from official and review notes') : tr('리뷰 노트에서 고르기', 'Pick from review notes'), size: 11),
                         const SizedBox(height: 8),
                         Wrap(spacing: 8, runSpacing: 8, children: [
                           for (final t in suggested)
                             NoteChip(
-                              label: repo.tagKo(t),
+                              label: repo.tagName(t),
                               selected: _tags.contains(t),
                               onTap: () => setState(() => _tags.contains(t) ? _tags.remove(t) : _tags.add(t)),
                             ),
                         ]),
                         const SizedBox(height: 12),
                       ] else
-                        const Padding(padding: EdgeInsets.only(bottom: 8), child: SubText('이 시가는 아직 노트 자료가 없어요. 아래 전체 노트에서 골라주세요.', size: 12)),
+                        Padding(padding: const EdgeInsets.only(bottom: 8), child: SubText(tr('이 시가는 아직 노트 자료가 없어요. 아래 전체 노트에서 골라주세요.', 'No note data for this cigar yet. Pick from all notes below.'), size: 12)),
                       InkWell(
                         onTap: () => setState(() => _showAllTags = !_showAllTags),
                         child: Row(children: [
-                          Text(_showAllTags ? '전체 노트 접기' : '전체 노트에서 더 고르기', style: const TextStyle(fontSize: 12, color: C.accent)),
+                          Text(_showAllTags ? tr('전체 노트 접기', 'Hide all notes') : tr('전체 노트에서 더 고르기', 'Pick more from all notes'), style: const TextStyle(fontSize: 12, color: C.accent)),
                           Icon(_showAllTags ? Icons.expand_less : Icons.expand_more, size: 16, color: C.accent),
                         ]),
                       ),
                       if (_showAllTags || suggested.isEmpty) ...[
                         const SizedBox(height: 8),
                         for (final g in repo.tagGroups) ...[
-                          SubText(g.ko, size: 11),
+                          SubText(g.name, size: 11),
                           const SizedBox(height: 4),
                           Wrap(spacing: 6, runSpacing: 6, children: [
                             for (final t in g.tags)
                               Tooltip(
-                                message: t.hint,
+                                message: t.hintText,
                                 child: NoteChip(
-                                  label: t.ko,
+                                  label: t.name,
                                   small: true,
                                   selected: _tags.contains(t.id),
                                   onTap: () => setState(() => _tags.contains(t.id) ? _tags.remove(t.id) : _tags.add(t.id)),
@@ -225,13 +226,13 @@ class _RecordScreenState extends State<RecordScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(14),
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                      const Text('흐름 메모', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+                      Text(tr('흐름 메모', 'Progression memo'), style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
                       const SizedBox(height: 10),
-                      _Memo(label: '초반', ctl: _start),
+                      _Memo(label: tr('초반', 'First third'), ctl: _start),
                       const SizedBox(height: 8),
-                      _Memo(label: '중반', ctl: _mid),
+                      _Memo(label: tr('중반', 'Second third'), ctl: _mid),
                       const SizedBox(height: 8),
-                      _Memo(label: '후반', ctl: _end),
+                      _Memo(label: tr('후반', 'Final third'), ctl: _end),
                     ]),
                   ),
                 ),
@@ -242,17 +243,17 @@ class _RecordScreenState extends State<RecordScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(14),
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                      const Text('총평', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+                      Text(tr('총평', 'Summary'), style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
                       const SizedBox(height: 8),
                       TextField(
                         controller: _summary,
                         minLines: 1,
                         maxLines: 3,
-                        decoration: const InputDecoration(hintText: '한 줄로 — 예: 커피랑 잘 맞음, 또 살 듯'),
+                        decoration: InputDecoration(hintText: tr('한 줄로 — 예: 커피랑 잘 맞음, 또 살 듯', 'One line — e.g. great with coffee, would buy again')),
                       ),
                       const SizedBox(height: 14),
                       Row(children: [
-                        const Text('점수', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+                        Text(tr('점수', 'Score'), style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
                         const Spacer(),
                         Text('$_score', style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: C.accent)),
                       ]),
@@ -264,11 +265,11 @@ class _RecordScreenState extends State<RecordScreen> {
                         activeColor: C.accent,
                         onChanged: (v) => setState(() => _score = v.round()),
                       ),
-                      const Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                        SubText('50 별로', size: 11),
-                        SubText('75 무난', size: 11),
-                        SubText('85 또 사고 싶음', size: 11),
-                        SubText('100', size: 11),
+                      Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                        SubText(tr('50 별로', '50 Meh'), size: 11),
+                        SubText(tr('75 무난', '75 Decent'), size: 11),
+                        SubText(tr('85 또 사고 싶음', '85 Would buy again'), size: 11),
+                        const SubText('100', size: 11),
                       ]),
                     ]),
                   ),
@@ -282,8 +283,8 @@ class _RecordScreenState extends State<RecordScreen> {
                       CheckboxListTile(
                         value: _deduct,
                         activeColor: C.accent,
-                        title: const Text('휴미더 재고에서 1개 빼기', style: TextStyle(fontSize: 14)),
-                        subtitle: _stockCandidates.length > 1 ? const Text('어느 줄에서 뺄지 아래에서 선택') : null,
+                        title: Text(tr('휴미더 재고에서 1개 빼기', 'Take 1 from humidor stock'), style: const TextStyle(fontSize: 14)),
+                        subtitle: _stockCandidates.length > 1 ? Text(tr('어느 줄에서 뺄지 아래에서 선택', 'Choose which row below')) : null,
                         onChanged: (v) => setState(() => _deduct = v ?? false),
                       ),
                       if (_deduct && _stockCandidates.length > 1)
@@ -296,7 +297,7 @@ class _RecordScreenState extends State<RecordScreen> {
                                 dense: true,
                                 value: s.id,
                                 activeColor: C.accent,
-                                title: Text('${st.humidors.where((h) => h.id == s.humidorId).map((h) => h.name).join()} · ${s.vitola ?? ''} · 재고 ${s.qty}', style: const TextStyle(fontSize: 13)),
+                                title: Text('${st.humidors.where((h) => h.id == s.humidorId).map((h) => h.name).join()} · ${s.vitola ?? ''} · ${tr('재고 ${s.qty}', 'stock ${s.qty}')}', style: const TextStyle(fontSize: 13)),
                               ),
                           ]),
                         ),
@@ -306,7 +307,7 @@ class _RecordScreenState extends State<RecordScreen> {
                 FilledButton(
                   style: FilledButton.styleFrom(minimumSize: const Size.fromHeight(52)),
                   onPressed: _save,
-                  child: const Text('저장'),
+                  child: Text(tr('저장', 'Save')),
                 ),
               ],
             ),
@@ -335,7 +336,7 @@ class _RecordScreenState extends State<RecordScreen> {
       if (updated != null) ShareStats.instance.push(updated);
       if (!mounted) return;
       Navigator.pop(context);
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$_cigarName 기록 수정됨')));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(tr('$_cigarName 기록 수정됨', '$_cigarName log updated'))));
       return;
     }
     await ShareStats.instance.askIfNeeded(context);
@@ -369,7 +370,11 @@ class _RecordScreenState extends State<RecordScreen> {
     }
     if (!mounted) return;
     Navigator.pop(context);
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$_cigarName $_score점 기록${_deduct && _deductStockId != null ? ' · 재고 -1' : ''}')));
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(tr(
+      '$_cigarName $_score점 기록${_deduct && _deductStockId != null ? ' · 재고 -1' : ''}',
+      '$_cigarName logged at $_score${_deduct && _deductStockId != null ? ' · stock -1' : ''}',
+    ))));
   }
 }
 

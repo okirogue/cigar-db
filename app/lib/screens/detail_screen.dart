@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../data/share_stats.dart';
+import '../l10n.dart';
 import '../models/cigar.dart';
 import '../state.dart';
 import '../theme.dart';
@@ -29,17 +30,17 @@ class DetailScreen extends StatelessWidget {
     final specLine = <String>[
       if (specs['length_in'] != null && specs['ring_gauge'] != null) '${specs['length_in']} × ${specs['ring_gauge']}',
       if (specs['factory_vitola'] != null) specs['factory_vitola']!,
-      if (specs['strength'] != null) '강도 ${specs['strength']}',
-      if (cigar.tubos) '튜보 有',
+      if (specs['strength'] != null) tr('강도 ${specs['strength']}', 'Strength ${specs['strength']}'),
+      if (cigar.tubos) tr('튜보 有', 'Tubos'),
     ];
     final blendLine = <String>[
-      if (specs['wrapper'] != null) '래퍼 ${specs['wrapper']}',
-      if (specs['binder'] != null) '바인더 ${specs['binder']}',
-      if (specs['filler'] != null) '필러 ${specs['filler']}',
+      if (specs['wrapper'] != null) tr('래퍼 ${specs['wrapper']}', 'Wrapper ${specs['wrapper']}'),
+      if (specs['binder'] != null) tr('바인더 ${specs['binder']}', 'Binder ${specs['binder']}'),
+      if (specs['filler'] != null) tr('필러 ${specs['filler']}', 'Filler ${specs['filler']}'),
     ];
 
     return Scaffold(
-      appBar: AppBar(title: const Text('시가 상세')),
+      appBar: AppBar(title: Text(tr('시가 상세', 'Cigar details'))),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
         children: [
@@ -47,14 +48,20 @@ class DetailScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(18),
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                SubText([cigar.brand, if (cigar.cuban) '쿠바'].join(' · ')),
+                SubText([cigar.brand, if (cigar.cuban) tr('쿠바', 'Cuban')].join(' · ')),
                 const SizedBox(height: 2),
                 Text(cigar.name, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
                 if (specLine.isNotEmpty) ...[const SizedBox(height: 10), Wrap(spacing: 14, runSpacing: 4, children: [for (final s in specLine) SubText(s, size: 13)])],
                 if (blendLine.isNotEmpty) ...[const SizedBox(height: 4), Wrap(spacing: 14, runSpacing: 4, children: [for (final s in blendLine) SubText(s, size: 12)])],
                 if (cigar.vitolas.isNotEmpty) ...[
                   const SizedBox(height: 10),
-                  SubText('비톨라 ${cigar.vitolas.length}종: ${cigar.vitolas.map((v) => _stripLine(v, cigar.name)).join(', ')}', size: 12),
+                  SubText(
+                    tr(
+                      '비톨라 ${cigar.vitolas.length}종: ${cigar.vitolas.map((v) => _stripLine(v, cigar.name)).join(', ')}',
+                      '${cigar.vitolas.length} vitolas: ${cigar.vitolas.map((v) => _stripLine(v, cigar.name)).join(', ')}',
+                    ),
+                    size: 12,
+                  ),
                 ],
                 const SizedBox(height: 14),
                 Row(children: [
@@ -62,7 +69,7 @@ class DetailScreen extends StatelessWidget {
                     child: FilledButton(
                       style: FilledButton.styleFrom(minimumSize: const Size(0, 44)),
                       onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => RecordScreen(cigarId: cigar.id, cigarName: cigar.fullName))),
-                      child: const Text('기록하기'),
+                      child: Text(tr('기록하기', 'Log')),
                     ),
                   ),
                   const SizedBox(width: 10),
@@ -74,7 +81,7 @@ class DetailScreen extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(builder: (_) => AddStockScreen(initialHumidorId: st.humidors.first.id, preset: PickResult(cigar: cigar))),
                               ),
-                      child: const Text('휴미더에 추가'),
+                      child: Text(tr('휴미더에 추가', 'Add to humidor')),
                     ),
                   ),
                 ]),
@@ -89,25 +96,25 @@ class DetailScreen extends StatelessWidget {
               padding: const EdgeInsets.all(18),
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Row(children: [
-                  Text(cigar.official.isNotEmpty ? '공식 노트' : '리뷰어 노트', style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+                  Text(cigar.official.isNotEmpty ? tr('공식 노트', 'Official notes') : tr('리뷰어 노트', 'Reviewer notes'), style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
                   const Spacer(),
-                  if (cigar.votes.isNotEmpty) const SubText('굵은 글씨 = 2곳 이상 합의', size: 11),
+                  if (cigar.votes.isNotEmpty) SubText(tr('굵은 글씨 = 2곳 이상 합의', 'Bold = agreed by 2+ sources'), size: 11),
                 ]),
                 const SizedBox(height: 10),
                 if (!cigar.hasNotes)
-                  const SubText('아직 노트 자료가 없어요. 기록을 남기면 내 노트가 여기 쌓여요.', size: 13)
+                  SubText(tr('아직 노트 자료가 없어요. 기록을 남기면 내 노트가 여기 쌓여요.', 'No notes yet. Your own notes will build up here as you log.'), size: 13)
                 else ...[
                   if (cigar.official.isNotEmpty) ...[
-                    Wrap(spacing: 8, runSpacing: 8, children: [for (final t in cigar.official) _Tag(repo.tagKo(t), bold: cigar.votes.containsKey(t))]),
+                    Wrap(spacing: 8, runSpacing: 8, children: [for (final t in cigar.official) _Tag(repo.tagName(t), bold: cigar.votes.containsKey(t))]),
                   ],
                   if (cigar.review.isNotEmpty) ...[
-                    if (cigar.official.isNotEmpty) ...[const SizedBox(height: 12), const SubText('리뷰어 노트', size: 12), const SizedBox(height: 6)],
-                    Wrap(spacing: 8, runSpacing: 8, children: [for (final t in cigar.review.where((t) => !cigar.official.contains(t))) _Tag(repo.tagKo(t), bold: cigar.votes.containsKey(t))]),
+                    if (cigar.official.isNotEmpty) ...[const SizedBox(height: 12), SubText(tr('리뷰어 노트', 'Reviewer notes'), size: 12), const SizedBox(height: 6)],
+                    Wrap(spacing: 8, runSpacing: 8, children: [for (final t in cigar.review.where((t) => !cigar.official.contains(t))) _Tag(repo.tagName(t), bold: cigar.votes.containsKey(t))]),
                   ],
                 ],
                 if (cigar.dojoScore != null) ...[
                   const SizedBox(height: 12),
-                  SubText('Cigar Dojo 평점 ${cigar.dojoScore}', size: 12),
+                  SubText(tr('Cigar Dojo 평점 ${cigar.dojoScore}', 'Cigar Dojo rating ${cigar.dojoScore}'), size: 12),
                 ],
               ]),
             ),
@@ -124,7 +131,12 @@ class DetailScreen extends StatelessWidget {
               padding: const EdgeInsets.all(18),
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text(
-                  myLogs.isEmpty ? '내 기록 없음' : '내 기록 ${myLogs.length}회 · 평균 ${(myLogs.map((l) => l.score).reduce((a, b) => a + b) / myLogs.length).round()}',
+                  myLogs.isEmpty
+                      ? tr('내 기록 없음', 'No logs yet')
+                      : tr(
+                          '내 기록 ${myLogs.length}회 · 평균 ${(myLogs.map((l) => l.score).reduce((a, b) => a + b) / myLogs.length).round()}',
+                          'My logs ${myLogs.length} · avg ${(myLogs.map((l) => l.score).reduce((a, b) => a + b) / myLogs.length).round()}',
+                        ),
                   style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
                 ),
                 if (myLogs.isNotEmpty) ...[
@@ -132,14 +144,22 @@ class DetailScreen extends StatelessWidget {
                   SubText(myLogs.map((l) => '${fmtShort(l.date)}${l.place != null ? ' ${l.place}' : ''} ${l.score}').join(' · '), size: 13),
                   if (myTags.isNotEmpty) ...[
                     const SizedBox(height: 4),
-                    SubText('내가 체크한 노트: ${(myTags.entries.toList()..sort((a, b) => b.value.compareTo(a.value))).map((e) => repo.tagKo(e.key)).join(' · ')}'),
+                    SubText(
+                      tr(
+                        '내가 체크한 노트: ${(myTags.entries.toList()..sort((a, b) => b.value.compareTo(a.value))).map((e) => repo.tagName(e.key)).join(' · ')}',
+                        'Notes I picked: ${(myTags.entries.toList()..sort((a, b) => b.value.compareTo(a.value))).map((e) => repo.tagName(e.key)).join(' · ')}',
+                      ),
+                    ),
                   ],
                 ],
               ]),
             ),
           ),
           const SizedBox(height: 10),
-          const Padding(padding: EdgeInsets.symmetric(horizontal: 4), child: SubText('노트 출처: 제조사 공식 설명 · Cigar Dojo · Cigar Journal · cigarworld', size: 11)),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            child: SubText(tr('노트 출처: 제조사 공식 설명 · Cigar Dojo · Cigar Journal · cigarworld', 'Note sources: manufacturer descriptions · Cigar Dojo · Cigar Journal · cigarworld'), size: 11),
+          ),
         ],
       ),
     );
@@ -187,29 +207,29 @@ class _CafeCardState extends State<_CafeCard> {
             final s = snap.data;
             Widget body;
             if (snap.connectionState != ConnectionState.done) {
-              body = const SubText('불러오는 중…', size: 12);
+              body = SubText(tr('불러오는 중…', 'Loading…'), size: 12);
             } else if (s == null) {
-              body = const SubText('지금은 서버에 연결되지 않아 카페 평점을 못 불러왔어요.', size: 12);
+              body = SubText(tr('지금은 서버에 연결되지 않아 커뮤니티 평점을 못 불러왔어요.', 'Could not load the community rating. Check your connection.'), size: 12);
             } else if (s.logs == 0) {
-              body = const SubText('아직 이 시가를 기록한 회원이 없어요. 첫 기록을 남겨보세요.', size: 12);
+              body = SubText(tr('아직 이 시가를 기록한 커뮤니티 회원이 없어요. 첫 기록을 남겨보세요.', 'Nobody in the community has logged this cigar yet. Be the first.'), size: 12);
             } else {
               final tags = s.topTags(6);
               body = Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Row(crossAxisAlignment: CrossAxisAlignment.end, children: [
                   Text('${s.avg.round()}', style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: C.accent, height: 1)),
                   const SizedBox(width: 6),
-                  Padding(padding: const EdgeInsets.only(bottom: 3), child: SubText('점 · ${s.people}명 · ${s.logs}회', size: 12)),
+                  Padding(padding: const EdgeInsets.only(bottom: 3), child: SubText(tr('점 · ${s.people}명 · ${s.logs}회', 'pts · ${s.people} people · ${s.logs} logs'), size: 12)),
                 ]),
                 if (tags.isNotEmpty) ...[
                   const SizedBox(height: 10),
-                  const SubText('많이 느낀 노트', size: 11),
+                  SubText(tr('많이 느낀 노트', 'Common notes'), size: 11),
                   const SizedBox(height: 6),
-                  Wrap(spacing: 6, runSpacing: 6, children: [for (final t in tags) NoteChip(label: '${repo.tagKo(t)} ${s.tagCount[t]}', small: true)]),
+                  Wrap(spacing: 6, runSpacing: 6, children: [for (final t in tags) NoteChip(label: '${repo.tagName(t)} ${s.tagCount[t]}', small: true)]),
                 ],
               ]);
             }
             return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              const Text('카페 평점', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+              Text(tr('커뮤니티 평점', 'Community rating'), style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
               const SizedBox(height: 8),
               body,
             ]);

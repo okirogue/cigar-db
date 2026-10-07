@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../l10n.dart';
 import '../models/cigar.dart';
 import '../models/local.dart';
 import '../state.dart';
@@ -54,7 +55,7 @@ class _PickerScreenState extends State<PickerScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(icon: const Icon(Icons.close), onPressed: () => Navigator.pop(context)),
-        title: const Text('어떤 시가?'),
+        title: Text(tr('어떤 시가?', 'Which cigar?')),
       ),
       body: Column(
         children: [
@@ -66,7 +67,7 @@ class _PickerScreenState extends State<PickerScreen> {
                   controller: _c,
                   autofocus: true,
                   textInputAction: TextInputAction.search,
-                  decoration: const InputDecoration(hintText: '브랜드나 라인 이름 (영문)'),
+                  decoration: InputDecoration(hintText: tr('브랜드나 라인 이름 (영문)', 'Brand or line name')),
                   onChanged: (v) => setState(() => _q = v),
                 ),
               ),
@@ -77,24 +78,24 @@ class _PickerScreenState extends State<PickerScreen> {
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
               children: [
                 if (stock.isNotEmpty) ...[
-                  const Padding(padding: EdgeInsets.only(bottom: 6), child: SubText('내 휴미더')),
+                  Padding(padding: const EdgeInsets.only(bottom: 6), child: SubText(tr('내 휴미더', 'My humidor'))),
                   for (final s in stock)
                     _Row(
                       title: s.cigarName,
-                      sub: [if (s.vitola != null && s.vitola!.isNotEmpty) s.vitola!, '${s.agingDays}일 숙성'].join(' · '),
-                      trailing: _Badge('재고 ${s.qty}'),
+                      sub: [if (s.vitola != null && s.vitola!.isNotEmpty) s.vitola!, tr('${s.agingDays}일 숙성', 'aged ${s.agingDays} days')].join(' · '),
+                      trailing: _Badge(tr('재고 ${s.qty}', 'Stock ${s.qty}')),
                       onTap: () => Navigator.pop(context, PickResult(cigar: st.repo.byId(s.cigarId), customName: st.repo.byId(s.cigarId) == null ? s.cigarName : null, vitola: s.vitola, stockItemId: s.id)),
                     ),
                   const SizedBox(height: 10),
                 ],
                 if (q.isNotEmpty) ...[
-                  const Padding(padding: EdgeInsets.only(bottom: 6), child: SubText('전체 DB')),
-                  if (results.isEmpty) const Padding(padding: EdgeInsets.symmetric(vertical: 12), child: SubText('검색 결과가 없어요', size: 13)),
+                  Padding(padding: const EdgeInsets.only(bottom: 6), child: SubText(tr('전체 DB', 'All cigars'))),
+                  if (results.isEmpty) Padding(padding: const EdgeInsets.symmetric(vertical: 12), child: SubText(tr('검색 결과가 없어요', 'No results'), size: 13)),
                   for (final c in results)
                     _Row(
                       title: c.fullName,
                       sub: _specLine(c),
-                      trailing: c.hasNotes ? const _Badge('노트') : null,
+                      trailing: c.hasNotes ? _Badge(tr('노트', 'Notes')) : null,
                       onTap: () => Navigator.pop(context, PickResult(cigar: c)),
                     ),
                   const SizedBox(height: 8),
@@ -105,10 +106,10 @@ class _PickerScreenState extends State<PickerScreen> {
                       final c = await addCustomCigar(context, initial: _q.trim());
                       if (c != null && context.mounted) Navigator.pop(context, PickResult(cigar: c));
                     },
-                    label: Text('못 찾겠어요 · "${_q.trim()}" 직접 추가'),
+                    label: Text(tr('못 찾겠어요 · "${_q.trim()}" 직접 추가', 'Not listed · add "${_q.trim()}" manually')),
                   ),
                 ] else if (stock.isEmpty)
-                  const Padding(padding: EdgeInsets.only(top: 40), child: Center(child: SubText('브랜드 이름부터 쳐보세요 (예: romeo, oliva)', size: 13))),
+                  Padding(padding: const EdgeInsets.only(top: 40), child: Center(child: SubText(tr('브랜드 이름부터 쳐보세요 (예: romeo, oliva)', 'Start with a brand name (e.g. romeo, oliva)'), size: 13))),
               ],
             ),
           ),
@@ -119,10 +120,10 @@ class _PickerScreenState extends State<PickerScreen> {
 
   String _specLine(Cigar c) {
     final p = <String>[
-      if (c.cuban) '쿠바',
+      if (c.cuban) tr('쿠바', 'Cuban'),
       if (c.specs['length_in'] != null && c.specs['ring_gauge'] != null) '${c.specs['length_in']} × ${c.specs['ring_gauge']}',
       if (c.specs['strength'] != null) c.specs['strength']!,
-      if (c.vitolas.isNotEmpty) '${c.vitolas.length}종',
+      if (c.vitolas.isNotEmpty) tr('${c.vitolas.length}종', '${c.vitolas.length} vitolas'),
     ];
     return p.join(' · ');
   }

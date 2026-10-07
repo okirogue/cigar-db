@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../data/backup.dart';
 import '../data/share_stats.dart';
+import '../l10n.dart';
 import '../models/local.dart';
 import '../state.dart';
 import '../theme.dart';
@@ -32,18 +33,18 @@ class _DiaryScreenState extends State<DiaryScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('다이어리', style: TextStyle(fontSize: 24)),
+        title: Text(tr('다이어리', 'Diary'), style: const TextStyle(fontSize: 24)),
         actions: [
-          Center(child: SubText(logs.isEmpty ? '' : '${logs.length}회 · 평균 ${st.avgScore.round()}점', size: 14)),
+          Center(child: SubText(logs.isEmpty ? '' : tr('${logs.length}회 · 평균 ${st.avgScore.round()}점', '${logs.length} smoked · avg ${st.avgScore.round()}'), size: 14)),
           PopupMenuButton<String>(
             icon: const Icon(Icons.more_vert),
             onSelected: (v) => _menu(context, v),
-            itemBuilder: (_) => const [
-              PopupMenuItem(value: 'export', child: Text('백업 내보내기 (JSON)')),
-              PopupMenuItem(value: 'import', child: Text('가져오기 — 기존에 추가')),
-              PopupMenuItem(value: 'replace', child: Text('가져오기 — 전부 덮어쓰기')),
-              PopupMenuDivider(),
-              PopupMenuItem(value: 'share', child: Text('익명 기록 공유 설정')),
+            itemBuilder: (_) => [
+              PopupMenuItem(value: 'export', child: Text(tr('백업 내보내기 (JSON)', 'Export backup (JSON)'))),
+              PopupMenuItem(value: 'import', child: Text(tr('가져오기 — 기존에 추가', 'Import — add to existing'))),
+              PopupMenuItem(value: 'replace', child: Text(tr('가져오기 — 전부 덮어쓰기', 'Import — replace all'))),
+              const PopupMenuDivider(),
+              PopupMenuItem(value: 'share', child: Text(tr('익명 기록 공유 설정', 'Anonymous sharing settings'))),
             ],
           ),
           const SizedBox(width: 8),
@@ -53,17 +54,17 @@ class _DiaryScreenState extends State<DiaryScreen> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Row(children: [
-            const SubText('정렬'),
+            SubText(tr('정렬', 'Sort')),
             const SizedBox(width: 8),
-            PillChip(label: '최근순', dark: true, selected: _sort == DiarySort.recent, onTap: () => setState(() => _sort = DiarySort.recent)),
+            PillChip(label: tr('최근순', 'Recent'), dark: true, selected: _sort == DiarySort.recent, onTap: () => setState(() => _sort = DiarySort.recent)),
             const SizedBox(width: 8),
-            PillChip(label: '점수순', dark: true, selected: _sort == DiarySort.score, onTap: () => setState(() => _sort = DiarySort.score)),
+            PillChip(label: tr('점수순', 'Score'), dark: true, selected: _sort == DiarySort.score, onTap: () => setState(() => _sort = DiarySort.score)),
           ]),
         ),
         const SizedBox(height: 12),
         Expanded(
           child: logs.isEmpty
-              ? const Center(child: SubText('첫 기록을 남겨보세요. 아래 + 기록', size: 13))
+              ? Center(child: SubText(tr('첫 기록을 남겨보세요. 아래 + 기록', 'Write your first log with + Log below'), size: 13))
               : ListView.builder(
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 100),
                   itemCount: logs.length,
@@ -82,7 +83,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
         backgroundColor: C.accent,
         foregroundColor: Colors.white,
         onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const RecordScreen())),
-        label: const Text('+ 기록'),
+        label: Text(tr('+ 기록', '+ Log')),
       ),
     );
   }
@@ -96,14 +97,17 @@ class _DiaryScreenState extends State<DiaryScreen> {
       final on = await showDialog<bool>(
         context: context,
         builder: (dctx) => AlertDialog(
-          title: const Text('익명 기록 공유'),
+          title: Text(tr('익명 기록 공유', 'Anonymous sharing')),
           content: Text(
-            '${cur ? '지금 켜져 있어요.' : '지금 꺼져 있어요.'}\n\n켜면 기록 저장 시 시가 이름·점수·노트 태그·날짜만 익명으로 모아 카페 평점에 써요. 메모·장소·페어링은 보내지 않아요.\n끄면 이미 올라간 내 기록도 서버에서 지워요.',
+            tr(
+              '${cur ? '지금 켜져 있어요.' : '지금 꺼져 있어요.'}\n\n켜면 기록 저장 시 시가 이름·점수·노트 태그·날짜만 익명으로 모아 커뮤니티 평점에 써요. 메모·장소·페어링은 보내지 않아요.\n끄면 이미 올라간 내 기록도 서버에서 지워요.',
+              '${cur ? 'Currently on.' : 'Currently off.'}\n\nWhen on, only the cigar name, score, note tags and date are collected anonymously for community ratings. Memo, place and pairing are never sent.\nWhen off, your logs already uploaded are deleted from the server.',
+            ),
             style: const TextStyle(fontSize: 13.5, height: 1.5),
           ),
           actions: [
-            TextButton(onPressed: () => Navigator.pop(dctx, false), child: const Text('끄기')),
-            FilledButton(onPressed: () => Navigator.pop(dctx, true), child: const Text('켜기')),
+            TextButton(onPressed: () => Navigator.pop(dctx, false), child: Text(tr('끄기', 'Turn off'))),
+            FilledButton(onPressed: () => Navigator.pop(dctx, true), child: Text(tr('켜기', 'Turn on'))),
           ],
         ),
       );
@@ -116,7 +120,10 @@ class _DiaryScreenState extends State<DiaryScreen> {
           await ShareStats.instance.removeForce(l.id);
         }
       }
-      sm.showSnackBar(SnackBar(content: Text(on ? '익명 공유 켬 — 기존 기록도 올렸어요' : '익명 공유 끔 — 서버의 내 기록을 지웠어요')));
+      sm.showSnackBar(SnackBar(
+          content: Text(on
+              ? tr('익명 공유 켬 — 기존 기록도 올렸어요', 'Anonymous sharing on — existing logs uploaded')
+              : tr('익명 공유 끔 — 서버의 내 기록을 지웠어요', 'Anonymous sharing off — your logs removed from the server'))));
       return;
     }
     try {
@@ -128,11 +135,12 @@ class _DiaryScreenState extends State<DiaryScreen> {
         final ok = await showDialog<bool>(
           context: context,
           builder: (dctx) => AlertDialog(
-            title: const Text('전부 덮어쓰기'),
-            content: const Text('지금 앱에 있는 휴미더·재고·기록을 모두 지우고 파일 내용으로 바꿔요. 되돌릴 수 없어요.'),
+            title: Text(tr('전부 덮어쓰기', 'Replace all')),
+            content: Text(tr('지금 앱에 있는 휴미더·재고·기록을 모두 지우고 파일 내용으로 바꿔요. 되돌릴 수 없어요.',
+                'All humidors, stock and logs in the app will be deleted and replaced with the file contents. This cannot be undone.')),
             actions: [
-              TextButton(onPressed: () => Navigator.pop(dctx, false), child: const Text('취소')),
-              TextButton(onPressed: () => Navigator.pop(dctx, true), child: const Text('덮어쓰기')),
+              TextButton(onPressed: () => Navigator.pop(dctx, false), child: Text(tr('취소', 'Cancel'))),
+              TextButton(onPressed: () => Navigator.pop(dctx, true), child: Text(tr('덮어쓰기', 'Replace'))),
             ],
           ),
         );
@@ -140,15 +148,23 @@ class _DiaryScreenState extends State<DiaryScreen> {
       }
       final r = await Backup.import(st, replace: v == 'replace');
       if (r == null) return;
-      sm.showSnackBar(SnackBar(content: Text('가져옴 — 휴미더 ${r.$1} · 재고 ${r.$2}줄 · 기록 ${r.$3}건')));
+      sm.showSnackBar(SnackBar(
+          content: Text(tr('가져옴 — 휴미더 ${r.$1} · 재고 ${r.$2}줄 · 기록 ${r.$3}건',
+              'Imported — ${r.$1} humidors · ${r.$2} stock rows · ${r.$3} logs'))));
     } catch (e) {
-      sm.showSnackBar(SnackBar(content: Text('실패: 파일 형식을 확인해 주세요 ($e)')));
+      sm.showSnackBar(SnackBar(content: Text(tr('실패: 파일 형식을 확인해 주세요 ($e)', 'Failed: please check the file format ($e)'))));
     }
   }
 
   String _dateLabel(String ymdStr) {
     final d = DateTime.tryParse(ymdStr);
     if (d == null) return ymdStr;
+    if (!L10n.isKo) {
+      const mon = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      const wdEn = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+      final yearEn = d.year == DateTime.now().year ? '' : ', ${d.year}';
+      return '${wdEn[d.weekday - 1]}, ${mon[d.month - 1]} ${d.day}$yearEn';
+    }
     const wd = ['월', '화', '수', '목', '금', '토', '일'];
     final year = d.year == DateTime.now().year ? '' : '${d.year}년 ';
     return '$year${d.month}월 ${d.day}일 (${wd[d.weekday - 1]})';
@@ -189,7 +205,7 @@ class _LogCard extends StatelessWidget {
                 ],
                 if (log.tags.isNotEmpty) ...[
                   const SizedBox(height: 8),
-                  Wrap(spacing: 6, runSpacing: 6, children: [for (final t in log.tags.take(6)) NoteChip(label: st.repo.tagKo(t), small: true)]),
+                  Wrap(spacing: 6, runSpacing: 6, children: [for (final t in log.tags.take(6)) NoteChip(label: st.repo.tagName(t), small: true)]),
                 ],
               ]),
             ),
@@ -224,9 +240,9 @@ void openLogSheet(BuildContext context, SmokeLog log) {
             SubText([log.date, if (log.vitola != null) log.vitola!, if (log.place != null) log.place!, if (log.pairing != null) log.pairing!].join(' · '), size: 13),
             const SizedBox(height: 14),
             if (log.tags.isNotEmpty) ...[
-              const Text('느낀 노트', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+              Text(tr('느낀 노트', 'Notes'), style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
               const SizedBox(height: 8),
-              Wrap(spacing: 8, runSpacing: 8, children: [for (final t in log.tags) NoteChip(label: repo.tagKo(t))]),
+              Wrap(spacing: 8, runSpacing: 8, children: [for (final t in log.tags) NoteChip(label: repo.tagName(t))]),
               const SizedBox(height: 14),
             ],
             if (log.summary != null && log.summary!.isNotEmpty) ...[
@@ -238,7 +254,11 @@ void openLogSheet(BuildContext context, SmokeLog log) {
               ),
               const SizedBox(height: 14),
             ],
-            for (final e in [('초반', log.noteStart), ('중반', log.noteMid), ('후반', log.noteEnd)])
+            for (final e in [
+              (tr('초반', 'First third'), log.noteStart),
+              (tr('중반', 'Second third'), log.noteMid),
+              (tr('후반', 'Final third'), log.noteEnd),
+            ])
               if (e.$2 != null && e.$2!.isNotEmpty) ...[
                 Text(e.$1, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13)),
                 const SizedBox(height: 4),
@@ -254,7 +274,7 @@ void openLogSheet(BuildContext context, SmokeLog log) {
                     Navigator.pop(ctx);
                     Navigator.push(context, MaterialPageRoute(builder: (_) => RecordScreen(edit: log)));
                   },
-                  child: const Text('수정'),
+                  child: Text(tr('수정', 'Edit')),
                 ),
               ),
               const SizedBox(width: 8),
@@ -265,7 +285,7 @@ void openLogSheet(BuildContext context, SmokeLog log) {
                       Navigator.pop(ctx);
                       Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen(cigar: repo.byId(log.cigarId)!)));
                     },
-                    child: const Text('시가 정보'),
+                    child: Text(tr('시가 정보', 'Cigar info')),
                   ),
                 ),
               const SizedBox(width: 8),
@@ -276,11 +296,11 @@ void openLogSheet(BuildContext context, SmokeLog log) {
                     final ok = await showDialog<bool>(
                       context: ctx,
                       builder: (dctx) => AlertDialog(
-                        title: const Text('기록 삭제'),
-                        content: const Text('이 기록을 지울까요? 재고는 되돌리지 않아요.'),
+                        title: Text(tr('기록 삭제', 'Delete log')),
+                        content: Text(tr('이 기록을 지울까요? 재고는 되돌리지 않아요.', 'Delete this log? Stock will not be restored.')),
                         actions: [
-                          TextButton(onPressed: () => Navigator.pop(dctx, false), child: const Text('취소')),
-                          TextButton(onPressed: () => Navigator.pop(dctx, true), child: const Text('삭제')),
+                          TextButton(onPressed: () => Navigator.pop(dctx, false), child: Text(tr('취소', 'Cancel'))),
+                          TextButton(onPressed: () => Navigator.pop(dctx, true), child: Text(tr('삭제', 'Delete'))),
                         ],
                       ),
                     );
@@ -291,7 +311,7 @@ void openLogSheet(BuildContext context, SmokeLog log) {
                       if (ctx.mounted) Navigator.pop(ctx);
                     }
                   },
-                  child: const Text('삭제'),
+                  child: Text(tr('삭제', 'Delete')),
                 ),
               ),
             ]),
@@ -310,16 +330,16 @@ void openLogSheet(BuildContext context, SmokeLog log) {
                   decoration: BoxDecoration(color: C.text, borderRadius: BorderRadius.circular(14)),
                   child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
                     Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                      const Text('내 평균', style: TextStyle(fontSize: 11, color: Colors.white70)),
+                      Text(tr('내 평균', 'My average'), style: const TextStyle(fontSize: 11, color: Colors.white70)),
                       Row(crossAxisAlignment: CrossAxisAlignment.end, children: [
                         Text('${avg.round()}', style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: C.bg, height: 1.1)),
                         const SizedBox(width: 6),
-                        Padding(padding: const EdgeInsets.only(bottom: 3), child: Text('${all.length}회', style: const TextStyle(fontSize: 12, color: Colors.white70))),
+                        Padding(padding: const EdgeInsets.only(bottom: 3), child: Text(tr('${all.length}회', '${all.length}x'), style: const TextStyle(fontSize: 12, color: Colors.white70))),
                       ]),
                     ]),
                     const Spacer(),
                     Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
-                      Text(lo == hi ? '매번 $lo' : '최저 $lo · 최고 $hi', style: const TextStyle(fontSize: 12, color: Colors.white70)),
+                      Text(lo == hi ? tr('매번 $lo', 'Always $lo') : tr('최저 $lo · 최고 $hi', 'Low $lo · High $hi'), style: const TextStyle(fontSize: 12, color: Colors.white70)),
                       const SizedBox(height: 6),
                       // 점수 미니 막대 (최근 → 과거 순으로 최대 8개)
                       Row(mainAxisSize: MainAxisSize.min, children: [
@@ -338,7 +358,7 @@ void openLogSheet(BuildContext context, SmokeLog log) {
                   ]),
                 ),
                 const SizedBox(height: 14),
-                Text('이 시가의 다른 기록 ${others.length}회', style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+                Text(tr('이 시가의 다른 기록 ${others.length}회', '${others.length} other logs of this cigar'), style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
                 const SizedBox(height: 6),
                 for (final o in others)
                   InkWell(
@@ -358,7 +378,7 @@ void openLogSheet(BuildContext context, SmokeLog log) {
                             if (o.summary != null && o.summary!.isNotEmpty)
                               Text(o.summary!, style: const TextStyle(fontSize: 13.5), maxLines: 1, overflow: TextOverflow.ellipsis)
                             else if (o.tags.isNotEmpty)
-                              Text(o.tags.take(5).map(repo.tagKo).join(' · '), style: const TextStyle(fontSize: 13), maxLines: 1, overflow: TextOverflow.ellipsis),
+                              Text(o.tags.take(5).map(repo.tagName).join(' · '), style: const TextStyle(fontSize: 13), maxLines: 1, overflow: TextOverflow.ellipsis),
                           ]),
                         ),
                         const Icon(Icons.chevron_right, size: 18, color: C.hint),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 
+import '../l10n.dart';
 import '../state.dart';
 import '../theme.dart';
 import 'detail_screen.dart';
@@ -15,8 +16,18 @@ class BadgesScreen extends StatefulWidget {
 }
 
 class _BadgesScreenState extends State<BadgesScreen> {
-  static const _grades = [('입문', 0.0), ('애호가', 0.05), ('탐험가', 0.15), ('마스터', 0.40)];
-  static const _tasteBadges = [(10, '노트 입문'), (19, '구분 좀 함'), (25, '맛잘알'), (32, '시가 소믈리에')];
+  static List<(String, double)> get _grades => [
+        (tr('입문', 'Beginner'), 0.0),
+        (tr('애호가', 'Enthusiast'), 0.05),
+        (tr('탐험가', 'Explorer'), 0.15),
+        (tr('마스터', 'Master'), 0.40),
+      ];
+  static List<(int, String)> get _tasteBadges => [
+        (10, tr('노트 입문', 'Note Novice')),
+        (19, tr('구분 좀 함', 'Getting There')),
+        (25, tr('맛잘알', 'Palate Pro')),
+        (32, tr('시가 소믈리에', 'Cigar Sommelier')),
+      ];
 
   @override
   Widget build(BuildContext context) {
@@ -42,14 +53,14 @@ class _BadgesScreenState extends State<BadgesScreen> {
     ]..sort((a, b) => (b.$2 / (b.$3 == 0 ? 1 : b.$3)).compareTo(a.$2 / (a.$3 == 0 ? 1 : a.$3)));
 
     final marks = <(String, bool)>[
-      ('첫 쿠반', cubanCount > 0),
-      ('첫 논쿠반', smokedCigars.any((c) => !c.cuban)),
-      ('첫 피구라도', st.logs.any((l) => _isFigurado(l.vitola ?? ''))),
-      ('쿠반 5라인', cubanCount >= 5),
-      ('브랜드 5곳', myBrands.length >= 5),
-      ('래퍼 3종', wrappers.length >= 3),
+      (tr('첫 쿠반', 'First Cuban'), cubanCount > 0),
+      (tr('첫 논쿠반', 'First Non-Cuban'), smokedCigars.any((c) => !c.cuban)),
+      (tr('첫 피구라도', 'First Figurado'), st.logs.any((l) => _isFigurado(l.vitola ?? ''))),
+      (tr('쿠반 5라인', '5 Cuban lines'), cubanCount >= 5),
+      (tr('브랜드 5곳', '5 brands'), myBrands.length >= 5),
+      (tr('래퍼 3종', '3 wrappers'), wrappers.length >= 3),
       for (final b in brandProgress)
-        if (b.$3 >= 3 && b.$2 >= b.$3) ('${b.$1} 완주', true),
+        if (b.$3 >= 3 && b.$2 >= b.$3) (tr('${b.$1} 완주', '${b.$1} complete'), true),
     ];
 
     final tasted = st.tastedTags.where((t) => repo.tag(t) != null).toSet();
@@ -73,10 +84,12 @@ class _BadgesScreenState extends State<BadgesScreen> {
               const SizedBox(width: 12),
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 const Text('MyHumidor', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, letterSpacing: -0.5, color: C.text, fontFamily: 'serif')),
-                const SubText('내 휴미더 · 시가 노트', size: 12),
+                SubText(tr('내 휴미더 · 시가 노트', 'My humidor · cigar notes'), size: 12),
               ]),
               const Spacer(),
-              if (st.logs.isNotEmpty) SubText('${st.logs.length}회 · 평균 ${st.avgScore.round()}점', size: 13),
+              if (st.logs.isNotEmpty) SubText(tr('${st.logs.length}회 · 평균 ${st.avgScore.round()}점', '${st.logs.length} smoked · avg ${st.avgScore.round()}'), size: 13),
+              const SizedBox(width: 8),
+              const _LangToggle(),
             ]),
           ),
           // 도감 등급
@@ -84,11 +97,14 @@ class _BadgesScreenState extends State<BadgesScreen> {
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(color: C.text, borderRadius: BorderRadius.circular(16)),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              const Text('도감 등급', style: TextStyle(fontSize: 12, color: Colors.white70)),
+              Text(tr('도감 등급', 'Collection rank'), style: const TextStyle(fontSize: 12, color: Colors.white70)),
               Text(grade, style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w700, color: C.bg)),
               const SizedBox(height: 4),
               Text(
-                smoked.isEmpty ? '첫 기록을 남기면 도감이 열려요' : '접한 브랜드 ${myBrands.length}곳 라인업 $scopeTotal 중 ${smoked.length} 경험 · ${(ratio * 100).toStringAsFixed(0)}%',
+                smoked.isEmpty
+                    ? tr('첫 기록을 남기면 도감이 열려요', 'Log your first cigar to open the collection')
+                    : tr('접한 브랜드 ${myBrands.length}곳 라인업 $scopeTotal 중 ${smoked.length} 경험 · ${(ratio * 100).toStringAsFixed(0)}%',
+                        '${smoked.length} of $scopeTotal lines across ${myBrands.length} brands · ${(ratio * 100).toStringAsFixed(0)}%'),
                 style: const TextStyle(fontSize: 13, color: Colors.white70),
               ),
               const SizedBox(height: 12),
@@ -97,11 +113,9 @@ class _BadgesScreenState extends State<BadgesScreen> {
                 child: LinearProgressIndicator(value: ratio.clamp(0, 1), minHeight: 8, backgroundColor: Colors.white12, color: C.gold),
               ),
               const SizedBox(height: 6),
-              const Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                Text('입문', style: TextStyle(fontSize: 11, color: Colors.white54)),
-                Text('애호가 5%', style: TextStyle(fontSize: 11, color: Colors.white54)),
-                Text('탐험가 15%', style: TextStyle(fontSize: 11, color: Colors.white54)),
-                Text('마스터 40%', style: TextStyle(fontSize: 11, color: Colors.white54)),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                for (var i = 0; i < _grades.length; i++)
+                  Text(i == 0 ? _grades[i].$1 : '${_grades[i].$1} ${(_grades[i].$2 * 100).round()}%', style: const TextStyle(fontSize: 11, color: Colors.white54)),
               ]),
             ]),
           ),
@@ -112,14 +126,32 @@ class _BadgesScreenState extends State<BadgesScreen> {
             child: Padding(
               padding: const EdgeInsets.all(18),
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                const Text('도감', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+                Text(tr('도감', 'Collection'), style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
                 const SizedBox(height: 10),
                 Row(children: [
-                  _Stat(n: smoked.length, label: '라인', sub: '쿠반 $cubanCount · 논쿠반 ${smoked.length - cubanCount}'),
+                  _Stat(
+                    n: smoked.length,
+                    label: tr('라인', 'Lines'),
+                    title: tr('피워본 라인', 'Lines smoked'),
+                    lines: [
+                      tr('쿠반 $cubanCount', 'Cuban $cubanCount'),
+                      tr('논쿠반 ${smoked.length - cubanCount}', 'Non-Cuban ${smoked.length - cubanCount}'),
+                    ],
+                  ),
                   const SizedBox(width: 10),
-                  _Stat(n: wrappers.length, label: '래퍼', sub: wrappers.isEmpty ? '-' : wrappers.take(4).join('·')),
+                  _Stat(
+                    n: wrappers.length,
+                    label: tr('래퍼', 'Wrappers'),
+                    title: tr('경험한 래퍼', 'Wrappers tried'),
+                    lines: wrappers.isEmpty ? [tr('아직 없음', 'None yet')] : (wrappers.toList()..sort()),
+                  ),
                   const SizedBox(width: 10),
-                  _Stat(n: myBrands.length, label: '브랜드', sub: brandProgress.isEmpty ? '-' : brandProgress.take(2).map((b) => '${_short(b.$1)} ${b.$2}/${b.$3}').join(' · ')),
+                  _Stat(
+                    n: myBrands.length,
+                    label: tr('브랜드', 'Brands'),
+                    title: tr('접한 브랜드', 'Brands tried'),
+                    lines: brandProgress.isEmpty ? [tr('아직 없음', 'None yet')] : [for (final b in brandProgress) '${b.$1}  ${b.$2}/${b.$3}'],
+                  ),
                 ]),
                 const SizedBox(height: 12),
                 Wrap(spacing: 8, runSpacing: 8, children: [
@@ -139,7 +171,7 @@ class _BadgesScreenState extends State<BadgesScreen> {
                 ]),
                 if (brandProgress.isNotEmpty) ...[
                   const SizedBox(height: 14),
-                  const SubText('브랜드별 진행', size: 12),
+                  SubText(tr('브랜드별 진행', 'Progress by brand'), size: 12),
                   const SizedBox(height: 6),
                   for (final b in brandProgress.take(8))
                     Padding(
@@ -168,9 +200,9 @@ class _BadgesScreenState extends State<BadgesScreen> {
               padding: const EdgeInsets.all(18),
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Row(children: [
-                  const Text('미각', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+                  Text(tr('미각', 'Palate'), style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
                   const Spacer(),
-                  SubText('${repo.tagCount}개 노트 중 ${tasted.length}개 구분'),
+                  SubText(tr('${repo.tagCount}개 노트 중 ${tasted.length}개 구분', '${tasted.length} of ${repo.tagCount} notes identified')),
                 ]),
                 const SizedBox(height: 10),
                 ClipRRect(
@@ -179,10 +211,10 @@ class _BadgesScreenState extends State<BadgesScreen> {
                 ),
                 const SizedBox(height: 12),
                 for (final g in repo.tagGroups) ...[
-                  SubText(g.ko, size: 11),
+                  SubText(g.name, size: 11),
                   const SizedBox(height: 4),
                   Wrap(spacing: 6, runSpacing: 6, children: [
-                    for (final t in g.tags) NoteChip(label: t.ko, small: true, selected: tasted.contains(t.id), dashed: !tasted.contains(t.id)),
+                    for (final t in g.tags) NoteChip(label: t.name, small: true, selected: tasted.contains(t.id), dashed: !tasted.contains(t.id)),
                   ]),
                   const SizedBox(height: 8),
                 ],
@@ -201,7 +233,7 @@ class _BadgesScreenState extends State<BadgesScreen> {
                   ]),
                   const SizedBox(height: 8),
                 ],
-                if (nextTaste != null) SubText('다음 뱃지 "${nextTaste.$2}" — ${nextTaste.$1}개 구분하면 획득', size: 12),
+                if (nextTaste != null) SubText(tr('다음 뱃지 "${nextTaste.$2}" — ${nextTaste.$1}개 구분하면 획득', 'Next badge "${nextTaste.$2}" — identify ${nextTaste.$1} notes'), size: 12),
               ]),
             ),
           ),
@@ -215,12 +247,13 @@ class _BadgesScreenState extends State<BadgesScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(18),
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  const Text('나와 잘 맞을 시가', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+                  Text(tr('나와 잘 맞을 시가', 'Cigars you may like'), style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
                   const SizedBox(height: 4),
                   SubText(
                     st.topRatedNames.isEmpty
-                        ? '내가 자주 체크한 노트(${st.profile!.topTags(3).map(repo.tagKo).join('·')})와 비슷한 시가예요'
-                        : '점수 높게 준 ${st.topRatedNames.join(', ')} 와 비슷해요',
+                        ? tr('내가 자주 체크한 노트(${st.profile!.topTags(3).map(repo.tagName).join('·')})와 비슷한 시가예요',
+                            'Similar to the notes you pick most (${st.profile!.topTags(3).map(repo.tagName).join(' · ')})')
+                        : tr('점수 높게 준 ${st.topRatedNames.join(', ')} 와 비슷해요', 'Similar to your top-rated ${st.topRatedNames.join(', ')}'),
                     size: 12,
                   ),
                   const SizedBox(height: 12),
@@ -254,7 +287,7 @@ class _BadgesScreenState extends State<BadgesScreen> {
                 child: Row(children: [
                   const Icon(Icons.auto_awesome_outlined, color: C.accent, size: 20),
                   const SizedBox(width: 12),
-                  Expanded(child: SubText('기록 ${5 - st.logs.length}개만 더 남기면 취향 기반 추천이 열려요', size: 13)),
+                  Expanded(child: SubText(tr('기록 ${5 - st.logs.length}개만 더 남기면 취향 기반 추천이 열려요', 'Log ${5 - st.logs.length} more to unlock recommendations'), size: 13)),
                 ]),
               ),
             ),
@@ -280,25 +313,73 @@ class _BadgesScreenState extends State<BadgesScreen> {
   }
 
   static String _cap(String s) => s.isEmpty ? s : '${s[0].toUpperCase()}${s.substring(1)}';
-  static String _short(String s) => s.length > 10 ? '${s.substring(0, 9)}…' : s;
 }
 
 class _Stat extends StatelessWidget {
   final int n;
   final String label;
-  final String sub;
-  const _Stat({required this.n, required this.label, required this.sub});
+  final String title;
+  final List<String> lines;
+  const _Stat({required this.n, required this.label, required this.title, required this.lines});
+
+  void _show(BuildContext context) {
+    showDialog<void>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        contentPadding: const EdgeInsets.fromLTRB(22, 18, 22, 8),
+        title: Row(children: [
+          Text('$n', style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: C.accent)),
+          const SizedBox(width: 10),
+          Text(title, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
+        ]),
+        content: ConstrainedBox(
+          constraints: const BoxConstraints(maxHeight: 320),
+          child: SingleChildScrollView(
+            child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
+              for (final l in lines) Padding(padding: const EdgeInsets.only(bottom: 6), child: Text(l, style: const TextStyle(fontSize: 13.5))),
+            ]),
+          ),
+        ),
+        actions: [TextButton(onPressed: () => Navigator.pop(ctx), child: Text(tr('닫기', 'Close')))],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) => Expanded(
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
-          decoration: BoxDecoration(border: Border.all(color: C.lineSoft), borderRadius: BorderRadius.circular(12)),
-          child: Column(children: [
-            Text('$n', style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: C.accent)),
-            SubText(label, size: 11),
-            const SizedBox(height: 2),
-            Text(sub, style: const TextStyle(fontSize: 10, color: C.hint), textAlign: TextAlign.center, maxLines: 2, overflow: TextOverflow.ellipsis),
-          ]),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(12),
+          onTap: () => _show(context),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 14),
+            decoration: BoxDecoration(border: Border.all(color: C.lineSoft), borderRadius: BorderRadius.circular(12)),
+            child: Column(children: [
+              Text('$n', style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: C.accent)),
+              SubText(label, size: 11),
+            ]),
+          ),
         ),
       );
+}
+
+/// 홈 우상단 언어 토글 (KO / EN)
+class _LangToggle extends StatelessWidget {
+  const _LangToggle();
+  @override
+  Widget build(BuildContext context) {
+    final ko = L10n.isKo;
+    return InkWell(
+      borderRadius: BorderRadius.circular(8),
+      onTap: L10n.toggle,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+        decoration: BoxDecoration(border: Border.all(color: C.line), borderRadius: BorderRadius.circular(8)),
+        child: Row(mainAxisSize: MainAxisSize.min, children: [
+          Text('KO', style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: ko ? C.accent : C.hint)),
+          const Padding(padding: EdgeInsets.symmetric(horizontal: 4), child: Text('·', style: TextStyle(fontSize: 11, color: C.hint))),
+          Text('EN', style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: ko ? C.hint : C.accent)),
+        ]),
+      ),
+    );
+  }
 }

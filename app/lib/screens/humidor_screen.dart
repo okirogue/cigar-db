@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../l10n.dart';
 import '../models/local.dart';
 import '../state.dart';
 import '../theme.dart';
@@ -37,11 +38,11 @@ class _HumidorScreenState extends State<HumidorScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('휴미더', style: TextStyle(fontSize: 24)),
+        title: Text(tr('휴미더', 'Humidor'), style: const TextStyle(fontSize: 24)),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 20),
-            child: Center(child: SubText('총 ${st.totalQty}개비', size: 14)),
+            child: Center(child: SubText(tr('총 ${st.totalQty}개비', '${st.totalQty} total'), size: 14)),
           ),
         ],
       ),
@@ -74,20 +75,20 @@ class _HumidorScreenState extends State<HumidorScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               children: [
-                const SubText('정렬'),
+                SubText(tr('정렬', 'Sort')),
                 const SizedBox(width: 8),
-                PillChip(label: '입고일', dark: true, selected: _sort == StockSort.added, onTap: () => setState(() => _sort = StockSort.added)),
+                PillChip(label: tr('입고일', 'Date added'), dark: true, selected: _sort == StockSort.added, onTap: () => setState(() => _sort = StockSort.added)),
                 const SizedBox(width: 8),
-                PillChip(label: '수량', dark: true, selected: _sort == StockSort.qty, onTap: () => setState(() => _sort = StockSort.qty)),
+                PillChip(label: tr('수량', 'Qty'), dark: true, selected: _sort == StockSort.qty, onTap: () => setState(() => _sort = StockSort.qty)),
                 const SizedBox(width: 8),
-                PillChip(label: '숙성일', dark: true, selected: _sort == StockSort.aging, onTap: () => setState(() => _sort = StockSort.aging)),
+                PillChip(label: tr('숙성일', 'Aging'), dark: true, selected: _sort == StockSort.aging, onTap: () => setState(() => _sort = StockSort.aging)),
               ],
             ),
           ),
           const SizedBox(height: 12),
           Expanded(
             child: items.isEmpty
-                ? const Center(child: SubText('아직 비어 있어요. 아래 + 입고로 시가를 넣어보세요.', size: 13))
+                ? Center(child: SubText(tr('아직 비어 있어요. 아래 + 입고로 시가를 넣어보세요.', 'Empty so far. Tap + Add below to add cigars.'), size: 13))
                 : ListView.separated(
                     padding: const EdgeInsets.fromLTRB(20, 0, 20, 100),
                     itemCount: items.length,
@@ -105,14 +106,14 @@ class _HumidorScreenState extends State<HumidorScreen> {
               onPressed: () async {
                 await Navigator.push(context, MaterialPageRoute(builder: (_) => AddStockScreen(initialHumidorId: current.id)));
               },
-              label: const Text('+ 입고'),
+              label: Text(tr('+ 입고', '+ Add')),
             ),
     );
   }
 
   Future<void> _addHumidor(BuildContext context) async {
     final st = context.read<AppState>();
-    final name = await _askName(context, title: '휴미더 이름');
+    final name = await _askName(context, title: tr('휴미더 이름', 'Humidor name'));
     if (name == null || name.isEmpty) return;
     final id = await st.db.addHumidor(name);
     await st.reload();
@@ -125,15 +126,15 @@ class _HumidorScreenState extends State<HumidorScreen> {
       context: context,
       builder: (sctx) => SafeArea(
         child: Column(mainAxisSize: MainAxisSize.min, children: [
-          ListTile(leading: const Icon(Icons.edit_outlined), title: const Text('이름 바꾸기'), onTap: () => Navigator.pop(sctx, 'rename')),
+          ListTile(leading: const Icon(Icons.edit_outlined), title: Text(tr('이름 바꾸기', 'Rename')), onTap: () => Navigator.pop(sctx, 'rename')),
           if (st.humidors.length > 1)
-            ListTile(leading: const Icon(Icons.delete_outline), title: const Text('휴미더 삭제 (안의 재고도 삭제)'), onTap: () => Navigator.pop(sctx, 'delete')),
+            ListTile(leading: const Icon(Icons.delete_outline), title: Text(tr('휴미더 삭제 (안의 재고도 삭제)', 'Delete humidor (and its stock)')), onTap: () => Navigator.pop(sctx, 'delete')),
         ]),
       ),
     );
     if (!context.mounted) return;
     if (action == 'rename') {
-      final name = await _askName(context, title: '휴미더 이름', initial: h.name);
+      final name = await _askName(context, title: tr('휴미더 이름', 'Humidor name'), initial: h.name);
       if (name != null && name.isNotEmpty) {
         await st.db.renameHumidor(h.id, name);
         await st.reload();
@@ -142,11 +143,11 @@ class _HumidorScreenState extends State<HumidorScreen> {
       final ok = await showDialog<bool>(
         context: context,
         builder: (dctx) => AlertDialog(
-          title: Text('${h.name} 삭제'),
-          content: const Text('이 휴미더와 안의 재고 목록이 지워져요. 기록(다이어리)은 남아요.'),
+          title: Text(tr('${h.name} 삭제', 'Delete ${h.name}')),
+          content: Text(tr('이 휴미더와 안의 재고 목록이 지워져요. 기록(다이어리)은 남아요.', 'This humidor and its stock list will be removed. Your diary logs stay.')),
           actions: [
-            TextButton(onPressed: () => Navigator.pop(dctx, false), child: const Text('취소')),
-            TextButton(onPressed: () => Navigator.pop(dctx, true), child: const Text('삭제')),
+            TextButton(onPressed: () => Navigator.pop(dctx, false), child: Text(tr('취소', 'Cancel'))),
+            TextButton(onPressed: () => Navigator.pop(dctx, true), child: Text(tr('삭제', 'Delete'))),
           ],
         ),
       );
@@ -165,10 +166,10 @@ Future<String?> _askName(BuildContext context, {required String title, String? i
     context: context,
     builder: (dctx) => AlertDialog(
       title: Text(title),
-      content: TextField(controller: c, autofocus: true, decoration: const InputDecoration(hintText: '예: 아도리니, 락앤락')),
+      content: TextField(controller: c, autofocus: true, decoration: InputDecoration(hintText: tr('예: 아도리니, 락앤락', 'e.g. Adorini, Tupperdor'))),
       actions: [
-        TextButton(onPressed: () => Navigator.pop(dctx), child: const Text('취소')),
-        TextButton(onPressed: () => Navigator.pop(dctx, c.text.trim()), child: const Text('확인')),
+        TextButton(onPressed: () => Navigator.pop(dctx), child: Text(tr('취소', 'Cancel'))),
+        TextButton(onPressed: () => Navigator.pop(dctx, c.text.trim()), child: Text(tr('확인', 'OK'))),
       ],
     ),
   );
@@ -232,8 +233,8 @@ class _StockCard extends StatelessWidget {
       if (item.vitola != null && item.vitola!.isNotEmpty) item.vitola!,
       if (cigar != null && cigar.specs['length_in'] != null && cigar.specs['ring_gauge'] != null) '${cigar.specs['length_in']}×${cigar.specs['ring_gauge']}',
       if (item.pricePerStick != null) fmtWon(item.pricePerStick!),
-      '${fmtShort(item.addedDate)} 입고',
-      '${item.agingDays}일 숙성',
+      tr('${fmtShort(item.addedDate)} 입고', 'Added ${fmtShort(item.addedDate)}'),
+      tr('${item.agingDays}일 숙성', '${item.agingDays}d aging'),
     ];
     return Card(
       child: InkWell(
@@ -276,11 +277,11 @@ class _StockCard extends StatelessWidget {
       context: context,
       builder: (ctx) => SafeArea(
         child: Column(mainAxisSize: MainAxisSize.min, children: [
-          ListTile(title: Text(item.cigarName, style: const TextStyle(fontWeight: FontWeight.w600)), subtitle: Text('${item.vitola ?? ''} · 재고 ${item.qty}')),
+          ListTile(title: Text(item.cigarName, style: const TextStyle(fontWeight: FontWeight.w600)), subtitle: Text(tr('${item.vitola ?? ''} · 재고 ${item.qty}', '${item.vitola ?? ''} · Stock ${item.qty}'))),
           ListTile(
             leading: const Icon(Icons.local_fire_department_outlined),
-            title: const Text('지금 피우기 → 기록'),
-            subtitle: const Text('저장하면 재고 1개 줄어요'),
+            title: Text(tr('지금 피우기 → 기록', 'Smoke now → Log')),
+            subtitle: Text(tr('저장하면 재고 1개 줄어요', 'Saving removes 1 from stock')),
             onTap: () {
               Navigator.pop(ctx);
               Navigator.push(
@@ -292,7 +293,7 @@ class _StockCard extends StatelessWidget {
           if (cigar != null)
             ListTile(
               leading: const Icon(Icons.info_outline),
-              title: const Text('시가 정보 보기'),
+              title: Text(tr('시가 정보 보기', 'View cigar info')),
               onTap: () {
                 Navigator.pop(ctx);
                 Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen(cigar: cigar)));
@@ -300,7 +301,7 @@ class _StockCard extends StatelessWidget {
             ),
           ListTile(
             leading: const Icon(Icons.delete_outline),
-            title: const Text('이 줄 삭제'),
+            title: Text(tr('이 줄 삭제', 'Delete this entry')),
             onTap: () async {
               Navigator.pop(ctx);
               await st.db.deleteStock(item.id);

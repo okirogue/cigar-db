@@ -1,4 +1,5 @@
-/// 중앙 DB(assets/cigars.json)의 시가 한 라인.
+import '../l10n.dart';
+// 중앙 DB(assets/cigars.json)의 시가 한 라인.
 class Cigar {
   final String id;
   final String brand;
@@ -101,15 +102,28 @@ class Cigar {
 class TagDef {
   final String id;
   final String ko;
+  final String en;
   final String hint;
+  final String hintEn;
   final String groupId;
   final String groupKo;
-  TagDef(this.id, this.ko, this.hint, this.groupId, this.groupKo);
+  final String groupEn;
+  TagDef(this.id, this.ko, this.hint, this.groupId, this.groupKo, {String? en, String? hintEn, String? groupEn})
+      : en = en ?? ko,
+        hintEn = hintEn ?? hint,
+        groupEn = groupEn ?? groupKo;
+
+  /// 현재 언어 이름/힌트
+  String get name => L10n.isKo ? ko : en;
+  String get hintText => L10n.isKo ? hint : hintEn;
+  String get groupName => L10n.isKo ? groupKo : groupEn;
 }
 
 class TagGroup {
   final String id;
   final String ko;
+  final String en;
   final List<TagDef> tags;
-  TagGroup(this.id, this.ko, this.tags);
+  TagGroup(this.id, this.ko, this.tags, {String? en}) : en = en ?? ko;
+  String get name => L10n.isKo ? ko : en;
 }

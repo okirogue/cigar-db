@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'data/scan_service.dart';
+import 'l10n.dart';
 import 'screens/badges_screen.dart';
 import 'screens/diary_screen.dart';
 import 'screens/explore_screen.dart';
@@ -11,6 +12,7 @@ import 'theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await L10n.init();
   await ScanService.instance.init(); // 실패해도 앱은 뜸 (스캔만 비활성)
   runApp(
     ChangeNotifierProvider(
@@ -25,11 +27,17 @@ class CigarApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'MyHumidor',
-      debugShowCheckedModeBanner: false,
-      theme: buildTheme(),
-      home: const Home(),
+    // 언어가 바뀌면 key 가 바뀌어 트리 전체가 새 문구로 다시 그려진다
+    return ValueListenableBuilder<String>(
+      valueListenable: L10n.lang,
+      builder: (_, lang, __) => MaterialApp(
+        key: ValueKey(lang),
+        title: 'MyHumidor',
+        debugShowCheckedModeBanner: false,
+        theme: buildTheme(),
+        locale: Locale(lang),
+        home: const Home(),
+      ),
     );
   }
 }
@@ -55,11 +63,11 @@ class _HomeState extends State<Home> {
       bottomNavigationBar: NavigationBar(
         selectedIndex: _tab,
         onDestinationSelected: (i) => setState(() => _tab = i),
-        destinations: const [
-          NavigationDestination(icon: Icon(Icons.home_outlined), selectedIcon: Icon(Icons.home), label: '홈'),
-          NavigationDestination(icon: Icon(Icons.inventory_2_outlined), selectedIcon: Icon(Icons.inventory_2), label: '휴미더'),
-          NavigationDestination(icon: Icon(Icons.menu_book_outlined), selectedIcon: Icon(Icons.menu_book), label: '다이어리'),
-          NavigationDestination(icon: Icon(Icons.search), selectedIcon: Icon(Icons.search), label: '탐색'),
+        destinations: [
+          NavigationDestination(icon: const Icon(Icons.home_outlined), selectedIcon: const Icon(Icons.home), label: tr('홈', 'Home')),
+          NavigationDestination(icon: const Icon(Icons.inventory_2_outlined), selectedIcon: const Icon(Icons.inventory_2), label: tr('휴미더', 'Humidor')),
+          NavigationDestination(icon: const Icon(Icons.menu_book_outlined), selectedIcon: const Icon(Icons.menu_book), label: tr('다이어리', 'Diary')),
+          NavigationDestination(icon: const Icon(Icons.search), selectedIcon: const Icon(Icons.search), label: tr('탐색', 'Explore')),
         ],
       ),
     );
