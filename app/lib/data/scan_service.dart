@@ -18,6 +18,9 @@ class ScanService {
   static final ScanService instance = ScanService._();
 
   static const dailyLimit = 3;
+
+  /// 시도 순서. 첫 번째가 안 되면 다음으로.
+  static const _modelCandidates = ['gemini-3.8-flash', 'gemini-flash-latest', 'gemini-2.5-flash'];
   bool _ready = false;
   String? _error;
 
@@ -111,20 +114,39 @@ class ScanService {
     if (!_ready) throw ScanException('스캔 서버에 연결되지 않았어요. 네트워크를 확인해 주세요.');
     if (!await _consume()) throw ScanException('오늘 스캔 $dailyLimit회를 다 썼어요. 내일 다시 열려요.');
 
-    final model = FirebaseAI.googleAI().generativeModel(
-      model: 'gemini-2.5-flash',
-      generationConfig: GenerationConfig(responseMimeType: 'application/json', temperature: 0.1),
-    );
     const prompt = '''
 This is a photo of a cigar band (or a cigar box / tube). Read the brand and line name.
 Return ONLY JSON: {"brand": string, "line": string, "vitola": string|null, "country": string|null, "confidence": 0-1, "raw_text": string}
 - "brand" is the maker (e.g. "Romeo y Julieta", "Davidoff", "Oliva"). "line" is the series/blend (e.g. "Romeo No.1", "Serie V Melanio", "Signature").
 - Use the common English retail spelling. If unsure, give your best guess and lower confidence.
 - raw_text: all legible text on the band.''';
-    final res = await model.generateContent([
+    // 모델 이름은 Google이 자주 바꾸므로(2.5-flash 신규 사용자 차단 등) 순서대로 시도.
+    final content = [
       Content.multi([TextPart(prompt), InlineDataPart('image/jpeg', jpeg)])
-    ]);
-    final text = res.text ?? '{}';
+    ];
+    String? text;
+    Object? lastErr;
+    for (final name in _modelCandidates) {
+      try {
+        final model = FirebaseAI.googleAI().generativeModel(
+          model: name,
+          generationConfig: GenerationConfig(responseMimeType: 'application/json', temperature: 0.1),
+        );
+        final res = await model.generateContent(content).timeout(const Duration(seconds: 40));
+        text = res.text ?? '{}';
+        break;
+      } catch (e) {
+        lastErr = e;
+        final msg = e.toString().toLowerCase();
+        // 모델 자체 문제(없음/차단/지원종료)면 다음 후보로, 그 외(네트워크 등)는 바로 중단
+        final modelIssue = msg.contains('not found') || msg.contains('no longer available') || msg.contains('not supported') || msg.contains('deprecated') || msg.contains('404');
+        if (!modelIssue) break;
+      }
+    }
+    if (text == null) {
+      final m = lastErr.toString();
+      throw ScanException(m.length > 160 ? '${m.substring(0, 160)}…' : m);
+    }
     Map<String, dynamic> j;
     try {
       j = jsonDecode(text) as Map<String, dynamic>;
