@@ -23,6 +23,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.14.1
 
 flutter:
   uses-material-design: true
@@ -30,3 +31,11 @@ flutter:
     - assets/cigars.json
     - assets/tags.json
     - assets/brand/play_icon_512.png
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/brand/icon_full_1024.png"
+  adaptive_icon_background: "#F0E7DC"
+  adaptive_icon_foreground: "assets/brand/icon_foreground_1024.png"
+  min_sdk_android: 21

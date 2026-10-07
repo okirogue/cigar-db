@@ -49,6 +49,9 @@ jobs:
       - name: Pub get
         run: flutter pub get
 
+      - name: Generate launcher icons
+        run: dart run flutter_launcher_icons
+
       - name: Analyze
         run: |
           set -o pipefail
@@ -87,6 +90,11 @@ jobs:
             NUM=$(gh issue create --title "CI log (app-build)" --label ci-log --body "자동 생성: 빌드 실패 로그가 코멘트로 쌓입니다." | grep -oE '[0-9]+$')
           fi
           gh issue comment "$NUM" --body-file body.md
+
+      - name: Inspect APK icon resources
+        run: |
+          unzip -l build/app/outputs/flutter-apk/app-release.apk | grep -i 'ic_launcher' || true
+          "$ANDROID_HOME"/build-tools/*/aapt dump badging build/app/outputs/flutter-apk/app-release.apk 2>/dev/null | grep -i 'icon\|package:' || true
 
       - uses: actions/upload-artifact@v4
         with:
