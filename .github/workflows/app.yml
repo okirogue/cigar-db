@@ -10,6 +10,7 @@ on:
 permissions:
   contents: write
   issues: write
+  id-token: write # Google Play 업로드용 Workload Identity Federation
 
 concurrency:
   group: app-build
@@ -90,30 +91,6 @@ jobs:
           flutter build appbundle --release --build-number=${{ github.run_number }} 2>&1 | tee -a ../ci-build.txt
           cp build/app/outputs/bundle/release/app-release.aab ../MyHumidor.aab
 
-      # 실패 시 로그를 이슈 코멘트로 남김 (로그 blob 저장소가 외부에서 안 열릴 때 대비)
-      - name: Post failure log to issue
-        if: failure()
-        working-directory: .
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          {
-            echo "### app-build failed · ${GITHUB_SHA::7} · run ${{ github.run_id }}"
-            for f in ci-analyze.txt ci-test.txt ci-build.txt; do
-              if [ -f "$f" ]; then
-                echo; echo "<details><summary>$f</summary>"; echo; echo '```'
-                grep -vE '^\s*$' "$f" | tail -n 150
-                echo '```'; echo '</details>'
-              fi
-            done
-          } > body.md
-          NUM=$(gh issue list --label ci-log --state open --json number --jq '.[0].number' || true)
-          if [ -z "$NUM" ]; then
-            gh label create ci-log --color 777777 --force >/dev/null 2>&1 || true
-            NUM=$(gh issue create --title "CI log (app-build)" --label ci-log --body "자동 생성: 빌드 실패 로그가 코멘트로 쌓입니다." | grep -oE '[0-9]+$')
-          fi
-          gh issue comment "$NUM" --body-file body.md
-
       - name: Inspect APK icon resources
         run: |
           unzip -l build/app/outputs/flutter-apk/app-release.apk | grep -i 'ic_launcher' || true
@@ -140,6 +117,26 @@ jobs:
             --notes "빌드 ${{ github.run_number }} · ${GITHUB_SHA::7} — $(git log -1 --pretty=%s)" \
             --latest
 
+      # Google Play 내부 테스트 트랙에 자동 업로드 (키 파일 없이 WIF로 인증)
+      - name: Auth to Google Cloud (WIF)
+        if: github.ref == 'refs/heads/main' && env.KS != ''
+        id: gcp-auth
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/878079125373/locations/global/workloadIdentityPools/github/providers/github
+          service_account: play-publisher@myhumidor-2482d.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/androidpublisher
+
+      - name: Upload to Play internal track
+        if: github.ref == 'refs/heads/main' && env.KS != ''
+        working-directory: .
+        env:
+          TOKEN: ${{ steps.gcp-auth.outputs.access_token }}
+          PKG: com.okirogue.cigar_log
+          NOTE: "빌드 ${{ github.run_number }} · ${{ github.sha }}"
+        run: python3 .github/scripts/play_upload.py MyHumidor.aab 2>&1 | tee ci-play.txt
+
       # 새로 생성된 android/ 스캐폴드는 저장소에 커밋해 둔다 (권한·매니페스트 편집용)
       - name: Commit scaffold
         run: |
@@ -151,3 +148,27 @@ jobs:
             git commit -m "chore(app): add android scaffold from flutter create"
             git push
           fi
+
+      # 실패 시 로그를 이슈 코멘트로 남김 (로그 blob 저장소가 외부에서 안 열릴 때 대비)
+      - name: Post failure log to issue
+        if: failure()
+        working-directory: .
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "### app-build failed · ${GITHUB_SHA::7} · run ${{ github.run_id }}"
+            for f in ci-analyze.txt ci-test.txt ci-build.txt ci-play.txt; do
+              if [ -f "$f" ]; then
+                echo; echo "<details><summary>$f</summary>"; echo; echo '```'
+                grep -vE '^\s*$' "$f" | tail -n 150
+                echo '```'; echo '</details>'
+              fi
+            done
+          } > body.md
+          NUM=$(gh issue list --label ci-log --state open --json number --jq '.[0].number' || true)
+          if [ -z "$NUM" ]; then
+            gh label create ci-log --color 777777 --force >/dev/null 2>&1 || true
+            NUM=$(gh issue create --title "CI log (app-build)" --label ci-log --body "자동 생성: 빌드 실패 로그가 코멘트로 쌓입니다." | grep -oE '[0-9]+$')
+          fi
+          gh issue comment "$NUM" --body-file body.md
