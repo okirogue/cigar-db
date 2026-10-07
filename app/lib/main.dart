@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'data/scan_service.dart';
 import 'screens/badges_screen.dart';
 import 'screens/diary_screen.dart';
 import 'screens/explore_screen.dart';
@@ -8,8 +9,9 @@ import 'screens/humidor_screen.dart';
 import 'state.dart';
 import 'theme.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await ScanService.instance.init(); // 실패해도 앱은 뜸 (스캔만 비활성)
   runApp(
     ChangeNotifierProvider(
       create: (_) => AppState()..init(),

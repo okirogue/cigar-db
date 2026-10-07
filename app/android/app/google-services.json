@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "878079125373",
+    "project_id": "myhumidor-2482d",
+    "storage_bucket": "myhumidor-2482d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878079125373:android:42d77e6079219358de0e14",
+        "android_client_info": {
+          "package_name": "com.okirogue.cigar_log"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9ZAMhDp_3F5AfxFsrtFApNHGLhb4aC9w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

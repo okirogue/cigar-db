@@ -18,6 +18,12 @@ dependencies:
   shared_preferences: ^2.3.2
   file_picker: ^10.0.0
   share_plus: ^10.0.2
+  firebase_core: ^4.14.0
+  firebase_auth: ^6.0.0
+  cloud_firestore: ^6.0.0
+  firebase_ai: ^4.0.0
+  image_picker: ^1.1.2
+  image: ^4.3.0
 
 dev_dependencies:
   flutter_test:

@@ -1,0 +1,26 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 스캔 카운터: 본인(익명 UID) 문서만, 하루 3회까지, 카운터는 1씩만 증가
+    match /scan_quota/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create: if request.auth != null && request.auth.uid == uid
+        && request.resource.data.count == 1
+        && request.resource.data.date is string;
+      allow update: if request.auth != null && request.auth.uid == uid
+        && request.resource.data.date is string
+        && (
+          // 날짜 바뀌면 1부터
+          (request.resource.data.date != resource.data.date && request.resource.data.count == 1)
+          // 같은 날이면 +1, 최대 3
+          || (request.resource.data.date == resource.data.date
+              && request.resource.data.count == resource.data.count + 1
+              && request.resource.data.count <= 3)
+        );
+      allow delete: if false;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

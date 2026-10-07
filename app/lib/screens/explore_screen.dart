@@ -6,6 +6,7 @@ import '../models/cigar.dart';
 import '../state.dart';
 import '../theme.dart';
 import 'detail_screen.dart';
+import 'scan_sheet.dart';
 
 /// 탐색: 시가 검색 → 상세. 검색 전엔 내가 피운/보유한 시가와 브랜드 바로가기.
 class ExploreScreen extends StatefulWidget {
@@ -73,8 +74,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
               decoration: BoxDecoration(color: C.accent, borderRadius: BorderRadius.circular(12)),
               child: IconButton(
                 icon: const Icon(Icons.photo_camera_outlined, color: Colors.white),
-                tooltip: '밴드 스캔 (준비 중)',
-                onPressed: () => ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('밴드 스캔은 다음 버전에서 열려요'))),
+                tooltip: '밴드 스캔',
+                onPressed: () async {
+                  final c = await runScan(context);
+                  if (c != null && context.mounted) Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen(cigar: c)));
+                },
               ),
             ),
           ]),
