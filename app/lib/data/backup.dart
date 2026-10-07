@@ -47,6 +47,7 @@ class Backup {
             'note_start': l.noteStart,
             'note_mid': l.noteMid,
             'note_end': l.noteEnd,
+            'summary': l.summary,
             'place': l.place,
             'pairing': l.pairing,
           }
@@ -130,6 +131,7 @@ class Backup {
         noteStart: l['note_start'] as String?,
         noteMid: l['note_mid'] as String?,
         noteEnd: l['note_end'] as String?,
+        summary: l['summary'] as String?,
         place: l['place'] as String?,
         pairing: l['pairing'] as String?,
       );

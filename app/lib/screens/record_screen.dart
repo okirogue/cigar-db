@@ -33,6 +33,7 @@ class _RecordScreenState extends State<RecordScreen> {
   final _start = TextEditingController();
   final _mid = TextEditingController();
   final _end = TextEditingController();
+  final _summary = TextEditingController();
   final _place = TextEditingController();
   final _pairing = TextEditingController();
   int _score = 80;
@@ -55,6 +56,7 @@ class _RecordScreenState extends State<RecordScreen> {
       _start.text = e.noteStart ?? '';
       _mid.text = e.noteMid ?? '';
       _end.text = e.noteEnd ?? '';
+      _summary.text = e.summary ?? '';
       _place.text = e.place ?? '';
       _pairing.text = e.pairing ?? '';
       _score = e.score;
@@ -73,7 +75,7 @@ class _RecordScreenState extends State<RecordScreen> {
 
   @override
   void dispose() {
-    for (final c in [_start, _mid, _end, _place, _pairing]) {
+    for (final c in [_start, _mid, _end, _summary, _place, _pairing]) {
       c.dispose();
     }
     super.dispose();
@@ -240,6 +242,15 @@ class _RecordScreenState extends State<RecordScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(14),
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      const Text('총평', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+                      const SizedBox(height: 8),
+                      TextField(
+                        controller: _summary,
+                        minLines: 1,
+                        maxLines: 3,
+                        decoration: const InputDecoration(hintText: '한 줄로 — 예: 커피랑 잘 맞음, 또 살 듯'),
+                      ),
+                      const SizedBox(height: 14),
                       Row(children: [
                         const Text('점수', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
                         const Spacer(),
@@ -315,6 +326,7 @@ class _RecordScreenState extends State<RecordScreen> {
         'note_start': _start.text.trim().isEmpty ? null : _start.text.trim(),
         'note_mid': _mid.text.trim().isEmpty ? null : _mid.text.trim(),
         'note_end': _end.text.trim().isEmpty ? null : _end.text.trim(),
+        'summary': _summary.text.trim().isEmpty ? null : _summary.text.trim(),
         'place': _place.text.trim().isEmpty ? null : _place.text.trim(),
         'pairing': _pairing.text.trim().isEmpty ? null : _pairing.text.trim(),
       });
@@ -338,6 +350,7 @@ class _RecordScreenState extends State<RecordScreen> {
       noteStart: _start.text.trim().isEmpty ? null : _start.text.trim(),
       noteMid: _mid.text.trim().isEmpty ? null : _mid.text.trim(),
       noteEnd: _end.text.trim().isEmpty ? null : _end.text.trim(),
+      summary: _summary.text.trim().isEmpty ? null : _summary.text.trim(),
       place: _place.text.trim().isEmpty ? null : _place.text.trim(),
       pairing: _pairing.text.trim().isEmpty ? null : _pairing.text.trim(),
       deductStockId: _deduct ? _deductStockId : null,

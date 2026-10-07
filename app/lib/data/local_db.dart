@@ -19,9 +19,10 @@ class LocalDb {
     final dir = await getDatabasesPath();
     _db = await openDatabase(
       p.join(dir, 'cigar_log.db'),
-      version: 2,
+      version: 3,
       onUpgrade: (d, oldV, newV) async {
         if (oldV < 2) await d.execute(_customDdl);
+        if (oldV < 3) await d.execute('ALTER TABLE logs ADD COLUMN summary TEXT');
       },
       onCreate: (d, v) async {
         await d.execute('''
@@ -54,6 +55,7 @@ class LocalDb {
             note_start TEXT,
             note_mid TEXT,
             note_end TEXT,
+            summary TEXT,
             place TEXT,
             pairing TEXT,
             stock_item_id INTEGER
@@ -193,6 +195,7 @@ class LocalDb {
     String? noteStart,
     String? noteMid,
     String? noteEnd,
+    String? summary,
     String? place,
     String? pairing,
     int? deductStockId,
@@ -209,6 +212,7 @@ class LocalDb {
         'note_start': noteStart,
         'note_mid': noteMid,
         'note_end': noteEnd,
+        'summary': summary,
         'place': place,
         'pairing': pairing,
         'stock_item_id': deductStockId,

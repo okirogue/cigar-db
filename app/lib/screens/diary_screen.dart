@@ -181,6 +181,10 @@ class _LogCard extends StatelessWidget {
                   Text('${log.score}', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: C.accent)),
                 ]),
                 if (sub.isNotEmpty) SubText(sub.join(' · ')),
+                if (log.summary != null && log.summary!.isNotEmpty) ...[
+                  const SizedBox(height: 6),
+                  Text(log.summary!, style: const TextStyle(fontSize: 13.5, height: 1.4), maxLines: 2, overflow: TextOverflow.ellipsis),
+                ],
                 if (log.tags.isNotEmpty) ...[
                   const SizedBox(height: 8),
                   Wrap(spacing: 6, runSpacing: 6, children: [for (final t in log.tags.take(6)) NoteChip(label: st.repo.tagKo(t), small: true)]),
@@ -221,6 +225,15 @@ void openLogSheet(BuildContext context, SmokeLog log) {
               const Text('느낀 노트', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
               const SizedBox(height: 8),
               Wrap(spacing: 8, runSpacing: 8, children: [for (final t in log.tags) NoteChip(label: repo.tagKo(t))]),
+              const SizedBox(height: 14),
+            ],
+            if (log.summary != null && log.summary!.isNotEmpty) ...[
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                decoration: BoxDecoration(color: C.chip, borderRadius: BorderRadius.circular(12)),
+                child: Text(log.summary!, style: const TextStyle(fontSize: 14.5, height: 1.5, fontWeight: FontWeight.w500)),
+              ),
               const SizedBox(height: 14),
             ],
             for (final e in [('초반', log.noteStart), ('중반', log.noteMid), ('후반', log.noteEnd)])
@@ -280,6 +293,41 @@ void openLogSheet(BuildContext context, SmokeLog log) {
                 ),
               ),
             ]),
+            // 같은 시가의 다른 기록
+            ...() {
+              final others = st.logs.where((l) => l.cigarId == log.cigarId && l.id != log.id).toList()..sort((a, b) => b.date.compareTo(a.date));
+              if (others.isEmpty) return const <Widget>[];
+              return <Widget>[
+                const SizedBox(height: 22),
+                Text('이 시가의 다른 기록 ${others.length}회', style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+                const SizedBox(height: 6),
+                for (final o in others)
+                  InkWell(
+                    borderRadius: BorderRadius.circular(10),
+                    onTap: () {
+                      Navigator.pop(ctx);
+                      openLogSheet(context, o);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: Row(children: [
+                        Text('${o.score}', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: C.accent)),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                            SubText([o.date, if (o.vitola != null && o.vitola!.isNotEmpty) o.vitola!, if (o.place != null) o.place!].join(' · '), size: 12),
+                            if (o.summary != null && o.summary!.isNotEmpty)
+                              Text(o.summary!, style: const TextStyle(fontSize: 13.5), maxLines: 1, overflow: TextOverflow.ellipsis)
+                            else if (o.tags.isNotEmpty)
+                              Text(o.tags.take(5).map(repo.tagKo).join(' · '), style: const TextStyle(fontSize: 13), maxLines: 1, overflow: TextOverflow.ellipsis),
+                          ]),
+                        ),
+                        const Icon(Icons.chevron_right, size: 18, color: C.hint),
+                      ]),
+                    ),
+                  ),
+              ];
+            }(),
           ],
         ),
       ),

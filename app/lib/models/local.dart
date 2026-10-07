@@ -70,6 +70,7 @@ class SmokeLog {
   final String? noteStart;
   final String? noteMid;
   final String? noteEnd;
+  final String? summary; // 총평 (한 줄 소감)
   final String? place;
   final String? pairing;
   final int? stockItemId; // 재고 차감했으면 어디서
@@ -85,6 +86,7 @@ class SmokeLog {
     this.noteStart,
     this.noteMid,
     this.noteEnd,
+    this.summary,
     this.place,
     this.pairing,
     this.stockItemId,
@@ -101,6 +103,7 @@ class SmokeLog {
         noteStart: m['note_start'] as String?,
         noteMid: m['note_mid'] as String?,
         noteEnd: m['note_end'] as String?,
+        summary: m['summary'] as String?,
         place: m['place'] as String?,
         pairing: m['pairing'] as String?,
         stockItemId: m['stock_item_id'] as int?,
