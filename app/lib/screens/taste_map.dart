@@ -105,8 +105,8 @@ class TasteMap extends StatelessWidget {
           Padding(
               padding: const EdgeInsets.only(left: 4),
               child: SubText(
-                  tr('가로 강도 · 세로 향의 결 · 색 산지 · 꽉 찬 점 80↑, 반 70대, 테두리만 70 미만',
-                      'X strength · Y flavor profile · color origin · filled 80+, half 70s, outline under 70'),
+                  tr('가로 강도 · 세로 향의 결 · 색 산지 · 꽉 찬 점 8↑, 반 7대, 테두리만 7 미만',
+                      'X strength · Y flavor profile · color origin · filled 8+, half 7s, outline under 7'),
                   size: 11)),
           const SizedBox(height: 12),
           LayoutBuilder(builder: (_, box) {
@@ -135,6 +135,9 @@ class TasteMap extends StatelessWidget {
                 SubText(e.value.$2, size: 11),
               ]),
           ]),
+          const SizedBox(height: 8),
+          // 번호 → 시가 범례 (접이식). 판정은 그 시가의 내 평균 점수 기준
+          _Legend(pts: pts, origin: origin, logs: st.logs),
         ]),
       ),
     );
@@ -281,4 +284,98 @@ class _MapPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant _MapPainter old) =>
       old.lang != lang || old.pts.length != pts.length || old.r != r || old.pts.any((p) => !pts.contains(p));
+}
+
+/// 지도 아래 접이식 범례: 산지별로 번호·이름·판정(내 평균 기준: 8↑ 좋음, 7대 보류, 7 미만 아님)
+class _Legend extends StatefulWidget {
+  final List<_Pt> pts;
+  final Map<String, (Color, String)> origin;
+  final List<SmokeLog> logs;
+  const _Legend({required this.pts, required this.origin, required this.logs});
+  @override
+  State<_Legend> createState() => _LegendState();
+}
+
+class _LegendState extends State<_Legend> {
+  bool _open = false;
+
+  (String, Color) _verdict(double avg) {
+    if (avg >= 8) return (tr('좋음', 'Good'), C.accent);
+    if (avg >= 7) return (tr('보류', 'Maybe'), C.sub);
+    return (tr('아님', 'Pass'), C.hint);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // 시가별 내 평균
+    final sum = <String, double>{}, cnt = <String, int>{};
+    for (final l in widget.logs) {
+      sum[l.cigarId] = (sum[l.cigarId] ?? 0) + l.score;
+      cnt[l.cigarId] = (cnt[l.cigarId] ?? 0) + 1;
+    }
+    double avgOf(String id) => (sum[id] ?? 0) / (cnt[id] ?? 1);
+
+    final header = InkWell(
+      borderRadius: BorderRadius.circular(8),
+      onTap: () => setState(() => _open = !_open),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
+        child: Row(children: [
+          SubText(tr('번호별 시가 보기', 'What each number is'), size: 12),
+          const SizedBox(width: 4),
+          Icon(_open ? Icons.expand_less : Icons.expand_more, size: 18, color: C.sub),
+          const Spacer(),
+          if (!_open) SubText(tr('${widget.pts.length}개', '${widget.pts.length}'), size: 11),
+        ]),
+      ),
+    );
+    if (!_open) return header;
+
+    final rows = <Widget>[];
+    for (final e in widget.origin.entries) {
+      final group = widget.pts.where((p) => p.origin == e.key).toList();
+      if (group.isEmpty) continue;
+      rows.add(Padding(
+        padding: const EdgeInsets.only(top: 10, bottom: 4, left: 4),
+        child: Row(children: [
+          Container(width: 8, height: 8, decoration: BoxDecoration(color: e.value.$1, shape: BoxShape.circle)),
+          const SizedBox(width: 6),
+          Text(e.value.$2, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: C.sub)),
+        ]),
+      ));
+      for (final p in group) {
+        final avg = avgOf(p.log.cigarId);
+        final v = _verdict(avg);
+        final n = cnt[p.log.cigarId] ?? 1;
+        rows.add(InkWell(
+          borderRadius: BorderRadius.circular(8),
+          onTap: () => openLogSheet(context, p.log),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 7),
+            child: Row(children: [
+              SizedBox(width: 30, child: Text('${p.n}', style: const TextStyle(fontSize: 12, color: C.accent, fontWeight: FontWeight.w700))),
+              Expanded(
+                child: Text(
+                  p.log.vitola != null && p.log.vitola!.isNotEmpty ? '${p.log.cigarName} · ${p.log.vitola}' : p.log.cigarName,
+                  style: const TextStyle(fontSize: 13),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              const SizedBox(width: 8),
+              SubText(n > 1 ? tr('평균 ${fmtScore((avg * 2).round() / 2)} · $n회', 'avg ${fmtScore((avg * 2).round() / 2)} · ${n}x') : fmtScore(p.log.score), size: 11),
+              const SizedBox(width: 8),
+              Text(v.$1, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: v.$2)),
+              const Icon(Icons.chevron_right, size: 14, color: C.hint),
+            ]),
+          ),
+        ));
+      }
+    }
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      header,
+      const Divider(height: 1),
+      ...rows,
+    ]);
+  }
 }
