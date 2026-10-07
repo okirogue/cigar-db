@@ -5,6 +5,7 @@ on:
     paths:
       - "app/**"
       - ".github/workflows/app.yml"
+      - ".github/scripts/**"
   workflow_dispatch:
 
 permissions:
