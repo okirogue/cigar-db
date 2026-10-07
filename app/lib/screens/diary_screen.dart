@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -295,10 +297,47 @@ void openLogSheet(BuildContext context, SmokeLog log) {
             ]),
             // 같은 시가의 다른 기록
             ...() {
-              final others = st.logs.where((l) => l.cigarId == log.cigarId && l.id != log.id).toList()..sort((a, b) => b.date.compareTo(a.date));
+              final all = st.logs.where((l) => l.cigarId == log.cigarId).toList()..sort((a, b) => b.date.compareTo(a.date));
+              final others = all.where((l) => l.id != log.id).toList();
               if (others.isEmpty) return const <Widget>[];
+              final avg = all.fold<int>(0, (a, l) => a + l.score) / all.length;
+              final lo = all.map((l) => l.score).reduce(min), hi = all.map((l) => l.score).reduce(max);
               return <Widget>[
                 const SizedBox(height: 22),
+                // 내 평균
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                  decoration: BoxDecoration(color: C.text, borderRadius: BorderRadius.circular(14)),
+                  child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                    Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      const Text('내 평균', style: TextStyle(fontSize: 11, color: Colors.white70)),
+                      Row(crossAxisAlignment: CrossAxisAlignment.end, children: [
+                        Text('${avg.round()}', style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: C.bg, height: 1.1)),
+                        const SizedBox(width: 6),
+                        Padding(padding: const EdgeInsets.only(bottom: 3), child: Text('${all.length}회', style: const TextStyle(fontSize: 12, color: Colors.white70))),
+                      ]),
+                    ]),
+                    const Spacer(),
+                    Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+                      Text(lo == hi ? '매번 $lo' : '최저 $lo · 최고 $hi', style: const TextStyle(fontSize: 12, color: Colors.white70)),
+                      const SizedBox(height: 6),
+                      // 점수 미니 막대 (최근 → 과거 순으로 최대 8개)
+                      Row(mainAxisSize: MainAxisSize.min, children: [
+                        for (final l in all.take(8).toList().reversed)
+                          Container(
+                            width: 8,
+                            height: 6 + (l.score - 50).clamp(0, 50) * 0.4,
+                            margin: const EdgeInsets.only(left: 3),
+                            decoration: BoxDecoration(
+                              color: l.id == log.id ? C.gold : C.bg.withValues(alpha: .55),
+                              borderRadius: BorderRadius.circular(2),
+                            ),
+                          ),
+                      ]),
+                    ]),
+                  ]),
+                ),
+                const SizedBox(height: 14),
                 Text('이 시가의 다른 기록 ${others.length}회', style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
                 const SizedBox(height: 6),
                 for (final o in others)
