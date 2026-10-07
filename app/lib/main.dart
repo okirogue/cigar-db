@@ -23,7 +23,7 @@ class CigarApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '시가 로그',
+      title: 'MyHumidor',
       debugShowCheckedModeBanner: false,
       theme: buildTheme(),
       home: const Home(),
