@@ -59,6 +59,15 @@ class LocalDb {
     return _db!;
   }
 
+  /// 백업 복원(덮어쓰기)용 — 모든 사용자 데이터 삭제 후 기본 휴미더 하나
+  Future<void> wipeUserData() async {
+    final d = await db;
+    await d.delete('logs');
+    await d.delete('stock');
+    await d.delete('humidors');
+    await d.insert('humidors', {'name': '내 휴미더', 'sort_order': 0});
+  }
+
   // ---------- 휴미더 ----------
   Future<List<Humidor>> humidors() async {
     final rows = await (await db).query('humidors', orderBy: 'sort_order, id');

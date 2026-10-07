@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../data/backup.dart';
 import '../models/local.dart';
 import '../state.dart';
 import '../theme.dart';
@@ -30,10 +31,17 @@ class _DiaryScreenState extends State<DiaryScreen> {
       appBar: AppBar(
         title: const Text('다이어리', style: TextStyle(fontSize: 24)),
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 20),
-            child: Center(child: SubText(logs.isEmpty ? '' : '${logs.length}회 · 평균 ${st.avgScore.round()}점', size: 14)),
+          Center(child: SubText(logs.isEmpty ? '' : '${logs.length}회 · 평균 ${st.avgScore.round()}점', size: 14)),
+          PopupMenuButton<String>(
+            icon: const Icon(Icons.more_vert),
+            onSelected: (v) => _menu(context, v),
+            itemBuilder: (_) => const [
+              PopupMenuItem(value: 'export', child: Text('백업 내보내기 (JSON)')),
+              PopupMenuItem(value: 'import', child: Text('가져오기 — 기존에 추가')),
+              PopupMenuItem(value: 'replace', child: Text('가져오기 — 전부 덮어쓰기')),
+            ],
           ),
+          const SizedBox(width: 8),
         ],
       ),
       body: Column(children: [
@@ -72,6 +80,36 @@ class _DiaryScreenState extends State<DiaryScreen> {
         label: const Text('+ 기록'),
       ),
     );
+  }
+
+  Future<void> _menu(BuildContext context, String v) async {
+    final st = context.read<AppState>();
+    final sm = ScaffoldMessenger.of(context);
+    try {
+      if (v == 'export') {
+        await Backup.export(st);
+        return;
+      }
+      if (v == 'replace') {
+        final ok = await showDialog<bool>(
+          context: context,
+          builder: (dctx) => AlertDialog(
+            title: const Text('전부 덮어쓰기'),
+            content: const Text('지금 앱에 있는 휴미더·재고·기록을 모두 지우고 파일 내용으로 바꿔요. 되돌릴 수 없어요.'),
+            actions: [
+              TextButton(onPressed: () => Navigator.pop(dctx, false), child: const Text('취소')),
+              TextButton(onPressed: () => Navigator.pop(dctx, true), child: const Text('덮어쓰기')),
+            ],
+          ),
+        );
+        if (ok != true) return;
+      }
+      final r = await Backup.import(st, replace: v == 'replace');
+      if (r == null) return;
+      sm.showSnackBar(SnackBar(content: Text('가져옴 — 휴미더 ${r.$1} · 재고 ${r.$2}줄 · 기록 ${r.$3}건')));
+    } catch (e) {
+      sm.showSnackBar(SnackBar(content: Text('실패: 파일 형식을 확인해 주세요 ($e)')));
+    }
   }
 
   String _dateLabel(String ymdStr) {
