@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../state.dart';
 import '../theme.dart';
+import 'detail_screen.dart';
 
 /// 홈: 브랜드 헤더 + 내 업적(도감·미각). 횟수·연속 같은 건 없음.
 class BadgesScreen extends StatelessWidget {
@@ -72,6 +73,57 @@ class BadgesScreen extends StatelessWidget {
               if (st.logs.isNotEmpty) SubText('${st.logs.length}회 · 평균 ${st.avgScore.round()}점', size: 13),
             ]),
           ),
+          // 추천
+          if (st.profile != null && st.profile!.ready && st.recos.isNotEmpty) ...[
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(18),
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  const Text('나와 잘 맞을 시가', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+                  const SizedBox(height: 4),
+                  SubText(
+                    st.topRatedNames.isEmpty
+                        ? '내가 자주 체크한 노트(${st.profile!.topTags(3).map(repo.tagKo).join('·')})와 비슷한 시가예요'
+                        : '점수 높게 준 ${st.topRatedNames.join(', ')} 와 비슷해요',
+                    size: 12,
+                  ),
+                  const SizedBox(height: 12),
+                  for (final r in st.recos)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(10),
+                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen(cigar: r.cigar))),
+                        child: Row(children: [
+                          const CigarThumb(size: 40),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                              Text(r.cigar.fullName, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500), maxLines: 1, overflow: TextOverflow.ellipsis),
+                              SubText(r.reason, size: 11),
+                            ]),
+                          ),
+                          const Icon(Icons.chevron_right, size: 18, color: C.hint),
+                        ]),
+                      ),
+                    ),
+                ]),
+              ),
+            ),
+            const SizedBox(height: 14),
+          ] else if (st.logs.isNotEmpty && st.logs.length < 5) ...[
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(18),
+                child: Row(children: [
+                  const Icon(Icons.auto_awesome_outlined, color: C.accent, size: 20),
+                  const SizedBox(width: 12),
+                  Expanded(child: SubText('기록 ${5 - st.logs.length}개만 더 남기면 취향 기반 추천이 열려요', size: 13)),
+                ]),
+              ),
+            ),
+            const SizedBox(height: 14),
+          ],
           // 도감 등급
           Container(
             padding: const EdgeInsets.all(20),

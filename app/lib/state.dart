@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 
 import 'data/cigar_repo.dart';
 import 'data/local_db.dart';
+import 'data/recommender.dart';
 import 'models/local.dart';
 
 /// 화면들이 공유하는 사용자 데이터 상태. DB 변경 후 reload() 호출.
@@ -27,6 +28,7 @@ class AppState extends ChangeNotifier {
     qtyByHumidor = await db.qtyByHumidor();
     allStock = await db.stock();
     logs = await db.logs();
+    _recompute();
     notifyListeners();
   }
 
@@ -42,4 +44,26 @@ class AppState extends ChangeNotifier {
   Set<String> get tastedTags => {for (final l in logs) ...l.tags};
 
   double get avgScore => logs.isEmpty ? 0 : logs.map((l) => l.score).reduce((a, b) => a + b) / logs.length;
+
+  /// 취향 프로필 · 추천 (기록 바뀔 때마다 reload에서 재계산)
+  TasteProfile? profile;
+  List<Reco> recos = [];
+
+  /// 추천 근거가 된 "점수 높게 준" 시가 이름들 (중복 제거, 점수순 최대 3개)
+  List<String> get topRatedNames {
+    final seen = <String>{};
+    final sorted = [...logs]..sort((a, b) => b.score.compareTo(a.score));
+    final out = <String>[];
+    for (final l in sorted) {
+      if (l.score < 80 || !seen.add(l.cigarId)) continue;
+      out.add(l.cigarName);
+      if (out.length >= 3) break;
+    }
+    return out;
+  }
+
+  void _recompute() {
+    profile = TasteProfile.build(logs, repo);
+    recos = Recommender(repo).forMe(profile!, smokedIds, limit: 8);
+  }
 }
