@@ -37,7 +37,7 @@ class _RecordScreenState extends State<RecordScreen> {
   final _summary = TextEditingController();
   final _place = TextEditingController();
   final _pairing = TextEditingController();
-  int _score = 80;
+  double _score = 8;
   DateTime _date = DateTime.now();
   bool _showAllTags = false;
 
@@ -255,21 +255,21 @@ class _RecordScreenState extends State<RecordScreen> {
                       Row(children: [
                         Text(tr('점수', 'Score'), style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
                         const Spacer(),
-                        Text('$_score', style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: C.accent)),
+                        Text(fmtScore(_score), style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: C.accent)),
                       ]),
                       Slider(
-                        value: _score.toDouble(),
-                        min: 50,
-                        max: 100,
-                        divisions: 50,
+                        value: _score,
+                        min: 5,
+                        max: 10,
+                        divisions: 10,
                         activeColor: C.accent,
-                        onChanged: (v) => setState(() => _score = v.round()),
+                        onChanged: (v) => setState(() => _score = (v * 2).round() / 2),
                       ),
                       Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                        SubText(tr('50 별로', '50 Meh'), size: 11),
-                        SubText(tr('75 무난', '75 Decent'), size: 11),
-                        SubText(tr('85 또 사고 싶음', '85 Would buy again'), size: 11),
-                        const SubText('100', size: 11),
+                        SubText(tr('5 별로', '5 Meh'), size: 11),
+                        SubText(tr('7.5 무난', '7.5 Decent'), size: 11),
+                        SubText(tr('8.5 또 사고 싶음', '8.5 Would buy again'), size: 11),
+                        const SubText('10', size: 11),
                       ]),
                     ]),
                   ),
@@ -372,8 +372,8 @@ class _RecordScreenState extends State<RecordScreen> {
     Navigator.pop(context);
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text(tr(
-      '$_cigarName $_score점 기록${_deduct && _deductStockId != null ? ' · 재고 -1' : ''}',
-      '$_cigarName logged at $_score${_deduct && _deductStockId != null ? ' · stock -1' : ''}',
+      '$_cigarName ${fmtScore(_score)}점 기록${_deduct && _deductStockId != null ? ' · 재고 -1' : ''}',
+      '$_cigarName logged at ${fmtScore(_score)}${_deduct && _deductStockId != null ? ' · stock -1' : ''}',
     ))));
   }
 }

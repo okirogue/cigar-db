@@ -10,8 +10,20 @@ class Reco {
   final Cigar cigar;
   final double score; // 0~1
   final List<String> sharedTags; // 겹치는 노트 (한글 변환 전 id)
-  final String reason;
-  Reco(this.cigar, this.score, this.sharedTags, this.reason);
+  final bool smoked;
+  Reco(this.cigar, this.score, this.sharedTags, {this.smoked = false});
+
+  /// 추천 근거 문구 — 그릴 때 현재 언어로 생성 (언어 토글 즉시 반영)
+  String reason(CigarRepo repo) {
+    final strength = cigar.specs['strength'];
+    final parts = <String>[
+      sharedTags.take(3).map(repo.tagName).join('·'),
+      if (strength != null) tr('강도 $strength', 'Strength ${_capFirst(strength.toString())}'),
+      if (cigar.cuban) tr('쿠바', 'Cuban'),
+      if (smoked) tr('피워봄', 'Smoked'),
+    ];
+    return parts.where((p) => p.isNotEmpty).join(' · ');
+  }
 }
 
 /// 내 기록 기반 취향 프로필 → 노트 태그 가중치 벡터
@@ -36,8 +48,8 @@ class TasteProfile {
     final sp = <String, double>{'light': 0, 'medium': 0, 'full': 0};
     var cubanHi = 0, hi = 0;
     for (final l in logs) {
-      // 점수 → 가중치: 75점을 중립으로, 85점이면 +1, 65점이면 -1
-      final k = ((l.score - 75) / 10).clamp(-2.0, 2.5);
+      // 점수 → 가중치: 7.5를 중립으로, 8.5면 +1, 6.5면 -1
+      final k = (l.score - 7.5).clamp(-2.0, 2.5);
       if (k == 0) continue;
       final c = repo.byId(l.cigarId);
       // 내가 체크한 노트가 있으면 그것, 없으면 DB 노트로 대체(절반 가중)
@@ -106,7 +118,7 @@ class Recommender {
       score += 0.05 * ((c.cuban ? 1 : 0) - 0.5) * (p.cubanRatio - 0.5) * 2;
       if (score <= 0) continue;
       shared.sort((a, b) => (pw[b] ?? 0).compareTo(pw[a] ?? 0));
-      out.add(Reco(c, score, shared, _reason(c, shared)));
+      out.add(Reco(c, score, shared));
     }
     out.sort((a, b) => b.score.compareTo(a.score));
     return _diversify(out, limit);
@@ -129,7 +141,7 @@ class Recommender {
       if (bs != null && cs == bs) score += 0.1;
       if (c.cuban == base.cuban) score += 0.03;
       final shared = inter.toList()..sort();
-      out.add(Reco(c, score, shared, _reason(c, shared, smoked: smokedIds.contains(c.id))));
+      out.add(Reco(c, score, shared, smoked: smokedIds.contains(c.id)));
     }
     out.sort((a, b) => b.score.compareTo(a.score));
     return _diversify(out, limit);
@@ -149,16 +161,6 @@ class Recommender {
     return out;
   }
 
-  String _reason(Cigar c, List<String> shared, {bool smoked = false}) {
-    final strength = c.specs['strength'];
-    final parts = <String>[
-      shared.take(3).map(repo.tagName).join('·'),
-      if (strength != null) tr('강도 $strength', 'Strength ${_capFirst(strength.toString())}'),
-      if (c.cuban) tr('쿠바', 'Cuban'),
-      if (smoked) tr('피워봄', 'Smoked'),
-    ];
-    return parts.join(' · ');
-  }
 }
 
 String _capFirst(String s) => s.isEmpty ? s : '${s[0].toUpperCase()}${s.substring(1)}';

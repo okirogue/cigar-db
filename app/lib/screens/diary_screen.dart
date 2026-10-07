@@ -35,7 +35,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
       appBar: AppBar(
         title: Text(tr('다이어리', 'Diary'), style: const TextStyle(fontSize: 24)),
         actions: [
-          Center(child: SubText(logs.isEmpty ? '' : tr('${logs.length}회 · 평균 ${st.avgScore.round()}점', '${logs.length} smoked · avg ${st.avgScore.round()}'), size: 14)),
+          Center(child: SubText(logs.isEmpty ? '' : tr('${logs.length}회 · 평균 ${fmtScore(st.avgScore)}점', '${logs.length} smoked · avg ${fmtScore(st.avgScore)}'), size: 14)),
           PopupMenuButton<String>(
             icon: const Icon(Icons.more_vert),
             onSelected: (v) => _menu(context, v),
@@ -196,7 +196,7 @@ class _LogCard extends StatelessWidget {
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Row(children: [
                   Expanded(child: Text(log.cigarName, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500))),
-                  Text('${log.score}', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: C.accent)),
+                  Text(fmtScore(log.score), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: C.accent)),
                 ]),
                 if (sub.isNotEmpty) SubText(sub.join(' · ')),
                 if (log.summary != null && log.summary!.isNotEmpty) ...[
@@ -235,7 +235,7 @@ void openLogSheet(BuildContext context, SmokeLog log) {
           children: [
             Row(children: [
               Expanded(child: Text(log.cigarName, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700))),
-              Text('${log.score}', style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: C.accent)),
+              Text(fmtScore(log.score), style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: C.accent)),
             ]),
             SubText([log.date, if (log.vitola != null) log.vitola!, if (log.place != null) log.place!, if (log.pairing != null) log.pairing!].join(' · '), size: 13),
             const SizedBox(height: 14),
@@ -320,8 +320,8 @@ void openLogSheet(BuildContext context, SmokeLog log) {
               final all = st.logs.where((l) => l.cigarId == log.cigarId).toList()..sort((a, b) => b.date.compareTo(a.date));
               final others = all.where((l) => l.id != log.id).toList();
               if (others.isEmpty) return const <Widget>[];
-              final avg = all.fold<int>(0, (a, l) => a + l.score) / all.length;
-              final lo = all.map((l) => l.score).reduce(min), hi = all.map((l) => l.score).reduce(max);
+              final avg = all.fold<double>(0, (a, l) => a + l.score) / all.length;
+              final lo = fmtScore(all.map((l) => l.score).reduce(min)), hi = fmtScore(all.map((l) => l.score).reduce(max));
               return <Widget>[
                 const SizedBox(height: 22),
                 // 내 평균
@@ -332,7 +332,7 @@ void openLogSheet(BuildContext context, SmokeLog log) {
                     Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                       Text(tr('내 평균', 'My average'), style: const TextStyle(fontSize: 11, color: Colors.white70)),
                       Row(crossAxisAlignment: CrossAxisAlignment.end, children: [
-                        Text('${avg.round()}', style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: C.bg, height: 1.1)),
+                        Text(fmtScore((avg * 2).round() / 2), style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: C.bg, height: 1.1)),
                         const SizedBox(width: 6),
                         Padding(padding: const EdgeInsets.only(bottom: 3), child: Text(tr('${all.length}회', '${all.length}x'), style: const TextStyle(fontSize: 12, color: Colors.white70))),
                       ]),
@@ -346,7 +346,7 @@ void openLogSheet(BuildContext context, SmokeLog log) {
                         for (final l in all.take(8).toList().reversed)
                           Container(
                             width: 8,
-                            height: 6 + (l.score - 50).clamp(0, 50) * 0.4,
+                            height: 6 + (l.score - 5).clamp(0, 5) * 4,
                             margin: const EdgeInsets.only(left: 3),
                             decoration: BoxDecoration(
                               color: l.id == log.id ? C.gold : C.bg.withValues(alpha: .55),
@@ -370,7 +370,7 @@ void openLogSheet(BuildContext context, SmokeLog log) {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: Row(children: [
-                        Text('${o.score}', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: C.accent)),
+                        Text(fmtScore(o.score), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: C.accent)),
                         const SizedBox(width: 12),
                         Expanded(
                           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

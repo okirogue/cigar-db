@@ -97,12 +97,14 @@ class ShareStats {
       final q = await _col.where('cigar_id', isEqualTo: cigarId).limit(500).get().timeout(const Duration(seconds: 8));
       if (q.docs.isEmpty) return CafeStats(0, 0, 0, const {});
       final users = <String>{};
-      var sum = 0;
+      var sum = 0.0;
       final tagCount = <String, int>{};
       for (final d in q.docs) {
         final m = d.data();
         users.add(m['uid'] as String? ?? d.id);
-        sum += (m['score'] as num?)?.toInt() ?? 0;
+        var sc = (m['score'] as num?)?.toDouble() ?? 0;
+        if (sc > 10) sc = (sc / 5).round() / 2; // 옛 100점 문서 호환
+        sum += sc;
         for (final t in (m['tags'] as List? ?? const [])) {
           tagCount[t as String] = (tagCount[t] ?? 0) + 1;
         }

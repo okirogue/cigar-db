@@ -134,14 +134,14 @@ class DetailScreen extends StatelessWidget {
                   myLogs.isEmpty
                       ? tr('내 기록 없음', 'No logs yet')
                       : tr(
-                          '내 기록 ${myLogs.length}회 · 평균 ${(myLogs.map((l) => l.score).reduce((a, b) => a + b) / myLogs.length).round()}',
-                          'My logs ${myLogs.length} · avg ${(myLogs.map((l) => l.score).reduce((a, b) => a + b) / myLogs.length).round()}',
+                          '내 기록 ${myLogs.length}회 · 평균 ${fmtScore(((myLogs.map((l) => l.score).reduce((a, b) => a + b) / myLogs.length) * 2).round() / 2)}',
+                          'My logs ${myLogs.length} · avg ${fmtScore(((myLogs.map((l) => l.score).reduce((a, b) => a + b) / myLogs.length) * 2).round() / 2)}',
                         ),
                   style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
                 ),
                 if (myLogs.isNotEmpty) ...[
                   const SizedBox(height: 6),
-                  SubText(myLogs.map((l) => '${fmtShort(l.date)}${l.place != null ? ' ${l.place}' : ''} ${l.score}').join(' · '), size: 13),
+                  SubText(myLogs.map((l) => '${fmtShort(l.date)}${l.place != null ? ' ${l.place}' : ''} ${fmtScore(l.score)}').join(' · '), size: 13),
                   if (myTags.isNotEmpty) ...[
                     const SizedBox(height: 4),
                     SubText(
@@ -216,7 +216,7 @@ class _CafeCardState extends State<_CafeCard> {
               final tags = s.topTags(6);
               body = Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Row(crossAxisAlignment: CrossAxisAlignment.end, children: [
-                  Text('${s.avg.round()}', style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: C.accent, height: 1)),
+                  Text(s.avg.toStringAsFixed(1), style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: C.accent, height: 1)),
                   const SizedBox(width: 6),
                   Padding(padding: const EdgeInsets.only(bottom: 3), child: SubText(tr('점 · ${s.people}명 · ${s.logs}회', 'pts · ${s.people} people · ${s.logs} logs'), size: 12)),
                 ]),

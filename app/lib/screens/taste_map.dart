@@ -258,9 +258,9 @@ class _MapPainter extends CustomPainter {
       final o = pl.o;
       final col = origin[p.origin]!.$1;
       final s = p.log.score;
-      if (s >= 80) {
+      if (s >= 8) {
         canvas.drawCircle(o, r, Paint()..color = col);
-      } else if (s >= 70) {
+      } else if (s >= 7) {
         canvas.drawCircle(o, r, Paint()..color = C.bg);
         canvas.drawArc(Rect.fromCircle(center: o, radius: r), -pi / 2, pi, true, Paint()..color = col);
         canvas.drawCircle(o, r, Paint()..color = col..style = PaintingStyle.stroke..strokeWidth = 2);

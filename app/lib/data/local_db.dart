@@ -7,6 +7,9 @@ import '../models/local.dart';
 
 /// 사용자 데이터(휴미더·재고·기록) sqflite 저장소.
 class LocalDb {
+  /// v5 마이그레이션으로 점수 스케일이 바뀌었으면 true — 서버 공유본 재업로드 트리거
+  static bool scoresRescaled = false;
+
   LocalDb._();
   static final LocalDb instance = LocalDb._();
 
@@ -19,11 +22,16 @@ class LocalDb {
     final dir = await getDatabasesPath();
     _db = await openDatabase(
       p.join(dir, 'cigar_log.db'),
-      version: 4,
+      version: 5,
       onUpgrade: (d, oldV, newV) async {
         if (oldV < 2) await d.execute(_customDdl);
         if (oldV < 3) await d.execute('ALTER TABLE logs ADD COLUMN summary TEXT');
         if (oldV < 4) await d.execute("ALTER TABLE stock ADD COLUMN currency TEXT NOT NULL DEFAULT 'KRW'");
+        if (oldV < 5) {
+          // 100점 → 10점(0.5 단위): 83 → 8.5
+          await d.execute('UPDATE logs SET score = ROUND(score / 5.0) / 2.0 WHERE score > 10');
+          scoresRescaled = true;
+        }
       },
       onCreate: (d, v) async {
         await d.execute('''
@@ -194,7 +202,7 @@ class LocalDb {
     required String cigarName,
     String? vitola,
     required String date,
-    required int score,
+    required double score,
     required List<String> tags,
     String? noteStart,
     String? noteMid,

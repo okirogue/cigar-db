@@ -11,14 +11,14 @@ import '../models/cigar.dart';
 import '../state.dart';
 import 'local_db.dart';
 
-/// JSON 백업 내보내기/가져오기. 형식(version 1):
+/// JSON 백업 내보내기/가져오기. 형식(version 2 — 점수 0~10, v1은 0~100):
 /// {"version":1,"humidors":["이름"...],"stock":[{humidor,cigar_id,cigar_name,vitola,qty,price_per_stick,added_date}],
 ///  "logs":[{cigar_id,cigar_name,vitola,date,score,tags[],note_start,note_mid,note_end,place,pairing}]}
 class Backup {
   static Future<String> buildJson(AppState st) async {
     final hName = {for (final h in st.humidors) h.id: h.name};
     final out = {
-      'version': 1,
+      'version': 2,
       'exported': DateTime.now().toIso8601String().substring(0, 10),
       'source': 'MyHumidor',
       'humidors': st.humidors.map((h) => h.name).toList(),
@@ -129,7 +129,7 @@ class Backup {
         cigarName: l['cigar_name'] as String,
         vitola: l['vitola'] as String?,
         date: (l['date'] as String?) ?? DateTime.now().toIso8601String().substring(0, 10),
-        score: (l['score'] as num?)?.toInt() ?? 75,
+        score: _score10((l['score'] as num?)?.toDouble() ?? 7.5),
         tags: List<String>.from(l['tags'] ?? const []),
         noteStart: l['note_start'] as String?,
         noteMid: l['note_mid'] as String?,
@@ -144,3 +144,6 @@ class Backup {
     return (addedH, addedS, addedL);
   }
 }
+
+/// v1 백업(100점)이면 10점 0.5 단위로 변환
+double _score10(double v) => v > 10 ? (v / 5).round() / 2 : v;

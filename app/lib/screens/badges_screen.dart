@@ -82,12 +82,17 @@ class _BadgesScreenState extends State<BadgesScreen> {
                 child: Image.asset('assets/brand/play_icon_512.png', width: 44, height: 44),
               ),
               const SizedBox(width: 12),
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                const Text('MyHumidor', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, letterSpacing: -0.5, color: C.text, fontFamily: 'serif')),
-                SubText(tr('내 휴미더 · 시가 노트', 'My humidor · cigar notes'), size: 12),
-              ]),
-              const Spacer(),
-              if (st.logs.isNotEmpty) SubText(tr('${st.logs.length}회 · 평균 ${st.avgScore.round()}점', '${st.logs.length} smoked · avg ${st.avgScore.round()}'), size: 13),
+              Expanded(
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  const Text('MyHumidor', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, letterSpacing: -0.5, color: C.text, fontFamily: 'serif')),
+                  SubText(
+                    st.logs.isEmpty
+                        ? tr('내 휴미더 · 시가 노트', 'My humidor · cigar notes')
+                        : tr('${st.logs.length}회 · 평균 ${fmtScore(st.avgScore)}점', '${st.logs.length} smoked · avg ${fmtScore(st.avgScore)}'),
+                    size: 12,
+                  ),
+                ]),
+              ),
               const SizedBox(width: 8),
               const _LangToggle(),
             ]),
@@ -269,7 +274,7 @@ class _BadgesScreenState extends State<BadgesScreen> {
                           Expanded(
                             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                               Text(r.cigar.fullName, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500), maxLines: 1, overflow: TextOverflow.ellipsis),
-                              SubText(r.reason, size: 11),
+                              SubText(r.reason(repo), size: 11),
                             ]),
                           ),
                           const Icon(Icons.chevron_right, size: 18, color: C.hint),

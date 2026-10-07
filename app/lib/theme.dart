@@ -172,6 +172,9 @@ String _group(int v) {
   return b.toString();
 }
 
+/// 점수(0~10, 0.5 단위) 표시: 8 / 8.5
+String fmtScore(num v) => v == v.roundToDouble() ? '${v.round()}' : v.toStringAsFixed(1);
+
 String fmtWon(int v) => L10n.isKo ? '${_group(v)}원' : '₩${_group(v)}';
 
 /// 저장 단위 → 표시. KRW 는 원, 그 외는 센트(×100) 저장.

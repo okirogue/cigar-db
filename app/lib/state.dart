@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 
 import 'data/cigar_repo.dart';
 import 'data/local_db.dart';
+import 'data/share_stats.dart';
 import 'data/recommender.dart';
 import 'models/cigar.dart';
 import 'models/local.dart';
@@ -25,6 +26,11 @@ class AppState extends ChangeNotifier {
     await reload();
     ready = true;
     notifyListeners();
+    if (LocalDb.scoresRescaled) {
+      LocalDb.scoresRescaled = false;
+      // 점수 스케일 변경분을 서버 공유본에도 반영 (공유 꺼져 있으면 내부에서 무시)
+      await ShareStats.instance.backfill(logs);
+    }
   }
 
   Future<void> reload() async {
@@ -59,7 +65,7 @@ class AppState extends ChangeNotifier {
     final sorted = [...logs]..sort((a, b) => b.score.compareTo(a.score));
     final out = <String>[];
     for (final l in sorted) {
-      if (l.score < 80 || !seen.add(l.cigarId)) continue;
+      if (l.score < 8 || !seen.add(l.cigarId)) continue;
       out.add(l.cigarName);
       if (out.length >= 3) break;
     }

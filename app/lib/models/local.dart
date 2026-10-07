@@ -68,7 +68,7 @@ class SmokeLog {
   final String cigarName;
   final String? vitola;
   final String date; // yyyy-MM-dd
-  final int score; // 0~100
+  final double score; // 0~10, 0.5 단위 (v5 이전엔 0~100 정수였음)
   final List<String> tags; // 체크한 노트 태그 id
   final String? noteStart;
   final String? noteMid;
@@ -101,7 +101,7 @@ class SmokeLog {
         cigarName: m['cigar_name'] as String,
         vitola: m['vitola'] as String?,
         date: m['date'] as String,
-        score: m['score'] as int,
+        score: (m['score'] as num).toDouble(),
         tags: ((m['tags'] as String?) ?? '').split(',').where((e) => e.isNotEmpty).toList(),
         noteStart: m['note_start'] as String?,
         noteMid: m['note_mid'] as String?,
