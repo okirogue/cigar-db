@@ -33,6 +33,7 @@ class Backup {
             'vitola': s.vitola,
             'qty': s.qty,
             'price_per_stick': s.pricePerStick,
+            'currency': s.currency,
             'added_date': s.addedDate,
           }
       ],
@@ -115,6 +116,7 @@ class Backup {
         vitola: s['vitola'] as String?,
         qty: qty,
         pricePerStick: (s['price_per_stick'] as num?)?.toInt(),
+        currency: (s['currency'] as String?) ?? 'KRW',
         addedDate: (s['added_date'] as String?) ?? DateTime.now().toIso8601String().substring(0, 10),
       );
       addedS++;

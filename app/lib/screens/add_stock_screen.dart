@@ -59,10 +59,14 @@ class _AddStockScreenState extends State<AddStockScreen> {
     }
   }
 
-  /// 개비당 원화 (구매가 비우면 null)
+  /// 저장 통화: KO 는 환율 적용해 KRW, EN 은 USD 그대로
+  String get _saveCurrency => L10n.isKo ? 'KRW' : 'USD';
+
+  /// 개비당 가격 (구매가 비우면 null). KRW 는 원, USD 는 센트 단위
   int? get _pricePerStick {
     final total = double.tryParse(_priceCtl.text.replaceAll(',', ''));
     if (total == null || total <= 0 || _qty <= 0) return null;
+    if (!L10n.isKo) return (total * 100 / _qty).round();
     final rate = _cur == 'KRW' ? 1.0 : (double.tryParse(_rateCtl.text.replaceAll(',', '')) ?? 0);
     if (rate <= 0) return null;
     return (total * rate / _qty).round();
@@ -154,20 +158,22 @@ class _AddStockScreenState extends State<AddStockScreen> {
                           child: TextField(
                             controller: _priceCtl,
                             keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                            decoration: InputDecoration(hintText: tr('비우면 공란', 'Leave blank to skip')),
+                            decoration: InputDecoration(hintText: tr('비우면 공란', 'Leave blank to skip'), prefixText: L10n.isKo ? null : r'$ '),
                             onChanged: (_) => setState(() {}),
                           ),
                         ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: DropdownButtonFormField<String>(
-                            initialValue: _cur,
-                            items: [for (final c in _currencies) DropdownMenuItem(value: c, child: Text(c))],
-                            onChanged: (v) => setState(() => _cur = v ?? 'USD'),
+                        if (L10n.isKo) ...[
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: DropdownButtonFormField<String>(
+                              initialValue: _cur,
+                              items: [for (final c in _currencies) DropdownMenuItem(value: c, child: Text(c))],
+                              onChanged: (v) => setState(() => _cur = v ?? 'USD'),
+                            ),
                           ),
-                        ),
+                        ],
                       ]),
-                      if (_cur != 'KRW') ...[
+                      if (L10n.isKo && _cur != 'KRW') ...[
                         const SizedBox(height: 8),
                         Row(children: [
                           SubText(tr('환율 1 $_cur =', 'Rate 1 $_cur =')),
@@ -188,7 +194,7 @@ class _AddStockScreenState extends State<AddStockScreen> {
                         RichText(
                           text: TextSpan(style: const TextStyle(fontSize: 12, color: C.sub), children: [
                             TextSpan(text: tr('개비당 약 ', 'About ')),
-                            TextSpan(text: fmtWon(pps), style: const TextStyle(color: C.text, fontWeight: FontWeight.w700)),
+                            TextSpan(text: fmtPrice(pps, _saveCurrency), style: const TextStyle(color: C.text, fontWeight: FontWeight.w700)),
                             if (!L10n.isKo) const TextSpan(text: ' per stick'),
                           ]),
                         )
@@ -271,6 +277,7 @@ class _AddStockScreenState extends State<AddStockScreen> {
       vitola: v.isEmpty ? null : v,
       qty: _qty,
       pricePerStick: _pricePerStick,
+      currency: _saveCurrency,
       addedDate: ymd(_date),
     );
     await st.reload();

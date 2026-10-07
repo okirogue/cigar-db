@@ -162,14 +162,25 @@ class NoteChip extends StatelessWidget {
   }
 }
 
-String fmtWon(int v) {
+String _group(int v) {
   final s = v.toString();
   final b = StringBuffer();
   for (var i = 0; i < s.length; i++) {
     if (i > 0 && (s.length - i) % 3 == 0) b.write(',');
     b.write(s[i]);
   }
-  return L10n.isKo ? '$b원' : '₩$b';
+  return b.toString();
+}
+
+String fmtWon(int v) => L10n.isKo ? '${_group(v)}원' : '₩${_group(v)}';
+
+/// 저장 단위 → 표시. KRW 는 원, 그 외는 센트(×100) 저장.
+String fmtPrice(int v, String currency) {
+  if (currency == 'KRW') return fmtWon(v);
+  final whole = v ~/ 100;
+  final cents = (v % 100).toString().padLeft(2, '0');
+  final sym = switch (currency) { 'USD' => r'$', 'EUR' => '€', 'JPY' => '¥', 'HKD' => r'HK$', _ => '$currency ' };
+  return '$sym${_group(whole)}.$cents';
 }
 
 const _monthsEn = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

@@ -232,7 +232,7 @@ class _StockCard extends StatelessWidget {
     final parts = <String>[
       if (item.vitola != null && item.vitola!.isNotEmpty) item.vitola!,
       if (cigar != null && cigar.specs['length_in'] != null && cigar.specs['ring_gauge'] != null) '${cigar.specs['length_in']}×${cigar.specs['ring_gauge']}',
-      if (item.pricePerStick != null) fmtWon(item.pricePerStick!),
+      if (item.pricePerStick != null) fmtPrice(item.pricePerStick!, item.currency),
       tr('${fmtShort(item.addedDate)} 입고', 'Added ${fmtShort(item.addedDate)}'),
       tr('${item.agingDays}일 숙성', '${item.agingDays}d aging'),
     ];

@@ -21,7 +21,8 @@ class StockItem {
   final String cigarName; // 표시용 (DB 바뀌어도 유지)
   final String? vitola;
   final int qty;
-  final int? pricePerStick; // 원화, 미입력이면 null
+  final int? pricePerStick; // 개비당 가격. KRW 는 원 단위, 그 외 통화는 센트(×100) 단위. 미입력이면 null
+  final String currency; // 'KRW' | 'USD' ...
   final String addedDate; // yyyy-MM-dd
   final String? memo;
 
@@ -33,6 +34,7 @@ class StockItem {
     required this.vitola,
     required this.qty,
     required this.pricePerStick,
+    this.currency = 'KRW',
     required this.addedDate,
     this.memo,
   });
@@ -45,6 +47,7 @@ class StockItem {
         vitola: m['vitola'] as String?,
         qty: m['qty'] as int,
         pricePerStick: m['price_per_stick'] as int?,
+        currency: (m['currency'] as String?) ?? 'KRW',
         addedDate: m['added_date'] as String,
         memo: m['memo'] as String?,
       );

@@ -19,10 +19,11 @@ class LocalDb {
     final dir = await getDatabasesPath();
     _db = await openDatabase(
       p.join(dir, 'cigar_log.db'),
-      version: 3,
+      version: 4,
       onUpgrade: (d, oldV, newV) async {
         if (oldV < 2) await d.execute(_customDdl);
         if (oldV < 3) await d.execute('ALTER TABLE logs ADD COLUMN summary TEXT');
+        if (oldV < 4) await d.execute("ALTER TABLE stock ADD COLUMN currency TEXT NOT NULL DEFAULT 'KRW'");
       },
       onCreate: (d, v) async {
         await d.execute('''
@@ -40,6 +41,7 @@ class LocalDb {
             vitola TEXT,
             qty INTEGER NOT NULL,
             price_per_stick INTEGER,
+            currency TEXT NOT NULL DEFAULT 'KRW',
             added_date TEXT NOT NULL,
             memo TEXT
           )''');
@@ -146,6 +148,7 @@ class LocalDb {
     String? vitola,
     required int qty,
     int? pricePerStick,
+    String currency = 'KRW',
     required String addedDate,
   }) async {
     return (await db).insert('stock', {
@@ -155,6 +158,7 @@ class LocalDb {
       'vitola': vitola,
       'qty': qty,
       'price_per_stick': pricePerStick,
+      'currency': currency,
       'added_date': addedDate,
     });
   }
