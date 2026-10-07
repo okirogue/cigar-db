@@ -1,7 +1,9 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:path/path.dart' as p;
 import 'package:sqflite/sqflite.dart';
+import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
 
 import '../models/local.dart';
 
@@ -19,9 +21,11 @@ class LocalDb {
 
   Future<Database> get db async {
     if (_db != null) return _db!;
-    final dir = await getDatabasesPath();
+    // 웹: IndexedDB 위에 올라간 sqlite (sqflite_common_ffi_web). API 는 동일.
+    if (kIsWeb) databaseFactory = databaseFactoryFfiWeb;
+    final path = kIsWeb ? 'cigar_log.db' : p.join(await getDatabasesPath(), 'cigar_log.db');
     _db = await openDatabase(
-      p.join(dir, 'cigar_log.db'),
+      path,
       version: 6,
       onUpgrade: (d, oldV, newV) async {
         if (oldV < 2) await d.execute(_customDdl);

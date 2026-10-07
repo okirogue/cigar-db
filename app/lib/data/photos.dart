@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
@@ -9,6 +10,9 @@ import 'package:path_provider/path_provider.dart';
 class LogPhotos {
   LogPhotos._();
   static final instance = LogPhotos._();
+
+  /// 웹에선 파일 저장소가 없어 사진 기능을 숨긴다 (추후 IndexedDB 저장으로 확장 가능)
+  static bool get supported => !kIsWeb;
 
   Directory? _dir;
 

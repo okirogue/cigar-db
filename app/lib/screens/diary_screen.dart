@@ -241,7 +241,7 @@ void openLogSheet(BuildContext context, SmokeLog log) {
             ]),
             SubText([log.date, if (log.vitola != null) log.vitola!, if (log.place != null) log.place!, if (log.pairing != null) log.pairing!].join(' · '), size: 13),
             const SizedBox(height: 14),
-            if (log.photos.isNotEmpty) ...[
+            if (LogPhotos.supported && log.photos.isNotEmpty) ...[
               _PhotoStrip(photos: log.photos),
               const SizedBox(height: 14),
             ],

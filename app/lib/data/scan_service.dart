@@ -5,10 +5,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_ai/firebase_ai.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:image/image.dart' as img;
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../firebase_web_options.dart';
 import '../l10n.dart';
 import '../models/cigar.dart';
 import 'cigar_repo.dart';
@@ -31,7 +33,7 @@ class ScanService {
   /// 앱 시작 시 한 번. 실패해도 앱은 돌아가게 (스캔만 비활성).
   Future<void> init() async {
     try {
-      await Firebase.initializeApp();
+      await Firebase.initializeApp(options: kIsWeb ? firebaseWebOptions : null);
       if (FirebaseAuth.instance.currentUser == null) {
         await FirebaseAuth.instance.signInAnonymously();
       }

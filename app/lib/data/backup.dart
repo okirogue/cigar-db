@@ -1,9 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:share_plus/share_plus.dart';
 
 import '../l10n.dart';
@@ -61,8 +63,13 @@ class Backup {
   /// 공유 시트로 백업 파일 내보내기
   static Future<void> export(AppState st) async {
     final json = await buildJson(st);
-    final dir = await getTemporaryDirectory();
     final name = 'myhumidor_backup_${DateTime.now().toIso8601String().substring(0, 10)}.json';
+    if (kIsWeb) {
+      // 웹: 브라우저 다운로드
+      await FilePicker.platform.saveFile(fileName: name, bytes: Uint8List.fromList(utf8.encode(json)), type: FileType.custom, allowedExtensions: ['json']);
+      return;
+    }
+    final dir = await getTemporaryDirectory();
     final f = File(p.join(dir.path, name));
     await f.writeAsString(json);
     await Share.shareXFiles([XFile(f.path, mimeType: 'application/json')], subject: tr('MyHumidor 백업', 'MyHumidor backup'));

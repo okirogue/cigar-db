@@ -171,8 +171,10 @@ class _RecordScreenState extends State<RecordScreen> {
                 TextField(controller: _pairing, decoration: InputDecoration(hintText: tr('페어링 (커피, 위스키, 제로사이다…)', 'Pairing (coffee, whisky, soda…)'), isDense: true)),
                 const SizedBox(height: 10),
                 // 사진 (폰 안에만 저장)
-                _PhotoRow(photos: _photos, onAdd: _addPhoto, onRemove: (n) => setState(() => _photos.remove(n))),
-                const SizedBox(height: 14),
+                if (LogPhotos.supported) ...[
+                  _PhotoRow(photos: _photos, onAdd: _addPhoto, onRemove: (n) => setState(() => _photos.remove(n))),
+                  const SizedBox(height: 14),
+                ],
 
                 // 노트 체크
                 Card(

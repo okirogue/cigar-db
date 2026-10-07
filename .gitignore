@@ -1,2 +1,4 @@
 debug/
 __pycache__/
+app/web/sqlite3.wasm
+app/web/sqflite_sw.js

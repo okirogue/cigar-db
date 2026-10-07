@@ -188,3 +188,59 @@ jobs:
             NUM=$(gh issue create --title "CI log (app-build)" --label ci-log --body "자동 생성: 빌드 실패 로그가 코멘트로 쌓입니다." | grep -oE '[0-9]+$')
           fi
           gh issue comment "$NUM" --body-file body.md
+
+  # 웹판(PWA): GitHub Pages 의 docs/app/ 로 배포 → https://okirogue.github.io/cigar-db/app/
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    concurrency:
+      group: app-web-deploy
+      cancel-in-progress: false
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Pub get
+        run: flutter pub get
+
+      # 웹용 sqlite (wasm + service worker) 파일을 web/ 에 생성
+      - name: Setup sqflite web
+        run: dart run sqflite_common_ffi_web:setup --force
+
+      - name: Build web
+        run: |
+          set -o pipefail
+          flutter build web --release --base-href /cigar-db/app/ --pwa-strategy offline-first 2>&1 | tee ../ci-web.txt
+
+      - name: Deploy to docs/app (GitHub Pages)
+        if: github.ref == 'refs/heads/main'
+        working-directory: .
+        run: |
+          rm -rf docs/app && mkdir -p docs/app
+          cp -r app/build/web/. docs/app/
+          touch docs/.nojekyll
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/app docs/.nojekyll
+          if git diff --cached --quiet; then echo "web unchanged"; exit 0; fi
+          git commit -m "web: deploy b${{ github.run_number }} (${GITHUB_SHA::7}) [skip ci]"
+          for i in 1 2 3; do git pull --rebase origin main && git push && break || sleep 5; done
+
+      - name: Post failure log to issue
+        if: failure()
+        working-directory: .
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          { echo "### app-build/web failed · ${GITHUB_SHA::7} · run ${{ github.run_id }}"; echo; echo '```'; grep -vE '^\s*$' ci-web.txt | tail -n 150; echo '```'; } > body.md
+          NUM=$(gh issue list --label ci-log --state open --json number --jq '.[0].number' || true)
+          [ -n "$NUM" ] && gh issue comment "$NUM" --body-file body.md || true
