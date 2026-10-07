@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../data/share_stats.dart';
 import '../models/cigar.dart';
 import '../state.dart';
 import '../theme.dart';
@@ -113,17 +114,8 @@ class DetailScreen extends StatelessWidget {
           ),
           const SizedBox(height: 14),
 
-          // 카페 평점 자리 (서버 연동 전)
-          Card(
-            child: Padding(
-              padding: const EdgeInsets.all(18),
-              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                const Text('카페 평점', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
-                const SizedBox(height: 6),
-                const SubText('회원들 기록이 모이면 여기에 평균 점수와 많이 느낀 노트가 표시돼요.', size: 12),
-              ]),
-            ),
-          ),
+          // 카페 평점 (익명 공유 기록 집계)
+          _CafeCard(cigarId: cigar.id),
           const SizedBox(height: 14),
 
           // 내 기록
@@ -171,4 +163,59 @@ class _Tag extends StatelessWidget {
         decoration: BoxDecoration(color: C.chip, borderRadius: BorderRadius.circular(8)),
         child: Text(text, style: TextStyle(fontSize: 13, fontWeight: bold ? FontWeight.w700 : FontWeight.w400)),
       );
+}
+
+class _CafeCard extends StatefulWidget {
+  final String cigarId;
+  const _CafeCard({required this.cigarId});
+  @override
+  State<_CafeCard> createState() => _CafeCardState();
+}
+
+class _CafeCardState extends State<_CafeCard> {
+  late final Future<CafeStats?> _f = ShareStats.instance.fetch(widget.cigarId);
+
+  @override
+  Widget build(BuildContext context) {
+    final repo = context.read<AppState>().repo;
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(18),
+        child: FutureBuilder<CafeStats?>(
+          future: _f,
+          builder: (_, snap) {
+            final s = snap.data;
+            Widget body;
+            if (snap.connectionState != ConnectionState.done) {
+              body = const SubText('불러오는 중…', size: 12);
+            } else if (s == null) {
+              body = const SubText('지금은 서버에 연결되지 않아 카페 평점을 못 불러왔어요.', size: 12);
+            } else if (s.logs == 0) {
+              body = const SubText('아직 이 시가를 기록한 회원이 없어요. 첫 기록을 남겨보세요.', size: 12);
+            } else {
+              final tags = s.topTags(6);
+              body = Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Row(crossAxisAlignment: CrossAxisAlignment.end, children: [
+                  Text('${s.avg.round()}', style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: C.accent, height: 1)),
+                  const SizedBox(width: 6),
+                  Padding(padding: const EdgeInsets.only(bottom: 3), child: SubText('점 · ${s.people}명 · ${s.logs}회', size: 12)),
+                ]),
+                if (tags.isNotEmpty) ...[
+                  const SizedBox(height: 10),
+                  const SubText('많이 느낀 노트', size: 11),
+                  const SizedBox(height: 6),
+                  Wrap(spacing: 6, runSpacing: 6, children: [for (final t in tags) NoteChip(label: '${repo.tagKo(t)} ${s.tagCount[t]}', small: true)]),
+                ],
+              ]);
+            }
+            return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              const Text('카페 평점', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+              const SizedBox(height: 8),
+              body,
+            ]);
+          },
+        ),
+      ),
+    );
+  }
 }

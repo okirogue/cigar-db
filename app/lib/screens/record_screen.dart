@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/local.dart';
+import '../data/share_stats.dart';
 import '../state.dart';
 import '../theme.dart';
 import 'picker_screen.dart';
@@ -317,12 +319,16 @@ class _RecordScreenState extends State<RecordScreen> {
         'pairing': _pairing.text.trim().isEmpty ? null : _pairing.text.trim(),
       });
       await st.reload();
+      final updated = st.logs.where((l) => l.id == widget.edit!.id).firstOrNull;
+      if (updated != null) ShareStats.instance.push(updated);
       if (!mounted) return;
       Navigator.pop(context);
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$_cigarName 기록 수정됨')));
       return;
     }
-    await st.db.addLog(
+    await ShareStats.instance.askIfNeeded(context);
+    if (!mounted) return;
+    final newId = await st.db.addLog(
       cigarId: _cigarId!,
       cigarName: _cigarName!,
       vitola: _vitola,
@@ -337,6 +343,17 @@ class _RecordScreenState extends State<RecordScreen> {
       deductStockId: _deduct ? _deductStockId : null,
     );
     await st.reload();
+    final added = st.logs.where((l) => l.id == newId).firstOrNull;
+    if (added != null) {
+      // 처음 켠 경우 기존 기록까지 한 번에
+      final p = await SharedPreferences.getInstance();
+      if (!(p.getBool('share_backfilled') ?? false)) {
+        await ShareStats.instance.backfill(st.logs);
+        await p.setBool('share_backfilled', true);
+      } else {
+        ShareStats.instance.push(added);
+      }
+    }
     if (!mounted) return;
     Navigator.pop(context);
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$_cigarName $_score점 기록${_deduct && _deductStockId != null ? ' · 재고 -1' : ''}')));

@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../state.dart';
 import '../theme.dart';
 import 'detail_screen.dart';
+import 'taste_map.dart';
 
 /// 홈: 브랜드 헤더 + 내 업적(도감·미각). 횟수·연속 같은 건 없음.
 class BadgesScreen extends StatefulWidget {
@@ -204,6 +205,9 @@ class _BadgesScreenState extends State<BadgesScreen> {
               ]),
             ),
           ),
+          // 취향 지도 (도감·미각 아래)
+          const SizedBox(height: 14),
+          const TasteMap(),
           // 추천 (맨 아래)
           const SizedBox(height: 14),
           if (st.profile != null && st.profile!.ready && st.recos.isNotEmpty) ...[

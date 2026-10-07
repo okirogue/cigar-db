@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../data/backup.dart';
+import '../data/share_stats.dart';
 import '../models/local.dart';
 import '../state.dart';
 import '../theme.dart';
@@ -39,6 +40,8 @@ class _DiaryScreenState extends State<DiaryScreen> {
               PopupMenuItem(value: 'export', child: Text('백업 내보내기 (JSON)')),
               PopupMenuItem(value: 'import', child: Text('가져오기 — 기존에 추가')),
               PopupMenuItem(value: 'replace', child: Text('가져오기 — 전부 덮어쓰기')),
+              PopupMenuDivider(),
+              PopupMenuItem(value: 'share', child: Text('익명 기록 공유 설정')),
             ],
           ),
           const SizedBox(width: 8),
@@ -85,6 +88,35 @@ class _DiaryScreenState extends State<DiaryScreen> {
   Future<void> _menu(BuildContext context, String v) async {
     final st = context.read<AppState>();
     final sm = ScaffoldMessenger.of(context);
+    if (v == 'share') {
+      final cur = await ShareStats.instance.enabled ?? false;
+      if (!context.mounted) return;
+      final on = await showDialog<bool>(
+        context: context,
+        builder: (dctx) => AlertDialog(
+          title: const Text('익명 기록 공유'),
+          content: Text(
+            '${cur ? '지금 켜져 있어요.' : '지금 꺼져 있어요.'}\n\n켜면 기록 저장 시 시가 이름·점수·노트 태그·날짜만 익명으로 모아 카페 평점에 써요. 메모·장소·페어링은 보내지 않아요.\n끄면 이미 올라간 내 기록도 서버에서 지워요.',
+            style: const TextStyle(fontSize: 13.5, height: 1.5),
+          ),
+          actions: [
+            TextButton(onPressed: () => Navigator.pop(dctx, false), child: const Text('끄기')),
+            FilledButton(onPressed: () => Navigator.pop(dctx, true), child: const Text('켜기')),
+          ],
+        ),
+      );
+      if (on == null) return;
+      await ShareStats.instance.set(on);
+      if (on) {
+        await ShareStats.instance.backfill(st.logs);
+      } else {
+        for (final l in st.logs) {
+          await ShareStats.instance.removeForce(l.id);
+        }
+      }
+      sm.showSnackBar(SnackBar(content: Text(on ? '익명 공유 켬 — 기존 기록도 올렸어요' : '익명 공유 끔 — 서버의 내 기록을 지웠어요')));
+      return;
+    }
     try {
       if (v == 'export') {
         await Backup.export(st);
@@ -161,7 +193,11 @@ class _LogCard extends StatelessWidget {
     );
   }
 
-  void _open(BuildContext context) {
+  void _open(BuildContext context) => openLogSheet(context, log);
+}
+
+/// 기록 상세 바텀시트 (목록·지도에서 공용)
+void openLogSheet(BuildContext context, SmokeLog log) {
     final st = context.read<AppState>();
     final repo = st.repo;
     showModalBottomSheet<void>(
@@ -235,6 +271,7 @@ class _LogCard extends StatelessWidget {
                     );
                     if (ok == true) {
                       await st.db.deleteLog(log.id);
+                      ShareStats.instance.remove(log.id);
                       await st.reload();
                       if (ctx.mounted) Navigator.pop(ctx);
                     }
@@ -247,5 +284,4 @@ class _LogCard extends StatelessWidget {
         ),
       ),
     );
-  }
 }

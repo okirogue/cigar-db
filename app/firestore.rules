@@ -32,6 +32,19 @@ service cloud.firestore {
       allow read, update, delete: if false;
     }
 
+    // 익명 기록 공유: 문서 id는 "<uid>_<logId>", 본인 것만 쓰기. 읽기는 로그인(익명)한 누구나(카페 평점 집계용).
+    match /log_stats/{id} {
+      allow read: if request.auth != null;
+      allow create, update: if request.auth != null
+        && id.matches('^' + request.auth.uid + '_[0-9]+$')
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.cigar_id is string
+        && request.resource.data.score is int && request.resource.data.score >= 0 && request.resource.data.score <= 100
+        && request.resource.data.tags is list && request.resource.data.tags.size() <= 40
+        && request.resource.data.keys().hasOnly(['uid', 'log_id', 'cigar_id', 'cigar_name', 'vitola', 'date', 'score', 'tags', 'updated']);
+      allow delete: if request.auth != null && id.matches('^' + request.auth.uid + '_[0-9]+$');
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }
