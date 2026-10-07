@@ -29,16 +29,35 @@ class TasteMap extends StatelessWidget {
     'dark_chocolate': -.8, 'musty': -.8, 'earth': -1, 'leather': -1, 'espresso': -1,
   };
 
-  static double _strengthX(Cigar? c) {
+  // 태그 → 체감 강도 보정 (+ 세게 느껴지는 쪽, − 순하게 느껴지는 쪽)
+  static const _punch = <String, double>{
+    'pepper': .14, 'white_pepper': .08, 'spice': .08, 'clove': .08, 'leather': .08, 'earth': .06, 'espresso': .08, 'dark_chocolate': .05,
+    'musty': .04, 'oak': .03, 'tobacco': .05, 'cinnamon': .03,
+    'cream': -.10, 'butter': -.08, 'sweet': -.06, 'honey': -.08, 'vanilla': -.08, 'caramel': -.05, 'floral': -.08, 'hay': -.06,
+    'grass': -.05, 'tea': -.04, 'citrus': -.03, 'bread': -.04, 'almond': -.03, 'nuts': -.02,
+  };
+
+  /// 0(순함) ~ 1(셈). DB 강도(5단계)에 내가 체크한 노트로 연속 보정.
+  static double _strengthX(SmokeLog l, Cigar? c) {
     final s = (c?.specs['strength'] ?? c?.specs['strength_felt'] ?? '').toLowerCase();
-    if (s.isEmpty) return .5;
+    double base;
     final full = s.contains('full'), med = s.contains('medium'), mild = s.contains('mild') || s.contains('light');
-    if (full && med) return .7;
-    if (full) return .88;
-    if (med && mild) return .3;
-    if (med) return .5;
-    if (mild) return .14;
-    return .5;
+    if (full && med) {
+      base = .7;
+    } else if (full) {
+      base = .88;
+    } else if (med && mild) {
+      base = .3;
+    } else if (med) {
+      base = .5;
+    } else if (mild) {
+      base = .14;
+    } else {
+      base = .5;
+    }
+    final adj = l.tags.map((t) => _punch[t]).whereType<double>().fold(0.0, (a, b) => a + b);
+    // 강도 정보가 없으면 태그 보정을 더 크게 (그게 유일한 단서라서)
+    return (base + adj.clamp(-.2, .2) * (s.isEmpty ? 1.6 : 1.0)).clamp(.04, .96);
   }
 
   /// 0(묵직) ~ 1(밝음). 내가 체크한 태그 우선, 없으면 DB 태그.
@@ -72,7 +91,7 @@ class TasteMap extends StatelessWidget {
       final c = st.repo.byId(l.cigarId);
       // 같은 자리 겹침 방지용 아주 작은 흔들림 (기록 id 기반으로 고정)
       final jx = (Random(l.id).nextDouble() - .5) * .05, jy = (Random(l.id * 31).nextDouble() - .5) * .05;
-      pts.add(_Pt(i + 1, l, (_strengthX(c) + jx).clamp(.03, .97), (_brightY(l, c) + jy).clamp(.03, .97), _originKey(c)));
+      pts.add(_Pt(i + 1, l, (_strengthX(l, c) + jx).clamp(.03, .97), (_brightY(l, c) + jy).clamp(.03, .97), _originKey(c)));
     }
 
     return Card(
@@ -86,15 +105,17 @@ class TasteMap extends StatelessWidget {
           LayoutBuilder(builder: (_, box) {
             final w = box.maxWidth;
             final h = w * 1.05;
+            final r = pts.length > 20 ? 9.5 : 11.0;
+            final placed = _layout(pts, w, h, r);
             return SizedBox(
               width: w,
               height: h,
               child: GestureDetector(
                 onTapUp: (d) {
-                  final hit = _hit(pts, d.localPosition, w, h);
-                  if (hit != null) openLogSheet(context, hit.log);
+                  final hit = _hit(placed, d.localPosition, r);
+                  if (hit != null) openLogSheet(context, hit.pt.log);
                 },
-                child: CustomPaint(painter: _MapPainter(pts, _origin)),
+                child: CustomPaint(painter: _MapPainter(placed, _origin, r)),
               ),
             );
           }),
@@ -114,16 +135,52 @@ class TasteMap extends StatelessWidget {
 
   static const _padL = 34.0, _padB = 30.0, _padT = 10.0, _padR = 10.0;
 
-  _Pt? _hit(List<_Pt> pts, Offset p, double w, double h) {
+  /// 정규화 좌표 → 픽셀. 겹치는 점은 서로 밀어내서 번호가 보이게 (원래 자리에서 멀어지지 않게 당기는 힘도 같이).
+  static List<_Placed> _layout(List<_Pt> pts, double w, double h, double r) {
     final pw = w - _padL - _padR, ph = h - _padT - _padB;
-    _Pt? best;
-    var bd = 18.0;
-    for (final pt in pts) {
-      final o = Offset(_padL + pt.x * pw, _padT + (1 - pt.y) * ph);
-      final d = (o - p).distance;
+    final home = [for (final p in pts) Offset(_padL + p.x * pw, _padT + (1 - p.y) * ph)];
+    final pos = [...home];
+    final minD = r * 2 + 3;
+    for (var iter = 0; iter < 120; iter++) {
+      var moved = false;
+      for (var i = 0; i < pos.length; i++) {
+        for (var j = i + 1; j < pos.length; j++) {
+          final d = pos[j] - pos[i];
+          var dist = d.distance;
+          if (dist >= minD) continue;
+          moved = true;
+          Offset dir;
+          if (dist < 0.01) {
+            // 완전히 겹치면 번호 기반으로 방향 정함
+            final a = (i * 2.399) % (2 * pi);
+            dir = Offset(cos(a), sin(a));
+            dist = 0.01;
+          } else {
+            dir = d / dist;
+          }
+          final push = (minD - dist) / 2 * 0.6;
+          pos[i] = pos[i] - dir * push;
+          pos[j] = pos[j] + dir * push;
+        }
+      }
+      // 원래 자리로 살짝 당김 + 영역 안으로 클램프
+      for (var i = 0; i < pos.length; i++) {
+        pos[i] = pos[i] + (home[i] - pos[i]) * 0.05;
+        pos[i] = Offset(pos[i].dx.clamp(_padL + r, _padL + pw - r), pos[i].dy.clamp(_padT + r, _padT + ph - r));
+      }
+      if (!moved) break;
+    }
+    return [for (var i = 0; i < pts.length; i++) _Placed(pts[i], pos[i])];
+  }
+
+  _Placed? _hit(List<_Placed> placed, Offset p, double r) {
+    _Placed? best;
+    var bd = r + 8;
+    for (final pl in placed) {
+      final d = (pl.o - p).distance;
       if (d < bd) {
         bd = d;
-        best = pt;
+        best = pl;
       }
     }
     return best;
@@ -138,10 +195,17 @@ class _Pt {
   _Pt(this.n, this.log, this.x, this.y, this.origin);
 }
 
+class _Placed {
+  final _Pt pt;
+  final Offset o;
+  _Placed(this.pt, this.o);
+}
+
 class _MapPainter extends CustomPainter {
-  final List<_Pt> pts;
+  final List<_Placed> pts;
   final Map<String, (Color, String)> origin;
-  _MapPainter(this.pts, this.origin);
+  final double r;
+  _MapPainter(this.pts, this.origin, this.r);
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -181,10 +245,10 @@ class _MapPainter extends CustomPainter {
     label('묵직한 결 (흙·가죽·에스프레소)', Offset(14, padT + ph * .98), rotate: true);
 
     // 점
-    for (final p in pts) {
-      final o = Offset(padL + p.x * pw, padT + (1 - p.y) * ph);
+    for (final pl in pts) {
+      final p = pl.pt;
+      final o = pl.o;
       final col = origin[p.origin]!.$1;
-      const r = 11.0;
       final s = p.log.score;
       if (s >= 80) {
         canvas.drawCircle(o, r, Paint()..color = col);
@@ -196,6 +260,8 @@ class _MapPainter extends CustomPainter {
         canvas.drawCircle(o, r, Paint()..color = C.bg);
         canvas.drawCircle(o, r, Paint()..color = col..style = PaintingStyle.stroke..strokeWidth = 2.2);
       }
+      // 흰 테두리로 인접 점과 구분
+      canvas.drawCircle(o, r + 1, Paint()..color = C.bg..style = PaintingStyle.stroke..strokeWidth = 1.5);
       final tp = TextPainter(
         text: TextSpan(text: '${p.n}', style: TextStyle(fontSize: 9.5, fontWeight: FontWeight.w700, color: s >= 80 ? Colors.white : C.text)),
         textDirection: TextDirection.ltr,
@@ -205,5 +271,5 @@ class _MapPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant _MapPainter old) => old.pts.length != pts.length || old.pts.any((p) => !pts.contains(p));
+  bool shouldRepaint(covariant _MapPainter old) => old.pts.length != pts.length || old.r != r || old.pts.any((p) => !pts.contains(p));
 }
