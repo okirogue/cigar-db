@@ -36,6 +36,22 @@ class CigarApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: buildTheme(),
         locale: Locale(lang),
+        // 넓은 화면(데스크톱 웹)에선 폰 폭으로 가운데 정렬
+        builder: (ctx, child) {
+          final mq = MediaQuery.of(ctx);
+          if (mq.size.width <= 640) return child!;
+          return ColoredBox(
+            color: C.text,
+            child: Center(
+              child: SizedBox(
+                width: 480,
+                child: ClipRect(
+                  child: MediaQuery(data: mq.copyWith(size: Size(480, mq.size.height)), child: child!),
+                ),
+              ),
+            ),
+          );
+        },
         home: const Home(),
       ),
     );

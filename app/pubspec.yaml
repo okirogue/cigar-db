@@ -41,6 +41,13 @@ flutter:
     - assets/cigars.json
     - assets/tags.json
     - assets/brand/play_icon_512.png
+  fonts:
+    - family: Pretendard
+      fonts:
+        - asset: assets/fonts/Pretendard-Regular.otf
+          weight: 400
+        - asset: assets/fonts/Pretendard-Bold.otf
+          weight: 700
 
 flutter_launcher_icons:
   android: true

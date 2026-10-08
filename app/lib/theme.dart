@@ -20,6 +20,8 @@ class C {
 ThemeData buildTheme() {
   final base = ThemeData(
     useMaterial3: true,
+    // 웹(CanvasKit)에서 한글이 □로 나오지 않게 내장 폰트 사용. 안드로이드도 통일.
+    fontFamily: 'Pretendard',
     colorScheme: ColorScheme.fromSeed(
       seedColor: C.accent,
       primary: C.accent,
