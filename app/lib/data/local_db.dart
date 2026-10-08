@@ -5,6 +5,7 @@ import 'package:path/path.dart' as p;
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
 
+import '../l10n.dart';
 import '../models/local.dart';
 
 /// 사용자 데이터(휴미더·재고·기록) sqflite 저장소.
@@ -77,7 +78,7 @@ class LocalDb {
             stock_item_id INTEGER
           )''');
         await d.execute(_customDdl);
-        await d.insert('humidors', {'name': '내 휴미더', 'sort_order': 0});
+        await d.insert('humidors', {'name': tr('내 휴미더', 'My humidor'), 'sort_order': 0});
       },
     );
     return _db!;
@@ -109,7 +110,7 @@ class LocalDb {
     await d.delete('stock');
     await d.delete('humidors');
     await d.delete('custom_cigars');
-    await d.insert('humidors', {'name': '내 휴미더', 'sort_order': 0});
+    await d.insert('humidors', {'name': tr('내 휴미더', 'My humidor'), 'sort_order': 0});
   }
 
   // ---------- 휴미더 ----------
