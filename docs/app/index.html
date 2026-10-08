@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!--
+    base href 는 빌드 시 --base-href 로 치환된다 (/cigar-db/app/).
+  -->
+  <base href="/cigar-db/app/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="MyHumidor — 내 휴미더 · 시가 노트. Track your humidor and tasting notes.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- iOS Safari: 홈 화면에 추가 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="MyHumidor">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="theme-color" content="#F6F1EA">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>MyHumidor</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    html, body { margin: 0; padding: 0; background: #F6F1EA; height: 100%; }
+    #splash { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; font-family: Georgia, serif; color: #2B2420; }
+    #splash img { width: 72px; height: 72px; border-radius: 18px; }
+    #splash span { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+    #splash small { font-family: -apple-system, system-ui, sans-serif; font-size: 12px; color: #6B5F56; }
+  </style>
+</head>
+<body>
+  <div id="splash">
+    <img src="icons/Icon-192.png" alt="">
+    <span>MyHumidor</span>
+    <small>loading…</small>
+  </div>
+  <script>
+    // Flutter 가 첫 프레임을 그리면 스플래시 제거
+    window.addEventListener('flutter-first-frame', function () {
+      var s = document.getElementById('splash'); if (s) s.remove();
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
