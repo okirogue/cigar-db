@@ -2,9 +2,12 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../data/backup.dart';
+import '../data/cigar_repo.dart';
 import '../data/photos.dart';
 import '../data/share_stats.dart';
 import '../l10n.dart';
@@ -322,6 +325,26 @@ void openLogSheet(BuildContext context, SmokeLog log) {
                 ),
               ),
             ]),
+            const SizedBox(height: 8),
+            // 카페·레딧에 붙여넣기용 텍스트
+            Row(children: [
+              Expanded(
+                child: OutlinedButton.icon(
+                  icon: const Icon(Icons.ios_share, size: 18),
+                  label: Text(tr('텍스트로 공유', 'Share as text')),
+                  onPressed: () => _shareLogText(ctx, log, repo),
+                ),
+              ),
+              const SizedBox(width: 8),
+              OutlinedButton.icon(
+                icon: const Icon(Icons.copy, size: 18),
+                label: Text(tr('복사', 'Copy')),
+                onPressed: () async {
+                  await Clipboard.setData(ClipboardData(text: logToText(log, repo)));
+                  if (ctx.mounted) ScaffoldMessenger.of(ctx).showSnackBar(SnackBar(content: Text(tr('복사했어요', 'Copied'))));
+                },
+              ),
+            ]),
             // 같은 시가의 다른 기록
             ...() {
               final all = st.logs.where((l) => l.cigarId == log.cigarId).toList()..sort((a, b) => b.date.compareTo(a.date));
@@ -439,5 +462,48 @@ class _PhotoStrip extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+/// 기록 → 붙여넣기용 텍스트 (카페·레딧). 비어 있는 항목은 뺀다.
+String logToText(SmokeLog log, CigarRepo repo) {
+  final ko = L10n.isKo;
+  final b = StringBuffer();
+  final title = log.vitola != null && log.vitola!.isNotEmpty ? '${log.cigarName} · ${log.vitola}' : log.cigarName;
+  b.writeln('🚬 $title');
+  final meta = [log.date, if (log.place != null && log.place!.isNotEmpty) log.place!, if (log.pairing != null && log.pairing!.isNotEmpty) log.pairing!];
+  b.writeln(meta.join(' · '));
+  b.writeln('⭐ ${fmtScore(log.score)} / 10');
+  if (log.tags.isNotEmpty) {
+    b.writeln();
+    b.writeln('${ko ? '노트' : 'Notes'}: ${log.tags.map(repo.tagName).join(' · ')}');
+  }
+  final thirds = [
+    (ko ? '초반' : 'First third', log.noteStart),
+    (ko ? '중반' : 'Second third', log.noteMid),
+    (ko ? '후반' : 'Final third', log.noteEnd),
+  ].where((e) => e.$2 != null && e.$2!.trim().isNotEmpty).toList();
+  if (thirds.isNotEmpty) {
+    b.writeln();
+    for (final t in thirds) {
+      b.writeln('${t.$1}: ${t.$2!.trim()}');
+    }
+  }
+  if (log.summary != null && log.summary!.trim().isNotEmpty) {
+    b.writeln();
+    b.writeln('${ko ? '한마디' : 'Verdict'}: ${log.summary!.trim()}');
+  }
+  b.writeln();
+  b.write('— MyHumidor');
+  return b.toString();
+}
+
+Future<void> _shareLogText(BuildContext ctx, SmokeLog log, CigarRepo repo) async {
+  final text = logToText(log, repo);
+  try {
+    await Share.share(text, subject: log.cigarName);
+  } catch (_) {
+    await Clipboard.setData(ClipboardData(text: text));
+    if (ctx.mounted) ScaffoldMessenger.of(ctx).showSnackBar(SnackBar(content: Text(tr('복사했어요', 'Copied'))));
   }
 }
