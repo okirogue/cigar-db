@@ -501,6 +501,18 @@ String logToText(SmokeLog log, CigarRepo repo) {
 Future<void> _shareLogText(BuildContext ctx, SmokeLog log, CigarRepo repo) async {
   final text = logToText(log, repo);
   try {
+    // 사진이 있으면 같이 실어 보냄 (받는 앱에 따라 텍스트만/사진만 받을 수 있음)
+    if (LogPhotos.supported && log.photos.isNotEmpty) {
+      final files = <XFile>[];
+      for (final n in log.photos) {
+        final f = await LogPhotos.instance.file(n);
+        if (await f.exists()) files.add(XFile(f.path, mimeType: 'image/jpeg'));
+      }
+      if (files.isNotEmpty) {
+        await Share.shareXFiles(files, text: text, subject: log.cigarName);
+        return;
+      }
+    }
     await Share.share(text, subject: log.cigarName);
   } catch (_) {
     await Clipboard.setData(ClipboardData(text: text));
