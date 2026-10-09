@@ -236,7 +236,8 @@ void openLogSheet(BuildContext context, SmokeLog log) {
         initialChildSize: 0.7,
         builder: (_, ctl) => ListView(
           controller: ctl,
-          padding: const EdgeInsets.fromLTRB(20, 16, 20, 32),
+          // 하단: 안드로이드 내비게이션 바(제스처 영역)에 버튼이 가리지 않게 안전영역만큼 더
+          padding: EdgeInsets.fromLTRB(20, 16, 20, 32 + MediaQuery.paddingOf(ctx).bottom),
           children: [
             Row(children: [
               Expanded(child: Text(log.cigarName, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700))),

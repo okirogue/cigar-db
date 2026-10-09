@@ -84,7 +84,7 @@ class _AddStockScreenState extends State<AddStockScreen> {
       body: _pick == null
           ? const SizedBox()
           : ListView(
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+              padding: EdgeInsets.fromLTRB(20, 0, 20, 24 + MediaQuery.paddingOf(context).bottom), // 하단 안전영역
               children: [
                 // 선택된 시가
                 Card(

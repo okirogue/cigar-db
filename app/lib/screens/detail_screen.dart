@@ -42,7 +42,7 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(tr('시가 상세', 'Cigar details'))),
       body: ListView(
-        padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+        padding: EdgeInsets.fromLTRB(20, 0, 20, 24 + MediaQuery.paddingOf(context).bottom), // 하단 안전영역
         children: [
           Card(
             child: Padding(

@@ -128,7 +128,7 @@ class _RecordScreenState extends State<RecordScreen> {
       body: _cigarId == null
           ? const SizedBox()
           : ListView(
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+              padding: EdgeInsets.fromLTRB(20, 0, 20, 24 + MediaQuery.paddingOf(context).bottom), // 하단 안전영역
               children: [
                 // 시가
                 Card(

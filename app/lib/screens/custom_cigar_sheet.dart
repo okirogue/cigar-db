@@ -115,7 +115,8 @@ class _CustomCigarFormState extends State<_CustomCigarForm> {
 
   @override
   Widget build(BuildContext context) {
-    final bottom = MediaQuery.of(context).viewInsets.bottom;
+    final mq = MediaQuery.of(context);
+    final bottom = mq.viewInsets.bottom + mq.padding.bottom; // 키보드 + 내비게이션 바
     return Padding(
       padding: EdgeInsets.fromLTRB(20, 16, 20, 20 + bottom),
       child: SingleChildScrollView(
