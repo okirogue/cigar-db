@@ -17,7 +17,9 @@
             "pencil shavings",
             "cedar box",
             "spanish cedar"
-          ]
+          ],
+          "en": "Cedar",
+          "hint_en": "Pencil-shavings aroma, tingles the nose"
         },
         {
           "id": "oak",
@@ -28,7 +30,9 @@
             "oaky",
             "barrel",
             "charred wood"
-          ]
+          ],
+          "en": "Oak",
+          "hint_en": "Heavy wood like a whisky barrel"
         },
         {
           "id": "sandalwood",
@@ -36,7 +40,9 @@
           "hint": "향처럼 달고 부드러운 나무",
           "synonyms": [
             "sandalwood"
-          ]
+          ],
+          "en": "Sandalwood",
+          "hint_en": "Sweet, soft incense-like wood"
         },
         {
           "id": "woody",
@@ -48,9 +54,12 @@
             "woodsy",
             "generic wood",
             "dry wood"
-          ]
+          ],
+          "en": "Woody (general)",
+          "hint_en": "Wood grain you can't pin down"
         }
-      ]
+      ],
+      "en": "Wood"
     },
     {
       "id": "spice",
@@ -67,7 +76,9 @@
             "red pepper",
             "cayenne",
             "chili"
-          ]
+          ],
+          "en": "Pepper",
+          "hint_en": "Black pepper that stings the tongue or throat"
         },
         {
           "id": "white_pepper",
@@ -75,7 +86,9 @@
           "hint": "코 뒤를 톡 쏘는 가벼운 후추(레트로헤일)",
           "synonyms": [
             "white pepper"
-          ]
+          ],
+          "en": "White pepper",
+          "hint_en": "Light pepper that tickles the back of the nose (retrohale)"
         },
         {
           "id": "cinnamon",
@@ -83,7 +96,9 @@
           "hint": "달큰하고 따뜻한 향신료",
           "synonyms": [
             "cinnamon"
-          ]
+          ],
+          "en": "Cinnamon",
+          "hint_en": "Warm, sweet spice"
         },
         {
           "id": "clove",
@@ -95,7 +110,9 @@
             "allspice",
             "anise",
             "licorice"
-          ]
+          ],
+          "en": "Clove",
+          "hint_en": "Numbing, medicinal spice"
         },
         {
           "id": "spice",
@@ -108,9 +125,12 @@
             "baking spice",
             "baking spices",
             "nutmeg"
-          ]
+          ],
+          "en": "Spice (general)",
+          "hint_en": "Spicy but hard to name"
         }
-      ]
+      ],
+      "en": "Spice"
     },
     {
       "id": "sweet",
@@ -127,7 +147,9 @@
             "sugar",
             "sugary",
             "candy"
-          ]
+          ],
+          "en": "Sweet (general)",
+          "hint_en": "Sweetness you can't place"
         },
         {
           "id": "honey",
@@ -136,7 +158,9 @@
           "synonyms": [
             "honey",
             "honeyed"
-          ]
+          ],
+          "en": "Honey",
+          "hint_en": "Thick, floral sweetness"
         },
         {
           "id": "caramel",
@@ -147,7 +171,9 @@
             "toffee",
             "butterscotch",
             "dulce de leche"
-          ]
+          ],
+          "en": "Caramel",
+          "hint_en": "Cooked-sugar sweetness"
         },
         {
           "id": "brown_sugar",
@@ -157,7 +183,9 @@
             "brown sugar",
             "raw sugar",
             "demerara"
-          ]
+          ],
+          "en": "Brown sugar",
+          "hint_en": "Dark, slightly molasses sweetness"
         },
         {
           "id": "vanilla",
@@ -166,7 +194,9 @@
           "synonyms": [
             "vanilla",
             "marshmallow"
-          ]
+          ],
+          "en": "Vanilla",
+          "hint_en": "Soft, creamy sweet aroma"
         },
         {
           "id": "molasses",
@@ -176,9 +206,12 @@
             "molasses",
             "maple",
             "treacle"
-          ]
+          ],
+          "en": "Molasses",
+          "hint_en": "Deep, almost bitter dark sweetness"
         }
-      ]
+      ],
+      "en": "Sweet"
     },
     {
       "id": "cocoa_coffee",
@@ -193,7 +226,9 @@
             "cocoa powder",
             "milk chocolate",
             "chocolate"
-          ]
+          ],
+          "en": "Cocoa",
+          "hint_en": "Unsweetened cocoa powder"
         },
         {
           "id": "dark_chocolate",
@@ -204,7 +239,9 @@
             "bittersweet chocolate",
             "baker's chocolate",
             "bakers chocolate"
-          ]
+          ],
+          "en": "Dark chocolate",
+          "hint_en": "Bitter-sweet chocolate"
         },
         {
           "id": "coffee",
@@ -217,7 +254,9 @@
             "mocha",
             "latte",
             "cappuccino"
-          ]
+          ],
+          "en": "Coffee",
+          "hint_en": "Roasted coffee bean"
         },
         {
           "id": "espresso",
@@ -228,9 +267,12 @@
             "dark roast",
             "roasted coffee",
             "burnt coffee"
-          ]
+          ],
+          "en": "Espresso",
+          "hint_en": "Dense, bitter roasted coffee"
         }
-      ]
+      ],
+      "en": "Cocoa · Coffee"
     },
     {
       "id": "nut_cream",
@@ -254,7 +296,9 @@
             "pecan",
             "cashew",
             "cashews"
-          ]
+          ],
+          "en": "Nuts",
+          "hint_en": "General nuttiness"
         },
         {
           "id": "almond",
@@ -264,7 +308,9 @@
             "almond",
             "almonds",
             "marzipan"
-          ]
+          ],
+          "en": "Almond",
+          "hint_en": "Light, slightly sweet nut"
         },
         {
           "id": "cream",
@@ -277,7 +323,9 @@
             "milk",
             "milky",
             "dairy"
-          ]
+          ],
+          "en": "Cream",
+          "hint_en": "Smooth, rounded mouthfeel"
         },
         {
           "id": "butter",
@@ -288,7 +336,9 @@
             "buttery",
             "buttered",
             "oily"
-          ]
+          ],
+          "en": "Butter",
+          "hint_en": "Rich, fatty smoothness"
         },
         {
           "id": "bread",
@@ -308,9 +358,12 @@
             "cereal",
             "dough",
             "yeast"
-          ]
+          ],
+          "en": "Bread · Toast",
+          "hint_en": "Baked dough, toast"
         }
-      ]
+      ],
+      "en": "Nut · Cream"
     },
     {
       "id": "earth_leather",
@@ -330,7 +383,9 @@
             "mushroom",
             "mushrooms",
             "forest floor"
-          ]
+          ],
+          "en": "Earth",
+          "hint_en": "Damp soil, forest floor"
         },
         {
           "id": "leather",
@@ -340,7 +395,9 @@
             "leather",
             "leathery",
             "saddle"
-          ]
+          ],
+          "en": "Leather",
+          "hint_en": "New leather, saddle"
         },
         {
           "id": "musty",
@@ -354,7 +411,9 @@
             "cellar",
             "funk",
             "funky"
-          ]
+          ],
+          "en": "Musty",
+          "hint_en": "Old cellar, barnyard"
         },
         {
           "id": "hay",
@@ -365,9 +424,12 @@
             "straw",
             "dried grass",
             "barn"
-          ]
+          ],
+          "en": "Hay",
+          "hint_en": "Dried grass, barn"
         }
-      ]
+      ],
+      "en": "Earth · Leather"
     },
     {
       "id": "floral_fruit",
@@ -386,7 +448,9 @@
             "lavender",
             "perfume",
             "perfumy"
-          ]
+          ],
+          "en": "Floral",
+          "hint_en": "Flower-like perfume"
         },
         {
           "id": "citrus",
@@ -401,7 +465,9 @@
             "lemon zest",
             "lime",
             "grapefruit"
-          ]
+          ],
+          "en": "Citrus",
+          "hint_en": "Orange or lemon zest brightness"
         },
         {
           "id": "dried_fruit",
@@ -419,7 +485,9 @@
             "prune",
             "plum",
             "stone fruit"
-          ]
+          ],
+          "en": "Dried fruit",
+          "hint_en": "Raisin, fig, date"
         },
         {
           "id": "cherry",
@@ -433,9 +501,12 @@
             "red fruit",
             "red fruits",
             "apple"
-          ]
+          ],
+          "en": "Cherry",
+          "hint_en": "Dark red fruit"
         }
-      ]
+      ],
+      "en": "Floral · Fruit"
     },
     {
       "id": "other",
@@ -455,7 +526,9 @@
             "burnt",
             "roasted",
             "roasty"
-          ]
+          ],
+          "en": "Toasty · Charred",
+          "hint_en": "Roasted, slightly burnt edge"
         },
         {
           "id": "grass",
@@ -470,7 +543,9 @@
             "herbs",
             "herbaceous",
             "tea leaves"
-          ]
+          ],
+          "en": "Grass",
+          "hint_en": "Fresh cut grass, green"
         },
         {
           "id": "mineral",
@@ -488,7 +563,9 @@
             "stone",
             "flint",
             "metallic"
-          ]
+          ],
+          "en": "Mineral",
+          "hint_en": "Flinty, stony, salty"
         },
         {
           "id": "tea",
@@ -501,7 +578,9 @@
             "tannin",
             "tannic",
             "tannins"
-          ]
+          ],
+          "en": "Tea",
+          "hint_en": "Black tea tannin, slight dryness"
         },
         {
           "id": "tobacco",
@@ -515,9 +594,12 @@
             "tobacco flavor",
             "tobacco flavour",
             "tobacco notes"
-          ]
+          ],
+          "en": "Tobacco",
+          "hint_en": "Pure, clean tobacco leaf"
         }
-      ]
+      ],
+      "en": "Other"
     }
   ],
   "negations": [

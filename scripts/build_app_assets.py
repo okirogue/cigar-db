@@ -49,6 +49,8 @@ for cid, c in cigars.items():
         item["rating"] = rating
     if c.get("aliases"):
         item["aliases"] = c["aliases"]
+    if c.get("legacy_ids"):
+        item["legacy"] = c["legacy_ids"]  # 병합된 옛 id → 사용자 기록 호환
     if seed.get("tubos"):
         item["tubos"] = True
     out.append(item)
@@ -61,7 +63,8 @@ tag_out = {
         {
             "id": g["id"],
             "ko": g["ko"],
-            "tags": [{"id": t["id"], "ko": t["ko"], "hint": t.get("hint", "")} for t in g["tags"]],
+            "tags": [{"id": t["id"], "ko": t["ko"], "hint": t.get("hint", ""), "en": t.get("en", t["ko"]), "hint_en": t.get("hint_en", "")} for t in g["tags"]],
+            "en": g.get("en", g["ko"]),
         }
         for g in tags["groups"]
     ]
