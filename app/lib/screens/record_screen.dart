@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../l10n.dart';
 import '../models/local.dart';
@@ -377,7 +376,7 @@ class _RecordScreenState extends State<RecordScreen> {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(tr('$_cigarName 기록 수정됨', '$_cigarName log updated'))));
       return;
     }
-    await ShareStats.instance.askIfNeeded(context);
+    await ShareStats.instance.noticeIfNeeded(context);
     if (!mounted) return;
     final newId = await st.db.addLog(
       cigarId: _cigarId!,
@@ -398,11 +397,9 @@ class _RecordScreenState extends State<RecordScreen> {
     await st.reload();
     final added = st.logs.where((l) => l.id == newId).firstOrNull;
     if (added != null) {
-      // 처음 켠 경우 기존 기록까지 한 번에
-      final p = await SharedPreferences.getInstance();
-      if (!(p.getBool('share_backfilled') ?? false)) {
+      // 아직 기존 기록을 한 번도 안 올렸으면 이번에 전부, 아니면 이 건만
+      if (!await ShareStats.instance.backfilled) {
         await ShareStats.instance.backfill(st.logs);
-        await p.setBool('share_backfilled', true);
       } else {
         ShareStats.instance.push(added);
       }

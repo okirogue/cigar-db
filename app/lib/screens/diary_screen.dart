@@ -97,7 +97,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
     final st = context.read<AppState>();
     final sm = ScaffoldMessenger.of(context);
     if (v == 'share') {
-      final cur = await ShareStats.instance.enabled ?? false;
+      final cur = await ShareStats.instance.enabled;
       if (!context.mounted) return;
       final on = await showDialog<bool>(
         context: context,
@@ -105,8 +105,8 @@ class _DiaryScreenState extends State<DiaryScreen> {
           title: Text(tr('익명 기록 공유', 'Anonymous sharing')),
           content: Text(
             tr(
-              '${cur ? '지금 켜져 있어요.' : '지금 꺼져 있어요.'}\n\n켜면 기록 저장 시 시가 이름·점수·노트 태그·날짜만 익명으로 모아 커뮤니티 평점에 써요. 메모·장소·페어링은 보내지 않아요.\n끄면 이미 올라간 내 기록도 서버에서 지워요.',
-              '${cur ? 'Currently on.' : 'Currently off.'}\n\nWhen on, only the cigar name, score, note tags and date are collected anonymously for community ratings. Memo, place and pairing are never sent.\nWhen off, your logs already uploaded are deleted from the server.',
+              '${cur ? '지금 켜져 있어요 (기본값).' : '지금 꺼져 있어요.'}\n\n켜면 기록 저장 시 시가 이름·점수·노트 태그·날짜만 익명으로 모아 커뮤니티 평점에 써요. 메모·장소·페어링은 보내지 않아요.\n끄면 이미 올라간 내 기록도 서버에서 지워요.',
+              '${cur ? 'Currently on (default).' : 'Currently off.'}\n\nWhen on, only the cigar name, score, note tags and date are collected anonymously for community ratings. Memo, place and pairing are never sent.\nWhen off, your logs already uploaded are deleted from the server.',
             ),
             style: const TextStyle(fontSize: 13.5, height: 1.5),
           ),

@@ -1,6 +1,6 @@
 # MyHumidor · cigar-db
 
-**MyHumidor** is a free, open-source cigar humidor & tasting-log app (Android + web/PWA), built by a hobbyist for a local cigar lounge and now open to anyone. No account, no ads, no paid tier. All personal data stays on your device; the only things that can leave it are optional anonymous scores/notes for community ratings and user-submitted cigar entries for the shared database.
+**MyHumidor** is a free, open-source cigar humidor & tasting-log app (Android + web/PWA), built by a hobbyist for a local cigar lounge and now open to anyone. No account, no ads, no paid tier. All personal data stays on your device; the only things that leave it are anonymous scores/note-tags for community ratings (on by default, one-tap opt-out in the Diary menu — turning it off deletes your uploaded rows), a daily anonymous install ping (platform/language/build), and user-submitted cigar entries for the shared database.
 
 - Android (closed test, join the Google Group first): https://groups.google.com/g/myhumidor-testers → https://play.google.com/apps/testing/com.okirogue.cigar_log
 - Web / iPhone (PWA): https://okirogue.github.io/cigar-db/app/
@@ -30,7 +30,8 @@ Firebase: the Android config (`app/android/app/google-services.json`) and web co
 ## Data & privacy model (for reviewers)
 
 - Humidor inventory, logs, memos, photos → local SQLite only (`app/lib/data/local_db.dart`). Web build uses the same schema on IndexedDB via `sqflite_common_ffi_web`.
-- Optional anonymous sharing → `log_stats/<uid>_<logId>` with cigar id/name, vitola, date, score, note tags, app language. Never memos, places, pairings or photos. See `app/lib/data/share_stats.dart`.
+- Anonymous aggregation (default on, opt-out) → `log_stats/<uid>_<logId>` with cigar id/name, vitola, date, score, note tags, app language. Never memos, places, pairings, photos or humidor contents. Failed uploads are retried on next launch. See `app/lib/data/share_stats.dart`.
+- Install ping (once a day) → `installs/<uid>` with platform, language, build number, first/last seen date. See `app/lib/data/installs.dart`.
 - "Add cigar manually" with "suggest to database" on → one `cigar_suggestions` doc (brand/line/vitola/strength/wrapper/origin/note).
 - Identity is a Firebase anonymous UID; there is no login. Rules restrict every user to writing only their own documents.
 

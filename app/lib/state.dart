@@ -31,6 +31,8 @@ class AppState extends ChangeNotifier {
       // 점수 스케일 변경분을 서버 공유본에도 반영 (공유 꺼져 있으면 내부에서 무시)
       await ShareStats.instance.backfill(logs);
     }
+    // 집계 기본 ON: 아직 안 올린 기존 기록·전송 실패분을 조용히 올림
+    await ShareStats.instance.syncOnStart(logs);
   }
 
   Future<void> reload() async {
