@@ -45,6 +45,17 @@ service cloud.firestore {
       allow delete: if request.auth != null && id.matches('^' + request.auth.uid + '_[0-9]+$');
     }
 
+    // 앱 실행 기록: 본인(익명 UID) 문서만, 플랫폼·언어·빌드·날짜만. 다른 사람 것은 못 읽음.
+    match /installs/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null && request.auth.uid == uid
+        && request.resource.data.platform is string && request.resource.data.platform.size() <= 16
+        && request.resource.data.lang is string && request.resource.data.lang.size() <= 8
+        && request.resource.data.build is int
+        && request.resource.data.keys().hasOnly(['platform', 'lang', 'build', 'version', 'first', 'last']);
+      allow delete: if false;
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }

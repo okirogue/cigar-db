@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'data/installs.dart';
 import 'data/scan_service.dart';
 import 'l10n.dart';
 import 'screens/badges_screen.dart';
@@ -14,6 +15,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await L10n.init();
   await ScanService.instance.init(); // 실패해도 앱은 뜸 (스캔만 비활성)
+  Installs.instance.ping(); // 실행 기록(플랫폼·언어·빌드) — 기다리지 않음
   runApp(
     ChangeNotifierProvider(
       create: (_) => AppState()..init(),

@@ -219,7 +219,7 @@ jobs:
       - name: Build web
         run: |
           set -o pipefail
-          flutter build web --release --base-href /cigar-db/app/ --pwa-strategy offline-first 2>&1 | tee ../ci-web.txt
+          flutter build web --release --base-href /cigar-db/app/ --pwa-strategy offline-first --build-number=${{ github.run_number }} 2>&1 | tee ../ci-web.txt
 
       - name: Deploy to docs/app (GitHub Pages)
         if: github.ref == 'refs/heads/main'
