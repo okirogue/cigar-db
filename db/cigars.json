@@ -77813,5 +77813,309 @@
   "aliases": [
    "zino red by davidoff"
   ]
+ },
+ "matilde-serena": {
+  "id": "matilde-serena",
+  "brand": "Matilde",
+  "name": "Serena",
+  "notes": {
+   "official": [],
+   "review": [
+    "pepper",
+    "caramel",
+    "nuts",
+    "cedar",
+    "floral",
+    "leather",
+    "cream",
+    "vanilla",
+    "toast",
+    "sweet"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:blindmanspuff",
+    "vitola": "Corona 5.5 x 44",
+    "tags": [
+     "pepper",
+     "caramel",
+     "nuts",
+     "cedar",
+     "floral",
+     "leather",
+     "cream",
+     "vanilla",
+     "toast",
+     "sweet"
+    ],
+    "text": "Pepper, salty/sweet, caramel, roasted nuts, dry cedar, honeysuckle, leather, cream soda, vanilla, warm toast. Medium overall. https://blindmanspuff.com/blind-cigar-review-matilde-serena-corona/"
+   }
+  ],
+  "verified": true,
+  "vitolas": [
+   "Corona 5.5 x 44",
+   "Robusto 5.25 x 50",
+   "Toro Bravo 6.5 x 54",
+   "Grande 6 x 60"
+  ],
+  "specs": {
+   "wrapper": "Ecuadorian Connecticut Shade",
+   "binder": "Dominican",
+   "filler": "Dominican, Nicaraguan",
+   "strength": "medium",
+   "factory": "Tabacalera Palma (Dominican Republic)"
+  },
+  "updated": "2026-10-09",
+  "aliases": [
+   "serene matilde",
+   "La Matilde Serena"
+  ],
+  "seed": {
+   "shops": "user-suggestion",
+   "cuban": false
+  }
+ },
+ "dominion-uncle-charlie": {
+  "id": "dominion-uncle-charlie",
+  "brand": "Dominion",
+  "name": "Uncle Charlie",
+  "notes": {
+   "official": [],
+   "review": []
+  },
+  "note_sources": [
+   {
+    "source": "official:dominioncigar",
+    "vitola": "Grand Toro 6 x 54",
+    "tags": [],
+    "text": "San Andres Mexican Maduro wrapper, Dominican binder, Piloto Cubano/Criollo 98/Corojo + Medio Tiempo filler (DR, Nicaragua). Medium+ to full. https://www.dominioncigar.com/uncle-charlie/"
+   }
+  ],
+  "verified": true,
+  "vitolas": [
+   "Grand Toro 6 x 54"
+  ],
+  "specs": {
+   "wrapper": "San Andrés Mexican Maduro",
+   "binder": "Dominican",
+   "filler": "Dominican, Nicaraguan",
+   "strength": "medium to full"
+  },
+  "updated": "2026-10-09",
+  "aliases": [
+   "dominion Uncle Charlie",
+   "Uncle Charlie Maduro"
+  ],
+  "seed": {
+   "shops": "user-suggestion",
+   "cuban": false
+  }
+ },
+ "caldwell-last-tsar": {
+  "id": "caldwell-last-tsar",
+  "brand": "Caldwell",
+  "name": "The Last Tsar",
+  "notes": {
+   "official": [],
+   "review": [
+    "citrus",
+    "woody",
+    "pepper",
+    "white_pepper",
+    "tobacco",
+    "sweet",
+    "spice"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:cigar-coop",
+    "vitola": "Belicoso 5.5 x 52",
+    "tags": [
+     "citrus",
+     "woody",
+     "pepper",
+     "white_pepper",
+     "tobacco",
+     "sweet",
+     "spice"
+    ],
+    "text": "Tangerine-like citrus, generic wood, white and black pepper, natural tobacco, raw sugar cane sweetness, increasing spice. Full strength/body. https://cigar-coop.com/2015/08/cigar-review-caldwell-the-last-tsar-belicoso.html"
+   }
+  ],
+  "verified": true,
+  "vitolas": [
+   "Belicoso 5.5 x 52",
+   "Churchill 7 x 47",
+   "Rothschild"
+  ],
+  "specs": {
+   "wrapper": "Arapiraca Connecticut Shade Hybrid Maduro",
+   "strength": "full",
+   "factory": "Tabacalera William Ventura (Dominican Republic)"
+  },
+  "updated": "2026-10-09",
+  "aliases": [
+   "The Tsar",
+   "Caldwell The Tsar"
+  ],
+  "seed": {
+   "shops": "user-suggestion",
+   "cuban": false
+  }
+ },
+ "casdagli-traditional-line": {
+  "id": "casdagli-traditional-line",
+  "brand": "Casdagli",
+  "name": "Traditional Line",
+  "notes": {
+   "official": [
+    "citrus",
+    "vanilla",
+    "cream",
+    "tobacco",
+    "nuts",
+    "cinnamon"
+   ],
+   "review": []
+  },
+  "note_sources": [
+   {
+    "source": "official:casdagli",
+    "vitola": "Grand Café 7.5 x 39",
+    "tags": [
+     "citrus",
+     "vanilla",
+     "cream",
+     "tobacco",
+     "nuts",
+     "cinnamon"
+    ],
+    "text": "Brazilian Cubra wrapper, Dominican binder, Dominican/Nicaraguan/Peruvian filler. Medium body, medium-to-full flavor: citrus, vanilla, cream, tobacco, nuts, cinnamon. Blended by Hendrik Kelner Jr. https://casdaglicigars.com/cigar/grand-cafe/"
+   }
+  ],
+  "verified": true,
+  "vitolas": [
+   "Grand Café 7.5 x 39 (Lancero)"
+  ],
+  "specs": {
+   "wrapper": "Brazilian Cubra",
+   "binder": "Dominican",
+   "filler": "Dominican, Nicaraguan, Peruvian",
+   "strength": "medium",
+   "factory": "Kelner Boutique Factory (Dominican Republic)"
+  },
+  "updated": "2026-10-09",
+  "aliases": [
+   "Traditional Line Grand Cafe",
+   "Casdagli Grand Café"
+  ],
+  "seed": {
+   "shops": "user-suggestion",
+   "cuban": false
+  }
+ },
+ "pirates-gold-connecticut": {
+  "id": "pirates-gold-connecticut",
+  "brand": "Pirate's Gold",
+  "name": "Connecticut",
+  "notes": {
+   "official": [],
+   "review": [
+    "pepper",
+    "cream",
+    "spice",
+    "toast",
+    "floral",
+    "honey",
+    "bread",
+    "citrus",
+    "cedar",
+    "butter",
+    "nuts"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:cigarpage",
+    "vitola": "Robusto 5.5 x 50",
+    "tags": [
+     "pepper",
+     "cream",
+     "spice",
+     "toast",
+     "floral",
+     "honey",
+     "bread",
+     "citrus",
+     "cedar",
+     "butter",
+     "nuts"
+    ],
+    "text": "Ecuador Connecticut wrapper, Nicaraguan filler, made at Tabacalera Pages (Estelí). Mild-to-medium: creamy, pepper, toast, floral, honey bread, citrus, cedar, butter, nutty. https://www.cigarpage.com/pirates-gold.html"
+   }
+  ],
+  "verified": true,
+  "vitolas": [
+   "Robusto 5.5 x 50",
+   "Corona 6.5 x 44",
+   "Toro 6 x 54",
+   "Gordo 6 x 60"
+  ],
+  "specs": {
+   "wrapper": "Ecuadorian Connecticut",
+   "filler": "Nicaraguan",
+   "strength": "mild to medium",
+   "factory": "Tabacalera Pages (Nicaragua)"
+  },
+  "updated": "2026-10-09",
+  "aliases": [
+   "Pirates Gold Connecticut",
+   "Conneticut"
+  ],
+  "seed": {
+   "shops": "user-suggestion",
+   "cuban": false
+  }
+ },
+ "pigtail-factory-leftovers-connecticut": {
+  "id": "pigtail-factory-leftovers-connecticut",
+  "brand": "Pigtail",
+  "name": "Factory Leftovers Connecticut",
+  "notes": {
+   "official": [],
+   "review": []
+  },
+  "note_sources": [
+   {
+    "source": "shop:atlanticcigar",
+    "vitola": "Robusto 5 x 50",
+    "tags": [],
+    "text": "Connecticut Shade wrapper, Dominican binder, Dominican/Nicaraguan filler, made in the Dominican Republic from premium-line leftover tobacco. Medium. Also Habano version. https://atlanticcigar.com/pigtail-factory-leftovers-robusto-connecticut-1/"
+   }
+  ],
+  "verified": true,
+  "vitolas": [
+   "Robusto 5 x 50",
+   "Toro",
+   "Churchill",
+   "Gordo"
+  ],
+  "specs": {
+   "wrapper": "Connecticut Shade",
+   "binder": "Dominican",
+   "filler": "Dominican, Nicaraguan",
+   "strength": "medium"
+  },
+  "updated": "2026-10-09",
+  "aliases": [
+   "Factory leftovers",
+   "Pigtail Brand Factory Leftovers"
+  ],
+  "seed": {
+   "shops": "user-suggestion",
+   "cuban": false
+  }
  }
 }

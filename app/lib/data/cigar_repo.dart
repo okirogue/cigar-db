@@ -26,6 +26,12 @@ class CigarRepo {
     final list = (jsonDecode(raw) as List).cast<Map<String, dynamic>>();
     _cigars = list.map(Cigar.fromJson).toList();
     _byId = {for (final c in _cigars) c.id: c};
+    // 병합된 옛 id → 새 항목 (기존 기록·재고가 계속 연결되게)
+    for (final c in _cigars) {
+      for (final old in c.legacyIds) {
+        _byId.putIfAbsent(old, () => c);
+      }
+    }
 
     final traw = await rootBundle.loadString('assets/tags.json');
     final tj = jsonDecode(traw) as Map<String, dynamic>;

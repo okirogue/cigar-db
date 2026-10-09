@@ -12,6 +12,7 @@ class Cigar {
   final Map<String, String> specs;
   final int? dojoScore;
   final List<String> aliases;
+  final List<String> legacyIds; // 병합돼 사라진 옛 id (사용자 기록 호환)
   final bool tubos;
 
   Cigar({
@@ -26,6 +27,7 @@ class Cigar {
     required this.specs,
     required this.dojoScore,
     required this.aliases,
+    this.legacyIds = const [],
     required this.tubos,
   });
 
@@ -50,12 +52,13 @@ class Cigar {
       specs: specs,
       dojoScore: (j['rating'] as Map<String, dynamic>?)?['dojo'] as int?,
       aliases: List<String>.from(j['aliases'] ?? const []),
+      legacyIds: List<String>.from(j['legacy'] ?? const []),
       tubos: j['tubos'] == true,
     );
   }
 
-  /// 표시용 이름: "Romeo y Julieta Romeo No.1"
-  String get fullName => '$brand $name';
+  /// 표시용 이름: "Romeo y Julieta Romeo No.1". 라인명이 브랜드명으로 시작하면(My Father, Punch Punch) 중복 안 붙임
+  String get fullName => name.toLowerCase().startsWith(brand.toLowerCase()) ? name : '$brand $name';
 
   /// 모든 노트 태그 (공식 우선, 중복 제거)
   List<String> get allTags {
