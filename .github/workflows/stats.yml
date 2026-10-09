@@ -1,0 +1,62 @@
+name: stats
+
+# 운영자용 통계 (읽기 전용). 수동 실행 또는 매일 한 번.
+# 결과: Actions 요약 + "운영 통계" 이슈 본문 갱신 + JSON 아티팩트. 앱 빌드/배포와 무관.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 0 * * *" # 매일 09:17 KST
+
+permissions:
+  contents: read
+  issues: write
+  id-token: write
+
+concurrency:
+  group: stats
+  cancel-in-progress: false
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Auth to Google Cloud (WIF)
+        id: gcp-auth
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/878079125373/locations/global/workloadIdentityPools/github/providers/github
+          service_account: play-publisher@myhumidor-2482d.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/cloud-platform
+
+      - name: Collect
+        env:
+          TOKEN: ${{ steps.gcp-auth.outputs.access_token }}
+          PROJECT: myhumidor-2482d
+        run: |
+          python3 .github/stats/stats.py stats.md stats.json
+          cat stats.md >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stats-${{ github.run_number }}
+          path: |
+            stats.md
+            stats.json
+          retention-days: 30
+
+      # 이슈 하나를 "대시보드"로: 본문을 최신 통계로 덮어씀
+      - name: Update stats issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          NUM=$(gh issue list --label stats --state open --json number --jq '.[0].number' || true)
+          if [ -z "$NUM" ]; then
+            gh label create stats --color 2E86AB --force >/dev/null 2>&1 || true
+            NUM=$(gh issue create --title "운영 통계 (자동 갱신)" --label stats --body "stats.yml 이 갱신합니다." | grep -oE '[0-9]+$')
+          fi
+          gh issue edit "$NUM" --body-file stats.md
+          echo "issue #$NUM updated"
