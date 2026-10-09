@@ -171,6 +171,18 @@ for u, ls in sorted(per_uid.items(), key=lambda kv: -len(kv[1])):
     avg = sum(score10(x.get("score")) for x in ls) / len(ls)
     L.append(f"| {short(u)} | {uid_lang.get(u)} | {len(ls)} | {avg:.1f} | {last} |")
 L.append("")
+L.append("<details><summary><b>사용자별 전체 기록</b> (펼치기)</summary>")
+L.append("")
+for u, ls in sorted(per_uid.items(), key=lambda kv: -len(kv[1])):
+    L.append(f"**{short(u)}** ({uid_lang.get(u)}) · {len(ls)}건")
+    L.append("")
+    L.append("| 날짜 | 시가 | 비톨라 | 점수 | 태그 |")
+    L.append("|---|---|---|--:|---|")
+    for l in sorted(ls, key=lambda x: (x.get("date") or "", x.get("_updated") or ""), reverse=True):
+        L.append(f"| {l.get('date') or ''} | {l.get('cigar_name')} | {l.get('vitola') or ''} | {score10(l.get('score')):.1f} | {', '.join(l.get('tags') or [])[:60]} |")
+    L.append("")
+L.append("</details>")
+L.append("")
 L.append(f"### DB 제안 ({len(sugg)}건)")
 if sugg:
     L.append("| 날짜 | 사용자 | 브랜드 | 라인 | 비톨라 | 원산지 | 강도 | 래퍼 | 메모 |")
