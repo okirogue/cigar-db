@@ -31,6 +31,7 @@ Firebase: the Android config (`app/android/app/google-services.json`) and web co
 
 - Humidor inventory, logs, memos, photos → local SQLite only (`app/lib/data/local_db.dart`). Web build uses the same schema on IndexedDB via `sqflite_common_ffi_web`.
 - Anonymous aggregation (default on, opt-out) → `log_stats/<uid>_<logId>` with cigar id/name, vitola, date, score, note tags, app language. Never memos, places, pairings, photos or humidor contents. Failed uploads are retried on next launch. See `app/lib/data/share_stats.dart`.
+- Google Analytics for Firebase for active-user/retention counts (advertising ID collection disabled in the manifest; no log contents in events). See `app/lib/data/analytics.dart`.
 - Install ping (once a day) → `installs/<uid>` with platform, language, build number, first/last seen date. See `app/lib/data/installs.dart`.
 - "Add cigar manually" with "suggest to database" on → one `cigar_suggestions` doc (brand/line/vitola/strength/wrapper/origin/note).
 - Identity is a Firebase anonymous UID; there is no login. Rules restrict every user to writing only their own documents.

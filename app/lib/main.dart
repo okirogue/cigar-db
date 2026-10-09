@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'data/analytics.dart';
 import 'data/installs.dart';
 import 'data/scan_service.dart';
 import 'l10n.dart';
@@ -38,6 +39,7 @@ class CigarApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: buildTheme(),
         locale: Locale(lang),
+        navigatorObservers: Analytics.instance.observers,
         // 넓은 화면(데스크톱 웹)에선 폰 폭으로 가운데 정렬
         builder: (ctx, child) {
           final mq = MediaQuery.of(ctx);
@@ -80,7 +82,10 @@ class _HomeState extends State<Home> {
       body: IndexedStack(index: _tab, children: pages),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _tab,
-        onDestinationSelected: (i) => setState(() => _tab = i),
+        onDestinationSelected: (i) {
+          setState(() => _tab = i);
+          Analytics.instance.tab(const ['home', 'humidor', 'diary', 'explore'][i]);
+        },
         destinations: [
           NavigationDestination(icon: const Icon(Icons.home_outlined), selectedIcon: const Icon(Icons.home), label: tr('홈', 'Home')),
           NavigationDestination(icon: const Icon(Icons.inventory_2_outlined), selectedIcon: const Icon(Icons.inventory_2), label: tr('휴미더', 'Humidor')),

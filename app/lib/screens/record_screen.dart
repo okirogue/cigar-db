@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import '../l10n.dart';
 import '../models/local.dart';
 import '../data/photos.dart';
+import '../data/analytics.dart';
 import '../data/share_stats.dart';
 import '../state.dart';
 import '../theme.dart';
@@ -371,6 +372,7 @@ class _RecordScreenState extends State<RecordScreen> {
       await st.reload();
       final updated = st.logs.where((l) => l.id == widget.edit!.id).firstOrNull;
       if (updated != null) ShareStats.instance.push(updated);
+      Analytics.instance.logSaved(fromStock: false, edit: true);
       if (!mounted) return;
       Navigator.pop(context);
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(tr('$_cigarName 기록 수정됨', '$_cigarName log updated'))));
@@ -404,6 +406,7 @@ class _RecordScreenState extends State<RecordScreen> {
         ShareStats.instance.push(added);
       }
     }
+    Analytics.instance.logSaved(fromStock: _deduct && _deductStockId != null, edit: false);
     if (!mounted) return;
     Navigator.pop(context);
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
