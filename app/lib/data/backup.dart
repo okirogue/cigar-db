@@ -54,6 +54,9 @@ class Backup {
             'summary': l.summary,
             'place': l.place,
             'pairing': l.pairing,
+            if (l.stockPrice != null) 'stock_price': l.stockPrice,
+            if (l.stockCurrency != null) 'stock_currency': l.stockCurrency,
+            if (l.stockAdded != null) 'stock_added': l.stockAdded,
           }
       ],
     };
@@ -144,6 +147,9 @@ class Backup {
         summary: l['summary'] as String?,
         place: l['place'] as String?,
         pairing: l['pairing'] as String?,
+        stockPrice: (l['stock_price'] as num?)?.toInt(),
+        stockCurrency: l['stock_currency'] as String?,
+        stockAdded: l['stock_added'] as String?,
       );
       addedL++;
     }

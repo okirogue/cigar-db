@@ -203,6 +203,11 @@ class _LogCard extends StatelessWidget {
                   Expanded(child: Text(log.cigarName, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500))),
                   Text(fmtScore(log.score), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: C.accent)),
                 ]),
+                if (log.hasStockInfo) ...[
+                  const SizedBox(height: 4),
+                  _StockInfoRow(log: log, small: true),
+                  const SizedBox(height: 4),
+                ],
                 if (sub.isNotEmpty) SubText(sub.join(' · ')),
                 if (log.summary != null && log.summary!.isNotEmpty) ...[
                   const SizedBox(height: 6),
@@ -243,6 +248,11 @@ void openLogSheet(BuildContext context, SmokeLog log) {
               Expanded(child: Text(log.cigarName, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700))),
               Text(fmtScore(log.score), style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: C.accent)),
             ]),
+            if (log.hasStockInfo) ...[
+              const SizedBox(height: 6),
+              _StockInfoRow(log: log),
+              const SizedBox(height: 6),
+            ],
             SubText([log.date, if (log.vitola != null) log.vitola!, if (log.place != null) log.place!, if (log.pairing != null) log.pairing!].join(' · '), size: 13),
             const SizedBox(height: 14),
             if (LogPhotos.supported && log.photos.isNotEmpty) ...[
@@ -474,6 +484,8 @@ String logToText(SmokeLog log, CigarRepo repo) {
   b.writeln('🚬 $title');
   final meta = [log.date, if (log.place != null && log.place!.isNotEmpty) log.place!, if (log.pairing != null && log.pairing!.isNotEmpty) log.pairing!];
   b.writeln(meta.join(' · '));
+  final stockParts = stockInfoParts(log);
+  if (stockParts.isNotEmpty) b.writeln('🗄 ${stockParts.join(' · ')}');
   b.writeln('⭐ ${fmtScore(log.score)} / 10');
   if (log.tags.isNotEmpty) {
     b.writeln();
@@ -518,5 +530,44 @@ Future<void> _shareLogText(BuildContext ctx, SmokeLog log, CigarRepo repo) async
   } catch (_) {
     await Clipboard.setData(ClipboardData(text: text));
     if (ctx.mounted) ScaffoldMessenger.of(ctx).showSnackBar(SnackBar(content: Text(tr('복사했어요', 'Copied'))));
+  }
+}
+
+/// 재고에서 기록한 로그의 구매가·입고일·숙성 기간 (없는 항목은 생략)
+List<String> stockInfoParts(SmokeLog log) {
+  final out = <String>[];
+  if (log.stockPrice != null) out.add(fmtPrice(log.stockPrice!, log.stockCurrency ?? 'KRW'));
+  if (log.stockAdded != null) out.add(tr('입고 ${fmtShort(log.stockAdded!)}', 'Added ${fmtShort(log.stockAdded!)}'));
+  final aged = log.agingDaysAtSmoke;
+  if (aged != null) out.add(tr('숙성 $aged일', 'Aged ${aged}d'));
+  return out;
+}
+
+/// 구매가 · 입고일 · 숙성 — 작은 알약 모양으로 한 줄
+class _StockInfoRow extends StatelessWidget {
+  final SmokeLog log;
+  final bool small;
+  const _StockInfoRow({required this.log, this.small = false});
+
+  @override
+  Widget build(BuildContext context) {
+    final parts = stockInfoParts(log);
+    if (parts.isEmpty) return const SizedBox.shrink();
+    final fs = small ? 11.0 : 12.5;
+    final pad = small ? const EdgeInsets.symmetric(horizontal: 7, vertical: 2) : const EdgeInsets.symmetric(horizontal: 9, vertical: 3);
+    return Wrap(
+      spacing: 4,
+      runSpacing: 4,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      children: [
+        Icon(Icons.inventory_2_outlined, size: small ? 12 : 14, color: C.accent),
+        for (final p in parts)
+          Container(
+            padding: pad,
+            decoration: BoxDecoration(color: C.accent.withValues(alpha: 0.10), borderRadius: BorderRadius.circular(6)),
+            child: Text(p, style: TextStyle(fontSize: fs, color: C.accent, fontWeight: FontWeight.w600)),
+          ),
+      ],
+    );
   }
 }

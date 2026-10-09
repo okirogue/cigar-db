@@ -27,7 +27,7 @@ class LocalDb {
     final path = kIsWeb ? 'cigar_log.db' : p.join(await getDatabasesPath(), 'cigar_log.db');
     _db = await openDatabase(
       path,
-      version: 6,
+      version: 7,
       onUpgrade: (d, oldV, newV) async {
         if (oldV < 2) await d.execute(_customDdl);
         if (oldV < 3) await d.execute('ALTER TABLE logs ADD COLUMN summary TEXT');
@@ -38,6 +38,18 @@ class LocalDb {
           scoresRescaled = true;
         }
         if (oldV < 6) await d.execute('ALTER TABLE logs ADD COLUMN photos TEXT');
+        if (oldV < 7) {
+          // 기록 당시의 재고 정보(구매가·통화·입고일) 스냅샷 — 재고가 나중에 지워져도 기록엔 남게
+          await d.execute('ALTER TABLE logs ADD COLUMN stock_price INTEGER');
+          await d.execute('ALTER TABLE logs ADD COLUMN stock_currency TEXT');
+          await d.execute('ALTER TABLE logs ADD COLUMN stock_added TEXT');
+          await d.execute('''
+            UPDATE logs SET
+              stock_price = (SELECT price_per_stick FROM stock WHERE stock.id = logs.stock_item_id),
+              stock_currency = (SELECT currency FROM stock WHERE stock.id = logs.stock_item_id),
+              stock_added = (SELECT added_date FROM stock WHERE stock.id = logs.stock_item_id)
+            WHERE stock_item_id IS NOT NULL''');
+        }
       },
       onCreate: (d, v) async {
         await d.execute('''
@@ -75,7 +87,10 @@ class LocalDb {
             place TEXT,
             pairing TEXT,
             photos TEXT,
-            stock_item_id INTEGER
+            stock_item_id INTEGER,
+            stock_price INTEGER,
+            stock_currency TEXT,
+            stock_added TEXT
           )''');
         await d.execute(_customDdl);
         await d.insert('humidors', {'name': tr('내 휴미더', 'My humidor'), 'sort_order': 0});
@@ -219,9 +234,19 @@ class LocalDb {
     String? pairing,
     List<String> photos = const [],
     int? deductStockId,
+    // 백업 복원용: 재고 연결 없이 스냅샷만 직접 넣기
+    int? stockPrice,
+    String? stockCurrency,
+    String? stockAdded,
   }) async {
     final d = await db;
     return d.transaction((txn) async {
+      // 재고에서 기록하면 그 재고의 구매가·입고일을 기록에 같이 박아둔다 (표시용 스냅샷)
+      Map<String, Object?>? stock;
+      if (deductStockId != null) {
+        final rows = await txn.query('stock', columns: ['price_per_stick', 'currency', 'added_date'], where: 'id=?', whereArgs: [deductStockId]);
+        if (rows.isNotEmpty) stock = rows.first;
+      }
       final id = await txn.insert('logs', {
         'cigar_id': cigarId,
         'cigar_name': cigarName,
@@ -237,6 +262,9 @@ class LocalDb {
         'pairing': pairing,
         'photos': photos.isEmpty ? null : photos.join(','),
         'stock_item_id': deductStockId,
+        'stock_price': stock?['price_per_stick'] ?? stockPrice,
+        'stock_currency': stock?['currency'] ?? stockCurrency,
+        'stock_added': stock?['added_date'] ?? stockAdded,
       });
       if (deductStockId != null) {
         await txn.rawUpdate('UPDATE stock SET qty = MAX(0, qty - 1) WHERE id=?', [deductStockId]);

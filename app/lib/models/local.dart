@@ -78,6 +78,10 @@ class SmokeLog {
   final String? pairing;
   final List<String> photos; // photos/ 폴더의 파일 이름들
   final int? stockItemId; // 재고 차감했으면 어디서
+  // 기록 당시 재고 스냅샷 (재고에서 바로 기록한 경우만). 가격 단위는 StockItem.pricePerStick 과 동일
+  final int? stockPrice;
+  final String? stockCurrency;
+  final String? stockAdded; // 입고일 yyyy-MM-dd
 
   SmokeLog({
     required this.id,
@@ -95,7 +99,21 @@ class SmokeLog {
     this.pairing,
     this.photos = const [],
     this.stockItemId,
+    this.stockPrice,
+    this.stockCurrency,
+    this.stockAdded,
   });
+
+  /// 입고일 → 피운 날까지 숙성 일수. 재고 정보 없으면 null
+  int? get agingDaysAtSmoke {
+    final a = DateTime.tryParse(stockAdded ?? '');
+    final s = DateTime.tryParse(date);
+    if (a == null || s == null) return null;
+    final n = DateTime(s.year, s.month, s.day).difference(DateTime(a.year, a.month, a.day)).inDays;
+    return n < 0 ? 0 : n;
+  }
+
+  bool get hasStockInfo => stockPrice != null || stockAdded != null;
 
   factory SmokeLog.fromMap(Map<String, Object?> m) => SmokeLog(
         id: m['id'] as int,
@@ -113,5 +131,8 @@ class SmokeLog {
         pairing: m['pairing'] as String?,
         photos: ((m['photos'] as String?) ?? '').split(',').where((e) => e.isNotEmpty).toList(),
         stockItemId: m['stock_item_id'] as int?,
+        stockPrice: m['stock_price'] as int?,
+        stockCurrency: m['stock_currency'] as String?,
+        stockAdded: m['stock_added'] as String?,
       );
 }
