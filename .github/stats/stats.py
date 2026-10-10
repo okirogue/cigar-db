@@ -160,6 +160,17 @@ for l in recent:
     L.append(f"| {(l.get('_updated') or '')[:10]} | {short(l.get('uid'))} | {l.get('lang') or '-'} | {l.get('cigar_name')} | "
              f"{l.get('vitola') or ''} | {score10(l.get('score')):.1f} | {', '.join(l.get('tags') or [])[:60]} |")
 L.append("")
+L.append("### 실행 기록 (installs, UID별)")
+if installs:
+    log_uids = {short(u) for u in uids}
+    L.append("| UID | 플랫폼 | 언어 | 빌드 | 첫 실행 | 마지막 | 기록 있음 |")
+    L.append("|---|---|---|--:|---|---|:-:|")
+    for i in sorted(installs, key=lambda x: x.get("last") or "", reverse=True):
+        su = short(i["_id"])
+        L.append(f"| {su} | {i.get('platform','')} | {i.get('lang','')} | {i.get('build','')} | {i.get('first','')} | {i.get('last','')} | {'✓' if su in log_uids else ''} |")
+else:
+    L.append("- 없음")
+L.append("")
 L.append("### 사용자별")
 L.append("| 사용자 | 언어 | 기록 | 평균 | 마지막 갱신 |")
 L.append("|---|---|--:|--:|---|")
