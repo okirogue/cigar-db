@@ -28,7 +28,7 @@ class Sync {
 
   /// 안드로이드 구글 로그인용 웹 클라이언트 ID (Firebase 콘솔 → Authentication → Google → 웹 SDK 구성).
   /// 비어 있으면 google-services.json 의 기본값을 쓴다 (거기에 없으면 안드로이드 로그인이 안 됨).
-  static const googleWebClientId = '';
+  static const googleWebClientId = '878079125373-ea7pmghecfdmdt4vkajk6qaq8fm45eil.apps.googleusercontent.com';
 
   static const _onKey = 'sync_on';
   static const _pushKey = 'sync_last_push';
