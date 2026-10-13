@@ -64,6 +64,18 @@ class Sync {
   Future<void> setEnabled(bool v) async {
     final p = await SharedPreferences.getInstance();
     await p.setBool(_onKey, v);
+    if (v) await p.setInt(_pullKey, 0); // 다시 켜면 서버 것을 전부 다시 받음 (빠진 게 있을 때 수동 복구용)
+  }
+
+  static const _schemaKey = 'sync_schema';
+  static const _schema = 2; // 2: synced(서버 시각) 커서
+
+  /// 동기화 방식이 바뀌었으면 한 번 전부 다시 올리고 받기
+  Future<void> _migrateIfNeeded(SharedPreferences p) async {
+    if ((p.getInt(_schemaKey) ?? 1) >= _schema) return;
+    await p.setInt(_pushKey, 0);
+    await p.setInt(_pullKey, 0);
+    await p.setInt(_schemaKey, _schema);
   }
 
   Future<DateTime?> get lastSyncedAt async {
@@ -142,6 +154,7 @@ class Sync {
       // 처음 연결: 전부 올리고 전부 받기
       await p.setInt(_pushKey, 0);
       await p.setInt(_pullKey, 0);
+      await p.setInt(_schemaKey, _schema);
       final st = _st;
       _dropDefaultHumidor = st != null && st.logs.isEmpty && st.allStock.isEmpty && st.humidors.length == 1;
       await syncNow();
@@ -174,6 +187,7 @@ class Sync {
     _busy = true;
     lastError = null;
     try {
+      await _migrateIfNeeded(await SharedPreferences.getInstance());
       // 받기 먼저: 서버에 더 최근 수정(또는 삭제)이 있으면 로컬에 먼저 반영하고, 그 다음 내 변경분을 올린다
       _pulledSids.clear();
       var changed = await _pull();
@@ -240,12 +254,13 @@ class Sync {
         'created': r['created'],
         'updated': r['updated'],
         'deleted': false,
+        'synced': FieldValue.serverTimestamp(),
       }, SetOptions(merge: true));
       if (++n >= 400) await flush();
     }
     for (final r in await db.tombstonesSince(since)) {
       final t = r['tbl'] as String;
-      batch.set(_col(t == 'custom_cigars' ? 'custom' : t).doc(r['sid'] as String), {'deleted': true, 'updated': r['updated']}, SetOptions(merge: true));
+      batch.set(_col(t == 'custom_cigars' ? 'custom' : t).doc(r['sid'] as String), {'deleted': true, 'updated': r['updated'], 'synced': FieldValue.serverTimestamp()}, SetOptions(merge: true));
       if (++n >= 400) await flush();
     }
     await flush();
@@ -253,7 +268,7 @@ class Sync {
   }
 
   Map<String, dynamic> _toCloud(String t, Map<String, Object?> r, Map<int, String> hum, Map<int, String> stk) {
-    final m = <String, dynamic>{'deleted': false};
+    final m = <String, dynamic>{'deleted': false, 'synced': FieldValue.serverTimestamp()};
     for (final e in r.entries) {
       if (e.key == 'id' || e.key == 'sid' || e.key == 'photos') continue; // 사진은 동기화 안 함
       m[e.key] = e.value;
@@ -274,12 +289,21 @@ class Sync {
   Future<bool> _pull() async {
     final db = LocalDb.instance;
     final p = await SharedPreferences.getInstance();
+    // 커서는 서버 기록 시각(synced). 클라이언트 updated 로 자르면 "먼저 만들어지고 나중에 올라온" 행을 놓친다
+    // (다른 기기가 로컬에서 만든 시각 < 이 기기의 마지막 받기 시각 < 실제 업로드 시각).
     final since = p.getInt(_pullKey) ?? 0;
-    final t0 = LocalDb.now;
+    var maxSynced = since;
     var changed = false;
 
     Future<List<QueryDocumentSnapshot<Map<String, dynamic>>>> fetch(String c) async {
-      final q = await _col(c).where('updated', isGreaterThan: since).get().timeout(const Duration(seconds: 30));
+      final col = _col(c);
+      final q = since == 0
+          ? await col.get().timeout(const Duration(seconds: 30)) // 처음엔 전부 (synced 없는 옛 문서 포함)
+          : await col.where('synced', isGreaterThan: Timestamp.fromMillisecondsSinceEpoch(since)).get().timeout(const Duration(seconds: 30));
+      for (final d in q.docs) {
+        final ts = d.data()['synced'];
+        if (ts is Timestamp && ts.millisecondsSinceEpoch > maxSynced) maxSynced = ts.millisecondsSinceEpoch;
+      }
       return q.docs;
     }
 
@@ -382,7 +406,8 @@ class Sync {
       if (r.$2) changed = true;
     }
 
-    await p.setInt(_pullKey, t0);
+    // 아직 synced 가 없는 문서만 있었으면(옛 업로드) 커서를 못 올리므로 다음에도 전부 받는다 — 상대 기기가 한 번 더 올리면 해소
+    await p.setInt(_pullKey, maxSynced);
     return changed;
   }
 }
