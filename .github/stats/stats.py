@@ -107,6 +107,39 @@ try:
 except SystemExit:
     sync_rows = [("?", {"error": ("권한 없음", "")})]
 
+# ---- 운영자 UID 통합 ----
+# 2026-10-13 운영자 구글 로그인 때 익명 UID(eQbbDG…)가 새 UID(sZlitQ…)로 바뀜. 서버 문서를 옮기기 전까지 통계에서 한 사람으로 묶는다.
+UID_ALIASES = {"eQbbDG": "sZlitQ"}  # 앞 6자리: 옛 → 새
+_full = {}
+for src in (logs, installs, sugg, feedback):
+    for d in src:
+        u = d.get("uid") or d.get("_id") or ""
+        if len(u) > 6:
+            _full.setdefault(u[:6], u)
+def canon(uid):
+    if not uid:
+        return uid
+    tgt = UID_ALIASES.get(uid[:6])
+    return _full.get(tgt, tgt) if tgt else uid
+for l in logs:
+    l["uid"] = canon(l.get("uid"))
+for s_ in sugg:
+    s_["uid"] = canon(s_.get("uid"))
+for f_ in feedback:
+    f_["uid"] = canon(f_.get("uid"))
+# installs: 옛 문서를 새 문서에 합침 (실행일 합집합, first 는 이른 쪽, last 는 늦은 쪽)
+_by_id = {i["_id"]: i for i in installs}
+for old6, new6 in UID_ALIASES.items():
+    o = next((i for i in installs if i["_id"].startswith(old6)), None)
+    n = next((i for i in installs if i["_id"].startswith(new6)), None)
+    if o and n:
+        n["days"] = sorted(set(n.get("days") or []) | set(o.get("days") or []))
+        n["first"] = min(filter(None, [n.get("first"), o.get("first")]))
+        n["last"] = max(filter(None, [n.get("last"), o.get("last")]))
+        installs.remove(o)
+    elif o and not n:
+        o["_id"] = new6 + o["_id"][6:]
+
 # ---- 사용자 ----
 uids = {l.get("uid") for l in logs}
 lang_by_uid = defaultdict(Counter)
