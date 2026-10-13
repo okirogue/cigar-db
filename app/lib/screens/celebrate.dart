@@ -65,8 +65,8 @@ class _CelebrationState extends State<_Celebration> with SingleTickerProviderSta
           final t = _ctl.value;
           final size = MediaQuery.sizeOf(ctx);
           // 배너: 0~0.15 들어오고, 0.8~1.0 사라짐
-          final bannerIn = Curves.easeOutBack.transform((t / 0.15).clamp(0, 1));
-          final bannerOut = 1 - ((t - 0.8) / 0.2).clamp(0, 1);
+          final bannerIn = Curves.easeOutBack.transform((t / 0.15).clamp(0.0, 1.0).toDouble());
+          final bannerOut = 1 - ((t - 0.8) / 0.2).clamp(0.0, 1.0).toDouble();
           return Stack(children: [
             for (final p in _ps) ...[
               () {
