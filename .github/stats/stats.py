@@ -88,6 +88,25 @@ sugg = collection("cigar_suggestions")
 quota = collection("scan_quota")
 feedback = collection("feedback")
 
+# 운영자 동기화 상태: users/<uid>/{humidors,stock,logs,custom} 문서 수 (내용은 안 읽음)
+def _list_users():
+    res = get(f"{BASE}/users?pageSize=50")
+    return [d["name"].rsplit("/", 1)[-1] for d in res.get("documents", [])] if res else []
+sync_rows = []
+try:
+    # 서브컬렉션만 있고 부모 문서가 없을 수 있어 listCollectionIds 대신 알려진 UID 후보(installs)로 탐색
+    for i in installs:
+        uid = i["_id"]
+        counts = {}
+        for c in ("humidors", "stock", "logs", "custom"):
+            docs = collection(f"users/{uid}/{c}")
+            if docs:
+                counts[c] = (len([d for d in docs if not d.get("deleted")]), max((d.get("_updated") or "") for d in docs)[:16])
+        if counts:
+            sync_rows.append((short(uid), counts))
+except SystemExit:
+    sync_rows = [("?", {"error": ("권한 없음", "")})]
+
 # ---- 사용자 ----
 uids = {l.get("uid") for l in logs}
 lang_by_uid = defaultdict(Counter)
@@ -210,6 +229,16 @@ for u, ls in sorted(per_uid.items(), key=lambda kv: -len(kv[1])):
         L.append(f"| {l.get('date') or ''} | {l.get('cigar_name')} | {l.get('vitola') or ''} | {score10(l.get('score')):.1f} | {', '.join(l.get('tags') or [])[:60]} |")
     L.append("")
 L.append("</details>")
+L.append("")
+L.append("### 운영자 동기화 (users/)")
+if sync_rows:
+    L.append("| UID | 휴미더 | 재고 | 기록 | 직접추가 | 마지막 갱신(UTC) |")
+    L.append("|---|--:|--:|--:|--:|---|")
+    for su, c in sync_rows:
+        last = max((v[1] for v in c.values()), default="")
+        L.append(f"| {su} | {c.get('humidors',(0,))[0]} | {c.get('stock',(0,))[0]} | {c.get('logs',(0,))[0]} | {c.get('custom',(0,))[0]} | {last} |")
+else:
+    L.append("- 없음 (아직 동기화된 데이터 없음)")
 L.append("")
 L.append(f"### 제작자에게 제안·피드백 ({len(feedback)}건)")
 if feedback:
