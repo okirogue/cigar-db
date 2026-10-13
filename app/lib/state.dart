@@ -1,8 +1,10 @@
 import 'package:flutter/foundation.dart';
 
+import 'data/badges.dart';
 import 'data/cigar_repo.dart';
 import 'data/local_db.dart';
 import 'data/share_stats.dart';
+import 'data/sync.dart';
 import 'data/recommender.dart';
 import 'models/cigar.dart';
 import 'models/local.dart';
@@ -19,6 +21,7 @@ class AppState extends ChangeNotifier {
   bool ready = false;
 
   Future<void> init() async {
+    Sync.instance.attach(this);
     await repo.load();
     for (final j in await db.customCigars()) {
       repo.addCustom(Cigar.fromJson(j));
@@ -26,6 +29,8 @@ class AppState extends ChangeNotifier {
     await reload();
     ready = true;
     notifyListeners();
+    // 뱃지 기준선: 지금 딴 것들을 "본 것"으로 저장 (업데이트로 늘어난 뱃지에 폭죽이 몰아서 안 터지게)
+    await Badges.takeNew(this);
     if (LocalDb.scoresRescaled) {
       LocalDb.scoresRescaled = false;
       // 점수 스케일 변경분을 서버 공유본에도 반영 (공유 꺼져 있으면 내부에서 무시)
@@ -33,6 +38,8 @@ class AppState extends ChangeNotifier {
     }
     // 집계 기본 ON: 아직 안 올린 기존 기록·전송 실패분을 조용히 올림
     await ShareStats.instance.syncOnStart(logs);
+    // 운영자 동기화(켜져 있을 때만): 올리고 받기
+    await Sync.instance.syncNow();
   }
 
   Future<void> reload() async {
@@ -42,6 +49,7 @@ class AppState extends ChangeNotifier {
     logs = await db.logs();
     _recompute();
     notifyListeners();
+    Sync.instance.schedule(); // 켜져 있으면 잠시 뒤 변경분 올림 (꺼져 있으면 아무것도 안 함)
   }
 
   int get totalQty => qtyByHumidor.values.fold(0, (a, b) => a + b);

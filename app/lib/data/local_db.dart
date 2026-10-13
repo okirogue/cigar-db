@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:path/path.dart' as p;
@@ -27,7 +28,7 @@ class LocalDb {
     final path = kIsWeb ? 'cigar_log.db' : p.join(await getDatabasesPath(), 'cigar_log.db');
     _db = await openDatabase(
       path,
-      version: 7,
+      version: 8,
       onUpgrade: (d, oldV, newV) async {
         if (oldV < 2) await d.execute(_customDdl);
         if (oldV < 3) await d.execute('ALTER TABLE logs ADD COLUMN summary TEXT');
@@ -50,13 +51,16 @@ class LocalDb {
               stock_added = (SELECT added_date FROM stock WHERE stock.id = logs.stock_item_id)
             WHERE stock_item_id IS NOT NULL''');
         }
+        if (oldV < 8) await _migrateV8(d);
       },
       onCreate: (d, v) async {
         await d.execute('''
           CREATE TABLE humidors(
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,
-            sort_order INTEGER NOT NULL DEFAULT 0
+            sort_order INTEGER NOT NULL DEFAULT 0,
+            sid TEXT,
+            updated INTEGER NOT NULL DEFAULT 0
           )''');
         await d.execute('''
           CREATE TABLE stock(
@@ -69,7 +73,9 @@ class LocalDb {
             price_per_stick INTEGER,
             currency TEXT NOT NULL DEFAULT 'KRW',
             added_date TEXT NOT NULL,
-            memo TEXT
+            memo TEXT,
+            sid TEXT,
+            updated INTEGER NOT NULL DEFAULT 0
           )''');
         await d.execute('''
           CREATE TABLE logs(
@@ -90,10 +96,13 @@ class LocalDb {
             stock_item_id INTEGER,
             stock_price INTEGER,
             stock_currency TEXT,
-            stock_added TEXT
+            stock_added TEXT,
+            sid TEXT,
+            updated INTEGER NOT NULL DEFAULT 0
           )''');
         await d.execute(_customDdl);
-        await d.insert('humidors', {'name': tr('내 휴미더', 'My humidor'), 'sort_order': 0});
+        await d.execute(_tombDdl);
+        await d.insert('humidors', {'name': tr('내 휴미더', 'My humidor'), 'sort_order': 0, 'sid': newSid(), 'updated': now});
       },
     );
     return _db!;
@@ -104,8 +113,50 @@ class LocalDb {
           CREATE TABLE IF NOT EXISTS custom_cigars(
             id TEXT PRIMARY KEY,
             json TEXT NOT NULL,
-            created TEXT NOT NULL
+            created TEXT NOT NULL,
+            updated INTEGER NOT NULL DEFAULT 0
           )''';
+
+  // 지운 행의 흔적 (동기화용): 어느 표의 어떤 sid 를 언제 지웠는지
+  static const _tombDdl = '''
+          CREATE TABLE IF NOT EXISTS tombstones(
+            tbl TEXT NOT NULL,
+            sid TEXT NOT NULL,
+            updated INTEGER NOT NULL,
+            PRIMARY KEY (tbl, sid)
+          )''';
+
+  /// v8: 기기 간 동기화를 위해 전역 id(sid)와 수정 시각(updated) 추가. 기존 행엔 새 sid 를 붙인다.
+  static Future<void> _migrateV8(Database d) async {
+    for (final t in ['humidors', 'stock', 'logs']) {
+      await d.execute('ALTER TABLE $t ADD COLUMN sid TEXT');
+      await d.execute('ALTER TABLE $t ADD COLUMN updated INTEGER NOT NULL DEFAULT 0');
+      final rows = await d.query(t, columns: ['id']);
+      final b = d.batch();
+      for (final r in rows) {
+        b.update(t, {'sid': newSid(), 'updated': now}, where: 'id=?', whereArgs: [r['id']]);
+      }
+      await b.commit(noResult: true);
+    }
+    // v1→ 업그레이드 땐 _customDdl 이 이미 updated 열을 포함해 만들었을 수 있음
+    final cols = await d.rawQuery('PRAGMA table_info(custom_cigars)');
+    if (!cols.any((c) => c['name'] == 'updated')) {
+      await d.execute('ALTER TABLE custom_cigars ADD COLUMN updated INTEGER NOT NULL DEFAULT 0');
+    }
+    await d.execute('UPDATE custom_cigars SET updated = $now');
+    await d.execute(_tombDdl);
+  }
+
+  static int get now => DateTime.now().millisecondsSinceEpoch;
+
+  static final _rnd = Random.secure();
+  /// 전역 id: 16자리 hex (기기 간 충돌 없음)
+  static String newSid() => List.generate(16, (_) => _rnd.nextInt(16).toRadixString(16)).join();
+
+  Future<void> _tomb(DatabaseExecutor d, String tbl, String? sid) async {
+    if (sid == null || sid.isEmpty) return;
+    await d.insert('tombstones', {'tbl': tbl, 'sid': sid, 'updated': now}, conflictAlgorithm: ConflictAlgorithm.replace);
+  }
 
   Future<List<Map<String, dynamic>>> customCigars() async {
     final d = await db;
@@ -115,17 +166,25 @@ class LocalDb {
 
   Future<void> addCustomCigar(Map<String, dynamic> j) async {
     final d = await db;
-    await d.insert('custom_cigars', {'id': j['id'], 'json': jsonEncode(j), 'created': DateTime.now().toIso8601String()}, conflictAlgorithm: ConflictAlgorithm.replace);
+    await d.insert('custom_cigars', {'id': j['id'], 'json': jsonEncode(j), 'created': DateTime.now().toIso8601String(), 'updated': now}, conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
   /// 백업 복원(덮어쓰기)용 — 모든 사용자 데이터 삭제 후 기본 휴미더 하나
   Future<void> wipeUserData() async {
     final d = await db;
+    for (final t in ['logs', 'stock', 'humidors']) {
+      for (final r in await d.query(t, columns: ['sid'])) {
+        await _tomb(d, t, r['sid'] as String?);
+      }
+    }
+    for (final r in await d.query('custom_cigars', columns: ['id'])) {
+      await _tomb(d, 'custom_cigars', r['id'] as String?);
+    }
     await d.delete('logs');
     await d.delete('stock');
     await d.delete('humidors');
     await d.delete('custom_cigars');
-    await d.insert('humidors', {'name': tr('내 휴미더', 'My humidor'), 'sort_order': 0});
+    await d.insert('humidors', {'name': tr('내 휴미더', 'My humidor'), 'sort_order': 0, 'sid': newSid(), 'updated': now});
   }
 
   // ---------- 휴미더 ----------
@@ -137,15 +196,21 @@ class LocalDb {
   Future<int> addHumidor(String name) async {
     final d = await db;
     final n = Sqflite.firstIntValue(await d.rawQuery('SELECT COUNT(*) FROM humidors')) ?? 0;
-    return d.insert('humidors', {'name': name, 'sort_order': n});
+    return d.insert('humidors', {'name': name, 'sort_order': n, 'sid': newSid(), 'updated': now});
   }
 
   Future<void> renameHumidor(int id, String name) async {
-    await (await db).update('humidors', {'name': name}, where: 'id=?', whereArgs: [id]);
+    await (await db).update('humidors', {'name': name, 'updated': now}, where: 'id=?', whereArgs: [id]);
   }
 
   Future<void> deleteHumidor(int id) async {
     final d = await db;
+    for (final r in await d.query('stock', columns: ['sid'], where: 'humidor_id=?', whereArgs: [id])) {
+      await _tomb(d, 'stock', r['sid'] as String?);
+    }
+    for (final r in await d.query('humidors', columns: ['sid'], where: 'id=?', whereArgs: [id])) {
+      await _tomb(d, 'humidors', r['sid'] as String?);
+    }
     await d.delete('stock', where: 'humidor_id=?', whereArgs: [id]);
     await d.delete('humidors', where: 'id=?', whereArgs: [id]);
   }
@@ -190,16 +255,68 @@ class LocalDb {
       'price_per_stick': pricePerStick,
       'currency': currency,
       'added_date': addedDate,
+      'sid': newSid(),
+      'updated': now,
     });
   }
 
   Future<void> changeQty(int stockId, int delta) async {
     final d = await db;
-    await d.rawUpdate('UPDATE stock SET qty = MAX(0, qty + ?) WHERE id=?', [delta, stockId]);
+    await d.rawUpdate('UPDATE stock SET qty = MAX(0, qty + ?), updated = ? WHERE id=?', [delta, now, stockId]);
   }
 
   Future<void> deleteStock(int stockId) async {
-    await (await db).delete('stock', where: 'id=?', whereArgs: [stockId]);
+    final d = await db;
+    for (final r in await d.query('stock', columns: ['sid'], where: 'id=?', whereArgs: [stockId])) {
+      await _tomb(d, 'stock', r['sid'] as String?);
+    }
+    await d.delete('stock', where: 'id=?', whereArgs: [stockId]);
+  }
+
+  /// 재고 [qty]개를 다른 휴미더로 옮김. 대상에 같은 시가·비톨라·입고일 줄이 있으면 거기에 합치고,
+  /// 없으면 같은 정보(가격·통화·메모)로 새 줄을 만든다. 전부 옮기면 원래 줄은 지워진다.
+  Future<void> moveStock(int stockId, int toHumidorId, int qty) async {
+    final d = await db;
+    await d.transaction((txn) async {
+      final rows = await txn.query('stock', where: 'id=?', whereArgs: [stockId]);
+      if (rows.isEmpty) return;
+      final src = StockItem.fromMap(rows.first);
+      if (src.humidorId == toHumidorId || qty <= 0) return;
+      final n = qty > src.qty ? src.qty : qty;
+      final same = await txn.query(
+        'stock',
+        where: 'humidor_id=? AND cigar_id=? AND IFNULL(vitola,\'\')=? AND added_date=? AND id<>?',
+        whereArgs: [toHumidorId, src.cigarId, src.vitola ?? '', src.addedDate, src.id],
+        limit: 1,
+      );
+      if (same.isNotEmpty) {
+        await txn.rawUpdate('UPDATE stock SET qty = qty + ?, updated = ? WHERE id=?', [n, now, same.first['id']]);
+      } else if (n >= src.qty) {
+        // 전부 옮기고 대상에 합칠 줄이 없으면 줄 자체를 이동 (id 유지 → 기록의 stock_item_id 도 그대로)
+        await txn.update('stock', {'humidor_id': toHumidorId, 'updated': now}, where: 'id=?', whereArgs: [src.id]);
+        return;
+      } else {
+        await txn.insert('stock', {
+          'humidor_id': toHumidorId,
+          'cigar_id': src.cigarId,
+          'cigar_name': src.cigarName,
+          'vitola': src.vitola,
+          'qty': n,
+          'price_per_stick': src.pricePerStick,
+          'currency': src.currency,
+          'added_date': src.addedDate,
+          'memo': src.memo,
+          'sid': newSid(),
+          'updated': now,
+        });
+      }
+      if (n >= src.qty) {
+        await _tomb(txn, 'stock', src.sid);
+        await txn.delete('stock', where: 'id=?', whereArgs: [src.id]);
+      } else {
+        await txn.rawUpdate('UPDATE stock SET qty = qty - ?, updated = ? WHERE id=?', [n, now, src.id]);
+      }
+    });
   }
 
   /// 해당 시가의 재고 줄(비톨라 무관) — 기록 시 차감 후보
@@ -265,19 +382,78 @@ class LocalDb {
         'stock_price': stock?['price_per_stick'] ?? stockPrice,
         'stock_currency': stock?['currency'] ?? stockCurrency,
         'stock_added': stock?['added_date'] ?? stockAdded,
+        'sid': newSid(),
+        'updated': now,
       });
       if (deductStockId != null) {
-        await txn.rawUpdate('UPDATE stock SET qty = MAX(0, qty - 1) WHERE id=?', [deductStockId]);
+        await txn.rawUpdate('UPDATE stock SET qty = MAX(0, qty - 1), updated = ? WHERE id=?', [now, deductStockId]);
       }
       return id;
     });
   }
 
   Future<void> updateLog(int id, Map<String, Object?> fields) async {
-    await (await db).update('logs', fields, where: 'id=?', whereArgs: [id]);
+    await (await db).update('logs', {...fields, 'updated': now}, where: 'id=?', whereArgs: [id]);
   }
 
   Future<void> deleteLog(int id) async {
-    await (await db).delete('logs', where: 'id=?', whereArgs: [id]);
+    final d = await db;
+    for (final r in await d.query('logs', columns: ['sid'], where: 'id=?', whereArgs: [id])) {
+      await _tomb(d, 'logs', r['sid'] as String?);
+    }
+    await d.delete('logs', where: 'id=?', whereArgs: [id]);
+  }
+
+  // ---------- 동기화용 (운영자 전용, data/sync.dart) ----------
+  /// 어떤 표든 updated > since 인 행
+  Future<List<Map<String, Object?>>> changedSince(String tbl, int since) async {
+    return (await db).query(tbl, where: 'updated > ?', whereArgs: [since]);
+  }
+
+  Future<List<Map<String, Object?>>> tombstonesSince(int since) async {
+    return (await db).query('tombstones', where: 'updated > ?', whereArgs: [since]);
+  }
+
+  Future<Map<String, Object?>?> bySid(String tbl, String sid) async {
+    final rows = await (await db).query(tbl, where: 'sid=?', whereArgs: [sid], limit: 1);
+    return rows.isEmpty ? null : rows.first;
+  }
+
+  /// 서버에서 받은 행을 sid 기준으로 넣거나 덮어씀. 더 최근 로컬 수정이 있으면 건너뜀.
+  /// 반환: (로컬 id, 실제로 바뀌었는지)
+  Future<(int, bool)> upsertBySid(String tbl, String sid, Map<String, Object?> fields, int updated) async {
+    final d = await db;
+    final cur = await bySid(tbl, sid);
+    if (cur != null) {
+      if (((cur['updated'] as int?) ?? 0) >= updated) return (cur['id'] as int, false);
+      await d.update(tbl, {...fields, 'updated': updated}, where: 'sid=?', whereArgs: [sid]);
+      return (cur['id'] as int, true);
+    }
+    return (await d.insert(tbl, {...fields, 'sid': sid, 'updated': updated}), true);
+  }
+
+  /// 서버 묘비 반영. 지운 게 있으면 true. 휴미더면 안의 재고도 같이.
+  Future<bool> deleteBySid(String tbl, String sid) async {
+    final d = await db;
+    if (tbl == 'custom_cigars') {
+      return await d.delete(tbl, where: 'id=?', whereArgs: [sid]) > 0;
+    }
+    if (tbl == 'humidors') {
+      final r = await bySid('humidors', sid);
+      if (r != null) await d.delete('stock', where: 'humidor_id=?', whereArgs: [r['id']]);
+    }
+    return await d.delete(tbl, where: 'sid=?', whereArgs: [sid]) > 0;
+  }
+
+  Future<List<Map<String, Object?>>> customRowsSince(int since) async {
+    return (await db).query('custom_cigars', where: 'updated > ?', whereArgs: [since]);
+  }
+
+  Future<bool> upsertCustom(String id, String json, String created, int updated) async {
+    final d = await db;
+    final cur = await d.query('custom_cigars', where: 'id=?', whereArgs: [id], limit: 1);
+    if (cur.isNotEmpty && ((cur.first['updated'] as int?) ?? 0) >= updated) return false;
+    await d.insert('custom_cigars', {'id': id, 'json': json, 'created': created, 'updated': updated}, conflictAlgorithm: ConflictAlgorithm.replace);
+    return true;
   }
 }

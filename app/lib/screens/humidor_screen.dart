@@ -56,11 +56,17 @@ class _HumidorScreenState extends State<HumidorScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               children: [
                 for (final h in humidors) ...[
-                  _HumidorTab(
-                    label: '${h.name} · ${st.qtyByHumidor[h.id] ?? 0}',
-                    selected: current?.id == h.id,
-                    onTap: () => setState(() => _selected = h.id),
-                    onLongPress: () => _editHumidor(context, h),
+                  // 재고 카드를 길게 눌러 끌어다 놓으면 그 휴미더로 이동
+                  DragTarget<StockItem>(
+                    onWillAcceptWithDetails: (d) => d.data.humidorId != h.id,
+                    onAcceptWithDetails: (d) => moveStockFlow(context, d.data, h),
+                    builder: (_, cand, __) => _HumidorTab(
+                      label: '${h.name} · ${st.qtyByHumidor[h.id] ?? 0}',
+                      selected: current?.id == h.id,
+                      highlight: cand.isNotEmpty,
+                      onTap: () => setState(() => _selected = h.id),
+                      onLongPress: () => _editHumidor(context, h),
+                    ),
                   ),
                   const SizedBox(width: 8),
                 ],
@@ -93,7 +99,15 @@ class _HumidorScreenState extends State<HumidorScreen> {
                     padding: const EdgeInsets.fromLTRB(20, 0, 20, 100),
                     itemCount: items.length,
                     separatorBuilder: (_, __) => const SizedBox(height: 10),
-                    itemBuilder: (_, i) => _StockCard(item: items[i]),
+                    itemBuilder: (_, i) => humidors.length > 1
+                        ? LongPressDraggable<StockItem>(
+                            data: items[i],
+                            dragAnchorStrategy: pointerDragAnchorStrategy,
+                            feedback: _DragChip(item: items[i]),
+                            childWhenDragging: Opacity(opacity: 0.35, child: _StockCard(item: items[i])),
+                            child: _StockCard(item: items[i]),
+                          )
+                        : _StockCard(item: items[i]),
                   ),
           ),
         ],
@@ -175,28 +189,116 @@ Future<String?> _askName(BuildContext context, {required String title, String? i
   );
 }
 
+/// 휴미더 간 이동: 몇 개 옮길지 물어보고 옮김. 1개뿐이면 바로. (드래그·⋮ 메뉴 공용)
+Future<void> moveStockFlow(BuildContext context, StockItem item, Humidor to) async {
+  final st = context.read<AppState>();
+  if (item.humidorId == to.id) return;
+  var n = item.qty;
+  if (item.qty > 1) {
+    final picked = await showDialog<int>(
+      context: context,
+      builder: (dctx) => _MoveQtyDialog(item: item, to: to),
+    );
+    if (picked == null || picked <= 0) return;
+    n = picked;
+  }
+  await st.db.moveStock(item.id, to.id, n);
+  await st.reload();
+  if (!context.mounted) return;
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    content: Text(tr('${item.cigarName} $n개 → ${to.name}', '$n × ${item.cigarName} → ${to.name}')),
+    duration: const Duration(seconds: 2),
+  ));
+}
+
+class _MoveQtyDialog extends StatefulWidget {
+  final StockItem item;
+  final Humidor to;
+  const _MoveQtyDialog({required this.item, required this.to});
+  @override
+  State<_MoveQtyDialog> createState() => _MoveQtyDialogState();
+}
+
+class _MoveQtyDialogState extends State<_MoveQtyDialog> {
+  late int _n = widget.item.qty;
+  @override
+  Widget build(BuildContext context) {
+    final max = widget.item.qty;
+    return AlertDialog(
+      title: Text(tr('${widget.to.name}(으)로 옮기기', 'Move to ${widget.to.name}')),
+      content: Column(mainAxisSize: MainAxisSize.min, children: [
+        Text(widget.item.cigarName, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+        const SizedBox(height: 4),
+        SubText(tr('재고 $max개 중 몇 개를 옮길까요?', 'Move how many of $max?')),
+        const SizedBox(height: 14),
+        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+          _QtyBtn(icon: Icons.remove, onTap: () => setState(() => _n = (_n - 1).clamp(1, max))),
+          SizedBox(width: 56, child: Text('$_n', textAlign: TextAlign.center, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700))),
+          _QtyBtn(icon: Icons.add, onTap: () => setState(() => _n = (_n + 1).clamp(1, max))),
+        ]),
+        const SizedBox(height: 8),
+        TextButton(onPressed: () => setState(() => _n = max), child: Text(tr('전부 ($max개)', 'All ($max)'))),
+      ]),
+      actions: [
+        TextButton(onPressed: () => Navigator.pop(context), child: Text(tr('취소', 'Cancel'))),
+        FilledButton(onPressed: () => Navigator.pop(context, _n), child: Text(tr('옮기기', 'Move'))),
+      ],
+    );
+  }
+}
+
+/// 드래그 중 손가락을 따라다니는 작은 칩
+class _DragChip extends StatelessWidget {
+  final StockItem item;
+  const _DragChip({required this.item});
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+        decoration: BoxDecoration(
+          color: C.text,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 10, offset: Offset(0, 4))],
+        ),
+        child: Row(mainAxisSize: MainAxisSize.min, children: [
+          const Icon(Icons.inventory_2_outlined, size: 16, color: Colors.white),
+          const SizedBox(width: 8),
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 200),
+            child: Text('${item.cigarName} × ${item.qty}', maxLines: 1, overflow: TextOverflow.ellipsis, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w600)),
+          ),
+        ]),
+      ),
+    );
+  }
+}
+
 class _HumidorTab extends StatelessWidget {
   final String label;
   final bool selected;
+  final bool highlight; // 드래그 중 올라와 있을 때
   final VoidCallback onTap;
   final VoidCallback onLongPress;
-  const _HumidorTab({required this.label, required this.selected, required this.onTap, required this.onLongPress});
+  const _HumidorTab({required this.label, required this.selected, this.highlight = false, required this.onTap, required this.onLongPress});
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
       onLongPress: onLongPress,
       borderRadius: BorderRadius.circular(12),
-      child: Container(
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 120),
         height: 44,
         padding: const EdgeInsets.symmetric(horizontal: 16),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: selected ? C.accent : Colors.white,
+          color: highlight ? C.gold : (selected ? C.accent : Colors.white),
           borderRadius: BorderRadius.circular(12),
-          border: selected ? null : Border.all(color: C.line),
+          border: selected || highlight ? null : Border.all(color: C.line),
         ),
-        child: Text(label, style: TextStyle(fontSize: 14, fontWeight: selected ? FontWeight.w500 : FontWeight.w400, color: selected ? Colors.white : C.text)),
+        child: Text(label, style: TextStyle(fontSize: 14, fontWeight: selected || highlight ? FontWeight.w500 : FontWeight.w400, color: selected || highlight ? Colors.white : C.text)),
       ),
     );
   }
@@ -297,6 +399,31 @@ class _StockCard extends StatelessWidget {
               onTap: () {
                 Navigator.pop(ctx);
                 Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen(cigar: cigar)));
+              },
+            ),
+          if (st.humidors.length > 1)
+            ListTile(
+              leading: const Icon(Icons.drive_file_move_outline),
+              title: Text(tr('다른 휴미더로 옮기기', 'Move to another humidor')),
+              subtitle: Text(tr('카드를 길게 눌러 휴미더 탭에 끌어다 놔도 돼요', 'You can also long-press a card and drag it onto a humidor tab')),
+              onTap: () async {
+                Navigator.pop(ctx);
+                final to = await showModalBottomSheet<Humidor>(
+                  context: context,
+                  builder: (hctx) => SafeArea(
+                    child: Column(mainAxisSize: MainAxisSize.min, children: [
+                      ListTile(title: Text(tr('어디로 옮길까요?', 'Move where?'), style: const TextStyle(fontWeight: FontWeight.w600))),
+                      for (final h in st.humidors.where((h) => h.id != item.humidorId))
+                        ListTile(
+                          leading: const Icon(Icons.inventory_2_outlined),
+                          title: Text(h.name),
+                          subtitle: Text(tr('${st.qtyByHumidor[h.id] ?? 0}개비', '${st.qtyByHumidor[h.id] ?? 0} sticks')),
+                          onTap: () => Navigator.pop(hctx, h),
+                        ),
+                    ]),
+                  ),
+                );
+                if (to != null && context.mounted) await moveStockFlow(context, item, to);
               },
             ),
           ListTile(

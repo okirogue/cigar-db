@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 
+import '../data/badges.dart';
 import '../l10n.dart';
 import '../state.dart';
 import '../theme.dart';
+import 'badge_list_screen.dart';
 import 'detail_screen.dart';
+import 'feedback_sheet.dart';
 import 'taste_map.dart';
 
 /// 홈: 브랜드 헤더 + 내 업적(도감·미각). 횟수·연속 같은 건 없음.
@@ -47,20 +50,23 @@ class _BadgesScreenState extends State<BadgesScreen> {
     }
 
     final cubanCount = smokedCigars.where((c) => c.cuban).length;
-    final wrappers = smokedCigars.map((c) => c.specs['wrapper']).whereType<String>().map(_wrapperKey).toSet();
+    final wrappers = smokedCigars.map((c) => c.specs['wrapper']).whereType<String>().map(Badges.wrapperKey).toSet();
     final brandProgress = [
       for (final b in myBrands) (b, smokedCigars.where((c) => c.brand == b).length, brandCounts[b] ?? 0),
     ]..sort((a, b) => (b.$2 / (b.$3 == 0 ? 1 : b.$3)).compareTo(a.$2 / (a.$3 == 0 ? 1 : a.$3)));
 
+    // 뱃지: 딴 것 전부 + 다음 목표 몇 개 (전체는 뱃지 화면에서)
+    final badgeGroups = Badges.compute(st);
+    final allBadges = Badges.flat(badgeGroups);
+    final earnedBadges = allBadges.where((b) => b.earned && b.group != 'palate').toList();
+    final nextBadges = allBadges.where((b) => !b.earned && b.group != 'palate').toList()
+      ..sort((a, b) {
+        if (a.isStep != b.isStep) return a.isStep ? 1 : -1;
+        return b.progress.compareTo(a.progress);
+      });
     final marks = <(String, bool)>[
-      (tr('첫 쿠반', 'First Cuban'), cubanCount > 0),
-      (tr('첫 논쿠반', 'First Non-Cuban'), smokedCigars.any((c) => !c.cuban)),
-      (tr('첫 피구라도', 'First Figurado'), st.logs.any((l) => _isFigurado(l.vitola ?? ''))),
-      (tr('쿠반 5라인', '5 Cuban lines'), cubanCount >= 5),
-      (tr('브랜드 5곳', '5 brands'), myBrands.length >= 5),
-      (tr('래퍼 3종', '3 wrappers'), wrappers.length >= 3),
-      for (final b in brandProgress)
-        if (b.$3 >= 3 && b.$2 >= b.$3) (tr('${b.$1} 완주', '${b.$1} complete'), true),
+      for (final b in earnedBadges) (b.name, true),
+      for (final b in nextBadges.take(3)) (b.isStep ? b.name : '${b.name} ${b.cur}/${b.target}', false),
     ];
 
     final tasted = st.tastedTags.where((t) => repo.tag(t) != null).toSet();
@@ -94,6 +100,8 @@ class _BadgesScreenState extends State<BadgesScreen> {
                 ]),
               ),
               const SizedBox(width: 8),
+              const FeedbackButton(), // 제작자에게 제안
+              const SizedBox(width: 6),
               const _LangToggle(),
             ]),
           ),
@@ -174,6 +182,19 @@ class _BadgesScreenState extends State<BadgesScreen> {
                       ]),
                     ),
                 ]),
+                const SizedBox(height: 10),
+                InkWell(
+                  borderRadius: BorderRadius.circular(8),
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const BadgeListScreen())),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 4),
+                    child: Row(children: [
+                      Text(tr('전체 뱃지 ${earnedBadges.length + allBadges.where((b) => b.earned && b.group == 'palate').length}/${allBadges.length} · 다음 목표 보기', 'All badges ${earnedBadges.length + allBadges.where((b) => b.earned && b.group == 'palate').length}/${allBadges.length} · see what\'s next'),
+                          style: const TextStyle(fontSize: 12, color: C.accent, fontWeight: FontWeight.w600)),
+                      const Icon(Icons.chevron_right, size: 16, color: C.accent),
+                    ]),
+                  ),
+                ),
                 if (brandProgress.isNotEmpty) ...[
                   const SizedBox(height: 14),
                   SubText(tr('브랜드별 진행', 'Progress by brand'), size: 12),
@@ -304,20 +325,6 @@ class _BadgesScreenState extends State<BadgesScreen> {
     );
   }
 
-  static bool _isFigurado(String v) {
-    final s = v.toLowerCase();
-    return ['figurado', 'torpedo', 'belicoso', 'perfecto', 'piramide', 'pyramid', 'salomon', 'campana'].any(s.contains);
-  }
-
-  static String _wrapperKey(String w) {
-    final s = w.toLowerCase();
-    for (final k in ['connecticut', 'habano', 'maduro', 'sumatra', 'corojo', 'criollo', 'cameroon', 'oscuro', 'san andres', 'candela', 'broadleaf']) {
-      if (s.contains(k)) return _cap(k);
-    }
-    return _cap(s.split(' ').first);
-  }
-
-  static String _cap(String s) => s.isEmpty ? s : '${s[0].toUpperCase()}${s.substring(1)}';
 }
 
 class _Stat extends StatelessWidget {

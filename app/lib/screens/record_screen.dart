@@ -7,9 +7,11 @@ import '../l10n.dart';
 import '../models/local.dart';
 import '../data/photos.dart';
 import '../data/analytics.dart';
+import '../data/badges.dart';
 import '../data/share_stats.dart';
 import '../state.dart';
 import '../theme.dart';
+import 'celebrate.dart';
 import 'picker_screen.dart';
 
 /// 기록 추가: 시가 → 느낀 노트 체크 → 초반/중반/후반 메모 → 점수 → 저장(재고 차감)
@@ -45,6 +47,10 @@ class _RecordScreenState extends State<RecordScreen> {
   double _score = 8;
   DateTime _date = DateTime.now();
   bool _showAllTags = false;
+  // 재고 없이 바로 기록할 때(바·라운지에서 산 시가) 구매가 — 재고엔 안 넣고 기록 카드에만 표시
+  final _price = TextEditingController();
+  String _priceCur = L10n.isKo ? 'KRW' : 'USD';
+  static const _currencies = ['KRW', 'USD', 'HKD', 'EUR', 'JPY'];
 
   @override
   void initState() {
@@ -70,6 +76,10 @@ class _RecordScreenState extends State<RecordScreen> {
       _score = e.score;
       _date = DateTime.tryParse(e.date) ?? DateTime.now();
       _deduct = false;
+      if (e.stockItemId == null && e.stockPrice != null) {
+        _priceCur = e.stockCurrency ?? 'KRW';
+        _price.text = _priceCur == 'KRW' ? '${e.stockPrice}' : (e.stockPrice! / 100).toStringAsFixed(2);
+      }
     }
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       if (widget.edit != null) return;
@@ -83,10 +93,23 @@ class _RecordScreenState extends State<RecordScreen> {
 
   @override
   void dispose() {
-    for (final c in [_start, _mid, _end, _summary, _place, _pairing]) {
+    for (final c in [_start, _mid, _end, _summary, _place, _pairing, _price]) {
       c.dispose();
     }
     super.dispose();
+  }
+
+  /// 직접 입력한 구매가 → 저장 단위 (KRW 원, 그 외 센트). 비우면 null
+  int? get _manualPrice {
+    final v = double.tryParse(_price.text.replaceAll(',', ''));
+    if (v == null || v <= 0) return null;
+    return _priceCur == 'KRW' ? v.round() : (v * 100).round();
+  }
+
+  /// 구매가 입력란을 보여줄지: 재고에서 빼는 경우엔 재고 가격을 쓰니 숨김
+  bool get _showManualPrice {
+    if (widget.edit != null) return widget.edit!.stockItemId == null;
+    return !(_deduct && _deductStockId != null);
   }
 
   Future<void> _choose() async {
@@ -169,6 +192,29 @@ class _RecordScreenState extends State<RecordScreen> {
                 ]),
                 const SizedBox(height: 8),
                 TextField(controller: _pairing, decoration: InputDecoration(hintText: tr('페어링 (커피, 위스키, 제로사이다…)', 'Pairing (coffee, whisky, soda…)'), isDense: true)),
+                if (_showManualPrice) ...[
+                  const SizedBox(height: 8),
+                  // 바·라운지에서 산 시가 등 재고 없이 피운 경우의 구매가 (선택). 재고엔 반영 안 됨
+                  Row(children: [
+                    Expanded(
+                      flex: 2,
+                      child: TextField(
+                        controller: _price,
+                        keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                        decoration: InputDecoration(hintText: tr('구매가 (선택, 1개비)', 'Price paid (optional, 1 stick)'), isDense: true),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: DropdownButtonFormField<String>(
+                        initialValue: _priceCur,
+                        decoration: const InputDecoration(isDense: true),
+                        items: [for (final c in _currencies) DropdownMenuItem(value: c, child: Text(c))],
+                        onChanged: (v) => setState(() => _priceCur = v ?? 'KRW'),
+                      ),
+                    ),
+                  ]),
+                ],
                 const SizedBox(height: 10),
                 // 사진 (폰 안에만 저장)
                 if (LogPhotos.supported) ...[
@@ -368,6 +414,9 @@ class _RecordScreenState extends State<RecordScreen> {
         'place': _place.text.trim().isEmpty ? null : _place.text.trim(),
         'pairing': _pairing.text.trim().isEmpty ? null : _pairing.text.trim(),
         'photos': _photos.isEmpty ? null : joinPhotos(_photos),
+        // 재고 연결 없는 기록만 구매가 직접 수정 가능 (재고에서 뺀 기록은 재고 스냅샷 유지)
+        if (widget.edit!.stockItemId == null) 'stock_price': _manualPrice,
+        if (widget.edit!.stockItemId == null) 'stock_currency': _manualPrice == null ? null : _priceCur,
       });
       await st.reload();
       final updated = st.logs.where((l) => l.id == widget.edit!.id).firstOrNull;
@@ -395,6 +444,9 @@ class _RecordScreenState extends State<RecordScreen> {
       pairing: _pairing.text.trim().isEmpty ? null : _pairing.text.trim(),
       photos: List.of(_photos),
       deductStockId: _deduct ? _deductStockId : null,
+      // 재고에서 안 뺄 때만 직접 입력한 구매가 사용 (addLog 가 재고 스냅샷을 우선함)
+      stockPrice: _showManualPrice ? _manualPrice : null,
+      stockCurrency: _showManualPrice && _manualPrice != null ? _priceCur : null,
     );
     await st.reload();
     final added = st.logs.where((l) => l.id == newId).firstOrNull;
@@ -407,7 +459,10 @@ class _RecordScreenState extends State<RecordScreen> {
       }
     }
     Analytics.instance.logSaved(fromStock: _deduct && _deductStockId != null, edit: false);
+    final newBadges = await Badges.takeNew(st);
     if (!mounted) return;
+    // 이 기록으로 새 뱃지를 땄으면 폭죽 — 루트 오버레이에 올리므로 화면을 닫아도 끝까지 보임
+    celebrateBadges(context, newBadges);
     Navigator.pop(context);
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text(tr(

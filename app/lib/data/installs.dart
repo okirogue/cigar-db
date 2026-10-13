@@ -8,9 +8,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../l10n.dart';
 import 'scan_service.dart';
+import 'share_stats.dart';
 
-/// 앱 실행 기록: installs/<익명 UID> 에 플랫폼·언어·빌드 번호·마지막 실행일만.
-/// 사용자 수·버전 분포 파악용 (운영자 통계). 기록·재고 내용은 안 보냄. 하루 한 번만 씀.
+/// 앱 실행 기록: installs/<익명 UID> 에 플랫폼·언어·빌드 번호·실행한 날짜들·익명 공유 켜짐 여부만.
+/// 사용자 수·버전 분포·재방문 파악용 (운영자 통계). 기록·재고 내용은 안 보냄. 하루 한 번만 씀.
 class Installs {
   Installs._();
   static final instance = Installs._();
@@ -26,7 +27,8 @@ class Installs {
     }
   }
 
-  Future<void> ping() async {
+  /// [force]: 공유 설정을 바꿨을 때처럼 오늘 이미 보냈어도 다시 보냄
+  Future<void> ping({bool force = false}) async {
     if (!ScanService.instance.ready) return;
     final uid = FirebaseAuth.instance.currentUser?.uid;
     if (uid == null) return;
@@ -37,7 +39,7 @@ class Installs {
       final info = await PackageInfo.fromPlatform();
       final build = int.tryParse(info.buildNumber) ?? 0;
       // 같은 날·같은 빌드면 생략
-      if (p.getString('install_ping') == '$today/$build') return;
+      if (!force && p.getString('install_ping') == '$today/$build') return;
       final doc = FirebaseFirestore.instance.collection('installs').doc(uid);
       final data = <String, dynamic>{
         'platform': platform,
@@ -45,6 +47,10 @@ class Installs {
         'build': build,
         'version': info.version,
         'last': today,
+        // 실행한 날짜 목록(중복 없음) — "며칠이나 다시 들어왔나" 용. 날짜만, 시간·횟수 없음
+        'days': FieldValue.arrayUnion([today]),
+        // 익명 집계 공유가 켜져 있는지 — 기록이 0건인 게 "안 써서"인지 "꺼서"인지 구분용
+        'share': await ShareStats.instance.enabled,
       };
       final cur = await doc.get().timeout(const Duration(seconds: 6));
       if (!cur.exists) data['first'] = today;

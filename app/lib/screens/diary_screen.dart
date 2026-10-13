@@ -8,6 +8,7 @@ import 'package:share_plus/share_plus.dart';
 
 import '../data/backup.dart';
 import '../data/cigar_repo.dart';
+import '../data/installs.dart';
 import '../data/photos.dart';
 import '../data/share_stats.dart';
 import '../l10n.dart';
@@ -16,6 +17,7 @@ import '../state.dart';
 import '../theme.dart';
 import 'detail_screen.dart';
 import 'record_screen.dart';
+import 'sync_sheet.dart';
 
 enum DiarySort { recent, score }
 
@@ -50,6 +52,8 @@ class _DiaryScreenState extends State<DiaryScreen> {
               PopupMenuItem(value: 'replace', child: Text(tr('가져오기 — 전부 덮어쓰기', 'Import — replace all'))),
               const PopupMenuDivider(),
               PopupMenuItem(value: 'share', child: Text(tr('익명 기록 공유 설정', 'Anonymous sharing settings'))),
+              const PopupMenuDivider(),
+              PopupMenuItem(value: 'sync', child: Text(tr('운영자 동기화 (본인용)', 'Maintainer sync'))),
             ],
           ),
           const SizedBox(width: 8),
@@ -96,6 +100,10 @@ class _DiaryScreenState extends State<DiaryScreen> {
   Future<void> _menu(BuildContext context, String v) async {
     final st = context.read<AppState>();
     final sm = ScaffoldMessenger.of(context);
+    if (v == 'sync') {
+      await openSyncSheet(context);
+      return;
+    }
     if (v == 'share') {
       final cur = await ShareStats.instance.enabled;
       if (!context.mounted) return;
@@ -118,6 +126,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
       );
       if (on == null) return;
       await ShareStats.instance.set(on);
+      Installs.instance.ping(force: true); // 실행 기록의 공유 상태 갱신
       if (on) {
         await ShareStats.instance.backfill(st.logs);
       } else {
@@ -496,11 +505,10 @@ String logToText(SmokeLog log, CigarRepo repo) {
     (ko ? '중반' : 'Second third', log.noteMid),
     (ko ? '후반' : 'Final third', log.noteEnd),
   ].where((e) => e.$2 != null && e.$2!.trim().isNotEmpty).toList();
-  if (thirds.isNotEmpty) {
+  // 초반/중반/후반은 각각 한 문단으로 — 붙여넣었을 때 다닥다닥 붙지 않게 빈 줄로 띄움
+  for (final t in thirds) {
     b.writeln();
-    for (final t in thirds) {
-      b.writeln('${t.$1}: ${t.$2!.trim()}');
-    }
+    b.writeln('${t.$1}: ${t.$2!.trim()}');
   }
   if (log.summary != null && log.summary!.trim().isNotEmpty) {
     b.writeln();

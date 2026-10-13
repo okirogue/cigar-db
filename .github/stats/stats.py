@@ -86,6 +86,7 @@ logs = collection("log_stats")
 installs = collection("installs")
 sugg = collection("cigar_suggestions")
 quota = collection("scan_quota")
+feedback = collection("feedback")
 
 # ---- 사용자 ----
 uids = {l.get("uid") for l in logs}
@@ -144,6 +145,14 @@ L.append("### 최근 14일 기록 수 (서버 갱신일 기준)")
 L.append("| " + " | ".join(d[5:] for d in recent_days) + " |")
 L.append("|" + "---|" * len(recent_days))
 L.append("| " + " | ".join(str(by_day.get(d, 0)) for d in recent_days) + " |")
+# 일별 실행 기기 수 (installs.days, b43+)
+act_day = Counter(d for i in installs for d in (i.get("days") or []))
+if act_day:
+    L.append("")
+    L.append("실행 기기 수 (그날 앱을 연 기기, b43+):")
+    L.append("| " + " | ".join(d[5:] for d in recent_days) + " |")
+    L.append("|" + "---|" * len(recent_days))
+    L.append("| " + " | ".join(str(act_day.get(d, 0)) for d in recent_days) + " |")
 L.append("")
 L.append("### 시가별 (운영자 전용 랭킹 — 앱 노출 안 함)")
 L.append("| # | 시가 | 사람 | 기록 | 평균 | 많이 느낀 노트 |")
@@ -163,11 +172,19 @@ L.append("")
 L.append("### 실행 기록 (installs, UID별)")
 if installs:
     log_uids = {short(u) for u in uids}
-    L.append("| UID | 플랫폼 | 언어 | 빌드 | 첫 실행 | 마지막 | 기록 있음 |")
-    L.append("|---|---|---|--:|---|---|:-:|")
+    # 실행일 달력: 최근 14일, 들어온 날은 ●  (days 필드는 b43+ 에서만 쌓임 — 그 전 기기는 first/last 만)
+    cal_days = recent_days
+    L.append("| UID | 플랫폼 | 언어 | 빌드 | 첫 실행 | 마지막 | 공유 | 기록 | 실행일수 | " + " ".join(d[8:] for d in cal_days) + " |")
+    L.append("|---|---|---|--:|---|---|:-:|:-:|--:|" + "---|")
     for i in sorted(installs, key=lambda x: x.get("last") or "", reverse=True):
         su = short(i["_id"])
-        L.append(f"| {su} | {i.get('platform','')} | {i.get('lang','')} | {i.get('build','')} | {i.get('first','')} | {i.get('last','')} | {'✓' if su in log_uids else ''} |")
+        days = set(i.get("days") or [])
+        share = i.get("share")
+        share_s = "" if share is None else ("on" if share else "**off**")
+        cal = " ".join("●" if d in days else "·" for d in cal_days)
+        L.append(f"| {su} | {i.get('platform','')} | {i.get('lang','')} | {i.get('build','')} | {i.get('first','')} | {i.get('last','')} | {share_s} | {'✓' if su in log_uids else ''} | {len(days) or ''} | {cal} |")
+    L.append("")
+    L.append("_공유: 익명 집계 켜짐 여부(b43+). 실행일수·달력: 실행한 날짜 기준(b43+), ● = 그날 한 번 이상 실행._")
 else:
     L.append("- 없음")
 L.append("")
@@ -193,6 +210,16 @@ for u, ls in sorted(per_uid.items(), key=lambda kv: -len(kv[1])):
         L.append(f"| {l.get('date') or ''} | {l.get('cigar_name')} | {l.get('vitola') or ''} | {score10(l.get('score')):.1f} | {', '.join(l.get('tags') or [])[:60]} |")
     L.append("")
 L.append("</details>")
+L.append("")
+L.append(f"### 제작자에게 제안·피드백 ({len(feedback)}건)")
+if feedback:
+    L.append("| 날짜 | 사용자 | 플랫폼 | 빌드 | 연락처 | 내용 |")
+    L.append("|---|---|---|--:|---|---|")
+    for f in sorted(feedback, key=lambda f: f.get("_updated") or "", reverse=True):
+        txt = (f.get("text") or "").replace("|", "¦").replace("\n", " ")
+        L.append(f"| {(f.get('_updated') or '')[:10]} | {short(f.get('uid'))} | {f.get('platform') or ''} | {f.get('build') or ''} | {(f.get('contact') or '')[:40]} | {txt[:300]} |")
+else:
+    L.append("- 없음")
 L.append("")
 L.append(f"### DB 제안 ({len(sugg)}건)")
 if sugg:

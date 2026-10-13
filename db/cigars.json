@@ -78117,5 +78117,382 @@
    "shops": "user-suggestion",
    "cuban": false
   }
+ },
+ "meerapfel-ernest": {
+  "id": "meerapfel-ernest",
+  "brand": "Meerapfel",
+  "name": "Ernest",
+  "notes": {
+   "official": [],
+   "review": []
+  },
+  "note_sources": [
+   {
+    "source": "review:cigar-coop",
+    "vitola": "Corona Gorda 5 1/2 x 46",
+    "tags": [],
+    "text": "Cameroon wrapper; binder/filler undisclosed. Third Meerapfel Master Blend line, debuted InterTabac 2023, 613 chests per size per year. Mild-to-medium strength, medium body. Notes: natural tobacco, grapefruit sweetness/rind, wood, earth, black pepper. https://cigar-coop.com/2024/08/meerapfel-ernest-corona-gorda-cigar-review.html"
+   },
+   {
+    "source": "shop:tobacconistofgreenwich",
+    "vitola": "Corona Gorda 5 1/2 x 46",
+    "tags": [],
+    "text": "Proprietary African Cameroon wrapper over aged Dominican binder/filler, rolled in the Dominican Republic; individually numbered. Notes: floral spice, vintage cedar, roasted almond, cocoa powder, white pepper, earthy sweetness. https://tobacconistofgreenwich.com/brand/meerapfel-cigars/meerapfel-ernest/"
+   },
+   {
+    "source": "review:cigar-coop",
+    "vitola": "",
+    "tags": [],
+    "text": "Launch: Robusto 4 7/8 x 50, Corona Gorda 5 1/2 x 46, Lonsdale 6 3/4 x 43 in 25-ct chests; Double Robusto 10-ct casket; Lancero added Oct 2025. https://cigar-coop.com/2023/09/cigar-news-meerapfel-master-blend-ernest-details-announced.html"
+   }
+  ],
+  "verified": true,
+  "vitolas": [
+   "Double Robusto 5 3/4 x 52",
+   "Robusto 4 7/8 x 50",
+   "Corona Gorda 5 1/2 x 46",
+   "Lonsdale 6 3/4 x 43",
+   "Lancero"
+  ],
+  "specs": {
+   "wrapper": "Cameroon",
+   "binder": "Dominican",
+   "filler": "Dominican",
+   "strength": "mild to medium"
+  },
+  "updated": "2026-10-14",
+  "aliases": [
+   "Meerapfel Ernest",
+   "Ernest Master Blend"
+  ],
+  "seed": {
+   "shops": "user-suggestion",
+   "cuban": false
+  }
+ },
+ "arturo-fuente-opus-x-forbidden-x-el-beso-prohibido": {
+  "id": "arturo-fuente-opus-x-forbidden-x-el-beso-prohibido",
+  "brand": "Arturo Fuente",
+  "name": "OpusX Forbidden X El Beso Prohibido",
+  "notes": {
+   "official": [],
+   "review": []
+  },
+  "note_sources": [
+   {
+    "source": "review:cigaraficionado",
+    "vitola": "Toro 5 3/4 x 52",
+    "tags": [],
+    "text": "Dominican puro (wrapper, binder, filler), medium-full. Rated 91 (Dec 2023): chewy nougat with candied orange, strong persistent black pepper, cedary finish. https://www.cigaraficionado.com/ratings/24887/name/fuente-fuente-opusx-forbidden-x-el-beso-prohibido-toro"
+   },
+   {
+    "source": "shop:tobacconistofgreenwich",
+    "vitola": "Toro 5 3/4 x 52",
+    "tags": [],
+    "text": "Forbidden X uses tobacco from the most restricted plots of Chateau de la Fuente, aged longer than standard OpusX, Dominican rosado wrapper; full-bodied with dark spice, earth, dried fruit, leather, molasses. https://tobacconistofgreenwich.com/brand/arturo-fuente-cigars/fuente-fuente-opus-x/fuente-fuente-opus-x-forbidden-x/"
+   }
+  ],
+  "verified": true,
+  "vitolas": [
+   "Toro 5 3/4 x 52"
+  ],
+  "specs": {
+   "wrapper": "Dominican (Chateau de la Fuente rosado)",
+   "binder": "Dominican",
+   "filler": "Dominican",
+   "strength": "medium to full"
+  },
+  "updated": "2026-10-14",
+  "aliases": [
+   "Arturo Fuente Opus X Forbidden X El Beso",
+   "Forbidden X El Beso",
+   "El Beso Prohibido"
+  ],
+  "seed": {
+   "shops": "user-suggestion",
+   "cuban": false
+  }
+ },
+ "god-of-fire-serie-b": {
+  "id": "god-of-fire-serie-b",
+  "brand": "God of Fire",
+  "name": "Serie B",
+  "notes": {
+   "official": [],
+   "review": []
+  },
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "Gran Toro 6 x 56",
+    "tags": [],
+    "text": "Prometheus/Fuente line (Dec 2011), Tabacalera A. Fuente, Dominican Republic. Gran Toro: Connecticut Broadleaf Maduro wrapper (Robusto Gordo 54 uses Ecuadorian Sun Grown); Dominican binder/filler. Medium to medium-full. Notes: cocoa, leather, wood, raisin sweetness, espresso, cedar, black pepper retrohale. https://halfwheel.com/god-of-fire-serie-b-gran-toro"
+   },
+   {
+    "source": "shop:cigarsdirect",
+    "vitola": "Diademas 56 6 1/4 x 56",
+    "tags": [],
+    "text": "Diademas 56: 6.25 x 56 diadema, Connecticut Broadleaf wrapper, Dominican binder and filler, medium-full; spice, espresso, cocoa. https://cigarsdirect.com/products/god-of-fire-serie-b-diademas-56"
+   }
+  ],
+  "verified": true,
+  "vitolas": [
+   "Robusto",
+   "Robusto Gordo 54 5 1/2 x 54",
+   "Double Robusto",
+   "Gran Toro 56 6 x 56",
+   "Diademas 56 6 1/4 x 56"
+  ],
+  "specs": {
+   "wrapper": "Connecticut Broadleaf Maduro",
+   "binder": "Dominican",
+   "filler": "Dominican",
+   "strength": "medium to full"
+  },
+  "updated": "2026-10-14",
+  "aliases": [
+   "God of Fire Serie B",
+   "Series B",
+   "God of Fire Serie B Diadema"
+  ],
+  "seed": {
+   "shops": "user-suggestion",
+   "cuban": false
+  }
+ },
+ "atabey": {
+  "id": "atabey",
+  "brand": "Atabey",
+  "name": "Atabey",
+  "notes": {
+   "official": [],
+   "review": []
+  },
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "Duendes 6 1/8 x 54",
+    "tags": [],
+    "text": "Selected Tobacco (Nelson Alfonso) ultra-premium line: Ecuadorian shade-grown wrapper, Dominican binder, Peruvian and Nicaraguan filler; made at Tabacos de Costa Rica, aged 5 years after rolling. Duendes is a torpedo, tube option from 2024. https://halfwheel.com/selected-tobaccos-atabey-line-adds-tube-option-for-duendes-vitola/444306"
+   },
+   {
+    "source": "review:cigar-coop",
+    "vitola": "",
+    "tags": [],
+    "text": "Vitolas: Idolos 4 x 55, Sabios 5 1/4 x 52, Divinos 4 1/2 x 50, Brujos 5 x 52, Delirios 5 3/4 x 55, Duendes 6 x 54 (torpedo), Ritos 6 1/8 x 55, Misticos 6 3/4 x 56, Benditos 7 1/4 x 58, Spiritus 7 1/2 x 40, Dioses 8 x 50. https://cigar-coop.com/2019/07/cigar-news-selected-tobacco-launches-atabey-idolos-and-sabios-line-extensions.html"
+   },
+   {
+    "source": "shop:tobacconistofgreenwich",
+    "vitola": "Duendes 6 x 54",
+    "tags": [],
+    "text": "Medium strength; smooth and complex with cream, cedar and honey. https://tobacconistofgreenwich.com/product/atabey-duendes"
+   }
+  ],
+  "verified": true,
+  "vitolas": [
+   "Hechizos 4 x 40",
+   "Idolos 4 x 55",
+   "Divinos 4 1/2 x 50",
+   "Brujos 5 x 52",
+   "Sabios 5 1/4 x 52",
+   "Delirios 5 3/4 x 55",
+   "Duendes 6 x 54",
+   "Ritos 6 1/8 x 55",
+   "Misticos 6 3/4 x 56",
+   "Benditos 7 1/4 x 58",
+   "Spiritus 7 1/2 x 40",
+   "Dioses 8 x 50"
+  ],
+  "specs": {
+   "wrapper": "Ecuadorian shade-grown",
+   "binder": "Dominican",
+   "filler": "Peruvian, Nicaraguan",
+   "strength": "medium"
+  },
+  "updated": "2026-10-14",
+  "aliases": [
+   "Atabey Duendes"
+  ],
+  "seed": {
+   "shops": "user-suggestion",
+   "cuban": false
+  }
+ },
+ "angelenos": {
+  "id": "angelenos",
+  "brand": "Angelenos",
+  "name": "Angelenos",
+  "notes": {
+   "official": [],
+   "review": []
+  },
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "Toro 6 x 50",
+    "tags": [],
+    "text": "Prometheus line made at Tabacalera A. Fuente, Dominican Republic: Ecuadorian Connecticut-seed wrapper, Dominican binder/filler. Toro reintroduced 2026. Medium. Notes: creamy cedar, peanut butter, cocoa nibs, leather, earth, toasted bread; white pepper, vanilla/honey retrohale. https://halfwheel.com/angelenos-toro/475622/"
+   },
+   {
+    "source": "review:halfwheel",
+    "vitola": "Robusto Gordo 5 1/2 x 54",
+    "tags": [],
+    "text": "Angelenos Limited Edition 2009 Robusto Gordo JM (Oct 2011, 12,400 cigars), same blend. Mild building to medium; maple sweetness, white pepper, creamy cedar, peanuts, hay, leather, dark chocolate, espresso finish. https://halfwheel.com/angelenos-limited-edition-2009-robusto-gordo-jm/96591"
+   }
+  ],
+  "verified": true,
+  "vitolas": [
+   "Robusto 5 1/4 x 50",
+   "Robusto Gordo 54 5 1/2 x 54",
+   "Double Robusto 5 3/4 x 52",
+   "Toro 6 x 50",
+   "Gran Toro 54 6 1/4 x 54"
+  ],
+  "specs": {
+   "wrapper": "Ecuadorian Connecticut-seed",
+   "binder": "Dominican",
+   "filler": "Dominican",
+   "strength": "medium"
+  },
+  "updated": "2026-10-14",
+  "aliases": [
+   "Angelenous Limited Edition",
+   "Angelenos Limited Edition",
+   "Prometheus Angelenos"
+  ],
+  "seed": {
+   "shops": "user-suggestion",
+   "cuban": false
+  }
+ },
+ "nova-congress": {
+  "id": "nova-congress",
+  "brand": "Nova",
+  "name": "Congress",
+  "notes": {
+   "official": [],
+   "review": []
+  },
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "Congress 7 x 43",
+    "tags": [],
+    "text": "Nova Cigars (Palm Beach, FL) regular line from IPCPR 2019, made at Nova Cigars S.A., Dominican Republic. Platinum Nova Congress 7 x 43: Ecuador Habano 2000 wrapper, Dominican binder and filler. https://halfwheel.com/ipcpr-2019-nova-cigars/363617"
+   },
+   {
+    "source": "shop:luxurycigarclub",
+    "vitola": "Congress 7 x 43",
+    "tags": [],
+    "text": "Lonsdale 7 x 43, Ecuadorian Connecticut H2000 wrapper, Dominican binder, aged Dominican filler; medium bodied. Cinnamon, leather, cream, cedar, baking spices, subtle sweetness. https://luxurycigarclub.com/collections/all/products/nova-congress"
+   }
+  ],
+  "verified": true,
+  "vitolas": [
+   "Congress 7 x 43"
+  ],
+  "specs": {
+   "wrapper": "Ecuadorian Habano 2000",
+   "binder": "Dominican",
+   "filler": "Dominican",
+   "strength": "medium"
+  },
+  "updated": "2026-10-14",
+  "aliases": [
+   "Nova Congress",
+   "Platinum Nova Congress"
+  ],
+  "seed": {
+   "shops": "user-suggestion",
+   "cuban": false
+  }
+ },
+ "nova-club-edition": {
+  "id": "nova-club-edition",
+  "brand": "Nova",
+  "name": "Club Edition",
+  "notes": {
+   "official": [],
+   "review": []
+  },
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "Toro 6 x 50",
+    "tags": [],
+    "text": "Nova Cigars 2019 regular production, Dominican Republic. Club Edition Toro 6 x 50: Ecuador Habano 2000 Oscuro wrapper, Dominican Piloto Cubano binder, Dominican filler. https://halfwheel.com/ipcpr-2019-nova-cigars/363617"
+   },
+   {
+    "source": "shop:luxurycigarclub",
+    "vitola": "Toro 6 x 50",
+    "tags": [],
+    "text": "Double-fermented Ecuadorian Habano 2000 Oscuro wrapper, Dominican Piloto Cubano binder, aged Dominican filler; medium+. Dark chocolate, espresso, dark spices, walnuts, dried plum. https://luxurycigarclub.com/products/platinum-nova-club-edition"
+   }
+  ],
+  "verified": true,
+  "vitolas": [
+   "Toro 6 x 50"
+  ],
+  "specs": {
+   "wrapper": "Ecuadorian Habano 2000 Oscuro",
+   "binder": "Dominican Piloto Cubano",
+   "filler": "Dominican",
+   "strength": "medium to full"
+  },
+  "updated": "2026-10-14",
+  "aliases": [
+   "Nova Club Edition",
+   "Platinum Nova Club Edition"
+  ],
+  "seed": {
+   "shops": "user-suggestion",
+   "cuban": false
+  }
+ },
+ "alfonso-gran-seleccion": {
+  "id": "alfonso-gran-seleccion",
+  "brand": "Alfonso",
+  "name": "Gran Selección",
+  "notes": {
+   "official": [],
+   "review": []
+  },
+  "note_sources": [
+   {
+    "source": "review:cigaraficionado",
+    "vitola": "Exclusivos 6 x 54",
+    "tags": [],
+    "text": "Selected Tobacco (Nelson Alfonso) line, PCA 2023: dark Ecuadoran Habano wrapper, Peruvian binder, Dominican and Nicaraguan filler; Tabacos de Costa Rica, aged 5 years incl. French oak rooms; 5,000 per size; medium-to-full. https://www.cigaraficionado.com/article/new-alfonso-line-from-selected-tobacco-debuting-at-pca-trade-show"
+   },
+   {
+    "source": "review:cigar-coop",
+    "vitola": "Exclusivos 6 x 54",
+    "tags": [],
+    "text": "Medium strength, medium-to-full body; natural tobacco, wood, chocolate, white pepper, floral. Sizes: Estelares 5 1/2 x 54, Exclusivos 6 x 54, Enormes 6 1/2 x 60, Preciosos 7 1/2 x 40, Grandiosos 8 x 50. https://cigar-coop.com/2024/06/alfonso-gran-seleccion-exclusivos-by-selected-tobacco-cigar-review.html"
+   }
+  ],
+  "verified": true,
+  "vitolas": [
+   "Estelares 5 1/2 x 54",
+   "Exclusivos 6 x 54",
+   "Enormes 6 1/2 x 60",
+   "Preciosos 7 1/2 x 40",
+   "Grandiosos 8 x 50"
+  ],
+  "specs": {
+   "wrapper": "Ecuadorian Habano",
+   "binder": "Peruvian",
+   "filler": "Dominican, Nicaraguan",
+   "strength": "medium to full"
+  },
+  "updated": "2026-10-14",
+  "aliases": [
+   "Alfonso Gran Seleccion",
+   "Gran Seleccion Exclusivos"
+  ],
+  "seed": {
+   "shops": "user-suggestion",
+   "cuban": false
+  }
  }
 }

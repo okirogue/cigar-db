@@ -32,6 +32,16 @@ service cloud.firestore {
       allow read, update, delete: if false;
     }
 
+    // 제작자에게 제안/피드백: 로그인(익명 포함)한 사용자가 새 문서만 추가. 읽기/수정/삭제는 콘솔·통계에서만.
+    match /feedback/{id} {
+      allow create: if request.auth != null
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.text is string && request.resource.data.text.size() > 0 && request.resource.data.text.size() <= 600
+        && request.resource.data.contact is string && request.resource.data.contact.size() <= 120
+        && request.resource.data.keys().hasOnly(['uid', 'text', 'contact', 'lang', 'platform', 'build', 'created']);
+      allow read, update, delete: if false;
+    }
+
     // 익명 기록 공유: 문서 id는 "<uid>_<logId>", 본인 것만 쓰기. 읽기는 로그인(익명)한 누구나(카페 평점 집계용).
     match /log_stats/{id} {
       allow read: if request.auth != null;
@@ -45,15 +55,25 @@ service cloud.firestore {
       allow delete: if request.auth != null && id.matches('^' + request.auth.uid + '_[0-9]+$');
     }
 
-    // 앱 실행 기록: 본인(익명 UID) 문서만, 플랫폼·언어·빌드·날짜만. 다른 사람 것은 못 읽음.
+    // 앱 실행 기록: 본인(익명 UID) 문서만, 플랫폼·언어·빌드·실행 날짜 목록·공유 켜짐 여부만. 다른 사람 것은 못 읽음.
     match /installs/{uid} {
       allow read: if request.auth != null && request.auth.uid == uid;
       allow create, update: if request.auth != null && request.auth.uid == uid
         && request.resource.data.platform is string && request.resource.data.platform.size() <= 16
         && request.resource.data.lang is string && request.resource.data.lang.size() <= 8
         && request.resource.data.build is int
-        && request.resource.data.keys().hasOnly(['platform', 'lang', 'build', 'version', 'first', 'last']);
+        && (!('days' in request.resource.data) || (request.resource.data.days is list && request.resource.data.days.size() <= 1000))
+        && (!('share' in request.resource.data) || request.resource.data.share is bool)
+        && request.resource.data.keys().hasOnly(['platform', 'lang', 'build', 'version', 'first', 'last', 'days', 'share']);
       allow delete: if false;
+    }
+
+    // 운영자 전용 기기 간 동기화: 본인 UID 아래 + 구글 로그인으로 확인된 운영자 이메일일 때만.
+    // 다른 사용자는 로그인 자체가 앱에서 막히고, 혹시 들어와도 여기서 거부됨.
+    match /users/{uid}/{document=**} {
+      allow read, write: if request.auth != null && request.auth.uid == uid
+        && request.auth.token.email == 'okirogue@gmail.com'
+        && request.auth.token.email_verified == true;
     }
 
     match /{document=**} {

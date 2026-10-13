@@ -4,12 +4,16 @@ class Humidor {
   final int id;
   final String name;
   final int sortOrder;
-  Humidor({required this.id, required this.name, required this.sortOrder});
+  final String sid; // 기기 간 동기화용 전역 id (로컬 id 는 기기마다 다름)
+  final int updated; // 마지막 수정 시각 (ms)
+  Humidor({required this.id, required this.name, required this.sortOrder, this.sid = '', this.updated = 0});
 
   factory Humidor.fromMap(Map<String, Object?> m) => Humidor(
         id: m['id'] as int,
         name: m['name'] as String,
         sortOrder: (m['sort_order'] as int?) ?? 0,
+        sid: (m['sid'] as String?) ?? '',
+        updated: (m['updated'] as int?) ?? 0,
       );
 }
 
@@ -25,6 +29,8 @@ class StockItem {
   final String currency; // 'KRW' | 'USD' ...
   final String addedDate; // yyyy-MM-dd
   final String? memo;
+  final String sid;
+  final int updated;
 
   StockItem({
     required this.id,
@@ -37,6 +43,8 @@ class StockItem {
     this.currency = 'KRW',
     required this.addedDate,
     this.memo,
+    this.sid = '',
+    this.updated = 0,
   });
 
   factory StockItem.fromMap(Map<String, Object?> m) => StockItem(
@@ -50,6 +58,8 @@ class StockItem {
         currency: (m['currency'] as String?) ?? 'KRW',
         addedDate: m['added_date'] as String,
         memo: m['memo'] as String?,
+        sid: (m['sid'] as String?) ?? '',
+        updated: (m['updated'] as int?) ?? 0,
       );
 
   /// 입고일로부터 며칠 숙성됐는지
@@ -82,6 +92,8 @@ class SmokeLog {
   final int? stockPrice;
   final String? stockCurrency;
   final String? stockAdded; // 입고일 yyyy-MM-dd
+  final String sid;
+  final int updated;
 
   SmokeLog({
     required this.id,
@@ -102,6 +114,8 @@ class SmokeLog {
     this.stockPrice,
     this.stockCurrency,
     this.stockAdded,
+    this.sid = '',
+    this.updated = 0,
   });
 
   /// 입고일 → 피운 날까지 숙성 일수. 재고 정보 없으면 null
@@ -134,5 +148,7 @@ class SmokeLog {
         stockPrice: m['stock_price'] as int?,
         stockCurrency: m['stock_currency'] as String?,
         stockAdded: m['stock_added'] as String?,
+        sid: (m['sid'] as String?) ?? '',
+        updated: (m['updated'] as int?) ?? 0,
       );
 }
