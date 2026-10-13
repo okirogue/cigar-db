@@ -1,7 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../l10n.dart';
-import '../models/local.dart';
 import '../state.dart';
 
 /// 도감·미각 뱃지 정의와 달성 계산.

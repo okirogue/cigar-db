@@ -91,7 +91,7 @@ class _CelebrationState extends State<_Celebration> with SingleTickerProviderSta
               left: 20,
               right: 20,
               child: Opacity(
-                opacity: bannerOut.clamp(0, 1),
+                opacity: bannerOut.clamp(0.0, 1.0).toDouble(),
                 child: Material(
                   color: Colors.transparent,
                   child: Container(
