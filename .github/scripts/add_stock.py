@@ -41,10 +41,13 @@ def req(method, url, body=None):
         raise SystemExit(1)
 
 
-def collection(path):
+def collection(path, show_missing=False):
     docs, token = [], None
     while True:
         q = {"pageSize": 300}
+        if show_missing:  # users/<uid> 는 하위 컬렉션만 있는 "빈 부모" 라 기본 목록엔 안 나옴
+            q["showMissing"] = "true"
+            q["mask.fieldPaths"] = "_"
         if token:
             q["pageToken"] = token
         res = req("GET", f"{BASE}/{path}?{urllib.parse.urlencode(q)}")
@@ -79,7 +82,7 @@ def fv(x):
 
 
 # 1) UID 찾기 (users/ 문서 id 로)
-uids = [doc_id(d) for d in collection("users")]
+uids = [doc_id(d) for d in collection("users", show_missing=True)]
 uid = next((u for u in uids if u.startswith(UID6)), None)
 if not uid:
     print(f"UID not found: {UID6} (users: {[u[:6] for u in uids]})", file=sys.stderr)
