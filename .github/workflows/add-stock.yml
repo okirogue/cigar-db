@@ -1,0 +1,57 @@
+name: add-stock
+
+# 운영자 재고 일괄 입력 (수동). users/<uid>/stock 에 문서를 만들고 결과는 통계 이슈에 댓글로.
+on:
+  workflow_dispatch:
+    inputs:
+      uid:
+        description: "운영자 UID 앞 6자리"
+        default: "sZlitQ"
+      humidor:
+        description: "휴미더 이름 (앱에 보이는 그대로)"
+        required: true
+      items:
+        description: "재고 JSON 배열 (add_stock.py 주석 참고)"
+        required: true
+      dry:
+        description: "true 면 실제로 안 쓰고 계획만"
+        default: "true"
+
+permissions:
+  contents: read
+  issues: write
+  id-token: write
+
+jobs:
+  add:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Auth to Google Cloud (WIF)
+        id: gcp-auth
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/878079125373/locations/global/workloadIdentityPools/github/providers/github
+          service_account: play-publisher@myhumidor-2482d.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/cloud-platform
+      - name: Add stock
+        env:
+          TOKEN: ${{ steps.gcp-auth.outputs.access_token }}
+          PROJECT: myhumidor-2482d
+          ITEMS: ${{ inputs.items }}
+          HUMIDOR: ${{ inputs.humidor }}
+        run: |
+          printf '%s' "$ITEMS" > items.json
+          ARGS=""
+          [ "${{ inputs.dry }}" = "true" ] && ARGS="--dry"
+          python3 .github/scripts/add_stock.py "${{ inputs.uid }}" "$HUMIDOR" items.json $ARGS 2>&1 | tee out.txt
+      - name: Comment result
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          NUM=$(gh issue list --label stats --state open --json number --jq '.[0].number' || true)
+          { echo "### add-stock (dry=${{ inputs.dry }}) · run ${{ github.run_id }}"; echo '```'; tail -n 80 out.txt; echo '```'; } > body.md
+          [ -n "$NUM" ] && gh issue comment "$NUM" --body-file body.md || true
