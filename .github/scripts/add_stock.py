@@ -109,6 +109,10 @@ print(f"target humidor: {HUMIDOR} ({hum_sid})\ndry={DRY}")
 # 3) 기존 재고 수 (참고)
 existing = [d for d in collection(f"users/{uid}/stock") if val(d.get("fields", {}).get("deleted", {})) is not True]
 print(f"existing stock docs: {len(existing)}")
+if DRY:
+    for d in existing:
+        f = d.get("fields", {})
+        print(f"  = {val(f.get('cigar_id', {}))} | {val(f.get('cigar_name', {}))} | {val(f.get('vitola', {})) or ''} | x{val(f.get('qty', {}))} | {val(f.get('added_date', {}))}")
 
 # 4) 재고 문서 만들기
 with open(ITEMS_PATH, encoding="utf-8") as fh:
