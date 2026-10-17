@@ -23575,8 +23575,29 @@
   "brand": "Montecristo",
   "name": "1935 Anniversary Nicaragua",
   "notes": {
-   "official": [],
-   "review": []
+   "official": [
+    "woody",
+    "coffee",
+    "cinnamon",
+    "earth",
+    "spice",
+    "sweet",
+    "tobacco"
+   ],
+   "review": [
+    "oak",
+    "espresso",
+    "cocoa",
+    "leather",
+    "mineral",
+    "toast",
+    "bread",
+    "earth",
+    "cinnamon",
+    "sweet",
+    "pepper",
+    "coffee"
+   ]
   },
   "note_sources": [
    {
@@ -23584,15 +23605,76 @@
     "vitola": "",
     "tags": [],
     "text": " The Montecristo 1935 Anniversary Nicaragua is now available in a 52 x 4 ½ size, the “Exclusivo.” The size – created exclusively for Casa de Montecristo’s retail stores and lounges – is now available. Like its predecessor, the Montecristo 1935 Anniversary Nicaragua Exclusivo pays tribute to the original 1935 blend that made Montecristo the icon it is today. To fully honor Montecristo and the original tobaccos used in that first Montecristo cigar, Rafael Nodal, AJ Fernandez and the Grupo de Maestros worked to find a precise and exquisite proprietary blend of aged tobaccos. “At Casa de Montecristo,” said CEO Brad Winstead, “we are continuously looking for ways to offer our adult clientele the highest quality premium products. The Montecristo 1935 Anniversary Nicaragua Exclusivo is a perfect fit for our brand and we look forward to providing our guests with this exclusive size. We are honored to be able to offer cigar lovers something they can’t get anywhere else.” The Montecristo 1935 Anniversary Nicaragua Exclusivo is offered in 10-count boxes and priced at an MSRP of $15.00 per cigar. Limited quantities will be available for purchase starting June 11 exclusively, as noted above, at Casa de Montecristo. Size and Frontmark: 52 x 4 1/2, Exclusivo Price: USD 15.00 Origin: Nicaragua "
+   },
+   {
+    "source": "official:montecristo-web",
+    "vitola": "",
+    "tags": [
+     "woody",
+     "coffee",
+     "cinnamon",
+     "earth",
+     "spice",
+     "sweet",
+     "tobacco"
+    ],
+    "text": "Altadis U.S.A. / JR copy: a Nicaraguan puro 'made entirely of Cuban seed tobaccos', box-pressed, hand rolled at A.J. Fernandez's San Lotano factory in Ocotal; created by Rafael Nodal and A.J. Fernandez for the brand's 80th anniversary (1935). 'Savory flavors of wood, coffee, cinnamon, earth, and spice, all enhanced with a long-lasting sweet tobacco finish'; medium to full bodied.",
+    "confidence": "high",
+    "urls": [
+     "https://halfwheel.com/montecristo-1935-anniversary-nicaragua-no-2-2/404972/",
+     "https://jrcigars.com/cigars/handmade-cigars/montecristo-cigars/montecristo-1935-anniversary-nicaragua",
+     "https://www.cigaraficionado.com/top25cigar/montecristo-1935-anniversary-nicaragua-espeso-2024"
+    ]
+   },
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "oak",
+     "espresso",
+     "cocoa",
+     "leather",
+     "mineral",
+     "toast",
+     "bread",
+     "earth",
+     "cinnamon",
+     "sweet",
+     "pepper",
+     "coffee"
+    ],
+    "text": "halfwheel (No. 2 redux, 90): upper-mild rising to between medium and full; sweet oak and espresso beans lead, with cocoa nibs, leather, pencil lead, toasted bread, gritty earth, slight cinnamon; maple syrup sweetness and black pepper on the retrohale; later powdery cocoa, bread, popcorn. Cigar Aficionado (Espeso, 97 pts, #2 cigar of 2024): 'big, box-pressed, chunky and delightful', capturing the coffee, earth and spice of the original sizes.",
+    "confidence": "high",
+    "urls": [
+     "https://halfwheel.com/montecristo-1935-anniversary-nicaragua-no-2-2/404972/",
+     "https://jrcigars.com/cigars/handmade-cigars/montecristo-cigars/montecristo-1935-anniversary-nicaragua",
+     "https://www.cigaraficionado.com/top25cigar/montecristo-1935-anniversary-nicaragua-espeso-2024"
+    ]
    }
   ],
   "verified": false,
   "vitolas": [],
-  "updated": "2026-10-06",
+  "updated": "2026-10-17",
   "seed": {
    "shops": "cigarpage+cigarplace",
    "cuban": false
-  }
+  },
+  "specs": {
+   "wrapper": "Nicaragua",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "country": "Nicaragua (A.J. Fernandez San Lotano factory, Ocotal)",
+   "strength": "medium to full",
+   "vitolas": [
+    "Demi 5 1/2x46",
+    "Robusto 5x54",
+    "Toro 6x54",
+    "No. 2 (Belicoso) 6 1/8x52",
+    "Espeso 5 1/2x60",
+    "Churchill 7x52"
+   ]
+  },
+  "research_note": "User said 'Plasencia-made' - incorrect: it is made by A.J. Fernandez at San Lotano (Ocotal). Original 2020 launch had four sizes (No. 2, Toro, Demi, plus one); Robusto, Espeso and Churchill were added later. 'maple syrup' mapped to sweet; 'pencil lead' to mineral."
  },
  "odyssey-full": {
   "id": "odyssey-full",
@@ -50685,7 +50767,10 @@
   "brand": "Hoyo de Monterrey",
   "name": "Le Hoyo de Río Seco",
   "notes": {
-   "official": [],
+   "official": [
+    "tobacco",
+    "floral"
+   ],
    "review": [
     "cream",
     "spice",
@@ -50693,7 +50778,14 @@
     "clove",
     "cinnamon",
     "earth",
-    "oak"
+    "oak",
+    "floral",
+    "nuts",
+    "dark_chocolate",
+    "bread",
+    "honey",
+    "cocoa",
+    "coffee"
    ]
   },
   "note_sources": [
@@ -50715,10 +50807,48 @@
      "https://robertgraham1874.com/product/hoyo-de-monterrey-le-hoyo-de-rio-seco-single-cigar/",
      "https://www.cigarsense.com/?p=30429"
     ]
+   },
+   {
+    "source": "official:hoyo-web",
+    "vitola": "",
+    "tags": [
+     "tobacco",
+     "floral"
+    ],
+    "text": "Habanos S.A. (2019/2020 launch): 'Le Hoyo de Rio Seco' (factory vitola Aromosos, 56 x 140 mm) joins the Linea Le Hoyo. Seco, volado and ligero leaves come exclusively from the San Juan y Martinez district, a Protected Appellation of Origin in Vuelta Abajo, forming a smooth flavour blend that is consistent and intense thanks to the area's soil. Described as delicate, aromatic, with great elegance and complexity - 'an appealing option for those who like Habanos with less strength'. Sold in 25-count SLB and later 10-count boxes, plus tubos.",
+    "confidence": "high",
+    "urls": [
+     "https://www.habanos.com/en/news/hoyo-de-monterrey-le-hoyo-de-rio-seco-en/",
+     "https://www.cigaraficionado.com/ratings/23657/name/hoyo-de-monterrey-le-hoyo-de-rio-seco-toro",
+     "https://cigarobsession.com/2020/09/29/cuban-hoyo-de-monterrey-le-hoyo-de-rio-seco-cigar-review/"
+    ]
+   },
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "floral",
+     "nuts",
+     "dark_chocolate",
+     "oak",
+     "bread",
+     "cream",
+     "earth",
+     "honey",
+     "cocoa",
+     "coffee"
+    ],
+    "text": "Cigar Aficionado (91 pts, medium): 'floral atop a foundation of assorted nuts, chocolate, oak and a hint of graham cracker.' Cigar Obsession: medium-full body; creamy, nutty opening with zesty earthiness, then deeper earth, honey and dry cocoa on the finish; midpoint sweet cream, earth, cocoa with a light coffee finish.",
+    "confidence": "high",
+    "urls": [
+     "https://www.habanos.com/en/news/hoyo-de-monterrey-le-hoyo-de-rio-seco-en/",
+     "https://www.cigaraficionado.com/ratings/23657/name/hoyo-de-monterrey-le-hoyo-de-rio-seco-toro",
+     "https://cigarobsession.com/2020/09/29/cuban-hoyo-de-monterrey-le-hoyo-de-rio-seco-cigar-review/"
+    ]
    }
   ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-17",
   "seed": {
    "cuban": true,
    "coh_stocked": true,
@@ -50727,10 +50857,18 @@
   "specs": {
    "length_in": "5.5",
    "ring_gauge": "56",
-   "strength": "Light",
+   "strength": "mild to medium",
    "factory_vitola": "Aromosos",
-   "strength_felt": "medium"
-  }
+   "strength_felt": "medium",
+   "wrapper": "Cuba",
+   "binder": "Cuba",
+   "filler": "Cuba (San Juan y Martinez, Vuelta Abajo)",
+   "country": "Cuba",
+   "vitolas": [
+    "Le Hoyo de Rio Seco (Aromosos) 5 1/2x56"
+   ]
+  },
+  "research_note": "Full name is 'Le Hoyo de Rio Seco' (Linea Le Hoyo). Habanos positions it as lower strength; CA rates medium, Cigar Obsession medium-full body. 'mild to medium' chosen per Habanos; 'medium' is also defensible. 'graham cracker' mapped to bread; 'chocolate' to dark_chocolate."
  },
  "hoyo-de-monterrey-souvenir-de-luxe": {
   "id": "hoyo-de-monterrey-souvenir-de-luxe",
@@ -54192,12 +54330,53 @@
   "brand": "José L. Piedra",
   "name": "Brevas",
   "notes": {
-   "official": [],
-   "review": []
+   "official": [
+    "tobacco"
+   ],
+   "review": [
+    "earth",
+    "nuts",
+    "mineral",
+    "woody",
+    "coffee"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "official:jose-web",
+    "vitola": "",
+    "tags": [
+     "tobacco"
+    ],
+    "text": "Same brand copy as the rest of the JLP range: filler tobaccos grown only in the Remedios region, hand-made short filler; retailer (C.Gars Ltd) describes the Brevas as delivering 'a medium Cuban flavour' and being 'a reliable everyday smoke'.",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarslover.com/jose-l-piedra-brevas/",
+     "https://www.cgarsltd.co.uk/jose-piedra-brevas-cigar-single-p-19188.html",
+     "https://www.smoke-king.co.uk/cigars/cuban-cigars/jose-l-piedra-cuban-cigars"
+    ]
+   },
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "nuts",
+     "mineral",
+     "woody",
+     "coffee"
+    ],
+    "text": "CigarsLover: body very mild rising to mild-to-medium, strength 'quite minimal'. Pre-light mild earth and walnut. Smoke opens with a dominant mineral note, intense bark, medium coffee, walnut and background balsamic notes; later a growing slight bitterness and a papery taste, bark and walnut persist, little evolution.",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarslover.com/jose-l-piedra-brevas/",
+     "https://www.cgarsltd.co.uk/jose-piedra-brevas-cigar-single-p-19188.html",
+     "https://www.smoke-king.co.uk/cigars/cuban-cigars/jose-l-piedra-cuban-cigars"
+    ]
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-17",
   "seed": {
    "cuban": true,
    "coh_stocked": true,
@@ -54206,9 +54385,23 @@
   "specs": {
    "length_in": "5.2",
    "ring_gauge": "42",
-   "strength": "Medium to Full",
-   "factory_vitola": "Brevas JLP"
-  }
+   "strength": "mild to medium",
+   "factory_vitola": "Brevas JLP",
+   "wrapper": "Cuba",
+   "binder": "Cuba",
+   "filler": "Cuba (short filler, Remedios / Vuelta Arriba region)",
+   "country": "Cuba",
+   "vitolas": [
+    "Brevas 5 1/4x42",
+    "Petit Caballeros 4 3/4x48",
+    "Cazadores 6x43",
+    "Conservas 5 1/2x44",
+    "Petit Cazadores 4 1/8x43",
+    "Petit Cetros 5x38",
+    "Cremas 5 3/8x40"
+   ]
+  },
+  "research_note": "Only one proper review found (CigarsLover, mild-to-medium); UK retailers list it as medium-to-full. Strength set to 'mild to medium' per the review; treat as medium if you prefer retailer data. No halfwheel/Aficionado review of this vitola found."
  },
  "jose-l-piedra-cazadores": {
   "id": "jose-l-piedra-cazadores",
@@ -54312,12 +54505,71 @@
   "brand": "José L. Piedra",
   "name": "Petit Caballeros",
   "notes": {
-   "official": [],
-   "review": []
+   "official": [
+    "tobacco",
+    "earth"
+   ],
+   "review": [
+    "nuts",
+    "cedar",
+    "cinnamon",
+    "earth",
+    "leather",
+    "hay",
+    "mineral",
+    "white_pepper",
+    "vanilla",
+    "bread",
+    "citrus",
+    "cocoa"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "official:jose-web",
+    "vitola": "",
+    "tags": [
+     "tobacco",
+     "earth"
+    ],
+    "text": "Habanos S.A. value brand, filler grown only in the Remedios (formerly Vuelta Arriba) region. Made 'totalmente a mano, tripa corta' (hand-made, short filler). Retailer/Habanos brand copy: a distinct, somewhat rustic, medium-to-full taste from the Remedios tobaccos; 'a cigar for the great outdoors'. (C.Gars Ltd / Smoke King brand text; no vitola-specific Habanos flavour text found.)",
+    "confidence": "high",
+    "urls": [
+     "https://halfwheel.com/jose-l-piedra-petit-caballeros/384463/",
+     "https://www.cigarslover.com/jose-l-piedra-petit-caballeros/",
+     "https://www.cgarsltd.co.uk/jose-piedra-cazadores-cigars-pack-p-219.html?page=1",
+     "https://www.smoke-king.co.uk/cigars/cuban-cigars/jose-l-piedra-cuban-cigars"
+    ]
+   },
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "nuts",
+     "cedar",
+     "cinnamon",
+     "earth",
+     "leather",
+     "hay",
+     "mineral",
+     "white_pepper",
+     "vanilla",
+     "bread",
+     "citrus",
+     "cocoa"
+    ],
+    "text": "halfwheel (2021): starts mild, builds to just short of medium. Peanut butter and cedar dominate, with cinnamon, earth, leather, hay and pencil lead behind; white pepper and vanilla on the retrohale. Second half: dank earth, tree bark, leather, sourdough bread, citrus, popcorn, cocoa nibs, tea leaves, touch of floral. CigarsLover: medium strength; pepper, wood and coffee with light bitterness, coffee shifting to espresso.",
+    "confidence": "high",
+    "urls": [
+     "https://halfwheel.com/jose-l-piedra-petit-caballeros/384463/",
+     "https://www.cigarslover.com/jose-l-piedra-petit-caballeros/",
+     "https://www.cgarsltd.co.uk/jose-piedra-cazadores-cigars-pack-p-219.html?page=1",
+     "https://www.smoke-king.co.uk/cigars/cuban-cigars/jose-l-piedra-cuban-cigars"
+    ]
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-17",
   "seed": {
    "cuban": true,
    "coh_stocked": true,
@@ -54326,9 +54578,23 @@
   "specs": {
    "length_in": "4.7",
    "ring_gauge": "48",
-   "strength": "Medium to Full",
-   "factory_vitola": "Hermoso Especial"
-  }
+   "strength": "medium",
+   "factory_vitola": "Hermoso Especial",
+   "wrapper": "Cuba",
+   "binder": "Cuba",
+   "filler": "Cuba (short filler, Remedios / Vuelta Arriba region)",
+   "country": "Cuba",
+   "vitolas": [
+    "Petit Caballeros 4 3/4x48",
+    "Brevas 5 1/4x42",
+    "Cazadores 6x43",
+    "Conservas 5 1/2x44",
+    "Petit Cazadores 4 1/8x43",
+    "Petit Cetros 5x38",
+    "Cremas 5 3/8x40"
+   ]
+  },
+  "research_note": "Strength: halfwheel says just under medium, CigarsLover says medium, UK retailers list medium-to-full; 'medium' chosen. Habanos describes JLP as hand-made short filler (tripa corta), not machine-made. Box count recently reduced from 25 to 12. habanos.com brand page could not be fetched (provenance b"
  },
  "cohiba-behike-52": {
   "id": "cohiba-behike-52",
@@ -77881,9 +78147,23 @@
     "cream",
     "tobacco",
     "nuts",
-    "cinnamon"
+    "cinnamon",
+    "cedar",
+    "coffee",
+    "oak",
+    "pepper",
+    "toast",
+    "woody",
+    "dark_chocolate",
+    "cocoa",
+    "earth",
+    "spice"
    ],
-   "review": []
+   "review": [
+    "bread",
+    "sweet",
+    "coffee"
+   ]
   },
   "note_sources": [
    {
@@ -77898,6 +78178,68 @@
      "cinnamon"
     ],
     "text": "Brazilian Cubra wrapper, Dominican binder, Dominican/Nicaraguan/Peruvian filler. Medium body, medium-to-full flavor: citrus, vanilla, cream, tobacco, nuts, cinnamon. Blended by Hendrik Kelner Jr. https://casdaglicigars.com/cigar/grand-cafe/"
+   },
+   {
+    "source": "official:casdagli-web",
+    "vitola": "",
+    "tags": [
+     "vanilla",
+     "cedar",
+     "coffee",
+     "oak",
+     "pepper",
+     "toast",
+     "woody",
+     "dark_chocolate",
+     "cocoa",
+     "earth",
+     "spice"
+    ],
+    "text": "Casdagli: the Traditional Line revives the house's 1990s Cuban-era vitolas, the first KBF (Kelner Boutique Factory) blends for the brand; 'full bodied but mild' with a 'Cubanesque spice to the palate'. Cotton Tail (reintroduced 2009): densely packed filler of aged Pennsylvania Broadleaf, Dominican, Nicaraguan and Peruvian tobacco, Kelner Family Reserve binder, Dominican Cotui wrapper; medium-full body/flavour, medium strength; 'vanilla, cedar, coffee, oak, pepper, smoked wood'. Robusto: Dominican Cotui wrapper; medium body/flavour/strength; 'dark chocolate, cocoa, earth, vanilla, smoked wood, oak'.",
+    "confidence": "medium",
+    "urls": [
+     "https://casdaglicigars.com/line/traditional-line/",
+     "https://casdaglicigars.com/",
+     "https://casdaglicigars.com/cigar/robusto/"
+    ]
+   },
+   {
+    "source": "official:casdagli-web",
+    "vitola": "",
+    "tags": [
+     "citrus",
+     "vanilla",
+     "cream",
+     "tobacco",
+     "nuts",
+     "cinnamon",
+     "dark_chocolate",
+     "cedar",
+     "coffee"
+    ],
+    "text": "Casdagli: Grand Cafe, Traditional Line lancero 39 x 7.5'': Brazilian Cubra wrapper, Dominican binder, Dominican/Nicaraguan/Peruvian filler; body medium, flavour medium-full, strength medium; tasting notes 'citrus, vanilla, cream, tobacco, nuts, cinnamon'. Grand Cafe Maduro: Ecuador Corojo wrapper, same binder/filler; body and flavour medium-full, strength medium; 'chocolate, vanilla, cedar, coffee, tobacco'.",
+    "confidence": "medium",
+    "urls": [
+     "https://casdaglicigars.com/?p=1450",
+     "https://casdaglicigars.com/?p=1455",
+     "https://casdaglicigars.com/blind-cigar-review-bespoke-grand-cafe-lancero/"
+    ]
+   },
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "bread",
+     "sweet",
+     "coffee"
+    ],
+    "text": "Blind Man's Puff (Bespoke/Casdagli Grand Cafe lancero, as quoted on casdaglicigars.com): 'pretty powerful cigar' with 'dramatic transitions from yeasty sweetness to dark rich coffee' and a nice range of flavors.",
+    "confidence": "medium",
+    "urls": [
+     "https://casdaglicigars.com/?p=1450",
+     "https://casdaglicigars.com/?p=1455",
+     "https://casdaglicigars.com/blind-cigar-review-bespoke-grand-cafe-lancero/"
+    ]
    }
   ],
   "verified": true,
@@ -77909,9 +78251,18 @@
    "binder": "Dominican",
    "filler": "Dominican, Nicaraguan, Peruvian",
    "strength": "medium",
-   "factory": "Kelner Boutique Factory (Dominican Republic)"
+   "factory": "Kelner Boutique Factory (Dominican Republic)",
+   "country": "Dominican Republic (Kelner Boutique Factory)",
+   "vitolas": [
+    "Cotton Tail (Figurado) 5x52-64",
+    "Robusto 4.9x50",
+    "Super Belicoso 5.7x60",
+    "25 Aniversario (Double Corona) 7.5x52",
+    "Grand Cafe (Lancero) 7.5x39",
+    "Grand Cafe Maduro (Lancero) 7.5x39"
+   ]
   },
-  "updated": "2026-10-09",
+  "updated": "2026-10-17",
   "aliases": [
    "Traditional Line Grand Cafe",
    "Casdagli Grand Café"
@@ -77919,7 +78270,8 @@
   "seed": {
    "shops": "user-suggestion",
    "cuban": false
-  }
+  },
+  "research_note": "Grand Cafe IS a vitola of the Traditional Line, but Casdagli gives it a different wrapper (Brazilian Cubra vs Dominican Cotui on Cotton Tail/Robusto) and different tasting notes, so it was kept as its own entry rather than merged into #11. Merge if your DB keys on line rather than blend. 'yeasty' ma"
  },
  "pirates-gold-connecticut": {
   "id": "pirates-gold-connecticut",
@@ -78397,5 +78749,662 @@
    "shops": "user-suggestion",
    "cuban": false
   }
+ },
+ "arturo-fuente-curly-head-maduro": {
+  "id": "arturo-fuente-curly-head-maduro",
+  "brand": "Arturo Fuente",
+  "name": "Curly Head Maduro",
+  "notes": {
+   "official": [
+    "coffee",
+    "sweet",
+    "vanilla"
+   ],
+   "review": [
+    "coffee",
+    "tobacco"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "official:arturo-web",
+    "vitola": "",
+    "tags": [
+     "coffee",
+     "sweet",
+     "vanilla"
+    ],
+    "text": "Retailer (Neptune Cigar) copy for Curly Head Deluxe Maduro: handmade in the Dominican Republic with a Connecticut maduro wrapper over premium Dominican leaves; 'a well-balanced cigar with pleasant notes of coffee, sweetness and vanilla.' Mike's Cigars: Curly Heads are sold unbanded in boxes of 40, with a smooth taste and sweet aroma. No Fuente-authored flavor text found.",
+    "confidence": "medium",
+    "urls": [
+     "https://neptunecigar.com/cigars/arturo-fuente-maduro-curly-head-deluxe",
+     "https://stogiereview.com/2006/07/25/arturo-fuente-curly-head-deluxe-maduro/",
+     "https://mikescigars.com/arturo-fuente-curly-head-afcu1"
+    ]
+   },
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "coffee",
+     "tobacco"
+    ],
+    "text": "Stogie Review (2006, Curly Head Deluxe Maduro 6.5x43): medium-to-full; coffee note early that fades after about two inches, then a heavy maduro base; later tight draw, bitter and acrid near the band. Coarse, veiny, dry maduro wrapper.",
+    "confidence": "medium",
+    "urls": [
+     "https://neptunecigar.com/cigars/arturo-fuente-maduro-curly-head-deluxe",
+     "https://stogiereview.com/2006/07/25/arturo-fuente-curly-head-deluxe-maduro/",
+     "https://mikescigars.com/arturo-fuente-curly-head-afcu1"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": false,
+   "suggested": true
+  },
+  "specs": {
+   "wrapper": "Connecticut Broadleaf (maduro)",
+   "binder": "Dominican Republic",
+   "filler": "Dominican Republic (short/mixed filler)",
+   "country": "Dominican Republic",
+   "strength": "medium",
+   "vitolas": [
+    "Curly Head 6 1/2x43",
+    "Curly Head Deluxe 6 1/2x43"
+   ]
+  },
+  "research_note": "Retailers list the maduro wrapper only as 'Connecticut maduro'; 'Broadleaf' is the usual Fuente maduro leaf but was not explicitly confirmed. Neptune lists strength medium; Stogie Review says medium-full. Curly Head vs Curly Head Deluxe: both 6 1/2x43, Deluxe marketed as the premium tier. Filler is ",
+  "updated": "2026-10-17"
+ },
+ "arturo-fuente-curly-head-natural": {
+  "id": "arturo-fuente-curly-head-natural",
+  "brand": "Arturo Fuente",
+  "name": "Curly Head Natural",
+  "notes": {
+   "official": [
+    "sweet",
+    "spice",
+    "nuts"
+   ],
+   "review": [
+    "sweet",
+    "tobacco"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "official:arturo-web",
+    "vitola": "",
+    "tags": [
+     "sweet",
+     "spice",
+     "nuts"
+    ],
+    "text": "Retailer (Neptune Cigar): 'A smooth, mild cigar with a sweet and spicy profile that's perfect anytime of day', with a 'tasty Cameroon wrapper' over premium Dominican leaves. Mike's Cigars: 'a smooth, nutty taste and a sweet aroma.'",
+    "confidence": "medium",
+    "urls": [
+     "https://neptunecigar.com/cigars/arturo-fuente-curly-head-deluxe",
+     "https://www.neptunecigar.com/cigars/arturo-fuente-curly-head",
+     "https://stogiereview.com/2006/09/16/arturo-fuente-curly-head-natural/",
+     "https://mikescigars.com/arturo-fuente-curly-head-afcu1"
+    ]
+   },
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "sweet",
+     "tobacco"
+    ],
+    "text": "Stogie Review (2006, Curly Head Natural 6.5x43): rustic medium-brown Cameroon wrapper, loose short Dominican filler; smooth and mild with a slightly sweet tobacco taste and pleasant aroma; flavor inconsistent stick to stick, from little flavor to fuller.",
+    "confidence": "medium",
+    "urls": [
+     "https://neptunecigar.com/cigars/arturo-fuente-curly-head-deluxe",
+     "https://www.neptunecigar.com/cigars/arturo-fuente-curly-head",
+     "https://stogiereview.com/2006/09/16/arturo-fuente-curly-head-natural/",
+     "https://mikescigars.com/arturo-fuente-curly-head-afcu1"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": false,
+   "suggested": true
+  },
+  "specs": {
+   "wrapper": "Cameroon",
+   "binder": "Dominican Republic",
+   "filler": "Dominican Republic (short/mixed filler)",
+   "country": "Dominican Republic",
+   "strength": "mild",
+   "vitolas": [
+    "Curly Head 6 1/2x43",
+    "Curly Head Deluxe 6 1/2x43"
+   ]
+  },
+  "research_note": "Same Dominican binder/filler family as the Maduro; only the wrapper differs (Cameroon natural vs Connecticut maduro). Mike's Cigars also lists an 'Ecuador or Connecticut' option for the Claro/Candela variant, so Natural = Cameroon, Claro/Candela = other wrappers. Strength: retailers say mild; Mike's",
+  "updated": "2026-10-17"
+ },
+ "toscano-antico": {
+  "id": "toscano-antico",
+  "brand": "Toscano",
+  "name": "Antico",
+  "notes": {
+   "official": [
+    "pepper",
+    "oak",
+    "toast",
+    "spice",
+    "woody"
+   ],
+   "review": []
+  },
+  "note_sources": [
+   {
+    "source": "official:toscano-web",
+    "vitola": "",
+    "tags": [
+     "pepper",
+     "oak",
+     "toast",
+     "spice",
+     "woody"
+    ],
+    "text": "Importer (ItalianSmokes) copy: made in Lucca with a North American Kentucky wrapper over a blend of Italian and North American Kentucky tobaccos, aged 12 months; full-bodied. Aroma: black pepper, oak wood and firewood; palate: intensely bitter; 'bold and spicy flavors of pepper, hickory, and oak wood'. Smoke King: densely packed, high nicotine, flame-cured 15-20 days over oak and beech fires; a dry cigar (no humidor needed), traditionally cut in half.",
+    "confidence": "medium",
+    "urls": [
+     "https://italiansmokes.com/products/toscano-antico",
+     "https://www.smoke-king.co.uk/toscano-antico-cigars-pack-of-5"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": false,
+   "suggested": true
+  },
+  "specs": {
+   "wrapper": "North American (USA) Kentucky fire-cured",
+   "binder": "none",
+   "filler": "Italian and North American Kentucky fire-cured",
+   "country": "Italy (Lucca)",
+   "strength": "full",
+   "vitolas": [
+    "Antico (intero cheroot) 6 1/4x36",
+    "Antico (half, as traditionally cut) ~3 1/8x36"
+   ]
+  },
+  "research_note": "No dedicated third-party review of the Antico found (halfwheel/Cigar Authority have reviewed Originale, Classico, Garibaldi, Italia, not Antico). Official toscanocigars.com could not be fetched (provenance block); 'official_text' is importer copy that mirrors Toscano's own notes. 'firewood/hickory' ",
+  "updated": "2026-10-17"
+ },
+ "toscano-garibaldi": {
+  "id": "toscano-garibaldi",
+  "brand": "Toscano",
+  "name": "Garibaldi",
+  "notes": {
+   "official": [
+    "woody",
+    "dried_fruit",
+    "nuts",
+    "sweet",
+    "spice"
+   ],
+   "review": [
+    "citrus",
+    "woody",
+    "honey",
+    "sweet",
+    "toast"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "official:toscano-web",
+    "vitola": "",
+    "tags": [
+     "woody",
+     "dried_fruit",
+     "nuts",
+     "sweet",
+     "spice"
+    ],
+    "text": "Importer (ItalianSmokes) copy: Italian Kentucky wrapper, blend of Italian and foreign Kentucky filler, no binder; 'the perfect balance of clean, pleasing characteristics while maintaining a lively tone that is mellow in strength.' Aroma: aromatic wood, dried fruit and roasted nuts; palate: slightly sweet and spicy. Cigar Coop (2019 US launch news): Southern-Italy Kentucky fire-cured leaf over Italian and US fire-cured Kentucky, aged six months, 6 x 40 double-truncated-cone shape.",
+    "confidence": "high",
+    "urls": [
+     "https://italiansmokes.com/products/toscano-garibaldi",
+     "https://thecigarauthority.com/toscano-garibaldi-cigar-review/",
+     "https://cigar-coop.com/2019/10/cigar-news-toscano-garibaldi-announced.html"
+    ]
+   },
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "citrus",
+     "woody",
+     "honey",
+     "sweet",
+     "toast"
+    ],
+    "text": "The Cigar Authority (6x38): cold draw smoky and sweet with a touch of licorice; lit, a limoncello flavor with a milder fire-cured note than expected; around halfway a woodsy flavor with honey sweetness, then the fire-cured taste develops near the thickest part.",
+    "confidence": "high",
+    "urls": [
+     "https://italiansmokes.com/products/toscano-garibaldi",
+     "https://thecigarauthority.com/toscano-garibaldi-cigar-review/",
+     "https://cigar-coop.com/2019/10/cigar-news-toscano-garibaldi-announced.html"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": false,
+   "suggested": true
+  },
+  "specs": {
+   "wrapper": "Italian Kentucky fire-cured (grown in Southern Italy)",
+   "binder": "none",
+   "filler": "Italian and USA Kentucky fire-cured",
+   "country": "Italy (Cava de' Tirreni / Lucca)",
+   "strength": "mild to medium",
+   "vitolas": [
+    "Garibaldi (intero cheroot) 6 1/8x38"
+   ]
+  },
+  "research_note": "Size varies by source: 6 1/8x38 (ItalianSmokes/Neptune) vs 6x40 (Cigar Coop). Production site also varies (Cava de' Tirreni vs Lucca). Strength 'mellow' -> mild to medium.",
+  "updated": "2026-10-17"
+ },
+ "la-flor-dominicana-solis": {
+  "id": "la-flor-dominicana-solis",
+  "brand": "La Flor Dominicana",
+  "name": "Solis",
+  "notes": {
+   "official": [
+    "spice",
+    "cinnamon",
+    "nuts",
+    "sweet"
+   ],
+   "review": [
+    "hay",
+    "earth",
+    "cedar",
+    "leather",
+    "cream",
+    "dried_fruit",
+    "pepper",
+    "mineral",
+    "coffee",
+    "white_pepper",
+    "woody",
+    "nuts"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "official:la-web",
+    "vitola": "",
+    "tags": [
+     "spice",
+     "cinnamon",
+     "nuts",
+     "sweet"
+    ],
+    "text": "LFD (2023, blended by Litto Gomez Jr. as a contrast to his brother's La Nox): sun-grown Ecuadorian Habano wrapper, Ecuadorian Sumatra binder, all-Dominican filler from the Gomez family's La Canela farm; one size, Toro Extra 6 1/2 x 50, boxes of 20, made at Tabacalera La Flor. Retailer (Neptune) copy: 'This full-bodied smoke delivers notes of spicy, cinnamon, nuts and sweetness.'",
+    "confidence": "high",
+    "urls": [
+     "https://halfwheel.com/la-flor-dominicana-solis/421040/",
+     "https://cigar-coop.com/2024/01/2023-cigar-of-the-year-countdown-coops-list-5-la-flor-dominicana-solis.html",
+     "https://blindmanspuff.com/la-flor-dominicana-solis-pre-release-blind-cigar-review/",
+     "https://www.neptunecigar.com/cigars/la-flor-dominicana-solis-toro-extra"
+    ]
+   },
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "hay",
+     "earth",
+     "cedar",
+     "leather",
+     "cream",
+     "dried_fruit",
+     "pepper",
+     "mineral",
+     "coffee",
+     "white_pepper",
+     "woody",
+     "nuts"
+    ],
+    "text": "halfwheel: medium-full to full; dry straw, clean earth, cedar, leather, hickory, bitter creaminess, dried fruit and black pepper; later jalapeno-like pepper, minerals, coffee bean, white pepper, woodiness, peanut butter and lemon. Cigar Coop (#5 cigar of 2023): earth, natural tobacco, dried fruit, cedar, pepper and baker's spice; medium building to medium-full. Blind Man's Puff: almonds, leather, sweetness, pepper; sourdough, baking spice, cream, chocolate, coffee, cherry tart, double espresso.",
+    "confidence": "high",
+    "urls": [
+     "https://halfwheel.com/la-flor-dominicana-solis/421040/",
+     "https://cigar-coop.com/2024/01/2023-cigar-of-the-year-countdown-coops-list-5-la-flor-dominicana-solis.html",
+     "https://blindmanspuff.com/la-flor-dominicana-solis-pre-release-blind-cigar-review/",
+     "https://www.neptunecigar.com/cigars/la-flor-dominicana-solis-toro-extra"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": false,
+   "suggested": true
+  },
+  "specs": {
+   "wrapper": "Ecuador Habano (sun grown)",
+   "binder": "Ecuador Sumatra",
+   "filler": "Dominican Republic (La Canela farm)",
+   "country": "Dominican Republic",
+   "strength": "medium to full",
+   "vitolas": [
+    "Toro Extra 6 1/2x50"
+   ]
+  },
+  "research_note": "Strength ranges from medium (Cigar Coop, BMP) to full (halfwheel); 'medium to full' chosen.",
+  "updated": "2026-10-17"
+ },
+ "balmoral-dominican-selection": {
+  "id": "balmoral-dominican-selection",
+  "brand": "Balmoral",
+  "name": "Dominican Selection (Balmoral Dominican)",
+  "notes": {
+   "official": [
+    "earth",
+    "leather",
+    "cedar",
+    "coffee"
+   ],
+   "review": []
+  },
+  "note_sources": [
+   {
+    "source": "official:balmoral-web",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "leather",
+     "cedar",
+     "coffee"
+    ],
+    "text": "Royal Agio / Balmoral: Dominican Selection (repackaged 2022 as 'Balmoral Dominican', blend unchanged) is a machine-made short-filler range with Dominican and Brazilian filler, Dominican binder and Ecuadorian natural shade-grown Connecticut wrapper, in Small Panatela, Short Corona, Panatela, Corona (also Tubos) and Churchill Tubos. Travel-retail listings: 'Mild cigar from the Dominican Republic with aromas of earth and leather' (Small Panatela); 'A mild Dominican cigar with cedar and coffee notes' (Corona Tubos).",
+    "confidence": "low",
+    "urls": [
+     "https://cigarinspector.com/news/balmoral-redesigns-packaging-dominican-selection/",
+     "https://tax-free.no/en/product1080650/balmoral-dominican-selection-small-panatela",
+     "https://www.tax-free.no/en/product1080648/balmoral-dominican-selection-corona-tubos",
+     "https://moodiedavittreport.com/?p=374788"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": false,
+   "suggested": true
+  },
+  "specs": {
+   "wrapper": "Ecuador Connecticut shade (natural)",
+   "binder": "Dominican Republic",
+   "filler": "Dominican Republic and Brazil (machine-made short filler)",
+   "country": "Dominican Republic",
+   "strength": "mild",
+   "vitolas": [
+    "Small Panatela 4 1/3x31",
+    "Short Corona",
+    "Panatela",
+    "Corona 4 3/4x42",
+    "Corona Tubos 4 3/4x42",
+    "Churchill Tubos"
+   ]
+  },
+  "research_note": "Could NOT verify which Balmoral line GS25 sells in Korea (no web source found; Korean searches returned nothing). Per instructions, Balmoral Dominican Selection is described: it is the mass-market machine-made short-filler range, which fits a convenience-store channel far better than the hand-made A",
+  "updated": "2026-10-17"
+ },
+ "casdagli-cabinet-selection-rosetta": {
+  "id": "casdagli-cabinet-selection-rosetta",
+  "brand": "Casdagli",
+  "name": "Cabinet Selection Rosetta",
+  "notes": {
+   "official": [
+    "dark_chocolate",
+    "cocoa",
+    "cream",
+    "vanilla",
+    "pepper",
+    "toast",
+    "woody"
+   ],
+   "review": [
+    "hay",
+    "cocoa",
+    "woody",
+    "earth",
+    "pepper"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "official:casdagli-web",
+    "vitola": "",
+    "tags": [
+     "dark_chocolate",
+     "cocoa",
+     "cream",
+     "vanilla",
+     "pepper",
+     "toast",
+     "woody"
+    ],
+    "text": "Casdagli: Rosetta is the first cigar of the Cabinet Selection, blended by Hendrik Kelner Jr. at the Kelner Boutique Factory. Original: Dominican Cotui wrapper, Dominican binder and filler; body mild-medium, flavour medium-full, strength mild-medium; tasting notes 'milk chocolate, cream, vanilla, pepper, smoked wood'. Rosetta Maduro swaps the wrapper for an Ecuadorian Corojo natural maduro, shifting milk chocolate toward dark chocolate: 'dark chocolate, cream, vanilla, pepper, smoked wood'; body medium, flavour medium-full, strength mild-medium.",
+    "confidence": "high",
+    "urls": [
+     "https://casdaglicigars.com/?p=1766",
+     "https://casdaglicigars.com/cigar/rosetta-maduro/",
+     "https://casdaglicigars.com/?p=1769",
+     "https://www.cigarslover.com/en/casdagli-cabinet-selection-rosetta-maduro/"
+    ]
+   },
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "hay",
+     "cocoa",
+     "woody",
+     "earth",
+     "pepper"
+    ],
+    "text": "CigarsLover (Rosetta Maduro, 46x102mm): cold draw hay and cocoa; wood and cocoa open the smoke, joined by earth; second third adds black pepper to the cocoa, earth and wood, flavors fuller, strength medium-light rising slightly (2-2.5/5).",
+    "confidence": "high",
+    "urls": [
+     "https://casdaglicigars.com/?p=1766",
+     "https://casdaglicigars.com/cigar/rosetta-maduro/",
+     "https://casdaglicigars.com/?p=1769",
+     "https://www.cigarslover.com/en/casdagli-cabinet-selection-rosetta-maduro/"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": false,
+   "suggested": true
+  },
+  "specs": {
+   "wrapper": "Dominican Cotui (original) / Ecuador Corojo natural maduro (Rosetta Maduro)",
+   "binder": "Dominican Republic",
+   "filler": "Dominican Republic",
+   "country": "Dominican Republic (Kelner Boutique Factory, Hendrik Kelner Jr.)",
+   "strength": "mild to medium",
+   "vitolas": [
+    "Rosetta (Pyramide) 4x46",
+    "Rosetta Maduro (Pyramide) 4x46",
+    "Romano (Petit Corona) 5x40",
+    "Ristretto (Petit Robusto) 4x50"
+   ]
+  },
+  "research_note": "User said 'Dominican, Maduro' - that matches Rosetta Maduro (Ecuador Corojo maduro wrapper over Dominican binder/filler). Both wrapper variants listed; official tags cover both (cocoa for milk chocolate, dark_chocolate for maduro). 'smoked wood' mapped to toast + woody.",
+  "updated": "2026-10-17"
+ },
+ "slaughterhouse-habano": {
+  "id": "slaughterhouse-habano",
+  "brand": "Slaughterhouse",
+  "name": "Habano",
+  "notes": {
+   "official": [
+    "earth",
+    "sweet",
+    "coffee",
+    "cedar",
+    "spice"
+   ],
+   "review": [
+    "earth",
+    "sweet",
+    "coffee",
+    "cedar",
+    "spice"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "official:slaughterhouse-web",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "sweet",
+     "coffee",
+     "cedar",
+     "spice"
+    ],
+    "text": "Made by Ventura Cigar Co. (Psyko Seven, Project 805). JR Cigars copy: 'rare, oily Dominican Habano wrapper leaf', dual binders from Mexico and Sumatra, multi-country filler blend; medium body; earthy sweetness with notes of coffee, cedar and spice; slow burn comparable to long-filler cigars. Sold in butcher-paper bundles of 10. BestCigarPrices: mixed filler with a long-filler head to avoid loose tobacco in the mouth, 'mellow-medium', 'beefy bold flavor at a beautiful discount'.",
+    "confidence": "medium",
+    "urls": [
+     "https://www.jrcigars.com/blending-room/?p=7004",
+     "https://www.bestcigarprices.com/cigar-directory/slaughterhouse-cigars/slaughterhouse-toro-habano-234317/",
+     "https://www.bestcigarprices.com/slaughterhouse-cigars/"
+    ]
+   },
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "sweet",
+     "coffee",
+     "cedar",
+     "spice"
+    ],
+    "text": "JR Cigars Blending Room (2018 staff review): medium-bodied, earthy sweetness, coffee, cedar and spice; slow even burn, tightly rolled so little tobacco falls out; 'not likely to earn top ratings but a strong value at its price.'",
+    "confidence": "medium",
+    "urls": [
+     "https://www.jrcigars.com/blending-room/?p=7004",
+     "https://www.bestcigarprices.com/cigar-directory/slaughterhouse-cigars/slaughterhouse-toro-habano-234317/",
+     "https://www.bestcigarprices.com/slaughterhouse-cigars/"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": false,
+   "suggested": true
+  },
+  "specs": {
+   "wrapper": "Dominican Habano",
+   "binder": "Mexico and Sumatra (dual binder)",
+   "filler": "Multi-country mixed filler (long-filler head), origins undisclosed",
+   "country": "Nicaragua (per BestCigarPrices listing)",
+   "strength": "medium",
+   "vitolas": [
+    "Robusto 5x50",
+    "Toro 6x50",
+    "Churchill 7x50"
+   ]
+  },
+  "research_note": "Vitola dimensions: Toro 6x50 confirmed; Robusto/Churchill names confirmed from BestCigarPrices catalog but their exact dimensions were not fetched (5x50 / 7x50 are the standard assumptions - verify). Country of manufacture: BCP lists Nicaragua; JR does not state a factory. Only retailer-side reviews",
+  "updated": "2026-10-17"
+ },
+ "oscar-valladares-leaf-by-oscar-connecticut": {
+  "id": "oscar-valladares-leaf-by-oscar-connecticut",
+  "brand": "Oscar Valladares",
+  "name": "Leaf by Oscar Connecticut",
+  "notes": {
+   "official": [
+    "cream",
+    "hay"
+   ],
+   "review": [
+    "cream",
+    "citrus",
+    "sweet",
+    "pepper",
+    "woody",
+    "tea",
+    "tobacco",
+    "spice",
+    "cocoa",
+    "coffee",
+    "nuts",
+    "molasses"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "official:oscar-web",
+    "vitola": "",
+    "tags": [
+     "cream",
+     "hay"
+    ],
+    "text": "Corona Cigar Co. (retailer) copy: Connecticut wrapper, Honduran binder and filler, mild to medium, 6x50 Toro; tightly packed with almost no veins, steady burn; 'The Honduran filler erupts with a rich flavor that is both creamy and also has a powerful taste of hay.' Each cigar is wrapped in a whole tobacco leaf instead of cellophane.",
+    "confidence": "high",
+    "urls": [
+     "https://cigar-coop.com/2014/02/cigar-review-leaf-by-oscar-connecticut.html",
+     "https://coronacigar.com/leaf-by-oscar-connecticut-toro",
+     "https://stogiepress.com/leaf-oscar-connecticut-cigar-review/"
+    ]
+   },
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "cream",
+     "citrus",
+     "sweet",
+     "pepper",
+     "woody",
+     "tea",
+     "tobacco",
+     "spice",
+     "cocoa",
+     "coffee",
+     "nuts",
+     "molasses"
+    ],
+    "text": "Cigar Coop: mild-to-medium rising to medium; dry draw cream, citrus sweetness and pepper; start pepper, citrus, wood and cream; middle wood forward with citrus behind, pepper and cream trading places; final third more woody and peppery. Stogie Press: pre-light tea and sweet tobacco; early spice, deep mocha and nuts with an ultra-creamy texture; citrus in the second third; final third peppery retrohale, molasses aroma, roasted nut.",
+    "confidence": "high",
+    "urls": [
+     "https://cigar-coop.com/2014/02/cigar-review-leaf-by-oscar-connecticut.html",
+     "https://coronacigar.com/leaf-by-oscar-connecticut-toro",
+     "https://stogiepress.com/leaf-oscar-connecticut-cigar-review/"
+    ]
+   }
+  ],
+  "verified": false,
+  "seed": {
+   "cuban": false,
+   "suggested": true
+  },
+  "specs": {
+   "wrapper": "Ecuador Connecticut Shade",
+   "binder": "Honduras",
+   "filler": "Honduras",
+   "country": "Honduras (Oscar Valladares Tobacco & Co., Danli)",
+   "strength": "mild to medium",
+   "vitolas": [
+    "Toro 6x50"
+   ]
+  },
+  "research_note": "User wrote 'Oscar Leaf'; the product is 'Leaf by Oscar' Connecticut. Originally one size (6x50 Toro); other Leaf by Oscar wrappers (Corojo, Maduro, Sumatra) are separate blends. 'mocha' mapped to cocoa + coffee.",
+  "updated": "2026-10-17"
  }
 }
