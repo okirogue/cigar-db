@@ -54,9 +54,9 @@ jobs:
           for a in $ADAPTERS; do
             echo "::group::$a"
             if [ -n "${{ github.event.inputs.limit }}" ]; then
-              timeout 50m python scripts/collect.py "$a" --limit "${{ github.event.inputs.limit }}" --offset "${{ github.event.inputs.offset }}" 2>&1 | tail -n 30 || echo "FAILED $a"
+              timeout 50m python scripts/collect.py "$a" --limit "${{ github.event.inputs.limit }}" --offset "${{ github.event.inputs.offset }}" 2>&1 | tail -n 60 || echo "FAILED $a"
             else
-              timeout 50m python scripts/collect.py "$a" --offset "${{ github.event.inputs.offset }}" 2>&1 | tail -n 30 || echo "FAILED $a"
+              timeout 50m python scripts/collect.py "$a" --offset "${{ github.event.inputs.offset }}" 2>&1 | tail -n 60 || echo "FAILED $a"
             fi
             echo "::endgroup::"
           done
@@ -77,10 +77,11 @@ jobs:
           [ "$BR" = "main" ] && { echo "refusing to push to main"; exit 1; }
           git config user.name "cigar-db-bot"
           git config user.email "actions@users.noreply.github.com"
+          git status --short | head -20
           git checkout -B "$BR"
-          git add db/cigars.json app/assets/cigars.json app/assets/tags.json
-          git diff --cached --quiet || git commit -m "collect: ${{ github.event.inputs.adapter }} ($(date -u +%F)) [skip ci]"
-          git push -f origin "$BR"
+          git add -A db app/assets
+          git diff --cached --quiet && echo "nothing to commit" || git commit -m "collect: ${{ github.event.inputs.adapter }} ($(date -u +%F)) [skip ci]"
+          git push -f origin "HEAD:refs/heads/$BR"
       - name: Comment summary
         if: always()
         env:
