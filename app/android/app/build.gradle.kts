@@ -55,6 +55,8 @@ android {
     buildTypes {
         release {
             signingConfig = if (hasUploadKey) signingConfigs.getByName("upload") else signingConfigs.getByName("debug")
+            // R8 keep 규칙 (jnigen 플러그인의 Kotlin suspend 호출 보호) — proguard-rules.pro
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
 }
