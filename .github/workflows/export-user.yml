@@ -1,0 +1,37 @@
+name: export-user
+
+# 운영자용 디버그: users/<uid> 를 앱 백업 JSON 으로 덤프 (메모 제외) → 워크플로 아티팩트
+on:
+  workflow_dispatch:
+    inputs:
+      uid:
+        description: "UID 앞 6자리"
+        default: "sZlitQ"
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: google-github-actions/auth@v2
+        id: gcp-auth
+        with:
+          workload_identity_provider: projects/878079125373/locations/global/workloadIdentityPools/github/providers/github
+          service_account: play-publisher@myhumidor-2482d.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/cloud-platform
+      - name: Export
+        env:
+          TOKEN: ${{ steps.gcp-auth.outputs.access_token }}
+          PROJECT: myhumidor-2482d
+        run: python3 .github/scripts/export_user.py "${{ inputs.uid }}" backup.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: backup-${{ inputs.uid }}
+          path: backup.json
+          retention-days: 1
