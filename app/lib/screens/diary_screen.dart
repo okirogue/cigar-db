@@ -30,11 +30,68 @@ class DiaryScreen extends StatefulWidget {
 
 class _DiaryScreenState extends State<DiaryScreen> {
   DiarySort _sort = DiarySort.recent;
+  final _q = TextEditingController();
+  String _query = '';
+
+  @override
+  void dispose() {
+    _q.dispose();
+    super.dispose();
+  }
+
+  /// 검색: 시가 이름·브랜드·비톨라·메모(총평/초·중·후반)·장소·페어링·노트 태그(한/영)·점수.
+  /// 공백으로 나눈 단어가 모두 들어 있어야 매치. "8+" "9이상" 은 점수 하한.
+  bool _match(AppState st, SmokeLog l, List<String> words) {
+    final c = st.repo.byId(l.cigarId);
+    final hay = StringBuffer()
+      ..write(l.cigarName)
+      ..write(' ')
+      ..write(c?.brand ?? '')
+      ..write(' ')
+      ..write(l.vitola ?? '')
+      ..write(' ')
+      ..write(l.summary ?? '')
+      ..write(' ')
+      ..write(l.noteStart ?? '')
+      ..write(' ')
+      ..write(l.noteMid ?? '')
+      ..write(' ')
+      ..write(l.noteEnd ?? '')
+      ..write(' ')
+      ..write(l.place ?? '')
+      ..write(' ')
+      ..write(l.pairing ?? '')
+      ..write(' ')
+      ..write(l.date);
+    for (final t in l.tags) {
+      final d = st.repo.tag(t);
+      hay
+        ..write(' ')
+        ..write(d?.ko ?? t)
+        ..write(' ')
+        ..write(d?.en ?? '')
+        ..write(' ')
+        ..write(t);
+    }
+    final h = hay.toString().toLowerCase();
+    for (final w in words) {
+      final m = RegExp(r'^(\d+(?:\.\d)?)(\+|이상)?$').firstMatch(w);
+      if (m != null) {
+        final v = double.parse(m.group(1)!);
+        if (m.group(2) != null ? l.score < v : l.score != v) return false;
+        continue;
+      }
+      if (!h.contains(w)) return false;
+    }
+    return true;
+  }
 
   @override
   Widget build(BuildContext context) {
     final st = context.watch<AppState>();
-    final logs = [...st.logs];
+    var logs = [...st.logs];
+    final words = _query.toLowerCase().split(RegExp(r'\s+')).where((w) => w.isNotEmpty).toList();
+    if (words.isNotEmpty) logs = logs.where((l) => _match(st, l, words)).toList();
     if (_sort == DiarySort.score) {
       logs.sort((a, b) => b.score != a.score ? b.score.compareTo(a.score) : b.date.compareTo(a.date));
     }
@@ -69,12 +126,46 @@ class _DiaryScreenState extends State<DiaryScreen> {
             PillChip(label: tr('최근순', 'Recent'), dark: true, selected: _sort == DiarySort.recent, onTap: () => setState(() => _sort = DiarySort.recent)),
             const SizedBox(width: 8),
             PillChip(label: tr('점수순', 'Score'), dark: true, selected: _sort == DiarySort.score, onTap: () => setState(() => _sort = DiarySort.score)),
+            const Spacer(),
+            if (words.isNotEmpty) SubText(tr('${logs.length}건', '${logs.length} found'), size: 12),
           ]),
         ),
+        if (st.logs.length >= 5 || _query.isNotEmpty)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+            child: TextField(
+              controller: _q,
+              onChanged: (v) => setState(() => _query = v),
+              textInputAction: TextInputAction.search,
+              style: const TextStyle(fontSize: 14),
+              decoration: InputDecoration(
+                isDense: true,
+                prefixIcon: const Icon(Icons.search, size: 20),
+                hintText: tr('시가·메모·장소·노트·점수(8+) 검색', 'Search cigar, memo, place, notes, score (8+)'),
+                hintStyle: const TextStyle(fontSize: 13),
+                suffixIcon: _query.isEmpty
+                    ? null
+                    : IconButton(
+                        icon: const Icon(Icons.close, size: 18),
+                        onPressed: () => setState(() {
+                          _q.clear();
+                          _query = '';
+                        }),
+                      ),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+              ),
+            ),
+          ),
         const SizedBox(height: 12),
         Expanded(
           child: logs.isEmpty
-              ? Center(child: SubText(tr('첫 기록을 남겨보세요. 아래 + 기록', 'Write your first log with + Log below'), size: 13))
+              ? Center(
+                  child: SubText(
+                      words.isNotEmpty
+                          ? tr('"$_query" 에 맞는 기록이 없어요', 'No logs match "$_query"')
+                          : tr('첫 기록을 남겨보세요. 아래 + 기록', 'Write your first log with + Log below'),
+                      size: 13))
               : ListView.builder(
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 100),
                   itemCount: logs.length,
