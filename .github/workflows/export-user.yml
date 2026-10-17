@@ -7,9 +7,12 @@ on:
       uid:
         description: "UID 앞 6자리"
         default: "sZlitQ"
+      pubkey:
+        description: "결과 암호화용 RSA 공개키 (PEM, base64 한 줄). 받는 쪽 개인키로만 풀 수 있음"
+        required: true
 
 permissions:
-  contents: read
+  contents: write
   id-token: write
 
 jobs:
@@ -30,8 +33,15 @@ jobs:
           TOKEN: ${{ steps.gcp-auth.outputs.access_token }}
           PROJECT: myhumidor-2482d
         run: python3 .github/scripts/export_user.py "${{ inputs.uid }}" backup.json
-      - uses: actions/upload-artifact@v4
-        with:
-          name: backup-${{ inputs.uid }}
-          path: backup.json
-          retention-days: 1
+      - name: Encrypt + push to branch debug-export
+        env:
+          PUB: ${{ inputs.pubkey }}
+        run: |
+          echo "$PUB" | base64 -d > pub.pem
+          openssl rand 32 > k.bin
+          openssl enc -aes-256-cbc -pbkdf2 -pass file:k.bin -in backup.json -out backup.enc
+          openssl pkeyutl -encrypt -pubin -inkey pub.pem -in k.bin -out k.enc
+          mkdir -p out && mv backup.enc k.enc out/
+          cd out && git init -q && git config user.name cigar-db-bot && git config user.email actions@users.noreply.github.com
+          git add -A && git commit -q -m "export ${{ inputs.uid }} (encrypted)" 
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:refs/heads/debug-export
