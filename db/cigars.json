@@ -22041,7 +22041,9 @@
     "nuts",
     "spice",
     "earth",
-    "espresso"
+    "espresso",
+    "tobacco",
+    "sweet"
    ],
    "review": []
   },
@@ -22064,11 +22066,26 @@
      "espresso"
     ],
     "text": "White Pepper , Nuts , Spice , Earth , Espresso Available. Learn about Aging Room Quattro Nicaragua Cigars. Check out reviews and get details on Quattro Nicaragua"
+   },
+   {
+    "source": "official:altadis",
+    "vitola": "",
+    "tags": [
+     "white_pepper",
+     "pepper",
+     "nuts",
+     "spice",
+     "earth",
+     "espresso",
+     "tobacco",
+     "sweet"
+    ],
+    "text": "2019 #1 Cigar of the Year – Rated 96 by Cigar Aficionado. Aging Room Quattro Nicaragua – Altadis USA – Crafting Cigars Great Since 1918 Made with the best blend of 100% Cuban-seed tobaccos, the Aging Room Quattro Nicaragua is a premium cigar of the finest pedigree. This perfectly rolled Nicaraguan puro provides the cigar connoisseur with rich and rewarding flavors of white pepper, nuts, spice, earth, and espresso, accented by a rich tobacco sweetness throughout. The Maestro was named Cigar Aficionado’s No. 1 Cigar of the Year of 2019 with a 96 rating."
    }
   ],
   "verified": false,
   "vitolas": [],
-  "updated": "2026-10-06",
+  "updated": "2026-10-17",
   "seed": {
    "shops": "cigarpage+cigarplace",
    "cuban": false
@@ -22076,7 +22093,17 @@
   "specs": {
    "binder": "Nicaraguan",
    "filler": "Nicaraguan",
-   "strength": "full"
+   "strength": "full",
+   "country": "Nicaragua",
+   "wrapper": "Nicaraguan Sumatra",
+   "vitolas": [
+    "Espressivo 5x50",
+    "Concerto 7x50",
+    "Maestro 6x52",
+    "Vibrato 6x54",
+    "Figurado 6 1/2x52",
+    "Grande 6x60"
+   ]
   }
  },
  "aging-room-quattro-nicaragua-concerto": {
@@ -22093,14 +22120,34 @@
     "vitola": "",
     "tags": [],
     "text": " Altadis U.S.A. is introducing Aging Room Quattro Nicaragua Concerto, the third release in the award-winning Aging Room Quattro Nicaragua family. This new release from Rafael Nodal, in collaboration with his friend and cigar master AJ Fernandez, continues to push the boundaries of excellence in the premium cigar industry. Nodal, creator and co-owner of Aging Room Cigars and Vice President of Product Capability at Tabacalera USA, explains the inspiration behind the cigar: &#8220;The Concerto, inspired by classical music compositions, represents a harmonious collaboration between a solo instrument and orchestral accompaniment. In this blend, the &#8216;solo instrument&#8217; is the exclusive hybrid wrapper from one of AJ Fernandez’s most exclusive farms, Finca La Lilia, and the selected extra-aged tobaccos represent the accompaniment to create a Concerto of flavors.” The Aging Room Quattro Nicaragua Concerto also includes leaves from the first harvest of AJ Fernandez’s Finca Los Espejos almost 12 years ago. The Aging Room Quattro Nicaragua Concerto is a testament to the enduring partnership between Nodal and Fernandez, who together have previously produced two #1 cigars: the Aging Room Quattro Nicaragua in 2019 by Cigar Aficionado, and the Aging Room Quattro Nicaragua Sonata in 2023 by Cigar Snob. This new addition is poised to define the future of the Aging Room and the Quattro Nicaragua line. This medium-to-full-bodied cigar is soft box-pressed with a caramel color wrapper. Aging Room Quattro Nicaragua Concerto is available in six sizes and boxes of 20 cigars, except in the case of the Impromptu, which is available in boxes of 10, and the Maestro, which is available in boxes of 10 and 20. The MSRP ranges from $14.84 to $17.08. Wrapper: Nicaragua Binder: Nicaragua Filler: Nicaragua Strength: Medium-to-full Origin: Nicaragua Sizes and Pricing: "
+   },
+   {
+    "source": "official:altadis",
+    "vitola": "",
+    "tags": [],
+    "text": "Experience the pinnacle of cigar artistry with the Concerto—a striking masterpiece born at the renowned AJ Fernandez factory in Estelí, Nicaragua. Crafted by Aging Room Quattro Nicaragua Concerto – Altadis USA – Crafting Cigars Great Since 1918 Experience the pinnacle of cigar artistry with the Concerto—a striking masterpiece born at the renowned AJ Fernandez factory in Estelí, Nicaragua. Crafted by master blender Rafael Nodal, this extraordinary creation harmonizes nearly 12 years of meticulous aging with a legacy of bold creativity and refined elegance. The Aging Room Quattro Nicaragua line has always represented a symphony of flavors that comes to life with every puff. With the introduction of the Concerto, cigar lovers are invited to experience the crescendo of this award-winning line—a blend that harmoniously balances boldness with elegance. Crafted at the renowned AJ Fernandez factory in Estelí, Nicaragua, the Concerto showcases the artistry of master blender Rafael Nodal, whose passion for music inspired the very rhythm and harmony of this cigar. Every leaf used in the Concerto blend, which features a full Nicaraguan puro, has been carefully hand-selected and aged to perfection for nearly 12 years, capturing the essence of the Los Espejos Farm’s rich, volcanic soils."
    }
   ],
   "verified": false,
   "vitolas": [],
-  "updated": "2026-10-06",
+  "updated": "2026-10-17",
   "seed": {
    "shops": "cigarpage+cigarplace",
    "cuban": false
+  },
+  "specs": {
+   "country": "Nicaragua",
+   "wrapper": "Nicaraguan",
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan",
+   "vitolas": [
+    "Impromptu 6 1/2x52",
+    "Grande 6x60",
+    "Concerto 7x50",
+    "Vibrato 6x54",
+    "Maestro 6x52",
+    "Espressivo 5x50"
+   ]
   }
  },
  "aging-room-quattro-nicaragua-sonata": {
@@ -22108,7 +22155,16 @@
   "brand": "Aging Room",
   "name": "Quattro Nicaragua Sonata",
   "notes": {
-   "official": [],
+   "official": [
+    "white_pepper",
+    "pepper",
+    "nuts",
+    "spice",
+    "earth",
+    "espresso",
+    "tobacco",
+    "sweet"
+   ],
    "review": []
   },
   "note_sources": [
@@ -22117,14 +22173,45 @@
     "vitola": "",
     "tags": [],
     "text": " The latest in an award-winning line – the Aging Room Quattro Sonata – will be available in June 1. From his early classical music studies, Rafael Nodal, Head of Product Capability for Tabacalera USA, has always been fascinated by famous sonatas. “Beethoven’s Moonlight and other sonatas from Mozart, Schubert, Chopin and Rachmaninoff are among my favorites,” he says. This love of music is one of the reasons why, after many accolades and high ratings for his Aging Room Quattro Nicaragua Maestro, Nodal wanted to compose a Nicaragua Sonata to celebrate the Nicaraguan people and their land. “Not with notes or to be played on the piano, but with tobacco leaves to be enjoyed by adult consumers looking for something unique,” he says. “The Aging Room Nicaragua Sonata is composed with leaves grown in the valleys and mountains of Nicaragua and nurtured by the dedicated people of Nicaragua.” As in previous collaborations, for the Aging Room Quattro Nicaragua Sonata, Nodal has teamed up with his long-time friend and cigar master, A.J. Fernandez. Together they have created one of their richest and most unique cigar blends to pay homage to the fertile and hospitable country of Nicaragua, a land known for its memorable lakes and volcanos. Made at Tabacalera AJ Fernandez and box pressed with all Nicaraguan tobaccos, the Aging Room Quattro Nicaragua Sonata will be available to purchase at retail June 1. Sonata will be available in boxes of 20 (except for Impromptu, which comes in a box of 10), in a variety of vitolas and MSRPs, noted below for each individual cigar. Aging Room Quattro Nicaragua Sonata: Espressivo 50 x 5 MSRP $13.02 each cigar Maestro 52 x 6 MSRP $13.13 Vibrato 54 x 6 MSRP $13.24 Concerto 50 x 7 MSRP $13.37 Impromptu 52 x 6.5 MRSP $14.98 each cigar (Figurado Box of 10) Grande 60 x 6 MSRP $13.55 "
+   },
+   {
+    "source": "official:altadis",
+    "vitola": "",
+    "tags": [
+     "white_pepper",
+     "pepper",
+     "nuts",
+     "spice",
+     "earth",
+     "espresso",
+     "tobacco",
+     "sweet"
+    ],
+    "text": "Discover Every Single Note Aging Room Quattro Nicaragua Sonata – Altadis USA – Crafting Cigars Great Since 1918 Produced in collaboration with Rafael Nodal and AJ Fernandez, the Aging Room Quattro Nicaragua is a premium cigar of the finest pedigree. This perfectly rolled Nicaraguan puro provides the cigar connoisseur with rich and rewarding flavors of white pepper, nuts, spice, earth, and espresso, accented by a rich tobacco sweetness throughout. The Maestro was named Cigar Aficionado’s No. 1 Cigar of the Year of 2019 with a 96 rating."
    }
   ],
   "verified": false,
   "vitolas": [],
-  "updated": "2026-10-06",
+  "updated": "2026-10-17",
   "seed": {
    "shops": "cigarpage+cigarplace",
    "cuban": false
+  },
+  "specs": {
+   "country": "Nicaragua",
+   "wrapper": "Nicaraguan",
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan",
+   "strength": "medium",
+   "vitolas": [
+    "Espressivo 5x50",
+    "Maestro 6x52",
+    "Vibrato 6x54",
+    "Concerto 7x50",
+    "Figurado 6 1/2x52",
+    "Grande 6x60",
+    "Impromptu 6 1/2x52"
+   ]
   }
  },
  "alec-bradley-black-market-filthy-hooligan": {
@@ -25282,15 +25369,47 @@
   "brand": "Aging Room",
   "name": "La Boheme",
   "notes": {
-   "official": [],
+   "official": [
+    "earth",
+    "espresso",
+    "cocoa",
+    "vanilla",
+    "almond"
+   ],
    "review": []
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "official:altadis",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "espresso",
+     "cocoa",
+     "vanilla",
+     "almond"
+    ],
+    "text": "The Aging Room La Boheme features a Nicaraguan binder and filler, along with a Connecticut Broadleaf wrapper. Under AJ Fernandez’s care, the leaf found sa Aging Room La Boheme – Altadis USA – Crafting Cigars Great Since 1918 The Aging Room La Boheme features a Nicaraguan binder and filler, along with a Connecticut Broadleaf wrapper. Under AJ Fernandez’s care, the leaf found sanctuary in Nicaragua’s fertile soil, mingling with select tobaccos, each nurtured by time’s tender touch. Crafted in the renowned Aging Room by the esteemed Rafael Nodal, the Aging Room La Boheme revives a cigar with a distinguished history. This cigar honors the remarkable journey from a 15-year-old Cuban immigrant to a master cigar blender, featuring a distinctive Nicaraguan filler and binder, enveloped in a Connecticut Broadleaf wrapper. Each draw reveals a story— robust notes of espresso and cocoa interwoven with subtle florals, complemented by hints of vanilla and almond that gently caress the palate."
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-17",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "Nicaraguan",
+   "wrapper": "Connecticut Broadleaf",
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan",
+   "vitolas": [
+    "Mimi 3 1/2x46",
+    "Pittore 5 1/8x52",
+    "Poeta 5 3/4x54",
+    "Musico 6 1/4x60"
+   ]
   }
  },
  "aging-room-pura-cepa": {
@@ -55253,7 +55372,7 @@
    "filler": "Nicaraguan",
    "strength": "medium"
   },
-  "updated": "2026-10-06"
+  "updated": "2026-10-17"
  },
  "acid-20": {
   "id": "acid-20",
@@ -55286,7 +55405,7 @@
    "filler": "Nicaraguan",
    "strength": "medium"
   },
-  "updated": "2026-10-06",
+  "updated": "2026-10-17",
   "aliases": [
    "acid 20"
   ]
@@ -55322,7 +55441,7 @@
    "filler": "Nicaraguan",
    "strength": "medium"
   },
-  "updated": "2026-10-06",
+  "updated": "2026-10-17",
   "aliases": [
    "acid frenchies"
   ]
@@ -55356,7 +55475,7 @@
    "filler": "Nicaraguan",
    "strength": "medium to full"
   },
-  "updated": "2026-10-06",
+  "updated": "2026-10-17",
   "aliases": []
  },
  "acid-blondie-candela": {
@@ -55390,7 +55509,7 @@
    "filler": "Nicaraguan",
    "strength": "mild to medium"
   },
-  "updated": "2026-10-06",
+  "updated": "2026-10-17",
   "aliases": []
  },
  "acid-blondie-gold": {
@@ -55422,7 +55541,7 @@
    "filler": "Nicaraguan",
    "strength": "mild to medium"
   },
-  "updated": "2026-10-06",
+  "updated": "2026-10-17",
   "aliases": []
  },
  "acid-blondie-maduro": {
@@ -78494,5 +78613,85 @@
    "shops": "user-suggestion",
    "cuban": false
   }
+ },
+ "casa-de-garcia-connecticut-blend": {
+  "id": "casa-de-garcia-connecticut-blend",
+  "brand": "Casa de Garcia",
+  "name": "connecticut blend",
+  "notes": {
+   "official": [],
+   "review": []
+  },
+  "note_sources": [
+   {
+    "source": "official:altadis",
+    "vitola": "",
+    "tags": [],
+    "text": "A smooth Connecticut binder and light brown Connecticut wrapper completes this cigar for flavor beginning to end. Casa de Garcia Connecticut Blend – Altadis USA – Crafting Cigars Great Since 1918 Casa de Garcia cigars are crafted in the Dominican Republic with an aged blend of Honduran and Dominican long filler tobaccos, a smooth Connecticut binder and a light brown Connecticut shade wrapper. The result – consistent cigars that are smooth, mellow and flavorful from beginning to end, and some of the most economical smokes around."
+   }
+  ],
+  "verified": false,
+  "vitolas": [],
+  "specs": {
+   "country": "Dominican Republic",
+   "wrapper": "Connecticut Shade",
+   "binder": "Connecticut",
+   "filler": "Dominican and Honduran",
+   "vitolas": [
+    "Corona 5 1/2x44",
+    "Robusto 4 3/4x50",
+    "Toro 5 1/2x50",
+    "Churchill 6 1/2x50",
+    "Belicoso 6 1/8x52",
+    "Magnum 6x60",
+    "Colossal 7x70"
+   ]
+  },
+  "updated": "2026-10-17"
+ },
+ "casa-de-garcia-maduro-blend": {
+  "id": "casa-de-garcia-maduro-blend",
+  "brand": "Casa de Garcia",
+  "name": "maduro blend",
+  "notes": {
+   "official": [
+    "sweet",
+    "cocoa",
+    "cream",
+    "cedar",
+    "spice"
+   ],
+   "review": []
+  },
+  "note_sources": [
+   {
+    "source": "official:altadis",
+    "vitola": "",
+    "tags": [
+     "sweet",
+     "cocoa",
+     "cream",
+     "cedar",
+     "spice"
+    ],
+    "text": "Casa de Garcia Maduro is a cigar that only tastes expensive – its affordable price is matched with quality and smooth flavors. Casa de Garcia Maduro Blend – Altadis USA – Crafting Cigars Great Since 1918 The Maduro is a premium, quality, top-shelf smoke set at a modest price. This variation in the Casa de Garcia portfolio is composed with aged Dominican and Honduran long filler tobaccos, a Connecticut Broadleaf binder, and a sweet Connecticut Shade wrapper that is sun-ripened until it is almost black in color. You will find mellow flavors of cocoa, creamy chocolate, cedar, and just a hint of spice in this smooth cigar."
+   }
+  ],
+  "verified": false,
+  "vitolas": [],
+  "specs": {
+   "country": "Dominican Republic",
+   "wrapper": "Connecticut Broadleaf",
+   "binder": "Connecticut Broadleaf",
+   "filler": "Dominican and Honduran",
+   "vitolas": [
+    "Corona 5 1/2x44",
+    "Robusto 4 3/4x50",
+    "Toro 5 1/2x50",
+    "Churchill 6 1/2x50",
+    "Belicoso 6 1/8x52"
+   ]
+  },
+  "updated": "2026-10-17"
  }
 }
