@@ -31,6 +31,6 @@ jobs:
           git config user.name "cigar-db-bot"
           git config user.email "actions@users.noreply.github.com"
           git checkout -B debug-fetch
-          git add debug
+          git add -f debug
           git commit -m "debug: fetch pages [skip ci]" || true
           git push -f origin debug-fetch
