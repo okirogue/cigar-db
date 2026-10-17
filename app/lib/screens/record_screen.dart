@@ -397,6 +397,48 @@ class _RecordScreenState extends State<RecordScreen> {
   }
 
   Future<void> _save() async {
+    try {
+      await _saveInner();
+    } catch (e, st) {
+      // 어디서 터졌는지 보이게 — 조용히 멈추지 않는다
+      debugPrint('save failed: $e\n$st');
+      if (!mounted) return;
+      await showDialog<void>(
+        context: context,
+        builder: (dctx) => AlertDialog(
+          title: Text(tr('저장 중 오류', 'Save failed')),
+          content: SingleChildScrollView(child: SelectableText('$e\n\n${st.toString().split('\n').take(8).join('\n')}', style: const TextStyle(fontSize: 12))),
+          actions: [TextButton(onPressed: () => Navigator.pop(dctx), child: Text(tr('닫기', 'Close')))],
+        ),
+      );
+    }
+  }
+
+  /// 저장 이후 부가 작업(공유 업로드·뱃지). 실패해도 기록 자체엔 영향 없게 각각 삼킨다.
+  Future<List<AppBadge>> _afterSave(AppState st, int newId) async {
+    try {
+      final added = st.logs.where((l) => l.id == newId).firstOrNull;
+      if (added != null) {
+        // 아직 기존 기록을 한 번도 안 올렸으면 이번에 전부, 아니면 이 건만
+        if (!await ShareStats.instance.backfilled) {
+          await ShareStats.instance.backfill(st.logs);
+        } else {
+          ShareStats.instance.push(added);
+        }
+      }
+    } catch (e) {
+      debugPrint('share after save failed: $e');
+    }
+    Analytics.instance.logSaved(fromStock: _deduct && _deductStockId != null, edit: false);
+    try {
+      return await Badges.takeNew(st);
+    } catch (e) {
+      debugPrint('badges after save failed: $e');
+      return const [];
+    }
+  }
+
+  Future<void> _saveInner() async {
     await _cleanupPhotos();
     final st = context.read<AppState>();
     if (widget.edit != null) {
@@ -448,27 +490,26 @@ class _RecordScreenState extends State<RecordScreen> {
       stockPrice: _showManualPrice ? _manualPrice : null,
       stockCurrency: _showManualPrice && _manualPrice != null ? _priceCur : null,
     );
-    await st.reload();
-    final added = st.logs.where((l) => l.id == newId).firstOrNull;
-    if (added != null) {
-      // 아직 기존 기록을 한 번도 안 올렸으면 이번에 전부, 아니면 이 건만
-      if (!await ShareStats.instance.backfilled) {
-        await ShareStats.instance.backfill(st.logs);
-      } else {
-        ShareStats.instance.push(added);
-      }
-    }
-    Analytics.instance.logSaved(fromStock: _deduct && _deductStockId != null, edit: false);
-    final newBadges = await Badges.takeNew(st);
+    // DB에 들어갔으면 그걸로 저장은 끝 — 화면 닫고 알림. 나머지(추천 재계산·업로드·뱃지)는 실패해도 기록은 남는다.
     if (!mounted) return;
-    // 이 기록으로 새 뱃지를 땄으면 폭죽 — 루트 오버레이에 올리므로 화면을 닫아도 끝까지 보임
-    celebrateBadges(context, newBadges);
+    final sm = ScaffoldMessenger.of(context);
+    final rootCtx = Navigator.of(context, rootNavigator: true).context;
     Navigator.pop(context);
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    sm.showSnackBar(SnackBar(
         content: Text(tr(
       '$_cigarName ${fmtScore(_score)}점 기록${_deduct && _deductStockId != null ? ' · 재고 -1' : ''}',
       '$_cigarName logged at ${fmtScore(_score)}${_deduct && _deductStockId != null ? ' · stock -1' : ''}',
     ))));
+    try {
+      await st.reload();
+    } catch (e, stk) {
+      debugPrint('reload after save failed: $e\n$stk');
+      sm.showSnackBar(SnackBar(content: Text(tr('기록은 저장됐지만 화면 갱신에 실패했어요: $e', 'Saved, but refresh failed: $e'))));
+      return;
+    }
+    final newBadges = await _afterSave(st, newId);
+    // 이 기록으로 새 뱃지를 땄으면 폭죽 — 루트 오버레이에 올리므로 화면을 닫아도 끝까지 보임
+    if (rootCtx.mounted) celebrateBadges(rootCtx, newBadges);
   }
 }
 
