@@ -10,7 +10,20 @@ Source: shop:cigarplace
 """
 import csv, html, json, re, time
 from pathlib import Path
-from .base import fetch
+import urllib.error
+from .base import fetch as _fetch
+
+
+def fetch(url, tries=4):
+    """cigarplace rate-limits (HTTP 429) after ~35 quick hits: back off and retry."""
+    for i in range(tries):
+        try:
+            return _fetch(url)
+        except urllib.error.HTTPError as e:
+            if e.code != 429 or i == tries - 1:
+                raise
+            ra = e.headers.get("Retry-After")
+            time.sleep(min(int(ra), 180) if ra and ra.isdigit() else 45 * (i + 1))
 
 ROOT = Path(__file__).resolve().parents[2]
 SEED = ROOT / "seed" / "noncuban_lines.csv"
@@ -64,7 +77,7 @@ def parse(page):
 
 
 
-def run(limit=None, offset=0, delay=1.0):
+def run(limit=None, offset=0, delay=2.5):
     rows = []
     ts = targets()[offset:]
     if limit:
