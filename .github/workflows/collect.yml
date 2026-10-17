@@ -54,9 +54,9 @@ jobs:
           for a in $ADAPTERS; do
             echo "::group::$a"
             if [ -n "${{ github.event.inputs.limit }}" ]; then
-              timeout 50m python scripts/collect.py "$a" --limit "${{ github.event.inputs.limit }}" --offset "${{ github.event.inputs.offset }}" 2>&1 | tail -n 60 || echo "FAILED $a"
+              timeout 50m python scripts/collect.py "$a" --limit "${{ github.event.inputs.limit }}" --offset "${{ github.event.inputs.offset }}" 2>&1 | tee -a adapters.log | tail -n 60 || echo "FAILED $a"
             else
-              timeout 50m python scripts/collect.py "$a" --offset "${{ github.event.inputs.offset }}" 2>&1 | tail -n 60 || echo "FAILED $a"
+              timeout 50m python scripts/collect.py "$a" --offset "${{ github.event.inputs.offset }}" 2>&1 | tee -a adapters.log | tail -n 60 || echo "FAILED $a"
             fi
             echo "::endgroup::"
           done
@@ -88,5 +88,5 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           NUM=$(gh issue list --label stats --state open --json number --jq '.[0].number' || true)
-          { echo "### collect-notes (${{ github.event.inputs.adapter }}) → branch ${{ github.event.inputs.branch }} · run ${{ github.run_id }}"; echo '```'; cat before.txt after.txt 2>/dev/null; echo '```'; } > body.md
+          { echo "### collect-notes (${{ github.event.inputs.adapter }}) → branch ${{ github.event.inputs.branch }} · run ${{ github.run_id }}"; echo '```'; cat before.txt after.txt 2>/dev/null; echo '```'; echo; echo "adapter summary / error types:"; echo '```'; grep -E ': [0-9]+ rows' adapters.log 2>/dev/null; grep '^ERR ' adapters.log 2>/dev/null | sed -E 's/^ERR .*(HTTP Error [0-9]+[^:]*|timed out|Remote end closed[^(]*|Connection reset[^(]*|no description).*/\1/' | sort | uniq -c | sort -rn | head -8; echo '```'; } > body.md
           [ -n "$NUM" ] && gh issue comment "$NUM" --body-file body.md || true
