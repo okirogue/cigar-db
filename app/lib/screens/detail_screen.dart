@@ -166,7 +166,7 @@ class DetailScreen extends StatelessWidget {
           const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4),
-            child: SubText(tr('노트 출처: 제조사 공식 설명 · Cigar Dojo · Cigar Journal · cigarworld', 'Note sources: manufacturer descriptions · Cigar Dojo · Cigar Journal · cigarworld'), size: 11),
+            child: SubText(tr('노트 출처: 제조사 공식 설명 · Cigar Dojo · Cigar Journal · cigarworld · Cigar Place 상품 설명', 'Note sources: manufacturer descriptions · Cigar Dojo · Cigar Journal · cigarworld · Cigar Place descriptions'), size: 11),
           ),
         ],
       ),

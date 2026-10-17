@@ -58,7 +58,7 @@ Security reviews, issues and PRs are welcome. License: MIT.
 | `seed/excluded_lines.csv` | 번들·세컨드·기계식·샘플러 등 제외 248행 |
 | `scripts/collect.py` | 어댑터 실행 → 태그 추출 → `db/cigars.json` 병합 |
 | `seed/cuban_tags.csv` | 쿠반 핵심 114비톨라 수동 태깅 (리뷰 2곳 이상 합의, `~`는 저신뢰) |
-| `scripts/adapters/` | 출처별 수집기. `official:*` 제조사 공식(davidoff, stg=cigarworld, wp_generic 12브랜드), `review:dojo`, `review:journal`, `review:manual` |
+| `scripts/adapters/` | 출처별 수집기. `official:*` 제조사 공식(davidoff, stg=cigarworld, wp_generic 12브랜드), `review:dojo`, `review:journal`, `review:manual`, `shop:cigarplace`(Cigar Place 라인 설명문, 가격·링크 미저장) |
 | `scripts/merge_ids.py` | 같은 라인 중복 ID 병합 |
 | `scripts/seed_fill.py` | 시드 전 라인을 DB에 등록(노트 없는 건 스텁) |
 
