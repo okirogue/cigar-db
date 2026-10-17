@@ -1,12 +1,14 @@
 name: collect-notes
 
+# 공식/리뷰 노트 수집기 실행. 결과는 main 이 아니라 지정 브랜치에 커밋한다
+# (main 에 바로 올리면 앱 빌드가 돌아 플레이 업로드까지 이어지므로, 검토 후 수동 병합).
 on:
   workflow_dispatch:
     inputs:
       adapter:
-        description: "adapter name(s), space-separated (e.g. davidoff rockypatel oliva)"
+        description: "adapter name(s), space-separated, or 'all'"
         required: true
-        default: davidoff
+        default: all
       limit:
         description: "max pages (blank = all)"
         required: false
@@ -15,9 +17,14 @@ on:
         description: "start offset (review adapters)"
         required: false
         default: "0"
+      branch:
+        description: "결과를 커밋할 브랜치 (main 금지)"
+        required: true
+        default: db-collect
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   collect:
@@ -28,20 +35,58 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Run adapter
+      - name: Before
         run: |
           touch scripts/__init__.py scripts/adapters/__init__.py
-          for a in ${{ github.event.inputs.adapter }}; do
-            if [ -n "${{ github.event.inputs.limit }}" ]; then
-              python scripts/collect.py "$a" --limit "${{ github.event.inputs.limit }}" --offset "${{ github.event.inputs.offset }}" || echo "FAILED $a"
-            else
-              python scripts/collect.py "$a" --offset "${{ github.event.inputs.offset }}" || echo "FAILED $a"
-            fi
-          done
-      - name: Commit results
+          python3 - <<'EOF' | tee before.txt
+          import json
+          d=json.load(open('db/cigars.json'))
+          no=sum(1 for c in d.values() if not (c.get('notes',{}).get('official') or c.get('notes',{}).get('review')))
+          print(f"before: {len(d)} cigars, {no} without notes")
+          EOF
+      - name: Run adapters
         run: |
+          ADAPTERS="${{ github.event.inputs.adapter }}"
+          if [ "$ADAPTERS" = "all" ]; then
+            ADAPTERS="$(python3 -c 'from scripts.adapters import wp_generic; print(" ".join(wp_generic.BRANDS))') stg davidoff"
+          fi
+          echo "adapters: $ADAPTERS"
+          for a in $ADAPTERS; do
+            echo "::group::$a"
+            if [ -n "${{ github.event.inputs.limit }}" ]; then
+              timeout 50m python scripts/collect.py "$a" --limit "${{ github.event.inputs.limit }}" --offset "${{ github.event.inputs.offset }}" 2>&1 | tee -a adapters.log | tail -n 60 || echo "FAILED $a"
+            else
+              timeout 50m python scripts/collect.py "$a" --offset "${{ github.event.inputs.offset }}" 2>&1 | tee -a adapters.log | tail -n 60 || echo "FAILED $a"
+            fi
+            echo "::endgroup::"
+          done
+      - name: Merge duplicate ids + rebuild app assets
+        run: |
+          python scripts/merge_ids.py 2>&1 | tail -n 20 || true
+          python scripts/build_app_assets.py
+          python3 - <<'EOF' | tee after.txt
+          import json
+          d=json.load(open('db/cigars.json'))
+          no=sum(1 for c in d.values() if not (c.get('notes',{}).get('official') or c.get('notes',{}).get('review')))
+          print(f"after: {len(d)} cigars, {no} without notes")
+          EOF
+      - name: Commit results to branch
+        env:
+          BR: ${{ github.event.inputs.branch }}
+        run: |
+          [ "$BR" = "main" ] && { echo "refusing to push to main"; exit 1; }
           git config user.name "cigar-db-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add db/cigars.json
-          git diff --cached --quiet || git commit -m "collect: ${{ github.event.inputs.adapter }} ($(date -u +%F))"
-          git push
+          git status --short | head -20
+          git checkout -B "$BR"
+          git add -A db app/assets
+          git diff --cached --quiet && echo "nothing to commit" || git commit -m "collect: ${{ github.event.inputs.adapter }} ($(date -u +%F)) [skip ci]"
+          git push -f origin "HEAD:refs/heads/$BR"
+      - name: Comment summary
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          NUM=$(gh issue list --label stats --state open --json number --jq '.[0].number' || true)
+          { echo "### collect-notes (${{ github.event.inputs.adapter }}) → branch ${{ github.event.inputs.branch }} · run ${{ github.run_id }}"; echo '```'; cat before.txt after.txt 2>/dev/null; echo '```'; echo; echo "adapter summary / error types:"; echo '```'; grep -E ': [0-9]+ rows' adapters.log 2>/dev/null; grep '^ERR ' adapters.log 2>/dev/null | sed -E 's/^ERR .*(HTTP Error [0-9]+[^:]*|timed out|Remote end closed[^(]*|Connection reset[^(]*|no description).*/\1/' | sort | uniq -c | sort -rn | head -8; echo '```'; } > body.md
+          [ -n "$NUM" ] && gh issue comment "$NUM" --body-file body.md || true
