@@ -56,8 +56,9 @@ class TasteMap extends StatelessWidget {
     } else {
       base = .5;
     }
-    final adj = l.tags.map((t) => _punch[t]).whereType<double>().fold(0.0, (a, b) => a + b);
-    // 강도 정보가 없으면 태그 보정을 더 크게 (그게 유일한 단서라서)
+    // 내가 체크한 노트 우선. 강도 정보도 없고 체크한 노트도 없으면 DB 노트로 대체 (그게 유일한 단서라서)
+    final tags = l.tags.isNotEmpty ? l.tags : (s.isEmpty ? (c?.allTags ?? const <String>[]) : const <String>[]);
+    final adj = tags.map((t) => _punch[t]).whereType<double>().fold(0.0, (a, b) => a + b);
     return (base + adj.clamp(-.2, .2) * (s.isEmpty ? 1.6 : 1.0)).clamp(.04, .96);
   }
 
@@ -84,15 +85,28 @@ class TasteMap extends StatelessWidget {
   Widget build(BuildContext context) {
     final st = context.watch<AppState>();
     if (st.logs.length < 3) return const SizedBox.shrink();
-    // 오래된 순 번호
+    // 같은 시가는 점 하나로 묶는다 (위치·점수는 그 시가 기록들의 평균). 번호는 처음 피운 순.
     final logs = [...st.logs]..sort((a, b) => a.date != b.date ? a.date.compareTo(b.date) : a.id.compareTo(b.id));
+    final groups = <String, List<SmokeLog>>{};
+    for (final l in logs) {
+      groups.putIfAbsent(l.cigarId, () => []).add(l);
+    }
     final pts = <_Pt>[];
-    for (var i = 0; i < logs.length; i++) {
-      final l = logs[i];
-      final c = st.repo.byId(l.cigarId);
-      // 같은 자리 겹침 방지용 아주 작은 흔들림 (기록 id 기반으로 고정)
-      final jx = (Random(l.id).nextDouble() - .5) * .05, jy = (Random(l.id * 31).nextDouble() - .5) * .05;
-      pts.add(_Pt(i + 1, l, (_strengthX(l, c) + jx).clamp(.03, .97), (_brightY(l, c) + jy).clamp(.03, .97), _originKey(c)));
+    var n = 0;
+    for (final e in groups.entries) {
+      final ls = e.value;
+      final c = st.repo.byId(e.key);
+      var sx = 0.0, sy = 0.0, ss = 0.0;
+      for (final l in ls) {
+        sx += _strengthX(l, c);
+        sy += _brightY(l, c);
+        ss += l.score;
+      }
+      final k = ls.length;
+      // 같은 자리 겹침 방지용 아주 작은 흔들림 (첫 기록 id 기반으로 고정)
+      final seed = ls.first.id;
+      final jx = (Random(seed).nextDouble() - .5) * .05, jy = (Random(seed * 31).nextDouble() - .5) * .05;
+      pts.add(_Pt(++n, ls, (sx / k + jx).clamp(.03, .97), (sy / k + jy).clamp(.03, .97), _originKey(c), ss / k));
     }
 
     final origin = _origin;
@@ -120,7 +134,7 @@ class TasteMap extends StatelessWidget {
               child: GestureDetector(
                 onTapUp: (d) {
                   final hit = _hit(placed, d.localPosition, r);
-                  if (hit != null) openLogSheet(context, hit.pt.log);
+                  if (hit != null) _openPoint(context, hit.pt);
                 },
                 child: CustomPaint(painter: _MapPainter(placed, origin, r, L10n.code)),
               ),
@@ -137,7 +151,41 @@ class TasteMap extends StatelessWidget {
           ]),
           const SizedBox(height: 8),
           // 번호 → 시가 범례 (접이식). 판정은 그 시가의 내 평균 점수 기준
-          _Legend(pts: pts, origin: origin, logs: st.logs),
+          _Legend(pts: pts, origin: origin),
+        ]),
+      ),
+    );
+  }
+
+  /// 점 탭: 기록이 하나면 바로 열고, 여러 개면 고르게.
+  static void _openPoint(BuildContext context, _Pt p) {
+    if (p.logs.length == 1) {
+      openLogSheet(context, p.logs.first);
+      return;
+    }
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: C.bg,
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(18))),
+      builder: (_) => SafeArea(
+        child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 18, 20, 6),
+            child: Text(tr('${p.cigarName} · ${p.logs.length}회 · 평균 ${fmtScore((p.avg * 2).round() / 2)}',
+                '${p.cigarName} · ${p.logs.length}x · avg ${fmtScore((p.avg * 2).round() / 2)}'),
+                style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+          ),
+          for (final l in p.logs.reversed)
+            ListTile(
+              dense: true,
+              title: Text(l.vitola != null && l.vitola!.isNotEmpty ? '${l.date} · ${l.vitola}' : l.date, style: const TextStyle(fontSize: 13)),
+              trailing: Text(fmtScore(l.score), style: const TextStyle(fontWeight: FontWeight.w700, color: C.accent)),
+              onTap: () {
+                Navigator.pop(context);
+                openLogSheet(context, l);
+              },
+            ),
+          const SizedBox(height: 8),
         ]),
       ),
     );
@@ -199,10 +247,13 @@ class TasteMap extends StatelessWidget {
 
 class _Pt {
   final int n;
-  final SmokeLog log;
+  final List<SmokeLog> logs; // 같은 시가의 기록들 (오래된 순)
   final double x, y;
   final String origin;
-  _Pt(this.n, this.log, this.x, this.y, this.origin);
+  final double avg; // 내 평균 점수
+  _Pt(this.n, this.logs, this.x, this.y, this.origin, this.avg);
+  String get cigarId => logs.first.cigarId;
+  String get cigarName => logs.first.cigarName;
 }
 
 class _Placed {
@@ -260,7 +311,7 @@ class _MapPainter extends CustomPainter {
       final p = pl.pt;
       final o = pl.o;
       final col = origin[p.origin]!.$1;
-      final s = p.log.score;
+      final s = p.avg;
       if (s >= 8) {
         canvas.drawCircle(o, r, Paint()..color = col);
       } else if (s >= 7) {
@@ -273,8 +324,12 @@ class _MapPainter extends CustomPainter {
       }
       // 흰 테두리로 인접 점과 구분
       canvas.drawCircle(o, r + 1, Paint()..color = C.bg..style = PaintingStyle.stroke..strokeWidth = 1.5);
+      // 여러 번 피운 시가는 바깥 고리 하나 더
+      if (p.logs.length > 1) {
+        canvas.drawCircle(o, r + 3, Paint()..color = col.withValues(alpha: .55)..style = PaintingStyle.stroke..strokeWidth = 1.5);
+      }
       final tp = TextPainter(
-        text: TextSpan(text: '${p.n}', style: TextStyle(fontSize: 9.5, fontWeight: FontWeight.w700, color: s >= 80 ? Colors.white : C.text)),
+        text: TextSpan(text: '${p.n}', style: TextStyle(fontSize: 9.5, fontWeight: FontWeight.w700, color: s >= 8 ? Colors.white : C.text)),
         textDirection: TextDirection.ltr,
       )..layout();
       tp.paint(canvas, o - Offset(tp.width / 2, tp.height / 2));
@@ -286,12 +341,11 @@ class _MapPainter extends CustomPainter {
       old.lang != lang || old.pts.length != pts.length || old.r != r || old.pts.any((p) => !pts.contains(p));
 }
 
-/// 지도 아래 접이식 범례: 산지별로 번호·이름·판정(내 평균 기준: 8↑ 좋음, 7대 보류, 7 미만 아님)
+/// 지도 아래 접이식 범례: 산지별로 번호·이름·판정(내 평균 기준: 8↑ 좋음, 7대 보류, 7 미만 아님). 점 = 시가 1종.
 class _Legend extends StatefulWidget {
   final List<_Pt> pts;
   final Map<String, (Color, String)> origin;
-  final List<SmokeLog> logs;
-  const _Legend({required this.pts, required this.origin, required this.logs});
+  const _Legend({required this.pts, required this.origin});
   @override
   State<_Legend> createState() => _LegendState();
 }
@@ -307,14 +361,6 @@ class _LegendState extends State<_Legend> {
 
   @override
   Widget build(BuildContext context) {
-    // 시가별 내 평균
-    final sum = <String, double>{}, cnt = <String, int>{};
-    for (final l in widget.logs) {
-      sum[l.cigarId] = (sum[l.cigarId] ?? 0) + l.score;
-      cnt[l.cigarId] = (cnt[l.cigarId] ?? 0) + 1;
-    }
-    double avgOf(String id) => (sum[id] ?? 0) / (cnt[id] ?? 1);
-
     final header = InkWell(
       borderRadius: BorderRadius.circular(8),
       onTap: () => setState(() => _open = !_open),
@@ -325,7 +371,7 @@ class _LegendState extends State<_Legend> {
           const SizedBox(width: 4),
           Icon(_open ? Icons.expand_less : Icons.expand_more, size: 18, color: C.sub),
           const Spacer(),
-          if (!_open) SubText(tr('${widget.pts.length}개', '${widget.pts.length}'), size: 11),
+          if (!_open) SubText(tr('${widget.pts.length}종', '${widget.pts.length}'), size: 11),
         ]),
       ),
     );
@@ -344,26 +390,27 @@ class _LegendState extends State<_Legend> {
         ]),
       ));
       for (final p in group) {
-        final avg = avgOf(p.log.cigarId);
+        final avg = p.avg;
         final v = _verdict(avg);
-        final n = cnt[p.log.cigarId] ?? 1;
+        final n = p.logs.length;
+        final last = p.logs.last;
         rows.add(InkWell(
           borderRadius: BorderRadius.circular(8),
-          onTap: () => openLogSheet(context, p.log),
+          onTap: () => TasteMap._openPoint(context, p),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 7),
             child: Row(children: [
               SizedBox(width: 30, child: Text('${p.n}', style: const TextStyle(fontSize: 12, color: C.accent, fontWeight: FontWeight.w700))),
               Expanded(
                 child: Text(
-                  p.log.vitola != null && p.log.vitola!.isNotEmpty ? '${p.log.cigarName} · ${p.log.vitola}' : p.log.cigarName,
+                  n == 1 && last.vitola != null && last.vitola!.isNotEmpty ? '${p.cigarName} · ${last.vitola}' : p.cigarName,
                   style: const TextStyle(fontSize: 13),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
               const SizedBox(width: 8),
-              SubText(n > 1 ? tr('평균 ${fmtScore((avg * 2).round() / 2)} · $n회', 'avg ${fmtScore((avg * 2).round() / 2)} · ${n}x') : fmtScore(p.log.score), size: 11),
+              SubText(n > 1 ? tr('평균 ${fmtScore((avg * 2).round() / 2)} · $n회', 'avg ${fmtScore((avg * 2).round() / 2)} · ${n}x') : fmtScore(last.score), size: 11),
               const SizedBox(width: 8),
               Text(v.$1, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: v.$2)),
               const Icon(Icons.chevron_right, size: 14, color: C.hint),

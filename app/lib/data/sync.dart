@@ -10,6 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/cigar.dart';
 import '../state.dart';
 import 'local_db.dart';
+import 'installs.dart';
 import 'scan_service.dart';
 
 /// 운영자(본인) 전용 기기 간 동기화.
@@ -90,6 +91,8 @@ class Sync {
   Future<String?> signIn() async {
     if (!ScanService.instance.ready) return 'Firebase 연결이 안 돼 있어요';
     final auth = FirebaseAuth.instance;
+    final prevUser = auth.currentUser;
+    final prevUid = prevUser == null ? null : Installs.docIdFor(prevUser); // 로그인 전 실행 기록 문서 id (바뀌면 정리용)
     try {
       if (kIsWeb) {
         final provider = GoogleAuthProvider()
@@ -149,6 +152,8 @@ class Sync {
         }
       }
       if (!signedIn) return '로그인은 됐는데 운영자 계정 확인에 실패했어요';
+      // 이전 익명 실행 기록을 새 문서에 흡수 표시 (UID 가 바뀌었거나 익명→기기별 문서로 바뀐 경우)
+      if (prevUid != null) await Installs.instance.absorb(prevUid);
       final p = await SharedPreferences.getInstance();
       await p.setBool(_onKey, true);
       // 처음 연결: 전부 올리고 전부 받기
@@ -220,7 +225,7 @@ class Sync {
     }
   }
 
-  static const _tables = ['humidors', 'stock', 'logs'];
+  static const _tables = ['humidors', 'stock', 'logs', 'wishlist'];
 
   Future<void> _push() async {
     final db = LocalDb.instance;
@@ -402,6 +407,27 @@ class Sync {
         'stock_price': m['stock_price'],
         'stock_currency': m['stock_currency'],
         'stock_added': m['stock_added'],
+      }, (m['updated'] as num).toInt());
+      if (r.$2) changed = true;
+    }
+
+    // 5) 위시리스트
+    for (final d in await fetch('wishlist')) {
+      final m = d.data();
+      _pulledSids.add('wishlist/${d.id}');
+      if (m['deleted'] == true) {
+        if (await db.deleteBySid('wishlist', d.id)) changed = true;
+        continue;
+      }
+      // 같은 시가가 다른 sid 로 이미 있으면(두 기기에서 따로 담음) 중복으로 안 넣는다
+      if (await db.bySid('wishlist', d.id) == null && await db.inWishlist((m['cigar_id'] as String?) ?? '')) continue;
+      final r = await db.upsertBySid('wishlist', d.id, {
+        'cigar_id': m['cigar_id'],
+        'cigar_name': m['cigar_name'],
+        'vitola': m['vitola'],
+        'memo': m['memo'],
+        'priority': m['priority'] ?? 1,
+        'created': m['created'],
       }, (m['updated'] as num).toInt());
       if (r.$2) changed = true;
     }

@@ -9,6 +9,7 @@ import '../theme.dart';
 import 'add_stock_screen.dart';
 import 'picker_screen.dart';
 import 'record_screen.dart';
+import 'wishlist_sheet.dart';
 
 /// 시가 상세: 스펙 · 노트 · 내 기록. (카페 평점은 서버 붙은 뒤)
 class DetailScreen extends StatelessWidget {
@@ -48,9 +49,16 @@ class DetailScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(18),
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                SubText([cigar.brand, if (cigar.cuban) tr('쿠바', 'Cuban')].join(' · ')),
-                const SizedBox(height: 2),
-                Text(cigar.name, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
+                Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Expanded(
+                    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      SubText([cigar.brand, if (cigar.cuban) tr('쿠바', 'Cuban')].join(' · ')),
+                      const SizedBox(height: 2),
+                      Text(cigar.name, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
+                    ]),
+                  ),
+                  WishButton(cigar: cigar, size: 24),
+                ]),
                 if (specLine.isNotEmpty) ...[const SizedBox(height: 10), Wrap(spacing: 14, runSpacing: 4, children: [for (final s in specLine) SubText(s, size: 13)])],
                 if (blendLine.isNotEmpty) ...[const SizedBox(height: 4), Wrap(spacing: 14, runSpacing: 4, children: [for (final s in blendLine) SubText(s, size: 12)])],
                 if (cigar.vitolas.isNotEmpty) ...[

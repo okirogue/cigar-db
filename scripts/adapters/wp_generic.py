@@ -47,6 +47,13 @@ BRANDS = {
     "ajfernandez": dict(brand="AJ Fernandez", sitemaps=["https://ajfcigars.com/page-sitemap.xml"],
                         pattern=r"https://ajfcigars\.com/cigars/[^/]+/(?:[^/]+/)?", delay=2,
                         meta_only=True),
+    # 라인 페이지: 설명 문단 + "Blend | Wrapper: … | Binder: … | Filler: … | Sizes | Strength | Medium"
+    "gurkha": dict(brand="Gurkha", sitemaps=["https://gurkhacigars.com/product-sitemap.xml"],
+                   pattern=r"https://gurkhacigars\.com/cigar-collections/[^/]+/[^/]+/", skip=r"sampler|gift|humidor|lighter|cutter|ashtray", delay=2),
+    # 워드프레스 루트 페이지가 라인 페이지 (예: /charter-oak-ct-shade/). 비-시가 페이지는 skip 으로 거름
+    "foundation": dict(brand="Foundation Cigar Co.", sitemaps=["https://foundationcigarcompany.com/sitemap.xml", "https://foundationcigarcompany.com/page-sitemap.xml"],
+                       pattern=r"https://foundationcigarcompany\.com/[^/]+/",
+                       skip=r"about|art$|art/|cart|contact|events|press|shop|swag|store-locator|privacy|terms|sitemap|feed|wp-|checkout|account|my-|blog|news|category|tag/", delay=2),
 }
 
 
@@ -73,7 +80,7 @@ def line_urls(cfg):
 def name_from_url(url):
     parts = [p for p in urlparse(url).path.split("/") if p]
     name = parts[-1]
-    if len(parts) > 2 and parts[-2] not in ("cigar", "cigars", "products"):
+    if len(parts) > 2 and parts[-2] not in ("cigar", "cigars", "products", "product", "producto", "core-brands", "ultra-premium", "collectors-corner", "cigar-collections"):
         name = parts[-2] + " " + name
     return re.sub(r"[-_]+", " ", name).strip()
 

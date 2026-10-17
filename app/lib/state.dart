@@ -17,6 +17,7 @@ class AppState extends ChangeNotifier {
   List<Humidor> humidors = [];
   Map<int, int> qtyByHumidor = {};
   List<StockItem> allStock = [];
+  List<WishItem> wishlist = [];
   List<SmokeLog> logs = [];
   bool ready = false;
 
@@ -46,6 +47,7 @@ class AppState extends ChangeNotifier {
     humidors = await db.humidors();
     qtyByHumidor = await db.qtyByHumidor();
     allStock = await db.stock();
+    wishlist = await db.wishlist();
     logs = await db.logs();
     _recompute();
     notifyListeners();
@@ -59,6 +61,20 @@ class AppState extends ChangeNotifier {
 
   /// 피워본 시가 id 집합 (도감용)
   Set<String> get smokedIds => logs.map((l) => l.cigarId).toSet();
+  Set<String> get wishIds => wishlist.map((w) => w.cigarId).toSet();
+  bool inWishlist(String cigarId) => wishlist.any((w) => w.cigarId == cigarId);
+
+  /// 위시리스트 토글. 추가됐으면 true.
+  Future<bool> toggleWish(Cigar c, {String? vitola, String? memo}) async {
+    if (inWishlist(c.id)) {
+      await db.deleteWishByCigar(c.id);
+      await reload();
+      return false;
+    }
+    await db.addWish(cigarId: c.id, cigarName: c.fullName, vitola: vitola, memo: memo);
+    await reload();
+    return true;
+  }
 
   /// 체크해 본 노트 태그 집합 (미각용)
   Set<String> get tastedTags => {for (final l in logs) ...l.tags};
@@ -67,7 +83,8 @@ class AppState extends ChangeNotifier {
 
   /// 취향 프로필 · 추천 (기록 바뀔 때마다 reload에서 재계산)
   TasteProfile? profile;
-  List<Reco> recos = [];
+  List<Reco> recos = []; // 다음에 사볼 것 (안 피워봤고 휴미더에도 없는 것)
+  List<Reco> recosInStock = []; // 지금 휴미더에서 피울 것
 
   /// 추천 근거가 된 "점수 높게 준" 시가 이름들 (중복 제거, 점수순 최대 3개)
   List<String> get topRatedNames {
@@ -84,6 +101,9 @@ class AppState extends ChangeNotifier {
 
   void _recompute() {
     profile = TasteProfile.build(logs, repo);
-    recos = Recommender(repo).forMe(profile!, smokedIds, limit: 8);
+    final stockIds = allStock.where((s) => s.qty > 0).map((s) => s.cigarId).toSet();
+    final all = Recommender(repo).forMe(profile!, smokedIds, limit: 40, stockIds: stockIds);
+    recosInStock = all.where((r) => r.inStock).take(4).toList();
+    recos = all.where((r) => !r.inStock).take(8).toList();
   }
 }

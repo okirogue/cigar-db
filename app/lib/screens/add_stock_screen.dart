@@ -280,9 +280,11 @@ class _AddStockScreenState extends State<AddStockScreen> {
       currency: _saveCurrency,
       addedDate: ymd(_date),
     );
+    // 위시리스트에 있던 시가면 입고했으니 뺀다
+    if (st.inWishlist(_pick!.id)) await st.db.deleteWishByCigar(_pick!.id);
     await st.reload();
     if (!mounted) return;
-    Navigator.pop(context);
+    Navigator.pop(context, true);
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(tr('${_pick!.name} $_qty개비 입고', 'Added $_qty × ${_pick!.name}'))));
   }
 }

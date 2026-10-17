@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 
 
 import '../data/badges.dart';
+import '../data/cigar_repo.dart';
+import '../data/recommender.dart';
 import '../l10n.dart';
 import '../state.dart';
 import '../theme.dart';
@@ -10,6 +12,7 @@ import 'badge_list_screen.dart';
 import 'detail_screen.dart';
 import 'feedback_sheet.dart';
 import 'taste_map.dart';
+import 'wishlist_sheet.dart';
 
 /// 홈: 브랜드 헤더 + 내 업적(도감·미각). 횟수·연속 같은 건 없음.
 class BadgesScreen extends StatefulWidget {
@@ -268,7 +271,7 @@ class _BadgesScreenState extends State<BadgesScreen> {
           const TasteMap(),
           // 추천 (맨 아래)
           const SizedBox(height: 14),
-          if (st.profile != null && st.profile!.ready && st.recos.isNotEmpty) ...[
+          if (st.profile != null && st.profile!.ready && (st.recos.isNotEmpty || st.recosInStock.isNotEmpty)) ...[
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(18),
@@ -282,26 +285,26 @@ class _BadgesScreenState extends State<BadgesScreen> {
                         : tr('점수 높게 준 ${st.topRatedNames.join(', ')} 와 비슷해요', 'Similar to your top-rated ${st.topRatedNames.join(', ')}'),
                     size: 12,
                   ),
-                  const SizedBox(height: 12),
-                  for (final r in st.recos)
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: InkWell(
-                        borderRadius: BorderRadius.circular(10),
-                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen(cigar: r.cigar))),
-                        child: Row(children: [
-                          const CigarThumb(size: 40),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                              Text(r.cigar.fullName, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500), maxLines: 1, overflow: TextOverflow.ellipsis),
-                              SubText(r.reason(repo), size: 11),
-                            ]),
-                          ),
-                          const Icon(Icons.chevron_right, size: 18, color: C.hint),
-                        ]),
-                      ),
-                    ),
+                  if (st.recosInStock.isNotEmpty) ...[
+                    const SizedBox(height: 14),
+                    Row(children: [
+                      const Icon(Icons.inventory_2_outlined, size: 14, color: C.accent),
+                      const SizedBox(width: 6),
+                      Text(tr('지금 휴미더에서', 'In your humidor now'), style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: C.accent)),
+                    ]),
+                    const SizedBox(height: 8),
+                    for (final r in st.recosInStock) _RecoRow(r: r, repo: repo),
+                  ],
+                  if (st.recos.isNotEmpty) ...[
+                    const SizedBox(height: 14),
+                    Row(children: [
+                      const Icon(Icons.shopping_bag_outlined, size: 14, color: C.sub),
+                      const SizedBox(width: 6),
+                      Text(tr('다음에 사볼 것', 'Worth buying next'), style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: C.sub)),
+                    ]),
+                    const SizedBox(height: 8),
+                    for (final r in st.recos) _RecoRow(r: r, repo: repo),
+                  ],
                 ]),
               ),
             ),
@@ -325,6 +328,34 @@ class _BadgesScreenState extends State<BadgesScreen> {
     );
   }
 
+}
+
+class _RecoRow extends StatelessWidget {
+  final Reco r;
+  final CigarRepo repo;
+  const _RecoRow({required this.r, required this.repo});
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(10),
+        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen(cigar: r.cigar))),
+        child: Row(children: [
+          const CigarThumb(size: 40),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text(r.cigar.fullName, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500), maxLines: 1, overflow: TextOverflow.ellipsis),
+              Text(r.reason(repo), style: const TextStyle(fontSize: 11, color: C.sub), maxLines: 2, overflow: TextOverflow.ellipsis),
+            ]),
+          ),
+          if (!r.inStock) WishButton(cigar: r.cigar, size: 20),
+          const Icon(Icons.chevron_right, size: 18, color: C.hint),
+        ]),
+      ),
+    );
+  }
 }
 
 class _Stat extends StatelessWidget {

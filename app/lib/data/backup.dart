@@ -39,6 +39,10 @@ class Backup {
             'added_date': s.addedDate,
           }
       ],
+      'wishlist': [
+        for (final w in st.wishlist)
+          {'cigar_id': w.cigarId, 'cigar_name': w.cigarName, 'vitola': w.vitola, 'memo': w.memo, 'priority': w.priority, 'created': w.created}
+      ],
       'logs': [
         for (final l in st.logs)
           {
@@ -152,6 +156,16 @@ class Backup {
         stockAdded: l['stock_added'] as String?,
       );
       addedL++;
+    }
+    for (final w in ((data['wishlist'] as List?) ?? const []).cast<Map<String, dynamic>>()) {
+      await db.addWish(
+        cigarId: w['cigar_id'] as String,
+        cigarName: w['cigar_name'] as String,
+        vitola: w['vitola'] as String?,
+        memo: w['memo'] as String?,
+        priority: (w['priority'] as num?)?.toInt() ?? 1,
+        created: w['created'] as String?,
+      );
     }
     await st.reload();
     return (addedH, addedS, addedL);

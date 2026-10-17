@@ -28,7 +28,7 @@ class LocalDb {
     final path = kIsWeb ? 'cigar_log.db' : p.join(await getDatabasesPath(), 'cigar_log.db');
     _db = await openDatabase(
       path,
-      version: 8,
+      version: 9,
       onUpgrade: (d, oldV, newV) async {
         if (oldV < 2) await d.execute(_customDdl);
         if (oldV < 3) await d.execute('ALTER TABLE logs ADD COLUMN summary TEXT');
@@ -52,6 +52,7 @@ class LocalDb {
             WHERE stock_item_id IS NOT NULL''');
         }
         if (oldV < 8) await _migrateV8(d);
+        if (oldV < 9) await d.execute(_wishDdl);
       },
       onCreate: (d, v) async {
         await d.execute('''
@@ -103,6 +104,7 @@ class LocalDb {
         await d.execute(_customDdl);
         await d.execute(_tombDdl);
         await d.insert('humidors', {'name': tr('내 휴미더', 'My humidor'), 'sort_order': 0, 'sid': newSid(), 'updated': now});
+        await d.execute(_wishDdl);
       },
     );
     return _db!;
@@ -125,6 +127,20 @@ class LocalDb {
             updated INTEGER NOT NULL,
             PRIMARY KEY (tbl, sid)
           )''';
+
+  /// v9: 위시리스트 (다음에 살 것). sid/updated 로 동기화·백업 대상.
+  static const _wishDdl = '''
+    CREATE TABLE IF NOT EXISTS wishlist(
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      cigar_id TEXT NOT NULL,
+      cigar_name TEXT NOT NULL,
+      vitola TEXT,
+      memo TEXT,
+      priority INTEGER NOT NULL DEFAULT 1,
+      created TEXT NOT NULL,
+      sid TEXT,
+      updated INTEGER NOT NULL DEFAULT 0
+    )''';
 
   /// v8: 기기 간 동기화를 위해 전역 id(sid)와 수정 시각(updated) 추가. 기존 행엔 새 sid 를 붙인다.
   static Future<void> _migrateV8(Database d) async {
@@ -172,7 +188,7 @@ class LocalDb {
   /// 백업 복원(덮어쓰기)용 — 모든 사용자 데이터 삭제 후 기본 휴미더 하나
   Future<void> wipeUserData() async {
     final d = await db;
-    for (final t in ['logs', 'stock', 'humidors']) {
+    for (final t in ['logs', 'stock', 'humidors', 'wishlist']) {
       for (final r in await d.query(t, columns: ['sid'])) {
         await _tomb(d, t, r['sid'] as String?);
       }
@@ -183,6 +199,7 @@ class LocalDb {
     await d.delete('logs');
     await d.delete('stock');
     await d.delete('humidors');
+    await d.delete('wishlist');
     await d.delete('custom_cigars');
     await d.insert('humidors', {'name': tr('내 휴미더', 'My humidor'), 'sort_order': 0, 'sid': newSid(), 'updated': now});
   }
@@ -199,6 +216,16 @@ class LocalDb {
     return d.insert('humidors', {'name': name, 'sort_order': n, 'sid': newSid(), 'updated': now});
   }
 
+  /// 휴미더 순서 저장 (ids 순서대로 0,1,2…). 바뀐 것만 updated 갱신해서 동기화 대상이 되게.
+  Future<void> reorderHumidors(List<int> ids) async {
+    final d = await db;
+    final b = d.batch();
+    for (var i = 0; i < ids.length; i++) {
+      b.update('humidors', {'sort_order': i, 'updated': now}, where: 'id=? AND sort_order<>?', whereArgs: [ids[i], i]);
+    }
+    await b.commit(noResult: true);
+  }
+
   Future<void> renameHumidor(int id, String name) async {
     await (await db).update('humidors', {'name': name, 'updated': now}, where: 'id=?', whereArgs: [id]);
   }
@@ -213,6 +240,53 @@ class LocalDb {
     }
     await d.delete('stock', where: 'humidor_id=?', whereArgs: [id]);
     await d.delete('humidors', where: 'id=?', whereArgs: [id]);
+  }
+
+  // ---------- 위시리스트 ----------
+  Future<List<WishItem>> wishlist() async {
+    final rows = await (await db).query('wishlist', orderBy: 'priority DESC, created DESC, id DESC');
+    return rows.map(WishItem.fromMap).toList();
+  }
+
+  Future<bool> inWishlist(String cigarId) async {
+    final r = await (await db).query('wishlist', columns: ['id'], where: 'cigar_id=?', whereArgs: [cigarId], limit: 1);
+    return r.isNotEmpty;
+  }
+
+  Future<int> addWish({required String cigarId, required String cigarName, String? vitola, String? memo, int priority = 1, String? created}) async {
+    final d = await db;
+    final cur = await d.query('wishlist', columns: ['id'], where: 'cigar_id=?', whereArgs: [cigarId], limit: 1);
+    if (cur.isNotEmpty) return cur.first['id'] as int;
+    final n = DateTime.now();
+    final today = '${n.year}-${n.month.toString().padLeft(2, '0')}-${n.day.toString().padLeft(2, '0')}';
+    return d.insert('wishlist', {
+      'cigar_id': cigarId, 'cigar_name': cigarName, 'vitola': vitola, 'memo': memo, 'priority': priority,
+      'created': created ?? today, 'sid': newSid(), 'updated': now,
+    });
+  }
+
+  Future<void> updateWish(int id, {String? vitola, String? memo, int? priority}) async {
+    await (await db).update('wishlist', {
+      if (vitola != null) 'vitola': vitola,
+      if (memo != null) 'memo': memo,
+      if (priority != null) 'priority': priority,
+      'updated': now,
+    }, where: 'id=?', whereArgs: [id]);
+  }
+
+  Future<void> deleteWish(int id) async {
+    final d = await db;
+    for (final r in await d.query('wishlist', columns: ['sid'], where: 'id=?', whereArgs: [id])) {
+      await _tomb(d, 'wishlist', r['sid'] as String?);
+    }
+    await d.delete('wishlist', where: 'id=?', whereArgs: [id]);
+  }
+
+  Future<void> deleteWishByCigar(String cigarId) async {
+    final d = await db;
+    for (final r in await d.query('wishlist', columns: ['id'], where: 'cigar_id=?', whereArgs: [cigarId])) {
+      await deleteWish(r['id'] as int);
+    }
   }
 
   // ---------- 재고 ----------

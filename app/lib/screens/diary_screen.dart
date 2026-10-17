@@ -18,6 +18,7 @@ import '../theme.dart';
 import 'detail_screen.dart';
 import 'record_screen.dart';
 import 'sync_sheet.dart';
+import 'wishlist_sheet.dart';
 
 enum DiarySort { recent, score }
 
@@ -255,6 +256,8 @@ void openLogSheet(BuildContext context, SmokeLog log) {
           children: [
             Row(children: [
               Expanded(child: Text(log.cigarName, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700))),
+              // 다시 사고 싶으면 바로 위시리스트로
+              if (repo.byId(log.cigarId) != null) WishButton(cigar: repo.byId(log.cigarId)!, size: 22),
               Text(fmtScore(log.score), style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: C.accent)),
             ]),
             if (log.hasStockInfo) ...[

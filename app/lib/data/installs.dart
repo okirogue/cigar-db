@@ -27,11 +27,37 @@ class Installs {
     }
   }
 
+  /// 실행 기록 문서 id. 익명이면 UID 그대로, 로그인한(운영자) 계정은 기기가 여럿이라 플랫폼별로 나눈다.
+  static String docIdFor(User u) => u.isAnonymous ? u.uid : '${u.uid}~$platform';
+
+  /// 로그인으로 실행 기록 문서가 바뀌었을 때(UID 가 바뀌었거나, 같은 UID 라도 익명→UID~플랫폼):
+  /// 이전 문서 id 를 새 문서에 "흡수됨"으로 적어 통계에서 중복으로 안 세게.
+  /// (옛 문서는 권한상 클라이언트가 못 지우므로 운영자 스크립트가 나중에 정리)
+  Future<void> absorb(String oldUid) async {
+    if (!ScanService.instance.ready) return;
+    final u = FirebaseAuth.instance.currentUser;
+    if (u == null || docIdFor(u) == oldUid) return;
+    try {
+      final doc = FirebaseFirestore.instance.collection('installs').doc(docIdFor(u));
+      await doc.set({
+        'platform': platform,
+        'lang': L10n.code,
+        'build': int.tryParse((await PackageInfo.fromPlatform()).buildNumber) ?? 0,
+        'absorbed': FieldValue.arrayUnion([oldUid]),
+      }, SetOptions(merge: true)).timeout(const Duration(seconds: 8));
+      // 새 문서 기준으로 오늘 다시 핑
+      final p = await SharedPreferences.getInstance();
+      await p.remove('install_ping');
+      await ping();
+    } catch (_) {}
+  }
+
   /// [force]: 공유 설정을 바꿨을 때처럼 오늘 이미 보냈어도 다시 보냄
   Future<void> ping({bool force = false}) async {
     if (!ScanService.instance.ready) return;
-    final uid = FirebaseAuth.instance.currentUser?.uid;
-    if (uid == null) return;
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
+    final uid = docIdFor(user);
     try {
       final p = await SharedPreferences.getInstance();
       final n = DateTime.now();

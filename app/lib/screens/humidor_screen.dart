@@ -8,6 +8,7 @@ import '../theme.dart';
 import 'add_stock_screen.dart';
 import 'detail_screen.dart';
 import 'record_screen.dart';
+import 'wishlist_sheet.dart';
 
 enum StockSort { added, qty, aging }
 
@@ -70,8 +71,12 @@ class _HumidorScreenState extends State<HumidorScreen> {
                   ),
                   const SizedBox(width: 8),
                 ],
-                if (st.canAddHumidor)
+                if (st.canAddHumidor) ...[
                   _DashedButton(onTap: () => _addHumidor(context)),
+                  const SizedBox(width: 8),
+                ],
+                // 위시리스트 (다음에 살 것)
+                _WishChip(count: st.wishlist.length, onTap: () => openWishlistSheet(context)),
               ],
             ),
           ),
@@ -134,6 +139,60 @@ class _HumidorScreenState extends State<HumidorScreen> {
     setState(() => _selected = id);
   }
 
+  /// 휴미더 순서: 손잡이를 끌어서 바꾸는 시트. 닫으면 저장 + 동기화.
+  Future<void> _reorderHumidors(BuildContext context) async {
+    final st = context.read<AppState>();
+    var order = [...st.humidors];
+    await showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      builder: (sctx) => StatefulBuilder(
+        builder: (sctx, setSheet) => SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(8, 14, 8, 8),
+            child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Text(tr('휴미더 순서 — 손잡이를 끌어서 바꾸세요', 'Humidor order — drag the handles'), style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+              ),
+              const SizedBox(height: 8),
+              ReorderableListView(
+                shrinkWrap: true,
+                buildDefaultDragHandles: false,
+                onReorder: (from, to) {
+                  setSheet(() {
+                    if (to > from) to -= 1;
+                    final h = order.removeAt(from);
+                    order.insert(to, h);
+                  });
+                },
+                children: [
+                  for (var i = 0; i < order.length; i++)
+                    ListTile(
+                      key: ValueKey(order[i].id),
+                      dense: true,
+                      leading: ReorderableDragStartListener(index: i, child: const Icon(Icons.drag_handle, color: C.hint)),
+                      title: Text(order[i].name),
+                      trailing: SubText('${st.qtyByHumidor[order[i].id] ?? 0}', size: 12),
+                    ),
+                ],
+              ),
+              const SizedBox(height: 6),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(onPressed: () => Navigator.pop(sctx), child: Text(tr('완료', 'Done'))),
+              ),
+            ]),
+          ),
+        ),
+      ),
+    );
+    final before = st.humidors.map((h) => h.id).toList(), after = order.map((h) => h.id).toList();
+    if (before.join(',') == after.join(',')) return;
+    await st.db.reorderHumidors(after);
+    await st.reload();
+  }
+
   Future<void> _editHumidor(BuildContext context, Humidor h) async {
     final st = context.read<AppState>();
     final action = await showModalBottomSheet<String>(
@@ -142,11 +201,17 @@ class _HumidorScreenState extends State<HumidorScreen> {
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           ListTile(leading: const Icon(Icons.edit_outlined), title: Text(tr('이름 바꾸기', 'Rename')), onTap: () => Navigator.pop(sctx, 'rename')),
           if (st.humidors.length > 1)
+            ListTile(leading: const Icon(Icons.swap_vert), title: Text(tr('휴미더 순서 바꾸기', 'Reorder humidors')), onTap: () => Navigator.pop(sctx, 'reorder')),
+          if (st.humidors.length > 1)
             ListTile(leading: const Icon(Icons.delete_outline), title: Text(tr('휴미더 삭제 (안의 재고도 삭제)', 'Delete humidor (and its stock)')), onTap: () => Navigator.pop(sctx, 'delete')),
         ]),
       ),
     );
     if (!context.mounted) return;
+    if (action == 'reorder') {
+      await _reorderHumidors(context);
+      return;
+    }
     if (action == 'rename') {
       final name = await _askName(context, title: tr('휴미더 이름', 'Humidor name'), initial: h.name);
       if (name != null && name.isNotEmpty) {
@@ -299,6 +364,30 @@ class _HumidorTab extends StatelessWidget {
           border: selected || highlight ? null : Border.all(color: C.line),
         ),
         child: Text(label, style: TextStyle(fontSize: 14, fontWeight: selected || highlight ? FontWeight.w500 : FontWeight.w400, color: selected || highlight ? Colors.white : C.text)),
+      ),
+    );
+  }
+}
+
+class _WishChip extends StatelessWidget {
+  final int count;
+  final VoidCallback onTap;
+  const _WishChip({required this.count, required this.onTap});
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        height: 44,
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), border: Border.all(color: const Color(0xFFB8A999))),
+        child: Row(mainAxisSize: MainAxisSize.min, children: [
+          Icon(count > 0 ? Icons.favorite : Icons.favorite_border, size: 16, color: C.accent),
+          const SizedBox(width: 6),
+          Text(count > 0 ? tr('위시 $count', 'Wish $count') : tr('위시', 'Wish'), style: const TextStyle(fontSize: 13, color: C.accent, fontWeight: FontWeight.w600)),
+        ]),
       ),
     );
   }

@@ -152,3 +152,41 @@ class SmokeLog {
         updated: (m['updated'] as int?) ?? 0,
       );
 }
+
+
+/// 위시리스트 항목 (다음에 살 것)
+class WishItem {
+  final int id;
+  final String cigarId; // 중앙 DB id 또는 "custom:..."
+  final String cigarName;
+  final String? vitola;
+  final String? memo;
+  final int priority; // 0 낮음 · 1 보통 · 2 꼭
+  final String created; // yyyy-MM-dd
+  final String sid;
+  final int updated;
+
+  WishItem({
+    required this.id,
+    required this.cigarId,
+    required this.cigarName,
+    this.vitola,
+    this.memo,
+    this.priority = 1,
+    required this.created,
+    this.sid = '',
+    this.updated = 0,
+  });
+
+  factory WishItem.fromMap(Map<String, Object?> m) => WishItem(
+        id: m['id'] as int,
+        cigarId: m['cigar_id'] as String,
+        cigarName: m['cigar_name'] as String,
+        vitola: m['vitola'] as String?,
+        memo: m['memo'] as String?,
+        priority: (m['priority'] as int?) ?? 1,
+        created: m['created'] as String,
+        sid: (m['sid'] as String?) ?? '',
+        updated: (m['updated'] as int?) ?? 0,
+      );
+}

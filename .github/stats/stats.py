@@ -95,8 +95,7 @@ def _list_users():
 sync_rows = []
 try:
     # 서브컬렉션만 있고 부모 문서가 없을 수 있어 listCollectionIds 대신 알려진 UID 후보(installs)로 탐색
-    for i in installs:
-        uid = i["_id"]
+    for uid in sorted({i["_id"].split("~")[0] for i in installs}):
         counts = {}
         for c in ("humidors", "stock", "logs", "custom"):
             docs = collection(f"users/{uid}/{c}")
@@ -127,6 +126,13 @@ for s_ in sugg:
     s_["uid"] = canon(s_.get("uid"))
 for f_ in feedback:
     f_["uid"] = canon(f_.get("uid"))
+# installs: 로그인하며 흡수된 익명 문서는 뺀다 (b48+ 'absorbed'). 문서 id 'UID~플랫폼' 은 같은 사람의 기기별 문서.
+_absorbed = {a for i in installs for a in (i.get("absorbed") or [])}
+installs = [i for i in installs if i["_id"] not in _absorbed]
+for i in installs:
+    i["_uid"] = i["_id"].split("~")[0]
+    i["_dev"] = i["_id"].split("~")[1] if "~" in i["_id"] else ""
+
 # installs: 옛 문서를 새 문서에 합침 (실행일 합집합, first 는 이른 쪽, last 는 늦은 쪽)
 _by_id = {i["_id"]: i for i in installs}
 for old6, new6 in UID_ALIASES.items():
@@ -229,12 +235,12 @@ if installs:
     L.append("| UID | 플랫폼 | 언어 | 빌드 | 첫 실행 | 마지막 | 공유 | 기록 | 실행일수 | " + " ".join(d[8:] for d in cal_days) + " |")
     L.append("|---|---|---|--:|---|---|:-:|:-:|--:|" + "---|")
     for i in sorted(installs, key=lambda x: x.get("last") or "", reverse=True):
-        su = short(i["_id"])
+        su = short(i.get("_uid", i["_id"])) + (f"~{i['_dev']}" if i.get("_dev") else "")
         days = set(i.get("days") or [])
         share = i.get("share")
         share_s = "" if share is None else ("on" if share else "**off**")
         cal = " ".join("●" if d in days else "·" for d in cal_days)
-        L.append(f"| {su} | {i.get('platform','')} | {i.get('lang','')} | {i.get('build','')} | {i.get('first','')} | {i.get('last','')} | {share_s} | {'✓' if su in log_uids else ''} | {len(days) or ''} | {cal} |")
+        L.append(f"| {su} | {i.get('platform','')} | {i.get('lang','')} | {i.get('build','')} | {i.get('first','')} | {i.get('last','')} | {share_s} | {'✓' if short(i.get('_uid', i['_id'])) in log_uids else ''} | {len(days) or ''} | {cal} |")
     L.append("")
     L.append("_공유: 익명 집계 켜짐 여부(b43+). 실행일수·달력: 실행한 날짜 기준(b43+), ● = 그날 한 번 이상 실행._")
 else:

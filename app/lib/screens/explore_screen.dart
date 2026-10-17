@@ -7,6 +7,7 @@ import '../models/cigar.dart';
 import '../state.dart';
 import '../theme.dart';
 import 'detail_screen.dart';
+import 'wishlist_sheet.dart';
 import 'custom_cigar_sheet.dart';
 
 /// 탐색: 시가 검색 → 상세. 검색 전엔 내가 피운/보유한 시가와 브랜드 바로가기.
@@ -176,6 +177,7 @@ class _CigarRow extends StatelessWidget {
                   decoration: BoxDecoration(color: C.chip, borderRadius: BorderRadius.circular(6)),
                   child: Text(tr('노트 ${cigar.allTags.length}', 'Notes ${cigar.allTags.length}'), style: const TextStyle(fontSize: 11, color: C.accent)),
                 ),
+              WishButton(cigar: cigar, size: 20),
             ]),
           ),
         ),
