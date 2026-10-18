@@ -3909,7 +3909,7 @@
   "verified": false,
   "vitolas": [],
   "specs": {
-   "strength": "full-bodied",
+   "strength": "mild to medium",
    "vitolas": [
     "Contact Connecticut Reserve 7x50",
     "Churchill 91 Cigar Snob 6.5x52",
@@ -3955,7 +3955,7 @@
   "verified": false,
   "vitolas": [],
   "specs": {
-   "strength": "full-bodied",
+   "strength": "medium",
    "vitolas": [
     "Search Contact Flor Corojo 7x50",
     "Churchill 6.5x52",
@@ -4000,7 +4000,7 @@
   "verified": false,
   "vitolas": [],
   "specs": {
-   "strength": "full-bodied",
+   "strength": "medium",
    "vitolas": [
     "Search Contact Flor De Oliva 8x52",
     "Presidente 7x50",
@@ -4020,7 +4020,11 @@
   "brand": "Oliva",
   "name": "Flor Gold",
   "notes": {
-   "official": [],
+   "official": [
+    "cream",
+    "nuts",
+    "sweet"
+   ],
    "review": []
   },
   "note_sources": [
@@ -4029,21 +4033,38 @@
     "vitola": "",
     "tags": [],
     "text": "A smooth flavorful cigar. Geared toward the smoker who enjoys a cigar that’s lighter on the palate with a short finish, this is an option that won’t empty your wallet. Wrapper – Ecuador | Binder – Nicaragua | Filler – Nicaragua --> --> --> --> --> Search for: Search Primary Navigation Go to main content MENU MENU Home Cigars Serie V Melanio Serie V Melanio Serie V Melanio Maduro Serie V Melanio is hand rolled using expertly fermented ligero fillers, leaves known for their robust and rich flavor."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "cream",
+     "nuts",
+     "sweet"
+    ],
+    "text": "Creamy , Nutty , Sweetness Available. Learn about Oliva Flor de Oliva Gold Cigars. Check out reviews and get details on Flor de Oliva Gold"
    }
   ],
   "verified": false,
   "vitolas": [],
   "specs": {
-   "strength": "full-bodied",
+   "strength": "mild",
    "vitolas": [
     "Search Contact Flor Gold 7x50",
     "Churchill 6.5x52",
     "Torpedo 6x50",
     "Toro 5x50"
-   ]
+   ],
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan"
   },
   "updated": "2026-10-06",
-  "aliases": []
+  "aliases": [
+   "Flor de Oliva Gold"
+  ],
+  "legacy_ids": [
+   "oliva-flor-de-oliva-gold"
+  ]
  },
  "oliva-flor-maduro": {
   "id": "oliva-flor-maduro",
@@ -4051,7 +4072,8 @@
   "name": "Flor Maduro",
   "notes": {
    "official": [
-    "earth"
+    "earth",
+    "cocoa"
    ],
    "review": []
   },
@@ -4063,28 +4085,49 @@
      "earth"
     ],
     "text": "This isn’t like the other,less bargain brand you’ve tried. You’ll get notes of earthy notes with a satisfying finish and a consistent burn. Don’t be surprised if they make it into your regular rotation! Wrapper – Ecuador | Binder – Nicaragua | Filler – Nicaragua --> --> --> --> --> Search for: Search Primary Navigation Go to main content MENU MENU Home Cigars Serie V Melanio Serie V Melanio Serie V Melanio Maduro Serie V Melanio is hand rolled using expertly fermented ligero fillers, leaves known for their robust and rich flavor."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "cocoa",
+     "earth"
+    ],
+    "text": "Rich , Cocoa , Earthy Available. Learn about Oliva Flor De Oliva Maduro Cigars. Check out reviews and get details on Flor De Oliva Maduro"
    }
   ],
   "verified": false,
   "vitolas": [],
   "specs": {
-   "strength": "full-bodied",
+   "strength": "medium",
    "vitolas": [
     "Search Contact Flor Maduro 7x50",
     "Churchill 6.5x52",
     "Torpedo 6x50",
     "Toro 5x50"
-   ]
+   ],
+   "binder": "Nicaraguan",
+   "filler": "Dominican"
   },
   "updated": "2026-10-06",
-  "aliases": []
+  "aliases": [
+   "Flor de Oliva Maduro"
+  ],
+  "legacy_ids": [
+   "oliva-flor-de-oliva-maduro"
+  ]
  },
  "oliva-gilberto-blanc": {
   "id": "oliva-gilberto-blanc",
   "brand": "Oliva",
   "name": "Gilberto Blanc",
   "notes": {
-   "official": [],
+   "official": [
+    "cedar",
+    "earth",
+    "cocoa",
+    "cream"
+   ],
    "review": []
   },
   "note_sources": [
@@ -4093,22 +4136,39 @@
     "vitola": "",
     "tags": [],
     "text": "--> --> --> --> --> Search for: Search Primary Navigation Go to main content MENU MENU Home Cigars Serie V Melanio Serie V Melanio Serie V Melanio Maduro Serie V Melanio is hand rolled using expertly fermented ligero fillers, leaves known for their robust and rich flavor."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "cedar",
+     "earth",
+     "cocoa",
+     "cream"
+    ],
+    "text": "Cedar , Earth , Cocoa , Creamy Available. Learn about Oliva Gilberto Oliva Reserva Blanc Cigars. Check out reviews and get details on Gilberto Oliva Reserva Blanc"
    }
   ],
   "verified": false,
   "vitolas": [],
   "specs": {
-   "strength": "full-bodied",
+   "strength": "mild to medium",
    "vitolas": [
     "Gilberto Oliva Reserva Blanc 7x50",
     "Churchill 6x52",
     "Torpedo 6x50",
     "Toro 5.7 5x43",
     "Corona 5x50"
-   ]
+   ],
+   "filler": "Nicaraguan"
   },
   "updated": "2026-10-06",
-  "aliases": []
+  "aliases": [
+   "Gilberto Oliva Reserva Blanc"
+  ],
+  "legacy_ids": [
+   "oliva-gilberto-oliva-reserva-blanc"
+  ]
  },
  "oliva-gilberto-reserva": {
   "id": "oliva-gilberto-reserva",
@@ -4155,7 +4215,7 @@
   "verified": false,
   "vitolas": [],
   "specs": {
-   "strength": "Medium To Full Body",
+   "strength": "medium to full",
    "vitolas": [
     "Contact Gilberto Oliva Reserva 7x50",
     "Churchill 6x52",
@@ -4177,7 +4237,11 @@
   "brand": "Oliva",
   "name": "Master Blends 3",
   "notes": {
-   "official": [],
+   "official": [
+    "earth",
+    "cream",
+    "molasses"
+   ],
    "review": [
     "spice",
     "pepper",
@@ -4204,24 +4268,41 @@
      "cocoa"
     ],
     "text": "Oliva Master Blends 3 is the pinnacle of craftsmanship from the renowned Oliva Cigar Company in Nicaragua. Produced in small batches with expert precision, this ultra-premium cigar delivers a luxuriously full-bodied experience. The blend features bold Nicaraguan ligero fillers, a Nicaraguan Habano binder, and a dark, rare Nicaraguan Broadleaf sun-grown wrapper. Rated 92 by Cigar Aficionado , Master Blends 3 is a true aficionado’s dream, offering complex flavors and plenty of hearty Nicaraguan strength. Beautifully constructed with seamless rolling and an easy draw, Master Blends 3 is as elegant to smoke as it is to behold, adorned with its exotic, colorful band. The flavor journey begins with a wave of spicy Nicaraguan pepper and rich earth, followed by layered notes of cedar and nutmeg. The finish is bold, spicy, and lingers with a decadent touch of chocolate on the palate. Not for beginners, Oliva Master Blends 3 is crafted for seasoned connoisseurs with refined palates who can fully appreciate its intricate profile. Perfect as a celebration cigar, it pairs exceptionally well with single-malt scotch and carries a richness often compared to the legendary Padron 1964 Anniversary Series. Experience the best Oliva has to offer with the Master Blends 3—a masterpiece worthy of its name."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "cream",
+     "molasses"
+    ],
+    "text": "Earthy , Creamy , Molasses Available. Learn about Oliva Master Blends III Cigars. Check out reviews and get details on Master Blends III"
    }
   ],
   "verified": false,
   "vitolas": [],
   "specs": {
-   "strength": "full-bodied",
+   "strength": "full",
    "vitolas": [
     "Search Contact Master Blends 3 7x50",
     "Churchill 6.5x52",
     "Torpedo 5x50"
-   ]
+   ],
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan"
   },
   "updated": "2026-10-17",
   "seed": {
    "shops": "cigarpage+cigarplace",
    "cuban": false
   },
-  "aliases": []
+  "aliases": [
+   "Master Blends III"
+  ],
+  "legacy_ids": [
+   "oliva-master-blends-iii"
+  ]
  },
  "oliva-serie-6-maduro": {
   "id": "oliva-serie-6-maduro",
@@ -4248,7 +4329,7 @@
   "verified": false,
   "vitolas": [],
   "specs": {
-   "strength": "full-bodied",
+   "strength": "medium to full",
    "vitolas": [
     "Presidente 7x50",
     "Churchill 91 Cigar Snob 6x52",
@@ -4347,7 +4428,7 @@
    "5¾&#8221; x 43 Corona"
   ],
   "specs": {
-   "strength": "full-bodied",
+   "strength": "medium",
    "vitolas": [
     "Churchill 92 Cigar Snob 6.5x60",
     "Figurado 6.5x52",
@@ -4421,7 +4502,7 @@
   "verified": false,
   "vitolas": [],
   "specs": {
-   "strength": "full-bodied",
+   "strength": "medium",
    "vitolas": [
     "Top 25 of 2013 Cigar Aficionado 6x60",
     "Torpedo 5x54",
@@ -4494,7 +4575,7 @@
   "verified": false,
   "vitolas": [],
   "specs": {
-   "strength": "full-bodied",
+   "strength": "medium",
    "vitolas": [
     "Churchill 6x60",
     "Double Toro 6.5x52",
@@ -16432,7 +16513,12 @@
   "brand": "Cain",
   "name": "F",
   "notes": {
-   "official": [],
+   "official": [
+    "spice",
+    "earth",
+    "leather",
+    "coffee"
+   ],
    "review": [
     "earth",
     "white_pepper",
@@ -16464,6 +16550,17 @@
     "vitola": "",
     "tags": [],
     "text": "The Cain F cigar by Oliva Cigar Company is quite possibly one of the strongest cigars in production today . The \"F\" stands for Fuerte which means \"strength\" in Spanish. The Cain F is a Nicaraguan puro that boasts being comprised of 82% straight ligero leaf. The breakdown of Ligeros is as follows, 32% Esteli Ligero, 25% Condega Ligero, and 25% Jalapa Ligero. Ligero leaves are the ones that grow at the top of tobacco plants and receive the most sunlight. This makes them the strongest tobacco leaves available. The Cain F 550 , a 5 3/4 x 50 robusto, remains a standout in the portfolio, having secured an impressive 92 rating from Cigar Aficionado for its masterful balance of potency and flavor. These Cain F cigars are not for a new smoker and are probably not even for many experienced smokers. These cigars are for the big bad boys who love to smoke the strongest, heaviest cigars out there. This is a cigar that you eat a really hearty meal before, that you enjoy while seated, and that you don't stand up too quickly after. If you do stand up too fast, beware you may soon find yourself on the floor. The Cain F is a FULL-bodied cigar ."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "spice",
+     "earth",
+     "leather",
+     "coffee"
+    ],
+    "text": "Rich , Spices , Earth , Leather , Coffee Available. Learn about Cain by Oliva Habano F Cigars. Check out reviews and get details on Habano F"
    }
   ],
   "verified": false,
@@ -16478,7 +16575,18 @@
   "seed": {
    "shops": "cigarpage+cigarplace",
    "cuban": false
-  }
+  },
+  "specs": {
+   "strength": "full",
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan"
+  },
+  "aliases": [
+   "Habano F"
+  ],
+  "legacy_ids": [
+   "cain-oliva-habano-f"
+  ]
  },
  "caldwell-long-live-king": {
   "id": "caldwell-long-live-king",
@@ -25467,7 +25575,12 @@
   "brand": "Cain",
   "name": "Daytona",
   "notes": {
-   "official": [],
+   "official": [
+    "pepper",
+    "sweet",
+    "coffee",
+    "tobacco"
+   ],
    "review": [
     "citrus",
     "sweet",
@@ -25507,6 +25620,17 @@
      "dried_fruit"
     ],
     "text": "The Cain Daytona is one of the latest offerings from Studio Tobac. While it is still a mostly ligero cigar, this Daytona is not nearly as powerful as its brothers, the Cain Maduro and the Cain F. One reviewer noted that it should have been named \"Abel\". The Cain Daytona 550 blend is a distinct entry in the Oliva Cigar Company’s portfolio, designed to offer the complexity of the \"Straight Ligero\" concept with a more approachable medium-bodied strength. Handcrafted at the Tabacalera Oliva factory in Nicaragua, this 5 x 50 robusto is a Nicaraguan puro featuring a smooth, golden-brown Nicaraguan Habano wrapper leaf. The blend is unique for its exclusive use of ligero tobaccos from the Jalapa Valley , a region celebrated for producing leaves that are rich in flavor and natural sweetness but lower in nicotine intensity than those from Estelí. This technical choice results in a balanced profile that opens with white pepper and earth , transitioning into refined layers of coffee , sweet cream that reminds me of a Werther's Orginal , and cinnamon . It earned a 90 rating from Cigar Aficionado , which highlighted its flawless construction and \"woodsy undertones\" complemented by hints of apple cider and dried fruit . All in all, the Cain Daytona is an excellent addition to the Cain line and in many ways shows that the Cain isn't all about strength; it can be about flavor too."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "pepper",
+     "sweet",
+     "coffee",
+     "tobacco"
+    ],
+    "text": "Pepper , Sweetness , Coffee , Sweet Tobacco Available. Learn about Cain by Oliva Daytona Cigars. Check out reviews and get details on Daytona"
    }
   ],
   "verified": false,
@@ -25515,7 +25639,17 @@
   "seed": {
    "shops": "cigarpage",
    "cuban": false
-  }
+  },
+  "specs": {
+   "strength": "medium",
+   "wrapper": "Nicaraguan",
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan"
+  },
+  "aliases": [],
+  "legacy_ids": [
+   "cain-oliva-daytona"
+  ]
  },
  "camacho-broadleaf": {
   "id": "camacho-broadleaf",
@@ -32886,7 +33020,14 @@
   "brand": "Cain",
   "name": "F Nub",
   "notes": {
-   "official": [],
+   "official": [
+    "leather",
+    "spice",
+    "bread",
+    "sweet",
+    "earth",
+    "coffee"
+   ],
    "review": [
     "pepper",
     "leather",
@@ -32907,6 +33048,19 @@
      "espresso"
     ],
     "text": "When you think of full flavored and bodied cigars, two of the first names that come to mind are Cain and Nub. Sam Leccia's brainchild of creating full force cigars in smaller sizes have been a hit since they were introduced and the Cain F Nub cigar takes this to a whole other level. The F stands for Fuerte , or strong, and honestly there is no better word to describe this little powerhouse of a cigar. Made in Nicaragua by Oliva , the strength comes from a very unique filler blend of three different Nicaraguan Ligero tobaccos. Bound by a Nicaraguan leaf and wrapped in a gorgeous Nicaraguan Habano wrapper, Cain F Nub is one heck of a Nicaraguan Puro that will make you re-think any other cigar you once considered full bodied. The Cain F remains a standout in the portfolio, having secured an impressive 92 rating from Cigar Aficionado for its masterful balance of potency and flavor. As with all Cain and Nub cigars, the band is uniquely on the foot of this beautiful smoke. The wrapper is a sultry chocolate hue and despite having very prominent veins, the construction is amazing. While it is small in stature, Cain's full-bodied nature will hit you before you even torch the foot. A definite peppery aroma is present from the get go, and it never ceases from beginning to end. The luscious smoke that fills your mouth will grace your palate with notes of leather and cedar but the spice is what overtakes everything on the finish. Cain F Nub may not be for everyone, but if you really enjoy a very full-bodied cigar and aren't afraid of a stick which will bite you back, you are going to be in for a real treat. With a great flavor and the perfect construction one expects from Oliva, this cigar will hit all the right notes. This smoke needs something strong to match up with such as a nice black espresso or full-bodied red wine. We would also recommend the Cain Daytona for a slightly different flavor profile."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "leather",
+     "spice",
+     "bread",
+     "sweet",
+     "earth",
+     "coffee"
+    ],
+    "text": "Leather , Spice , Toasty , Sweet , Earth , Coffee Available. Learn about Cain Nub by Oliva Habano F Cigars. Check out reviews and get details on Habano F"
    }
   ],
   "verified": false,
@@ -32914,14 +33068,31 @@
   "seed": {
    "shops": "cigarpage+cigarplace",
    "cuban": false
-  }
+  },
+  "specs": {
+   "strength": "full",
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan"
+  },
+  "vitolas": [],
+  "aliases": [
+   "Habano F"
+  ],
+  "legacy_ids": [
+   "cain-nub-oliva-habano-f"
+  ]
  },
  "cain-habano": {
   "id": "cain-habano",
   "brand": "Cain",
   "name": "Habano",
   "notes": {
-   "official": [],
+   "official": [
+    "woody",
+    "leather",
+    "sweet",
+    "floral"
+   ],
    "review": [
     "spice",
     "woody",
@@ -32940,6 +33111,17 @@
      "nuts"
     ],
     "text": "The Cain Habano is a cigar that is definitely not for the faint of heart. They are Nicaraguan puros introduced in 2009 and made for and sold by the infamous Oliva Cigar Company . Rich and spicy Nicaraguan Habano wrappers hold together a mind-blowing combination of robust Nicaraguan binder and filler leaves, including triple-fermented ligero leaves from Esteli, Jalapa, and Condega. Blender Sam Leccia, who also introduced Nub cigars, was careful to use 82% ligero—rather than 100%--to ensure proper combustion and burn. The cigars are very clean and solid, wearing only a simple foot band. The draw is firm but brings forth ample amounts of strong, spicy smoke to overwhelm the palate with woodsy goodness. The taste is rich and bold, laced with hints of chocolate and nuts . As powerful as the Cain cigars are, they are complex and very balanced, concluding each draw with a clean finish and leaving the taste buds screaming for more. The phrase \"hurts so good\" without a doubt applies to these bold powerhouses. Only experienced smokers will be able to enjoy the potent, yet complex flavors that make the Cain Habano what it is. Not to be smoked on an empty stomach, these hardcore sticks make for fantastic evening smokes and pair great with a Tawny Port or a full-bodied beer. Comparable cigars include Oliva Serie V and La Flor Dominicana Double Ligero , both powerhouse cigars using the seemingly taboo \"x-rated\" ligero tobacco. Sometimes you have to step outside your comfort zone to experience the best of what life has to offer. Cain Habano isn't a bad place to start."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "woody",
+     "leather",
+     "sweet",
+     "floral"
+    ],
+    "text": "Woody , Leather , Sweet , Floral Available. Learn about Cain by Oliva Habano Cigars. Check out reviews and get details on Habano"
    }
   ],
   "verified": false,
@@ -32947,14 +33129,28 @@
   "seed": {
    "shops": "cigarpage+cigarplace",
    "cuban": false
-  }
+  },
+  "specs": {
+   "strength": "full",
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan"
+  },
+  "vitolas": [],
+  "aliases": [],
+  "legacy_ids": [
+   "cain-oliva-habano"
+  ]
  },
  "cain-maduro": {
   "id": "cain-maduro",
   "brand": "Cain",
   "name": "Maduro",
   "notes": {
-   "official": [],
+   "official": [
+    "cocoa",
+    "leather",
+    "sweet"
+   ],
    "review": [
     "cocoa",
     "coffee",
@@ -32975,6 +33171,16 @@
      "spice"
     ],
     "text": "Cain Maduro cigars have all the great qualities of their Habano-wrapped brothers, but with a chocolatey twist. Like the Cain Habano, they boast a very robust blend of Nicaraguan ligero fillers and Nicaraguan binders, but these cigars feature ultra-smooth Mexican San Andreas Maduro wrapper leaves. They are made down in Nicaragua at the Oliva factory and blended by Nub founder Sam Leccia. There is no brown about it; these cigars are jet-black. The construction is seamless and firm. Steady amounts of blue-hued smoke are produced by the solid draw, producing an undeniable cocoa taste mixed with coffee and the overall classic maduro flavor element. These cigars are sweet and bold, with a hint of black cherry on the tip of the tongue. Very spicy finish . Comparing these to their Habano counterparts, the body and potency are about on par, but the taste is completely different. Cain Maduro, although as strong as their Habano counterparts, are a bit easier to take in due to the indubitable smoothness of the San Andreas wrappers. Intermediate smokers looking to get into high-powered ligero cigars should try a Cain Maduro before deciding on their next step. These cigars make great breakfast cigars when combined with strong coffee. Bold maduro cigars seem to have a league of their own, and comparable to the Cain Maduro are the Oliva Serie O Maduro and the Montecristo Reserva Negra. The Cain Maduro is another heavy-hitting powerhouse from Sam Leccia and the folks at Oliva that will leave you reaching for another upon finishing."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "cocoa",
+     "leather",
+     "sweet"
+    ],
+    "text": "Cocoa , Chocolate , Leather , Sweet Available. Learn about Cain by Oliva Maduro Cigars. Check out reviews and get details on Maduro"
    }
   ],
   "verified": false,
@@ -32982,7 +33188,17 @@
   "seed": {
    "shops": "cigarpage+cigarplace",
    "cuban": false
-  }
+  },
+  "specs": {
+   "strength": "full",
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan"
+  },
+  "vitolas": [],
+  "aliases": [],
+  "legacy_ids": [
+   "cain-oliva-maduro"
+  ]
  },
  "cain-nub-box-pressed": {
   "id": "cain-nub-box-pressed",
@@ -33005,7 +33221,11 @@
   "brand": "Cain",
   "name": "Nub Habano",
   "notes": {
-   "official": [],
+   "official": [
+    "spice",
+    "earth",
+    "coffee"
+   ],
    "review": [
     "spice",
     "tobacco",
@@ -33038,6 +33258,16 @@
      "coffee"
     ],
     "text": "Designed to enhance every drop of flavor squeezed out of its all-ligero filler, Cain Nub Habano by Oliva offers smokers meaty, bold cigars, the pinnacle of form and function. After scoring rave reviews and legions of fans, creator Sam Leccia took the two brands that made him famous and joined them together like he was fashioning a bludgeon to fight off blandness in the lives of aficionados everywhere. While you may not need such heroics, there's nothing wrong with taking advantage of Leccia's benevolence expressed by a uniquely proportioned and utterly flavorful filler blend of tobaccos packed into a Nicaraguan puro. A generous draw delivers a spicy pre-light taste along with some natural tobacco sweetness. Carefully toast the broad foot, taking care not to get too close with the heat, and then exercise your caution and patience while lighting to ensure a full burn without creating an unpleasant char from too much direct flame. Launching into top form without delay, a duality of spiciness greats the palate reminiscent of cinnamon, raisin cookie sweetness and some pungent clove. If you somehow remain unimpressed, there's still plenty of leather and chocolate, earth and black coffee available during the slow, cool burning time. Like the proverbial two tastes that taste great together, these cigars take everything good about their original lineages and enhance it all to create a stogie truly more than the sum of its parts. Don't let the size of a Nub or Cain's reputation scare you away from trying a Cain Nub Habano because it remains medium-full until close to the end, and by then you've already gotten more than your money's worth in taste and enjoyment, so go ahead and set it down if necessary. Or grab a classic whiskey and ginger to power through to an ultimate crescendo of awesomeness."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "spice",
+     "earth",
+     "coffee"
+    ],
+    "text": "Spices , Earth , Coffee Available. Learn about Cain Nub by Oliva Habano Cigars. Check out reviews and get details on Habano"
    }
   ],
   "verified": false,
@@ -33045,14 +33275,30 @@
   "seed": {
    "shops": "cigarpage+cigarplace",
    "cuban": false
-  }
+  },
+  "specs": {
+   "strength": "full",
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan"
+  },
+  "vitolas": [],
+  "aliases": [
+   "Habano"
+  ],
+  "legacy_ids": [
+   "cain-nub-oliva-habano"
+  ]
  },
  "cain-nub-maduro": {
   "id": "cain-nub-maduro",
   "brand": "Cain",
   "name": "Nub Maduro",
   "notes": {
-   "official": [],
+   "official": [
+    "spice",
+    "cocoa",
+    "coffee"
+   ],
    "review": [
     "earth",
     "spice",
@@ -33071,6 +33317,16 @@
      "coffee"
     ],
     "text": "Take a seat ringside and experience a tag team effort between artistry and strength brought to you by Cain Nub Maduro cigars by Oliva . A combination of Studio Tabac's two power players, for you greenhorns that's the Nub and Cain brands, each thick stogie places you front and center for an A-show. Beneath a San Andres wrapper of highest caliber stand tall plenty of exciting and layered flavors courtesy of an all-ligero filler blend where a variety of Nicaragua's growing regions are represented: Esteli, known for cultivating sheer potency, tempered yet rich leaves from Condega, and plenty of Jalapa tobacco for a surprisingly smooth and refined finish. Short of stature but long of game, the Nub side of the marquis takes a highspot as soon as it enters the arena ready to drop heavy, heavy flavors directly into the center of your palate. First comes a solid earthiness reminiscent of loamy soil before kicking in some spice. In contrast to wearing a costume dark and mottled on the outside, from inside emerges a slowly growing and vigorously solid ash as a white knight ushering in oak and coffee as the main event. Starting out as an intimidating opponent, by the closing bell you'll be anticipating a rematch with this hero of a cigar. If there is a gold belt to be had in the cigar-business arena, Cain Nub Maduro is our dark horse favorite to take the title. As it stands, we'll just have to marvel at the torcerdor's mastery of a stogie with proportions and quality unachievable by low card rollers. Smokers looking for a qualified competitor to balance out a bout card occupied by Casa Fernandez Miami Reserva or Joya De Nicaraguan Celebracion can stop searching right now. Just make sure to allocate plenty of locker space 'cause the Cain Nub Maduro is stacked!"
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "spice",
+     "cocoa",
+     "coffee"
+    ],
+    "text": "Spices , Chocolate , Coffee Available. Learn about Cain Nub by Oliva Maduro Cigars. Check out reviews and get details on Maduro"
    }
   ],
   "verified": false,
@@ -33078,7 +33334,19 @@
   "seed": {
    "shops": "cigarpage+cigarplace",
    "cuban": false
-  }
+  },
+  "specs": {
+   "strength": "full",
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan"
+  },
+  "vitolas": [],
+  "aliases": [
+   "Maduro"
+  ],
+  "legacy_ids": [
+   "cain-nub-oliva-maduro"
+  ]
  },
  "caldwell-22-minutes-to-midnight-connecticut": {
   "id": "caldwell-22-minutes-to-midnight-connecticut",
@@ -53866,7 +54134,13 @@
   "brand": "Nub",
   "name": "Cameroon",
   "notes": {
-   "official": [],
+   "official": [
+    "earth",
+    "sweet",
+    "cedar",
+    "nuts",
+    "pepper"
+   ],
    "review": [
     "sweet",
     "caramel",
@@ -53889,6 +54163,18 @@
      "pepper"
     ],
     "text": "Nub Cameroon is another addition to the hugely popular Nub line of cigars by Studio Tobac and Oliva in Nicaragua. The idea behind the Nub brand is that given the correct combination of length and ring gauge, along with an expert blend of tobacco, the cigar will show its true colors, or its \"sweet spot\" within seconds of lighting. Whether or not this is the case, Nub has been a resounding success story since its introduction, and the Cameroon blend is among the favorites. This caramel-colored beauty consists of a hearty core of Nicaraguan filler, Nicaraguan binder, and a gorgeous, toothy Cameroon wrapper. Although much shorter than normal cigars, Nubs provide a similar smoking time to an average toro or churchill, depending on the size. The innovative short, large-ring format proved its merit in the industry when the Nub Cameroon 358 earned a 92 rating and was honored as the #23 Cigar of the Year in the Cigar Aficionado Top 25 of 2015 . Nub Cameroon has a classic Cameroon profile. It starts off earthy, yet sweet, then gradually gains strength as heavy notes of cedar and white pepper begin to come about. The finish is very crisp and clean, and Nub Cameroon is indubitably a true medium-bodied cigar . While the Nub cigars were originally intended for more experienced and demanding aficionados, the Cameroon version can be easily enjoyed by anyone. It's easy on the palate and never overwhelming, yet complex and enjoyable enough to smoke any time throughout the day. It pairs well with white wine or light beer and can be compared to Oliva Serie G and Arturo Fuente. Bigger isn't always better when it comes to cigars, and if you disagree, maybe you should try a Nub Cameroon today."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "sweet",
+     "cedar",
+     "nuts",
+     "pepper"
+    ],
+    "text": "Earthy , Sweet , Cedar , Nuts , Pepper Available. Learn about Nub by Oliva Cameroon Cigars. Check out reviews and get details on Cameroon"
    }
   ],
   "verified": false,
@@ -53896,14 +54182,28 @@
   "seed": {
    "shops": "cigarpage+cigarplace",
    "cuban": false
-  }
+  },
+  "specs": {
+   "strength": "medium to full",
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan"
+  },
+  "vitolas": [],
+  "aliases": [],
+  "legacy_ids": [
+   "nub-oliva-cameroon"
+  ]
  },
  "nub-connecticut": {
   "id": "nub-connecticut",
   "brand": "Nub",
   "name": "Connecticut",
   "notes": {
-   "official": [],
+   "official": [
+    "cream",
+    "bread",
+    "cedar"
+   ],
    "review": [
     "leather",
     "coffee",
@@ -53928,6 +54228,16 @@
      "nuts"
     ],
     "text": "Four horsemen ride comfortably as Studio Tobac's standard Nub line of cigars, and it is the Nub Connecticut by Oliva that is mellowest of all. Of course, this is in comparison to robust and potent blends which start out full-flavored and full-bodied, so it's all relative. Since it contains a complex and hearty blend of Nicaraguan tobaccos throughout the entirety of its stout form, a lovely Cameroon binder, and finally the Ecuadorian shade wrapper on this Nub serves to bring strength and body into a range closer to medium rather than a truly mild smoke. Warm and rich from the moment it is lit, this is definitely not like those flimsy, watery, one-dimensional Connecticut stogies of yesteryear. Instead, soft leather and black coffee start blasting from the chunky cigar to fill your palate and nose with a robust taste and aroma. Almost immediately, flavors broaden and shift to produce hints of spice and oak with just enough of a shade wrapper's familiar grassiness. Once you reach the point where solid ash makes up half of what you hold in your hand, plenty of sweet cream and a little nuttiness will have smoothed the thick smoke into an awesome treat. Scrumptious! Looking for a quick smoke to fill the gaps in your day? Well, this is not it, since each Nub Connecticut contains enough tobacco to be considered a full-size cigar and will deliver at least an hour's worth of enjoyment even with the 'smallest' vitola. Perhaps you should consider going with something like the Café au Lait version of El Rey Del Mundo or, if you're into infused smokes, some Acid Krush Classic. However, if what you seek is a solid and well-made stick capable of pumping out reams of smoke with loads of flavor, then you've come to the right page."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "cream",
+     "bread",
+     "cedar"
+    ],
+    "text": "Creamy , Toasty , Cedar , Rich Available. Learn about Nub by Oliva Connecticut Cigars. Check out reviews and get details on Connecticut"
    }
   ],
   "verified": false,
@@ -53935,7 +54245,17 @@
   "seed": {
    "shops": "cigarpage+cigarplace",
    "cuban": false
-  }
+  },
+  "specs": {
+   "strength": "mild to medium",
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan"
+  },
+  "vitolas": [],
+  "aliases": [],
+  "legacy_ids": [
+   "nub-oliva-connecticut"
+  ]
  },
  "nub-dub": {
   "id": "nub-dub",
@@ -53981,7 +54301,12 @@
   "brand": "Nub",
   "name": "Habano",
   "notes": {
-   "official": [],
+   "official": [
+    "cocoa",
+    "nuts",
+    "cinnamon",
+    "pepper"
+   ],
    "review": [
     "coffee",
     "oak",
@@ -54000,6 +54325,17 @@
      "pepper"
     ],
     "text": "Crafting a quality cigar is serious business, and creating something new is even more of a serious challenge, but the Nub Habano manages to achieve both while being a serious value. Seriously. Alright, alright, we'll stop. But you can't deny Nub as a brand has transcended its short, stout form to become a popular and well-regarded stogie with fans from all parts of the aficionado spectrum. You may think it gimmicky, but smoke just one, and you'll quickly come to love the complex and cool smoking blend of Nicaraguan filler and Indonesian binder tobacco covered in, what else, a delicious Habano wrapper. Being able to choose from among the best leaf to be found in Oliva's vast growing empire has given Nub's rollers a perfect excuse to show off their skills. With nothing less than a 58 ring gauge and no length longer than four inches there's so much tobacco packed into every vitola it would be understandable to find the occasional soft spot or plugged draw, but somehow each one is as flawless as the next. This means that all the smoker has to do is sit back and enjoy the crisp flavors of fresh roast coffee, oak, caramel, and a touch of red pepper. Okay, just one more time: Nub Habano cigars have garnered some seriously good ratings including an 88 and a solid 91. Reminiscent of an Oliva Serie V but priced to impress even the most frugal, your biggest problem will be having enough on hand to keep up with all of the reasons you'll find to smoke one. Good thing we've got plenty kept in perfect condition in our warehouse and shipped to you ultra-fast when you need them. You're needing some now, aren't you?"
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "cocoa",
+     "nuts",
+     "cinnamon",
+     "pepper"
+    ],
+    "text": "Cocoa , Nuts , Cinnamon , Red Pepper Available. Learn about Nub by Oliva Habano Cigars. Check out reviews and get details on Habano"
    }
   ],
   "verified": false,
@@ -54007,14 +54343,30 @@
   "seed": {
    "shops": "cigarpage+cigarplace",
    "cuban": false
-  }
+  },
+  "specs": {
+   "strength": "medium to full",
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan"
+  },
+  "vitolas": [],
+  "aliases": [],
+  "legacy_ids": [
+   "nub-oliva-habano"
+  ]
  },
  "nub-maduro": {
   "id": "nub-maduro",
   "brand": "Nub",
   "name": "Maduro",
   "notes": {
-   "official": [],
+   "official": [
+    "dark_chocolate",
+    "cocoa",
+    "bread",
+    "nuts",
+    "sweet"
+   ],
    "review": [
     "sweet",
     "cream",
@@ -54043,6 +54395,18 @@
      "spice"
     ],
     "text": "You can't really blame Oliva Cigars for being skeptical when Sam Leccia proposed what would become Nub Maduro . At the time, smokes of such stature were uncommon, and they really couldn't know if he could pull off his goal of creating a line of smokes able to fire up at the cigar's 'sweet spot'. However, when you're a legend, people tend to give you the benefit of the doubt. And good thing they did. Smooth and creamy from the get-go with aged Nicaraguan leaf throughout and a toothy Mexican wrapper seemingly gifted from the gods, each chunky stick places excellent flavor as priority Numero Uno! This Nub Maduro blend earned a 90 rating from Cigar Aficionado , with the publication noting the cigar's dense, oily Mexican Maduro wrapper and its rich, sweet profile characterized by notes of dark chocolate and earth . Of course, what good are premium-aged and fermented tobaccos if you can't smoke them? Fortunately, only talented rollers were given responsibility for crafting each Nub cigar and so they are heavy in hand, uniformly firm to the touch, and possess a draw tailor-made to deliver tons of smoke. Beginning with an eagerly anticipated chocolaty kick , there is a touch of raisin-like sweetness on the exhale , which adds a nice depth. If you take some time to swirl the creamy flavors around your palate, toasted wood and exotic spices will peek out from beneath what is otherwise a tobacco-focused medium-full profile . Short and big-boned with a great personality, a Nub Maduro cigar is as much fun to hold as it is to smoke, enticing you to go for a famous Nub-stand when you've finally finished after an hour and a half or more of enjoyable smoking time. Even if you manage to lose the ash, however, you'll still end up completely satisfied and looking forward to your next Nub experience. Take the opportunity to try their Connecticut, Habano, and Cameroon versions as well."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "dark_chocolate",
+     "cocoa",
+     "bread",
+     "nuts",
+     "sweet"
+    ],
+    "text": "Dark Chocolate , Toasty , Nuts , Sweetness Available. Learn about Nub by Oliva Maduro Cigars. Check out reviews and get details on Maduro"
    }
   ],
   "verified": false,
@@ -54050,14 +54414,29 @@
   "seed": {
    "shops": "cigarpage+cigarplace",
    "cuban": false
-  }
+  },
+  "specs": {
+   "strength": "medium",
+   "binder": "Nicaraguan",
+   "filler": "Nicaraguan"
+  },
+  "vitolas": [],
+  "aliases": [],
+  "legacy_ids": [
+   "nub-oliva-maduro"
+  ]
  },
  "nub-nuance-double-roast": {
   "id": "nub-nuance-double-roast",
   "brand": "Nub",
   "name": "Nuance Double Roast",
   "notes": {
-   "official": [],
+   "official": [
+    "cream",
+    "vanilla",
+    "cedar",
+    "coffee"
+   ],
    "review": [
     "sweet",
     "cream",
@@ -54080,6 +54459,17 @@
      "spice"
     ],
     "text": "There are few beverages that mix the sweetness of steamed milk with the bitterness of espresso as well as a macchiato, and Nub Nuance by Oliva has matched this perfectly with their version of this drink in a cigar. The rich Sumatra wrapper plays off the aged filler tobacco to give you the most amazing sense of a full-flavored cigar with an added sweetness on top of that. From beginning to end, Nub Nuance Double Roast has an amazing complexity in flavor. Each pull of this short and stout cigar will change from an expertly balanced cocoa-like flavor to a savory bitter coffee . Smooth flavors of spice, cream, and of course, espresso will dance off your palette and also your nose as the aroma of this cigar is just as amazing as the taste. Nub Nuance Double Roast is the perfect morning cigar to match with your start-of-the-day cup of joe. If you have had a Tabak Especial or a Rocky Patel Java, we highly recommend giving the new entry into the world of coffee flavored cigars a whirl. Oliva may not have been the first to come out with a line of premium smokes like this, but they sure are perfecting them."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "cream",
+     "vanilla",
+     "cedar",
+     "coffee"
+    ],
+    "text": "Smooth , Creamy , Vanilla , Cedar , Coffee Drink. Learn about Nub by Oliva Double Roast Cigars. Check out reviews and get details on Double Roast"
    }
   ],
   "verified": false,
@@ -54088,14 +54478,31 @@
    "flags": "infused",
    "shops": "cigarpage+cigarplace",
    "cuban": false
-  }
+  },
+  "specs": {
+   "strength": "mild to medium",
+   "binder": "Dominican",
+   "filler": "Dominican"
+  },
+  "vitolas": [],
+  "aliases": [
+   "Double Roast"
+  ],
+  "legacy_ids": [
+   "nub-oliva-double-roast"
+  ]
  },
  "nub-nuance-single-roast": {
   "id": "nub-nuance-single-roast",
   "brand": "Nub",
   "name": "Nuance Single Roast",
   "notes": {
-   "official": [],
+   "official": [
+    "cream",
+    "vanilla",
+    "cedar",
+    "coffee"
+   ],
    "review": [
     "coffee",
     "cream",
@@ -54112,6 +54519,17 @@
      "sweet"
     ],
     "text": "One of the most perfect ways to start the day is with a great premium cigar and a cup of coffee. The new Nub Nuance line of cigars makes this so much easier as Oliva has perfected getting the taste of amazing coffee into their flavorful Nub series of cigars. The Nub Nuance Single Roast variation of this perfect flavored cigar features a creamy and smooth Connecticut wrapper which really brings out all the tasting notes in the exquisite filler blend. Starting with a rich taste of the finest coffee , the aroma on Nub Nuance Single Roast is just as enticing as the flavor. Each puff pulls you into a creamy and balanced world of tastes only found in a well-made coffee. As you smoke this cigar down to the band, you will notice subtle flavor changes from deep coffee to the sweet foam found on top. The coffee flavored cigar is not a new market, but the Nub Nuance Single Roast is sure to give both Tabak Especial and Rocky Patel Java a run for their money. The blending of coffee flavors and the tastes of premium tobacco are found within this impeccably made cigar."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "cream",
+     "vanilla",
+     "cedar",
+     "coffee"
+    ],
+    "text": "Smooth , Creamy , Vanilla , Cedar , Coffee Drink. Learn about Nub by Oliva Single Roast Cigars. Check out reviews and get details on Single Roast"
    }
   ],
   "verified": false,
@@ -54120,14 +54538,30 @@
    "flags": "infused",
    "shops": "cigarpage+cigarplace",
    "cuban": false
-  }
+  },
+  "specs": {
+   "strength": "mild to medium",
+   "binder": "Dominican",
+   "filler": "Dominican"
+  },
+  "vitolas": [],
+  "aliases": [
+   "Single Roast"
+  ],
+  "legacy_ids": [
+   "nub-oliva-single-roast"
+  ]
  },
  "nub-nuance-triple-roast": {
   "id": "nub-nuance-triple-roast",
   "brand": "Nub",
   "name": "Nuance Triple Roast",
   "notes": {
-   "official": [],
+   "official": [
+    "cocoa",
+    "bread",
+    "coffee"
+   ],
    "review": [
     "coffee",
     "sweet",
@@ -54150,6 +54584,16 @@
      "espresso"
     ],
     "text": "When Oliva first introduced the Nub line of cigars it was pretty innovative. Short cigars in larger ring gauges, giving the smoker the most flavorful smoke experience right from the beginning. Now with the new Nub Nuance line, they are being innovators yet again. These new “flavored” cigars are infused with some of the best coffee flavors around and will leave you wanting more. Unlike all the other Nub cigars, these are on the milder side, but the flavor is nothing short of amazing. The Nub Nuance Triple Roast has an amazing medium-brown Sumatra wrapper and is made with all the attention to detail you would expect from Oliva. These outstanding flavored sticks have a sweet start and an amazing toasty finish. Along the journey this cigar takes you on, you will find deep dark chocolate notes that interplay with the coffee flavors , perfectly aping a freshly pulled espresso . The Nub Nuance Triple Roast may be completely different from any other Nub or even Oliva cigar that has been produced, but this welcome addition to the line is a great change of pace. These sweet and sultry premium flavored cigars are great in the morning. If you are a fan of cigars like Tabak Especial by Drew Estate or the Rocky Patel Java, Nub Nuance Triple Roast are the perfect cigars for you."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "cocoa",
+     "bread",
+     "coffee"
+    ],
+    "text": "Rich , Cocoa , Toasty , Coffee Drink. Learn about Nub by Oliva Triple Roast Cigars. Check out reviews and get details on Triple Roast"
    }
   ],
   "verified": false,
@@ -54158,7 +54602,19 @@
    "flags": "infused",
    "shops": "cigarpage+cigarplace",
    "cuban": false
-  }
+  },
+  "specs": {
+   "strength": "medium",
+   "binder": "Dominican",
+   "filler": "Dominican"
+  },
+  "vitolas": [],
+  "aliases": [
+   "Triple Roast"
+  ],
+  "legacy_ids": [
+   "nub-oliva-triple-roast"
+  ]
  },
  "ojo-de-buey-connecticut": {
   "id": "ojo-de-buey-connecticut",
@@ -78074,257 +78530,6 @@
   "updated": "2026-10-06",
   "aliases": []
  },
- "cain-oliva-daytona": {
-  "id": "cain-oliva-daytona",
-  "brand": "Cain By Oliva",
-  "name": "Daytona",
-  "notes": {
-   "official": [
-    "pepper",
-    "sweet",
-    "coffee",
-    "tobacco"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "pepper",
-     "sweet",
-     "coffee",
-     "tobacco"
-    ],
-    "text": "Pepper , Sweetness , Coffee , Sweet Tobacco Available. Learn about Cain by Oliva Daytona Cigars. Check out reviews and get details on Daytona"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "wrapper": "Nicaraguan",
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "medium"
-  },
-  "updated": "2026-10-06",
-  "aliases": []
- },
- "cain-oliva-habano-f": {
-  "id": "cain-oliva-habano-f",
-  "brand": "Cain By Oliva",
-  "name": "Habano F",
-  "notes": {
-   "official": [
-    "spice",
-    "earth",
-    "leather",
-    "coffee"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "spice",
-     "earth",
-     "leather",
-     "coffee"
-    ],
-    "text": "Rich , Spices , Earth , Leather , Coffee Available. Learn about Cain by Oliva Habano F Cigars. Check out reviews and get details on Habano F"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "full"
-  },
-  "updated": "2026-10-06",
-  "aliases": []
- },
- "cain-oliva-habano": {
-  "id": "cain-oliva-habano",
-  "brand": "Cain By Oliva",
-  "name": "Habano",
-  "notes": {
-   "official": [
-    "woody",
-    "leather",
-    "sweet",
-    "floral"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "woody",
-     "leather",
-     "sweet",
-     "floral"
-    ],
-    "text": "Woody , Leather , Sweet , Floral Available. Learn about Cain by Oliva Habano Cigars. Check out reviews and get details on Habano"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "full"
-  },
-  "updated": "2026-10-06",
-  "aliases": []
- },
- "cain-oliva-maduro": {
-  "id": "cain-oliva-maduro",
-  "brand": "Cain By Oliva",
-  "name": "Maduro",
-  "notes": {
-   "official": [
-    "cocoa",
-    "leather",
-    "sweet"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "cocoa",
-     "leather",
-     "sweet"
-    ],
-    "text": "Cocoa , Chocolate , Leather , Sweet Available. Learn about Cain by Oliva Maduro Cigars. Check out reviews and get details on Maduro"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "full"
-  },
-  "updated": "2026-10-06",
-  "aliases": []
- },
- "cain-nub-oliva-habano-f": {
-  "id": "cain-nub-oliva-habano-f",
-  "brand": "Cain Nub By Oliva",
-  "name": "Habano F",
-  "notes": {
-   "official": [
-    "leather",
-    "spice",
-    "bread",
-    "sweet",
-    "earth",
-    "coffee"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "leather",
-     "spice",
-     "bread",
-     "sweet",
-     "earth",
-     "coffee"
-    ],
-    "text": "Leather , Spice , Toasty , Sweet , Earth , Coffee Available. Learn about Cain Nub by Oliva Habano F Cigars. Check out reviews and get details on Habano F"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "full"
-  },
-  "updated": "2026-10-06",
-  "aliases": []
- },
- "cain-nub-oliva-habano": {
-  "id": "cain-nub-oliva-habano",
-  "brand": "Cain Nub By Oliva",
-  "name": "Habano",
-  "notes": {
-   "official": [
-    "spice",
-    "earth",
-    "coffee"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "spice",
-     "earth",
-     "coffee"
-    ],
-    "text": "Spices , Earth , Coffee Available. Learn about Cain Nub by Oliva Habano Cigars. Check out reviews and get details on Habano"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "full"
-  },
-  "updated": "2026-10-06",
-  "aliases": []
- },
- "cain-nub-oliva-maduro": {
-  "id": "cain-nub-oliva-maduro",
-  "brand": "Cain Nub By Oliva",
-  "name": "Maduro",
-  "notes": {
-   "official": [
-    "spice",
-    "cocoa",
-    "coffee"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "spice",
-     "cocoa",
-     "coffee"
-    ],
-    "text": "Spices , Chocolate , Coffee Available. Learn about Cain Nub by Oliva Maduro Cigars. Check out reviews and get details on Maduro"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "full"
-  },
-  "updated": "2026-10-06",
-  "aliases": []
- },
  "camacho-american-barrel-aged": {
   "id": "camacho-american-barrel-aged",
   "brand": "Camacho",
@@ -91322,393 +91527,6 @@
      "pepper"
     ],
     "text": "Leather , Cedar , Pepper Available. Learn about My Father Don Pepin Garcia Blue Label Cigars. Check out reviews and get details on Don Pepin Garcia Blue Label"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "full"
-  },
-  "updated": "2026-10-06",
-  "aliases": []
- },
- "nub-oliva-cameroon": {
-  "id": "nub-oliva-cameroon",
-  "brand": "Nub By Oliva",
-  "name": "Cameroon",
-  "notes": {
-   "official": [
-    "earth",
-    "sweet",
-    "cedar",
-    "nuts",
-    "pepper"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "earth",
-     "sweet",
-     "cedar",
-     "nuts",
-     "pepper"
-    ],
-    "text": "Earthy , Sweet , Cedar , Nuts , Pepper Available. Learn about Nub by Oliva Cameroon Cigars. Check out reviews and get details on Cameroon"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "medium to full"
-  },
-  "updated": "2026-10-06",
-  "aliases": []
- },
- "nub-oliva-connecticut": {
-  "id": "nub-oliva-connecticut",
-  "brand": "Nub By Oliva",
-  "name": "Connecticut",
-  "notes": {
-   "official": [
-    "cream",
-    "bread",
-    "cedar"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "cream",
-     "bread",
-     "cedar"
-    ],
-    "text": "Creamy , Toasty , Cedar , Rich Available. Learn about Nub by Oliva Connecticut Cigars. Check out reviews and get details on Connecticut"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "mild to medium"
-  },
-  "updated": "2026-10-06",
-  "aliases": []
- },
- "nub-oliva-double-roast": {
-  "id": "nub-oliva-double-roast",
-  "brand": "Nub By Oliva",
-  "name": "Double Roast",
-  "notes": {
-   "official": [
-    "cream",
-    "vanilla",
-    "cedar",
-    "coffee"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "cream",
-     "vanilla",
-     "cedar",
-     "coffee"
-    ],
-    "text": "Smooth , Creamy , Vanilla , Cedar , Coffee Drink. Learn about Nub by Oliva Double Roast Cigars. Check out reviews and get details on Double Roast"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Dominican",
-   "filler": "Dominican",
-   "strength": "mild to medium"
-  },
-  "updated": "2026-10-06",
-  "aliases": []
- },
- "nub-oliva-habano": {
-  "id": "nub-oliva-habano",
-  "brand": "Nub By Oliva",
-  "name": "Habano",
-  "notes": {
-   "official": [
-    "cocoa",
-    "nuts",
-    "cinnamon",
-    "pepper"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "cocoa",
-     "nuts",
-     "cinnamon",
-     "pepper"
-    ],
-    "text": "Cocoa , Nuts , Cinnamon , Red Pepper Available. Learn about Nub by Oliva Habano Cigars. Check out reviews and get details on Habano"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "medium to full"
-  },
-  "updated": "2026-10-06",
-  "aliases": []
- },
- "nub-oliva-maduro": {
-  "id": "nub-oliva-maduro",
-  "brand": "Nub By Oliva",
-  "name": "Maduro",
-  "notes": {
-   "official": [
-    "dark_chocolate",
-    "cocoa",
-    "bread",
-    "nuts",
-    "sweet"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "dark_chocolate",
-     "cocoa",
-     "bread",
-     "nuts",
-     "sweet"
-    ],
-    "text": "Dark Chocolate , Toasty , Nuts , Sweetness Available. Learn about Nub by Oliva Maduro Cigars. Check out reviews and get details on Maduro"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "medium"
-  },
-  "updated": "2026-10-06",
-  "aliases": []
- },
- "nub-oliva-single-roast": {
-  "id": "nub-oliva-single-roast",
-  "brand": "Nub By Oliva",
-  "name": "Single Roast",
-  "notes": {
-   "official": [
-    "cream",
-    "vanilla",
-    "cedar",
-    "coffee"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "cream",
-     "vanilla",
-     "cedar",
-     "coffee"
-    ],
-    "text": "Smooth , Creamy , Vanilla , Cedar , Coffee Drink. Learn about Nub by Oliva Single Roast Cigars. Check out reviews and get details on Single Roast"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Dominican",
-   "filler": "Dominican",
-   "strength": "mild to medium"
-  },
-  "updated": "2026-10-06",
-  "aliases": []
- },
- "nub-oliva-triple-roast": {
-  "id": "nub-oliva-triple-roast",
-  "brand": "Nub By Oliva",
-  "name": "Triple Roast",
-  "notes": {
-   "official": [
-    "cocoa",
-    "bread",
-    "coffee"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "cocoa",
-     "bread",
-     "coffee"
-    ],
-    "text": "Rich , Cocoa , Toasty , Coffee Drink. Learn about Nub by Oliva Triple Roast Cigars. Check out reviews and get details on Triple Roast"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Dominican",
-   "filler": "Dominican",
-   "strength": "medium"
-  },
-  "updated": "2026-10-06",
-  "aliases": []
- },
- "oliva-flor-de-oliva-gold": {
-  "id": "oliva-flor-de-oliva-gold",
-  "brand": "Oliva",
-  "name": "Flor de Oliva Gold",
-  "notes": {
-   "official": [
-    "cream",
-    "nuts",
-    "sweet"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "cream",
-     "nuts",
-     "sweet"
-    ],
-    "text": "Creamy , Nutty , Sweetness Available. Learn about Oliva Flor de Oliva Gold Cigars. Check out reviews and get details on Flor de Oliva Gold"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Nicaraguan",
-   "strength": "mild"
-  },
-  "updated": "2026-10-06",
-  "aliases": []
- },
- "oliva-flor-de-oliva-maduro": {
-  "id": "oliva-flor-de-oliva-maduro",
-  "brand": "Oliva",
-  "name": "Flor de Oliva Maduro",
-  "notes": {
-   "official": [
-    "cocoa",
-    "earth"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "cocoa",
-     "earth"
-    ],
-    "text": "Rich , Cocoa , Earthy Available. Learn about Oliva Flor De Oliva Maduro Cigars. Check out reviews and get details on Flor De Oliva Maduro"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "binder": "Nicaraguan",
-   "filler": "Dominican",
-   "strength": "medium"
-  },
-  "updated": "2026-10-06",
-  "aliases": []
- },
- "oliva-gilberto-oliva-reserva-blanc": {
-  "id": "oliva-gilberto-oliva-reserva-blanc",
-  "brand": "Oliva",
-  "name": "Gilberto Oliva Reserva Blanc",
-  "notes": {
-   "official": [
-    "cedar",
-    "earth",
-    "cocoa",
-    "cream"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "cedar",
-     "earth",
-     "cocoa",
-     "cream"
-    ],
-    "text": "Cedar , Earth , Cocoa , Creamy Available. Learn about Oliva Gilberto Oliva Reserva Blanc Cigars. Check out reviews and get details on Gilberto Oliva Reserva Blanc"
-   }
-  ],
-  "verified": false,
-  "vitolas": [],
-  "specs": {
-   "filler": "Nicaraguan",
-   "strength": "mild to medium"
-  },
-  "updated": "2026-10-06",
-  "aliases": []
- },
- "oliva-master-blends-iii": {
-  "id": "oliva-master-blends-iii",
-  "brand": "Oliva",
-  "name": "Master Blends III",
-  "notes": {
-   "official": [
-    "earth",
-    "cream",
-    "molasses"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "earth",
-     "cream",
-     "molasses"
-    ],
-    "text": "Earthy , Creamy , Molasses Available. Learn about Oliva Master Blends III Cigars. Check out reviews and get details on Master Blends III"
    }
   ],
   "verified": false,
