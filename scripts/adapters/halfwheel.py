@@ -44,6 +44,21 @@ def targets():
     return out
 
 
+GENERIC = {"maduro", "natural", "connecticut", "habano", "corojo", "sumatra", "cameroon", "oscuro", "claro", "reserva",
+           "reserve", "edition", "limitada", "limited", "anniversary", "aniversario", "classic", "original", "gold", "black", "white", "red", "blue"}
+
+
+def line_only_match(title_norm, brand, name):
+    """Brand missing from the title (e.g. AJ Fernandez 'San Lotano Habano' reviewed as 'San Lotano Habano Robusto'):
+    accept when the line has >= 2 words, at least one is non-generic, and ALL line words appear in the title."""
+    bw = set(norm(brand).split())
+    lw = [w for w in norm(name).split() if w not in STOP and w not in bw]
+    if len(lw) < 2 or all(w in GENERIC for w in lw):
+        return False
+    tw = set(title_norm.split())
+    return all(w in tw for w in lw)
+
+
 def to_text(rendered):
     t = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", rendered, flags=re.S | re.I)
     t = re.sub(r"<li[^>]*>", "\n- ", t)
@@ -99,7 +114,7 @@ def run(limit=None, offset=0, delay=1.5):
         hit = None
         for p in res:
             title = html.unescape(p["title"]["rendered"])
-            if title_matches(norm(title), brand, name):
+            if title_matches(norm(title), brand, name) or line_only_match(norm(title), brand, name):
                 hit = p
                 break
         if not hit:
