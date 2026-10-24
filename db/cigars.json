@@ -3637,17 +3637,41 @@
   "name": "Winter Collection",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "earth",
+    "pepper",
+    "white_pepper"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "pepper",
+     "white_pepper"
+    ],
+    "text": "The first puffs of the Rocky Patel Winter Collection Toro are also familiar, with a bit of earthiness and black pepper, seemingly a mix of the countries in the blend as opposed to something that indicates a specific origin. It has enough flavor intensity to get the attention of the senses, but far from too much that it is overwhelming. Retrohales are much the same, though with white pepper and a lighter base note that makes them engaging and approachable. The earthiness makes some subtle shifts, ones that make me invoke the word  terroir  as it offers a sampling of its components’ origins. Two of the samples offer more of what I associate with Honduran filler, meaning a drier and dustier profile on the tongue. The third holds on to the mix a bit longer, resulting in a more complex and brain-stimulating flavor to figure out what I’m tasting. Flavor, body and strength all sit right around the medium mark. Technical construction has been great, with the ash standing out for its seeming durability as it passes an inch in length. The second third of the Rocky Patel Winter Collection Toro holds the course, if backing off the overall intensity just a bit. There is a white pepper on the retrohale that is quite enjoyable and hangs around for an extra beat or two to lightly tingle the nostrils. Terroir establishes itself as the biggest variable between samples; the first seemed a bit more Nicaraguan while the second was a bit more Honduran. By the midway point, the white pepper that was only on retrohales has become part of the flavor, with just a bit of chalkiness tagging along. It’s the first shift in the earthy flavor that has been a constant in the cigar, bringing with it a bit of cake donut and a dry dustiness that sneaks in behind the other flavors.  The transition to the final third sees the profile quickly shed its smoothness in favor of something much more raised and pointed, with the beginnings of a red chili pepper flavor taking hold. Flavor is an earthy medium-plus, body stays around medium, and strength is a somewhat surprising medium as well. It’s not fair to say that the Rocky Patel Winter Collection Toro has been slumbering to this point, but it certainly ",
+    "url": "https://halfwheel.com/rocky-patel-winter-collection-toro-2020/381593/",
+    "title": "Rocky Patel Winter Collection Toro (2020)"
+   }
+  ],
   "verified": false,
   "vitolas": [],
   "specs": {
    "vitolas": [
     "Sixty 6x60"
-   ]
+   ],
+   "country": "Nicaragua",
+   "wrapper": "Mexico (San Andrés)",
+   "binder": "Nicaragua",
+   "filler": "Honduras & NIcaragua",
+   "length": "5 1/2 Inches",
+   "ring": "52",
+   "strength_felt": "medium"
   },
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
@@ -8144,9 +8168,58 @@
   "name": "Ascend",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "spice",
+    "clove",
+    "pepper",
+    "leather",
+    "cedar",
+    "cream",
+    "nuts",
+    "cinnamon",
+    "bread",
+    "earth",
+    "espresso",
+    "floral",
+    "vanilla",
+    "sweet",
+    "caramel",
+    "cocoa",
+    "coffee",
+    "hay",
+    "mineral"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "spice",
+     "clove",
+     "pepper",
+     "leather",
+     "cedar",
+     "cream",
+     "nuts",
+     "cinnamon",
+     "bread",
+     "earth",
+     "espresso",
+     "floral",
+     "vanilla",
+     "sweet",
+     "caramel",
+     "cocoa",
+     "coffee",
+     "hay",
+     "mineral"
+    ],
+    "text": "The three cigars start off pretty much the same, with lots of spice on my tongue and strong notes of anise and black pepper. After more than 15 puffs, the profile transitions to the main flavors of terroir and leather on the first cigar, while the second and third cigars feature a combination of dry cedar and creamy cashews. At various points, secondary notes of cinnamon, toasted bread, gritty earth, bitter espresso, baker’s spices, and a touch of floral show up. While the first cigar has a fairly standard combination of black pepper and vanilla sweetness, there is a distinct but not overwhelming red pepper on the finish of the second and third cigars—it is strongest on the second cigar—and that note also shows up on the retrohale, where it is combined with a light graham cracker sweetness. Flavor for the first cigar ends the first third at medium-full, while the other two cigars are at full, the body is between a strong mild and a solid medium and the strength of all three cigars hits a solid medium. Construction-wise, the first cigar needs two separate burn corrections to stay on track, but that’s the only issue. During the second third, the second Perez-Carrillo Ascend Ridge rises above the other two, mostly due to a new caramel sauce sweetness on the retrohale that combines wonderfully with the red pepper that is still present. The first cigar continues to be less interesting in the flavor department with main flavors of earth and leather, while the second and third cigars have more captivating main flavors of cocoa nibs and creamy cedar. Secondary notes include coffee grounds, baker’s spices, creamy hay, anise and light chalk. On the retrohale of the third cigar, a combination of graham crackers and red pepper is still present—albeit slightly less than what I noted in the first third—while the first cigar sticks with black pepper and sweet vanilla. Flavor intensity does not change—medium-full for the first cigar, full for the second and third cigars—while the body and strength are at a solid medium. Two cigars need a single burn correction each, but the draw resistance is excellent, and there is plenty of smoke production. The final third sees a return to t",
+    "url": "https://halfwheel.com/perez-carrillo-ascend-ridge/479905/",
+    "title": "Perez-Carrillo Ascend Ridge"
+   }
+  ],
   "verified": false,
   "vitolas": [],
   "specs": {
@@ -8156,9 +8229,14 @@
     "Sizes Saddle 5x50",
     "Ridge 6x52",
     "Peak 61/4x58"
-   ]
+   ],
+   "country": "Dominican Republic",
+   "binder": "Nicaragua",
+   "length": "6 Inches",
+   "ring": "52",
+   "strength_felt": "medium"
   },
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
@@ -10140,13 +10218,73 @@
   "name": "Fine and Rare",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "espresso",
+    "spice",
+    "bread",
+    "cedar",
+    "cocoa",
+    "dark_chocolate",
+    "nuts",
+    "oak",
+    "earth",
+    "musty",
+    "grass",
+    "tea",
+    "coffee",
+    "pepper",
+    "sweet",
+    "dried_fruit",
+    "leather",
+    "citrus",
+    "clove",
+    "toast"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "espresso",
+     "spice",
+     "bread",
+     "cedar",
+     "cocoa",
+     "dark_chocolate",
+     "nuts",
+     "oak",
+     "earth",
+     "musty",
+     "grass",
+     "tea",
+     "coffee",
+     "pepper",
+     "sweet",
+     "dried_fruit",
+     "leather",
+     "citrus",
+     "clove",
+     "toast"
+    ],
+    "text": "The cigars start out with notes of bitter espresso and light spice, but virtually no pepper that I can discern, at least at this point. Flavors of sourdough bread and cedar take over the profiles of all three cigars within 10 puffs, but in the first and second cigars, the chocolate is a dense cocoa nib note, while the last cigar has more of a bitter dark chocolate note. Secondary notes of cashews, oak, gritty earth, barnyard and dried tea leaves flit in and out, and while there is a small amount of coffee beans on the finish of the second cigar, the first and third cigars feature a strong earth note. The retrohales have a bit of black pepper—it is strongest on the second cigar—and some sweetness that reminds me of Fig Newtons. Flavor is at full, the body hits medium and the strength lands at a solid medium. My third cigar has a minor issue with the burn that I need to correct, but it otherwise meets the standards in terms of construction. During the second third, the enjoyable flavors of oak and sourdough bread continue to dominate the profiles of the cigars, followed by granola, coffee beans, leather, cedar and a small amount of a vegetal note. The flavors on the finish are now different for each cigar: citrus on the first cigar, espresso on the second cigar, and earth on the third cigar. However, the notes on the retrohale are similar, composed of the same Fig Newton sweetness and slight black pepper combination that was present in the first third, albeit a bit more distinct. Flavor remains at full and the body stays at a solid medium, but the strength increases slightly to land just north of medium. Thankfully, the burn line on my third cigar has evened up nicely, and there are no issues with any other aspects of the construction. Right around the time the final third begins, major changes develop in the profiles of the three cigars, as flavors of sweet cloves and rich dark chocolate take over. The change is more gradual for the first cigar but quite sudden in the second and third cigars. Compared to the previous two thirds, secondary flavors are also different and include toasted bread, charred meat, roasted peanuts, sawdust, leather tack, coffee beans and a",
+    "url": "https://halfwheel.com/alec-bradley-fine-rare-anb-228/459553/",
+    "title": "Alec Bradley Fine & Rare ANB-228"
+   }
+  ],
   "verified": false,
   "vitolas": [],
-  "updated": "2026-10-06",
-  "aliases": []
+  "updated": "2026-10-24",
+  "aliases": [],
+  "specs": {
+   "country": "Honduras",
+   "wrapper": "Honduras (Trojes)",
+   "binder": "Honduras & Nicaragua",
+   "filler": "Dominican Republic (Criollo), Honduras (Jamastran), Mexico (San Andrés) & Nicara",
+   "length": "7 Inches",
+   "ring": "50",
+   "strength_felt": "medium"
+  }
  },
  "alec-bradley-fine-and-rare-a11-fyt": {
   "id": "alec-bradley-fine-and-rare-a11-fyt",
@@ -10253,9 +10391,58 @@
   "name": "Fine and Rare BC 134ev",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "spice",
+    "pepper",
+    "grass",
+    "tea",
+    "clove",
+    "cream",
+    "cedar",
+    "espresso",
+    "leather",
+    "hay",
+    "bread",
+    "vanilla",
+    "sweet",
+    "earth",
+    "cocoa",
+    "almond",
+    "citrus",
+    "toast",
+    "coffee"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "spice",
+     "pepper",
+     "grass",
+     "tea",
+     "clove",
+     "cream",
+     "cedar",
+     "espresso",
+     "leather",
+     "hay",
+     "bread",
+     "vanilla",
+     "sweet",
+     "earth",
+     "cocoa",
+     "almond",
+     "citrus",
+     "toast",
+     "coffee"
+    ],
+    "text": "A massive amount of both spice and pepper almost obliterates my palate during the first few puffs of the cigar, but both recede quickly—almost shockingly quickly—leaving behind an intense combination of tea leaves and cloves as the top flavors, both of which almost seem to be pulled directly from the aroma and cold draw. Secondary notes include creamy cedar, bitter espresso beans, leather tack, hay, toasted bread and slight soap, and there is plenty of spice left on my tongue that does not seem to be going anywhere anytime soon. In addition, the retrohale features not only plenty of black pepper but also plenty of a toasted marshmallow sweetness that is as distinct as it is enjoyable. Flavor starts off with a bang at medium plus, while both body and strength levels are just under medium. In terms of construction, the smoke production and burn lines give me no issues with all three cigars, although the draw is another matter: while two samples feature excellent draws, the last one is a bit more tight than I would like. Everything seems to be clicking for the Fine and Rare BC-(13)4EV as the second third begins: the combination of cloves and dry tea leaves easily remain at the top of the profile, while flavors of creamy cedar, gritty earth, leather, cocoa nibs, almonds and citrus peel follow close behind. The retrohale sees some changes, with less black pepper and more of the amazing toasted marshmallow sweetness, both of which help to bump up the other all complexity of the profile. Flavor increases to full and the body remains just under medium while the strength has increased enough to hit the solid medium mark. Unfortunately, there are some issues with construction, as all three of the samples need a couple of corrections with my lighter, but the smoke production and draw presents me with no problems. The Alec Bradley seems like a broken record in the final third, but the profile is so enjoyable that I don’t really care. As has been the case since virtually the first puff, flavors of cloves and dry tea leaves easily lead the way with cedar, roasted coffee beans, hay, leather, flour and citrus peel all making themselves known at various points. In addition, the ",
+    "url": "https://halfwheel.com/alec-bradley-fine-rare-bc-134ev/409373/",
+    "title": "Alec Bradley Fine & Rare BC-(13)4EV"
+   }
+  ],
   "verified": false,
   "vitolas": [],
   "specs": {
@@ -10263,9 +10450,16 @@
    "vitolas": [
     "Crafted in a 7x50",
     "EV CHURCHILL 7x50"
-   ]
+   ],
+   "country": "Honduras",
+   "wrapper": "Honduras (Criollo 98)",
+   "binder": "Honduras & Nicaragua",
+   "filler": "Honduras & Nicaragua",
+   "length": "7 Inches",
+   "ring": "50",
+   "strength_felt": "medium"
   },
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "aliases": []
  },
  "alec-bradley-fine-and-rare-bcn-143": {
@@ -12189,13 +12383,51 @@
   "name": "Ramon Allones",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cedar",
+    "white_pepper",
+    "pepper",
+    "earth",
+    "cream",
+    "sweet",
+    "cocoa",
+    "floral",
+    "cinnamon"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "cedar",
+     "white_pepper",
+     "pepper",
+     "earth",
+     "cream",
+     "sweet",
+     "cocoa",
+     "floral",
+     "cinnamon"
+    ],
+    "text": "The Ramon Allones AJ Fernandez Torpedo begins with some cedar, buttermilk and white pepper, a bit sharper though more restrained than the pre-light notes. Eventually, the core settles to a vibrant mixture of earthiness, creaminess and a bit of a Sprite-like sweetness. The retrohale is even heartier with lots of cedar and a bittersweet cocoa before a massive black pepper takes over the finish. Flavor is full, body is full and strength is medium-plus. Construction is fantastic in the final third: great draw, no touch-ups and plenty of thick smoke. Shortly before the exact point of the second third a sweeter cedar takes over and dominates over a mixture of red and black pepper. It’s hearty, thick, yet somehow balanced, allowing each of the three flavors to hit various parts of the palate without seeming muddy. Even more surprising is the retrohale which begins floral before cinnamon takes over and transitions into a finish. Once there, the floral note returns before Worcestershire and pepper add themselves. It’s an incredibly detailed progression and one that adds a refreshing component to the dominant cedar. Flavor and body both remain full, while the strength lags a bit behind at medium-plus. There’s even more woodiness in the final third of the Ramon Allones AJ Fernandez Torpedo. It’s not the sweet and defined cedar note from the middle portion, but it still has a ton of character. Underneath that is some black pepper and an intense creamy finish. If I let the cigar sit for two minutes—which the burn holds enough to allow me to do—I can find some fruitiness and a generic sweetness over top of a much more restrained pepper note. However, if I puff at anything close to a normal rate and the black pepper is massive. Unfortunately, the complex retrohale is gone, now replaced by massive blows of woodiness and pepper. The flavor and body both remain full, while the strength remains medium-full.",
+    "url": "https://halfwheel.com/ramon-allones-aj-fernandez-torpedo/278508/",
+    "title": "Ramon Allones AJ Fernandez Torpedo"
+   }
+  ],
   "verified": false,
   "vitolas": [],
-  "updated": "2026-10-06",
-  "aliases": []
+  "updated": "2026-10-24",
+  "aliases": [],
+  "specs": {
+   "country": "Nicaragua",
+   "wrapper": "Ecuador (Habano Oscuro)",
+   "binder": "Nicaragua (Corojo 99)",
+   "filler": "Nicaragua (Corojo 99 Jalapa, Criollo 98 Condega, Hybrid Estelí & Pueblo Nuevo)",
+   "length": "6 1/2 Inches",
+   "ring": "54",
+   "strength_felt": "medium"
+  }
  },
  "aj-fernandez-san-lotano": {
   "id": "aj-fernandez-san-lotano",
@@ -13265,9 +13497,46 @@
   "name": "Clasico Original",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cream",
+    "bread",
+    "sweet",
+    "grass",
+    "tea",
+    "cherry",
+    "pepper",
+    "mineral",
+    "nuts",
+    "leather",
+    "white_pepper",
+    "dried_fruit",
+    "earth"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "cream",
+     "bread",
+     "sweet",
+     "grass",
+     "tea",
+     "cherry",
+     "pepper",
+     "mineral",
+     "nuts",
+     "leather",
+     "white_pepper",
+     "dried_fruit",
+     "earth"
+    ],
+    "text": "Each cigar starts with a singular flavor combination of woodiness edging out creaminess, grain cereal, and some of the sweetness from the cold draws. It tends to last for 20 or 30 seconds before a toastiness kicks in; medium-full and smooth. As the first third of the Joya de Nicaragua Clásico Original Green Room Selection gets going, those flavors remain. However, the profile has gone from having all the flavors packed into one combination to something with more layers, creating some separation. Additional flavors include black tea, berries, bread, pencil lead, and, on the second cigar, a mild alcohol burn. Each cigar is a bit different during the finish. The first has minerals, black pepper, salt and some toastiness; the second cigar has more toastiness but is balanced out by a hard pretzel and creamy combination, while the third cigar is saltier, drier, and has some dry herb flavors. Retrohales are much crisper with saltiness slightly edging out creaminess, toasted breads, pencil lead, black pepper and, on the second cigar, a flavor that reminds me of how I taste cilantro. The finish reduces the list of flavors to toastiness, saltiness and black pepper. Flavor is full, body is medium-full and strength is medium. Construction is awesome. Nuttiness and creaminess trade turns leading the profile in the second third, though the woodiness is never that far behind. The list of flavors in my notes—hard pretzels, leather, white pepper, salt and dry herbs—isn’t all that different than the first third, though each cigar is drier than it was in the first third. The finishes go in all different directions: the first cigar is sharper, the second cigar adds fruity sweetness and toastiness, while the third cigar gets creamier. Retrohales lean into some of the less sweet parts of the profile: leather leads the first cigar while pencil lead is the defining flavor of the other two. Other flavors include wet mud, sharp white pepper, creaminess and stone fruit. That’s in contrast to the finish, which sees the creaminess take back over and bring the hard pretzel, nutty and more basic earthiness. Flavor is full, body is medium-full and strength ranges from mild to medium. At the ha",
+    "url": "https://halfwheel.com/joya-de-nicaragua-clasico-original-green-room-selection/474437/",
+    "title": "Joya de Nicaragua Clásico Original Green Room Selection"
+   }
+  ],
   "verified": false,
   "vitolas": [],
   "specs": {
@@ -13277,9 +13546,16 @@
     "Toro 6x50",
     "Robusto 5x50",
     "Piccolino 41/8x30"
-   ]
+   ],
+   "country": "Nicaragua",
+   "wrapper": "Ecuador (Connecticut-seed)",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "length": "6 Inches",
+   "ring": "54",
+   "strength_felt": "medium"
   },
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "aliases": []
  },
  "joya-de-nicaragua-cuatro-cinco": {
