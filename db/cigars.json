@@ -59754,14 +59754,40 @@
   "name": "Intemperance Whiskey Rebellion 1794",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "earth",
+    "pepper",
+    "sweet"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "pepper",
+     "sweet"
+    ],
+    "text": "In the case of the Intemperance Whiskey Rebellion 1794 line, it is named for a period that lasted from 1791 to 1794 and was the result of the United States government taxing distilled spirits to create revenue for the payment of debt incurred during the Revolutionary War. It also marked the first time a domestic product had been subject to a tax. It came to an end when President George Washington rode to Pennsylvania to quell the insurrection. But along with a history lesson, it also came with a message from company co-founder Skip Martin: What the Whiskey Rebellion of 1794 represents, for me, is two things. First, that we must resist tyrannous taxes and regulations, and second that this resistance is not futile. The line, which debuted in 2016, is the result of a collaboration with the online cigar community Cigar Dojo and was originally released exclusively through Famous Smoke Shop before being released to additional retailers in January 2019 . The blend features an Ecuadorian habano ligero wrapper, an Indonesian Besuki binder, and fillers from the Dominican Republic and Nicaragua. When it was released in November 2020, Tarred & Feathered became the eighth vitola in the Intemperance Whiskey Rebellion 1794 line: While it’s not a limited edition, it was released as a limited production, with just 500 boxes of 12 cigars made per year. Here’s what I said about the Intemperance Whiskey Rebellion 1794 Tarred & Feathered when I reviewed it in December 2020 : Make no mistake about it, the Intemperance Whiskey Rebellion 1794 Tarred & Feathered is a strong cigar; where it ranks compared to others in the RoMa Craft Tobac portfolio will largely be a personal decision, but it’s up there. Beyond being strong, it is flavorful, balanced and engaging from start to finish. While strength will do its best to command your attention, the true rewards are found by paying attention to what else is going on, namely the earth, pepper and sweetness that dance beautifully throughout the profile and provide the movement from start to finish. While the one cigar’s draw had me worried, smoking three seemed to prove that sample to be an aberration, though it still cost the overall score a ",
+    "url": "https://halfwheel.com/intemperance-whiskey-rebellion-1794-tarred-feathered-2/432589/",
+    "title": "Intemperance Whiskey Rebellion 1794 Tarred & Feathered"
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "Nicaragua",
+   "wrapper": "Ecuador (Habano Ligero)",
+   "binder": "Indonesia (Besuki)",
+   "filler": "Dominican Republic & Nicaragua",
+   "length": "5 Inches",
+   "ring": "56"
   }
  },
  "roma-craft-la-maestranza": {
@@ -59770,14 +59796,47 @@
   "name": "La Maestranza",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "woody",
+    "pepper",
+    "cream",
+    "vanilla",
+    "earth",
+    "spice"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "woody",
+     "pepper",
+     "cream",
+     "vanilla",
+     "earth",
+     "spice"
+    ],
+    "text": "The CRAFT Maquette La Maestranza gets underway with a profile marked by dry wood and some light, mouth-tingling black pepper, as well as a bit of creaminess that takes a few puffs to emerge and contribute to the experience. I’d call the starting puffs engaging but not overpowering, and with a profile that latches on to my taste buds and captures my attention. At the one-inch mark, there are some puffs that are really impressive; offering a profile that is creamy, peppery, balanced, nuanced and enough to stop me in my tracks for a moment. Retrohales thus far have a soft, almost fluffy creaminess that is a great first impression before black pepper comes along to tingle my nostrils, followed by what reminds me of warm root beer finishing things off. Flavor is a very pleasant medium-plus, body is medium-plus and strength is medium-minus. Construction is very good with no issues, offering a smooth draw, an even burn line, plenty of smoke, and a tight, durable ash. At the transition to the second third, a bit of vanilla extract appears in the flavor and right behind that is a more pronounced spiciness, which builds on the pepper but takes the physical sensations to a new place. Retrohales have a more pronounced black pepper that is tight and very focused on my olfactory system, and doesn’t have the spiciness that showed on my taste buds a few moments earlier. The flavor picks up a bit of earthiness in this section, and while I don’t know if it’s related, the pepper and spice begin to settle down just a touch. There is a very subtle woodiness in the resting aroma, almost cologne-like, that I find waiting for me after I step away from the cigar for a moment. The second third of the CRAFT Maquette La Maestranza finishes with a more vibrant black pepper and some spice in the retrohales, while the flavor has a thick body marked by creaminess, earth, some pepper and a bit of wet firewood. Flavor is medium-plus, body is medium-full and strength is medium. Construction remains very good, though it seems like the smoke production has dialed back just a touch and there’s a need for a slightly quicker puffing rate. The final third starts off on a very good note, with creaminess",
+    "url": "https://halfwheel.com/craft-maquette-la-maestranza/444276/",
+    "title": "CRAFT Maquette La Maestranza"
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "Nicaragua",
+   "wrapper": "Mexico (San Andrés)",
+   "binder": "Brazil",
+   "filler": "Dominican Republic, Honduras and Nicaragua",
+   "length": "4 1/4 Inches",
+   "ring": "56",
+   "strength_felt": "medium"
   }
  },
  "roma-craft-neanderthal": {
@@ -60626,12 +60685,30 @@
    "official": [],
    "review": []
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [],
+    "text": "Despite their smaller size, visually, the cigars are a bit intimidating: the wrappers are an extremely dark brown color with plenty of mottling—especially on the first cigar—but very little oil present. I can also easily see numerous massive, protruding veins and bumps on each cigar. Thanks to an abundance of tooth, the wrappers are exceedingly rough to the touch and all three cigars are very firm when squeezed. Interestingly, the feet of the cigars are all very different shapes—more on that below in the",
+    "url": "https://halfwheel.com/room101-johnny-tobacconaut-maduro-robusto/476893/",
+    "title": "Room101 Johnny Tobacconaut Maduro Robusto"
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "Nicaragua",
+   "wrapper": "Nicaragua (Maduro)",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "length": "5 Inches",
+   "ring": "50"
   }
  },
  "room-101-big-payback": {
@@ -61522,13 +61599,30 @@
    "official": [],
    "review": []
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [],
+    "text": "Recently we received a press release about the Sencillo Black and it had this to say about it: The new Sencillo Black is a collaboration between Nestor Plasencia Jr. and Keith K. Park, the man behind God of Fire and Angelenos cigars and Prometheus accessories, and is sure to win the brand even more acclaim. Sencillo Black is a new twist on the Sencillo theme. Like Sencillo Platinum (the first release of the Sencillo brand), it’s a truly extraordinary cigar that is smooth enough and inexpensive enough to smoke every day. Yet Sencillo Black has a distinctive flavor all its own. If Sencillo Platinum is the cabernet of the line, Sencillo Black is the pinot noir. Plasencia, highly respected cigar maker, who is also the largest tobacco grower in Nicaragua, produces Sencillo Black for Keith K. Park at his Nicaraguan factory, using five different tobaccos. The filler is blended from two Cuban-seed tobaccos grown in Nicaragua and Honduras-Ligero Habano Jalapa (Nicaragua) and Ligero Habano Jamastran (Honduras)-as well as Viso San Andrés tobacco grown in Mexico. The Habano Colorado wrapper and Habano Jalapa binder are also Cuban-seed, Nicaraguan-grown leaves. The five different tobaccos blend perfectly to give Sencillo Black a consistent yet complex flavor. According to Keith K. Park, Founder and CEO of Prometheus International, Inc. and God of Fire, Inc., the first release of 5,000 cigars in five sizes (1,000 cigars per size) will be delivered to 15 authorized Sencillo dealers in the week of June 20th, and the second release to all authorized Sencillo dealers in September. Park states, “Nestor and I had been talking about doing a project together for many years. When we decided to add a Nicaraguan blend to our brand portfolio, Nestor and I worked on the Sencillo Black blend together for over a year. The cigars were ready last year, but we decided to age them longer to deliver a more polished and flavorful taste to our customers. I am so happy that we are finally releasing Sencillo Black.” Here is a photo of the original Sencillo Platinum with the new Sencillo Black for comparison…. From the start I love the look of this cigar, I am a huge fan of Colorado shade wrappers an",
+    "url": "https://halfwheel.com/sencillo-black/9905/",
+    "title": "Review: Sencillo Black Robusto"
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "flags": "unknown",
    "shops": "cigarpage",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "Nicaragua",
+   "wrapper": "Nicaragua (Habano Colorado)",
+   "binder": "Nicaragua",
+   "filler": "Honduras, Mexico & Nicaragua",
+   "ring": "50"
   }
  },
  "senorial-65th-anniversary": {
@@ -61574,14 +61668,49 @@
   "name": "Habana Vieja",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "earth",
+    "cream",
+    "mineral",
+    "citrus",
+    "cinnamon",
+    "sweet",
+    "pepper"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "cream",
+     "mineral",
+     "citrus",
+     "cinnamon",
+     "sweet",
+     "pepper"
+    ],
+    "text": "The Habano Vieja begins with a lot of strawberries overtop some earthiness, creaminess and a bit of pink salt. There’s also some toastiness, though I imagine that is in large part due to the extended lighting period due to the covered foot. Shortly after burning through the covered foot, I hit the wrapper and the flavor shows a hearty redwood core on top of some oatmeal cookie. Behind that are creaminess, some wet leaves and lemon shortbread. That’s the good news; the bad news is the burn, which is requiring a lot of touch-ups. Flavor is medium-full, body is medium-full and strength is also medium-full. While I had originally hypothesized that the issue with the burn was the covered foot, the second third is having a much more challenging time staying lit than the first third. Flavor-wise, there’s cinnamon, sugar cookies and a simple syrup-like sugar. Behind that are earthiness and redwoods. Through the nose, the retrohale provides a buttermilk creaminess, kiwi and a finish of black pepper, though it’s overwhelmed by the cinnamon. Flavor and strength remain medium-full, but the body decreases to medium-plus. The Sinistro Habano Vieja continues to put my Colibri lighter to work and it’s only getting worse. Flavor-wise, things are a lot toastier, but I think that is very likely to be a result of the touch-ups. Behind that is some plain bagel-like breadiness, lemongrass and some cinnamon, though far reduced from the second third. Flavor picks up to full, body is medium-full and strength is medium.",
+    "url": "https://halfwheel.com/sinistro-habana-vieja-corona-prerelease/258772/",
+    "title": "Sinistro Habana Vieja Corona (Prerelease)"
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "Dominican Republic",
+   "wrapper": "Nicaragua (Habano)",
+   "binder": "HVA",
+   "filler": "Dominican Republic & Nicaragua",
+   "length": "6 Inches",
+   "ring": "42",
+   "strength_felt": "medium to full"
   }
  },
  "sinistro-mr-black": {
@@ -62084,14 +62213,75 @@
   "name": "15th Anniversary",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cream",
+    "woody",
+    "oak",
+    "almond",
+    "hay",
+    "dark_chocolate",
+    "cocoa",
+    "leather",
+    "clove",
+    "caramel",
+    "sweet",
+    "floral",
+    "spice",
+    "espresso",
+    "earth",
+    "white_pepper",
+    "pepper",
+    "toast",
+    "mineral",
+    "nuts"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "cream",
+     "woody",
+     "oak",
+     "almond",
+     "hay",
+     "dark_chocolate",
+     "cocoa",
+     "leather",
+     "clove",
+     "caramel",
+     "sweet",
+     "floral",
+     "spice",
+     "espresso",
+     "earth",
+     "white_pepper",
+     "pepper",
+     "toast",
+     "mineral",
+     "nuts"
+    ],
+    "text": "Starting out, the Tatuaje 15th Anniversary Habano Rosado Belicoso Fino features a distinct creamy and woody oak base, interspersed with notes of almonds, hay, dark chocolate, leather and anise. There is a light butterscotch sweetness noticeable on the finish along with some slight floral on the retrohale, and I also pick up some slight spice on my tongue although it does not seem like it will be sticking around long. The draw is excellent so far after a Dickman cut and there is a sharp burn, while the smoke production is about average flowing off of the foot. Strength-wise, the Tatuaje starts off fairly light and fails to reach the medium mark by the end of the first third. As expected, the slight spice that was present on my tongue in the first third is long gone by the time the second third of the Tatuaje 15th Anniversary gets started, although the sweet butterscotch note on the finish has increased in strength slightly. The dominant flavor shifts to a creamy leather note, followed closely by oak, espresso beans, cocoa nibs, earth, almonds and white pepper, as well as a touch more floral on the retrohale. Construction-wise, both the burn and draw continue to impress, while the smoke production stays the course compared to the first third. The strength actually begins to increase right as the second third comes to an end, but it remains a ways away from the medium mark. While the slightly sweet butterscotch note on the finish is still present as the final third of the Habano Rosado Belicoso Fino begins, it is noticeably reduced compared to first two thirds. The dominant flavors in the profile shifts as well, with a freshly roasted espresso bean note now taking the top spot, interspersed with other flavors of popcorn, creamy leather, oak, cocoa nibs, salty peanuts and floral. The burn and draw remain excellent until the end of the cigar and the overall strength ends up hitting a point just over the medium mark before I put the nub down with about an inch left.",
+    "url": "https://halfwheel.com/tatuaje-15th-anniversary-habano-rosado-belicoso-fino/278966/",
+    "title": "Tatuaje 15th Anniversary Habano Rosado Belicoso Fino"
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarplace",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "U.S.A.",
+   "wrapper": "Ecuador (Rosado Claro)",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "length": "5 1/2 Inches",
+   "ring": "52",
+   "strength_felt": "medium"
   }
  },
  "tatuaje-avion": {
@@ -62137,14 +62327,65 @@
   "name": "Black",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cocoa",
+    "pepper",
+    "earth",
+    "sweet",
+    "bread",
+    "butter",
+    "grass",
+    "white_pepper",
+    "caramel",
+    "cream",
+    "mineral",
+    "nuts",
+    "toast",
+    "vanilla",
+    "leather"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "cocoa",
+     "pepper",
+     "earth",
+     "sweet",
+     "bread",
+     "butter",
+     "grass",
+     "white_pepper",
+     "caramel",
+     "cream",
+     "mineral",
+     "nuts",
+     "toast",
+     "vanilla",
+     "leather"
+    ],
+    "text": "In terms of the lists of flavors, the three cigars start quite similarly: chocolate, minerals, woods, red pepper, earth, pencil lead, and sugar. However, the first two Tatuaje Black Label Private Reserve Torpedo start with a remarkably thin body, whereas the third cigar has a thickness closer to how I remember the blend. The first two cigars are quite dry with toastiness and woods over some generic bread—at times, like a buttered pita bread—along with grass and white pepper. The third cigar has those flavors, but with some mud, caramel, pound cake, and a lot more body. Each cigar finishes quite dry, with flavors ranging from acorns, bread and earth, and each has a touch of sweetness.  Retrohales continue the story of two profiles as the first two lean into dry woodiness and minerals with secondary notes of black pepper, kiwi sweetness and some creaminess. By contrast, the third has a pear sweetness that hits the palate before a fuller earthy mineral flavor emerges. Flavor is consistently full, body is barely medium for the first two cigars, but medium-full for the third, and strength is varying levels of medium, not close to medium-full. The ash formation is pretty uneven, but most of the time, consistently rotating the cigar in the ashtray leads to a self-correction. The second cigar requires a touch-up. The draws are a tad open, though understandable given the box press. The first two cigars get much toastier, though fortunately, there are other new flavors like nuttiness and mint in the first, while the second cigar has an interesting sweet and salty mixture that accents some of the charcoal elements quite well. The third Black Label Torpedo remains much more interesting. At the beginning of this section, there’s a heavy dose of vanilla, though it eventually gets toastier, too. It retains most of the flavors from the first third, though the spatial arrangement has been rearranged. There’s hardly any new flavors during the finishes. Retrohales for the first two cigars have gotten a bit thicker with flavors of bread and sweet creaminess. The third cigar has creaminess, pink salt, leather and some green olives. Flavor continues to be full, body is thin for the f",
+    "url": "https://halfwheel.com/tatuaje-black-label-torpedo/480666/",
+    "title": "Tatuaje Black Label Torpedo"
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "Nicaragua",
+   "wrapper": "Nicaragua (Criollo)",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "length": "6 1/8 Inches",
+   "ring": "52",
+   "strength_felt": "medium"
   }
  },
  "tatuaje-black-label": {
@@ -62210,14 +62451,62 @@
   "name": "Cojonu 2015",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "nuts",
+    "leather",
+    "earth",
+    "musty",
+    "honey",
+    "sweet",
+    "grass",
+    "espresso",
+    "pepper",
+    "cocoa",
+    "bread",
+    "spice",
+    "oak",
+    "citrus"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "nuts",
+     "leather",
+     "earth",
+     "musty",
+     "honey",
+     "sweet",
+     "grass",
+     "espresso",
+     "pepper",
+     "cocoa",
+     "bread",
+     "spice",
+     "oak",
+     "citrus"
+    ],
+    "text": "Last October, Tatuaje shipped one of those “missing years,” the Cojonú 2015. Measuring 5 x 55, the robusto gordo vitola features a blend that is the same as other Cojonú releases, including a Nicaraguan habano wrapper covering a Nicaraguan double binder and Nicaraguan filler tobaccos. Since the debut of the series, the Cojonú was said to be based on Tatuaje’s Selección de Cazador line—better known as the Brown Label due to the color of its bands—though it uses more ligero in the filler to give it a stronger profile. Note: The following shows the various Tatuaje Cojonú releases over the years. Some of these cigars may have been released after this post was initially published. The list was last updated on Aug. 2, 2024. The Cojonú 2015 is made by My Father Cigars S.A. in Estelí, Nicaragua and shipped in a singular 5 x 55 robusto gordo vitola that is priced at $13 per cigar and $273 for a box of 21 cigars. Thick and a bit on the stubby side, the Tatuaje Cojonú 2015 is covered in an attractive dark chocolate brown wrapper that features a decent amount of oil along with some very obvious mottling. In addition, all three cigars have quite a few visible veins and are sandpaper rough to the touch. One of the three cigars features a small soft spot just below the secondary band. The aroma emanating from the wrapper is medium in intensity and is made up of generic nuts, leather, earth, barnyard and honey sweetness along with a light vegetal note. The foot is closer to medium-full and features notes of gritty earth, peanuts, dark fruit sweetness, espresso beans, black pepper, tobacco and more barnyard. Finally, after a punch cut, the cold draw brings flavors of black pepper, salted peanuts, leather tack, cocoa nibs, sourdough bread and very light fruity sweetness. I was expecting spice and black pepper from the start of the Cojonú 2015 and the cigar does not disappoint in that regard. There is plenty of both—along with a strong gritty earth flavor—after I light the foot. After about 10 puffs, the earth flavor is joined by a strong oak note at the top of the profile, both of which are followed by additional flavors of leather tack, espresso beans, powdery cocoa nibs, citrus",
+    "url": "https://halfwheel.com/tatuaje-cojonu-2015/418842/",
+    "title": "Tatuaje Cojonú 2015"
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "Nicaragua",
+   "wrapper": "Ecuador (Habano)",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "length": "5 Inches",
+   "ring": "55"
   }
  },
  "tatuaje-cojonu-2015-broadleaf": {
@@ -62459,14 +62748,61 @@
   "name": "PCA 2025",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "earth",
+    "bread",
+    "pepper",
+    "cocoa",
+    "espresso",
+    "nuts",
+    "white_pepper",
+    "sweet",
+    "woody",
+    "grass",
+    "mineral",
+    "musty",
+    "leather"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "bread",
+     "pepper",
+     "cocoa",
+     "espresso",
+     "nuts",
+     "white_pepper",
+     "sweet",
+     "woody",
+     "grass",
+     "mineral",
+     "musty",
+     "leather"
+    ],
+    "text": "Each Tatuaje PCA 2025 Exclusive starts with a first puff that has less smoke volume than I would like. Fortunately, the flavor is quite good. Rich earthiness and sandwich bread lead black pepper and bright cocoa before amaro and classic espresso flavors emerge during the finish. The core flavor is a mixture of woodiness and peanuts that sits atop some bread, minerals and a generally mild white pepper. However, there are some weird sensations. About a quarter of the puffs of the first cigar have this very dry acrid flavor. It’s not a common cigar flavor and while I don’t mind it occasionally, I certainly am glad it’s not present on most puffs. Additionally, the cigars have a somewhat sweet black olive flavor. It adds a great depth to the earthiness, and while it’s present during each cigar, I don’t taste it on about half the puffs. During the finish, sugar water emerges, which when combined with the wood can really transform the overall taste, sometimes like a whiskey cocktail, though other times more like a thick syrup. Some puffs are dominated by pencil lead, which leads to a really dry finish. Some of the retrohales taste much like the main flavors, just not during the first cigar. A tempura batter flavor is joined by dry earth, black peppers and some more of the black olive flavor. At times, that cigar really dries out and it creates an herbal flavor that reminds me more of the taste of marijuana than tobacco. The finish is consistently more metallic, though the first cigar tastes much sweeter and more visceral than the other two cigars. Flavor is full, body is medium-plus and strength is medium or medium-plus. The caps on the second and third cigars are coming undone, though not bad enough to create problems; I just have to be a bit more careful. Otherwise, construction is pretty good, certainly nothing to deduct a point for. There’s a pretty logical progression for the outlier third cigar. The acrid flavor that I still cannot describe as well as I’d like is still present, but probably on only 15 percent of the puffs. Most of the time, there’s an earthy core with accents of pretzels, barnyard and sweetness. I still get some leather, though the more remarkabl",
+    "url": "https://halfwheel.com/tatuaje-pca-2025-exclusive/464125/",
+    "title": "Tatuaje PCA 2025 Exclusive"
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "Nicaragua",
+   "wrapper": "Nicaragua (Corojo)",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "length": "5 5/8 Inches",
+   "ring": "54",
+   "strength_felt": "medium"
   }
  },
  "tatuaje-reserva": {
@@ -62477,12 +62813,30 @@
    "official": [],
    "review": []
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [],
+    "text": "Of all those boxes, there aren’t many that have as few peers as the giant box that was the Tatuaje Reserva Broadleaf Collection. In 2016, Tatuaje showed off the Reserva Broadleaf Collection, which saw the company release 10 different cigars from its Havana Cazadores line—better known as Brown Label—but with Connecticut broadleaf wrappers instead of the Ecuadorian wrappers that are normally used. The six original Brown Label sizes—the six cigars’ first letters spell HUNTER—and four other cigars were selected for the release. They came packaged in giant wooden boxes that contained 10 different sections, each containing 10 of the cigars. Tatuaje planned to release 5,000 of these master cases, but in 2018, the company abandoned that plan and pivoted to offering the cigars in 10- and 25-count boxes . For those who find this packaging very cool, JRE Tobacco Co. sells a very similar concept, the 70-count Aladino Display box , which contains seven different vitolas of the Aladino Corojo line. While I would argue that Tatuaje has had more success with Connecticut broadleaf wrappers than any other company in the modern era, the Reserva Broadleaf Collection was not a high mark for the company. Our reviews of the cigars inside were all over the place, but generally below the scores that Tatuaje is accustomed to. The exception was the Reserva J21, which I enjoyed when I reviewed it in June 2017. Our initial reviews of the Tatuaje Broadleaf Collection have been surprising and our experiences largely disappointing, particularly for Tatuaje. The company has set a very high bar for itself and rarely does it miss, but many of those cigars have been flawed. It’s ranged from flavor issues to construction issues to consistency, all things the Reserva J21 Broadleaf thankfully avoids. This is what we’ve come to expect from Pete Johnson: flavor, construction, balance. I’ve still got two of the new broadleaf-wrapped Brown Labels to smoke, but so far, this has been the best of the bunch. While going through a Tatuaje tray in a cabinet humidor, I first found some of the other vitolas and the cellophane on some of them had become very yellowed. The J21’s cellophane is on the lighter side o",
+    "url": "https://halfwheel.com/tatuaje-reserva-j21-broadleaf-2/452988/",
+    "title": "Tatuaje Reserva J21 Broadleaf"
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "Nicaragua",
+   "wrapper": "U.S.A. (Connecticut Broadleaf)",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "length": "5 Inches",
+   "ring": "50"
   }
  },
  "tatuaje-reserva-broadleaf": {
@@ -62516,12 +62870,30 @@
    "official": [],
    "review": []
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [],
+    "text": "Thick and rustic dark brown wrappers cover all three of my Tatuaje 20th RL22 cigars, and they have so much tooth to them that I am reminded of rough sandpaper as I rub my finger across them. Large, protruding veins are everywhere, and one cigar has a knot on it that is hard to miss. (More on that below in the",
+    "url": "https://halfwheel.com/tatuaje-20th-miami-reserva-rl22/433572/",
+    "title": "Tatuaje 20th Miami Reserva RL22"
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "U.S.A.",
+   "wrapper": "Ecuador (Habano Maduro)",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "length": "5 1/2 Inches",
+   "ring": "42"
   }
  },
  "tatuaje-series-p-sumatra": {
@@ -63645,14 +64017,52 @@
   "name": "Sumum Edicion Especial 2010",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cream",
+    "cedar",
+    "leather",
+    "espresso",
+    "pepper",
+    "citrus",
+    "nuts",
+    "sweet",
+    "coffee"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "cream",
+     "cedar",
+     "leather",
+     "espresso",
+     "pepper",
+     "citrus",
+     "nuts",
+     "sweet",
+     "coffee"
+    ],
+    "text": "The VegaFina starts out the first third a bit bitter, but that dies down after about seven puffs. The cigar continues with a nice creamy cedar core, along with notes of leather, espresso and a very small amount of pepper on the retrohale. There is a little bit of sharp citrus that I can’t place yet, but it seems to be getting stronger, so I have no doubt it will come to me. There is no spice present at all at this point and the strength is a non-issue so far. Draw is a bit loose, but the burn seems great at the end of the first third. The second third of the Sumum is where things start to get interesting. The main profile shifts a bit and that sharp citrus is now easily identifiable as a lemon note, while the creaminess actually increases a bit. Other notes of nuts, cedar and leather filter in and out The draw has tightened up nicely, but the burn is wandering a bit at certain points, although nothing major. Strength is still quite mild, call it a mild medium and really does not seem to want to go higher. Coming into the final third of the Edición Especial 2010 and the flavors are much the same, albeit in differing amounts. The lemon citrus recedes a bit and is replaced by a nice sweetness, which goes well with the creaminess that is still present. There are also some coffee and cedar notes, but they ebb and flow in strength. The cigar was easy to finish, and never got harsh or bitter at the end.",
+    "url": "https://halfwheel.com/review-vegafina-sumum-edicion-especial-2010/25647/",
+    "title": "VegaFina Sumum Edición Especial 2010"
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "Dominican Republic",
+   "wrapper": "Ecuadorian Cubano",
+   "binder": "Dominican Republic (Santo Domingo)",
+   "filler": "Dominican Republic, Nicaragua & Peru",
+   "ring": "54",
+   "strength_felt": "mild"
   }
  },
  "viaje-limited-edition": {
@@ -63862,14 +64272,51 @@
   "name": "Cuellar Caribe",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "earth",
+    "nuts",
+    "pepper",
+    "sweet",
+    "toast",
+    "mineral",
+    "white_pepper",
+    "leather"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "nuts",
+     "pepper",
+     "sweet",
+     "toast",
+     "mineral",
+     "white_pepper",
+     "leather"
+    ],
+    "text": "The Villiger Cuéllar Caribe Robusto starts with a classic Dominican cigar profile: lots of earthiness and woodiness with some nuttiness providing a touch of a sweeter version of a savory flavor, some saltiness and a touch of pepper. While the flavor is medium-full in intensity, the thickness of the profile is noticeably thin. While the list of flavors changes, the overall profile is pretty much the same: all a bit too plain. Dry woods lead some macadamia nuts, stale bottled water and minor flavors of sweetness and burnt black pepper. As the finish develops, some amaro flavors enter the fray, breaking through the woodiness, but it doesn’t do much to change the overall profile. If I want to taste a different sensation, a retrohale will fix the problem, but it’s because blowing the smoke through the nose produces a much drier trio of flavors: rough woodiness, dry carpet and burnt black pepper. It’s more enjoyable than it sounds, but it still wouldn’t be my first choice of flavors. Flavor is medium-full, body is medium and strength is mild-medium. Fortunately, the construction is very good. Many of the puffs of the second third seem to be mirror images of the first third, which while boring, isn’t bad. That said, 10-20 percent of the puffs are noticeably worse, albeit for two different reasons. Some puffs take the existing profile, but add a lot of sourness, almost as if someone took a dropper of some sour liquid and placed it on my tongue. Then there are the puffs that get drier, adding more mineral elements and burnt breads. Occasionally, I get some other flavors like white pepper, pretzels and saltiness, but they don’t change the overall experience. Fortunately, there’s some improvement. The finish is creamier with some potato starch buried inside of it. It’s joined by leather, minerals and some of the pretzels; a significant change and upgrade from the first third. Soft and fragrant nuttiness leads the retrohales, which also have some of the sour earth and pepper notes. I’m caught off guard by the retrohale’s finish, sort of an intense combination of everything up until this point: nuttiness, potato starch, sour earth, leather, minerals and white pepper. While t",
+    "url": "https://halfwheel.com/villiger-cuellar-caribe-robusto/452037/",
+    "title": "Villiger Cuéllar Caribe Robusto"
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "Dominican Republic",
+   "wrapper": "Ecuador (Habano)",
+   "binder": "Dominican Republic",
+   "filler": "Dominican Republic",
+   "length": "5 Inches",
+   "ring": "48",
+   "strength_felt": "mild"
   }
  },
  "villiger-cuellar-connecticut-kreme": {
@@ -63920,14 +64367,53 @@
   "name": "La Vencedora",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "earth",
+    "bread",
+    "cherry",
+    "white_pepper",
+    "pepper",
+    "citrus",
+    "sweet",
+    "mineral",
+    "caramel"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "bread",
+     "cherry",
+     "white_pepper",
+     "pepper",
+     "citrus",
+     "sweet",
+     "mineral",
+     "caramel"
+    ],
+    "text": "The La Vencedora Toro begins with earthiness, some sourness, pizza dough and a berry finish. At the start, it’s quite balanced with nothing standing out. That changes pretty quickly as earthiness jumps to the forefront, joined by a strong white pepper, lemon and some white bread. The finish also gets the bread flavor, along with a pork rib-like meatiness. Through the nose there’s quite a bit of earthiness, gingersnap cookies and some melon sweetness. Flavor intensity  is medium-full, body is medium-plus and strength is medium. Construction is a bit all over the place, so I’ll save that for the final notes. For the most part, it’s much of the same in the second third of the La Vencedora. The white pepper picks up slightly, the lemon is still there, but the earthiness becomes a bit more potent and at times metallic. At various points, the cigar turns rough, but after a few puffs it disappears. The finish retains the breads, with some watered-down bourbon and caramel. Flavor picks up to full, body remains medium-plus and strength is still medium. By the final third, all three cigars have seen touch-ups and that’s not helping the flavor. The earthiness that has dominated the Villiger is now harsher with some citrus and a wasabi-like pepper. On one hand, the metallic flavors are no longer there, but I imagine that’s due to the harshness. It’s not as bad as it sounds, but it’s a worse flavor of what the first two thirds provided. The finish is earthy and predictably toasty, in large part due to the touch-ups.",
+    "url": "https://halfwheel.com/villiger-la-vencedora-toro/268381/",
+    "title": "Villiger La Vencedora Toro"
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "Nicaragua",
+   "wrapper": "Nicaragua (Habano Oscuro)",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "length": "6 Inches",
+   "ring": "50",
+   "strength_felt": "medium"
   }
  },
  "villiger-san-doro-colorado": {
@@ -64155,14 +64641,66 @@
   "name": "Futuro Seleccion",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "vanilla",
+    "cinnamon",
+    "earth",
+    "leather",
+    "oak",
+    "cream",
+    "cocoa",
+    "nuts",
+    "pepper",
+    "spice",
+    "almond",
+    "sweet",
+    "dark_chocolate",
+    "musty",
+    "hay",
+    "espresso"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "vanilla",
+     "cinnamon",
+     "earth",
+     "leather",
+     "oak",
+     "cream",
+     "cocoa",
+     "nuts",
+     "pepper",
+     "spice",
+     "almond",
+     "sweet",
+     "dark_chocolate",
+     "musty",
+     "hay",
+     "espresso"
+    ],
+    "text": "The initial launch of Futuro includes two different vitolas, both of which are sold in sliding-lid boxes of 20: Fernández chose the Futuro Selección 109 (6 x 52, $9.75) while Gellis decided on the Futuro Selección Suprema (5 5/8 x 46, $8.75). While the release is not specifically a limited edition, only 400 boxes of each vitola were sold to retailers at the 2015 IPCPR Convention & Trade Show and it is not known if they will be made in the future, or in what amounts. The Futuro cigars are rolled at Tabacos Valle de Jalapa S.A. (TABSA) in Estelí, Nicaragua, which is owed by the Fernández family. In addition, both Casa Fernández and Warped will be handling distribution for the new release. Covered in a mocha brown wrapper that has a noticeable reddish tint, the Futuro also sports a 109 cap and a clean cut foot. There are multiple veins present running up and down the length of the cigar, but none of them are overly distracting, and the wrapper is silky smooth to the touch. Aroma from the wrapper is a combination of rich vanilla, cinnamon, clay, earth, leather and oak, while the cold draw brings flavors of the same cinnamon, creamy oak, leather, chocolate, nuts and black pepper. The flavors in the Futuro start immediately after lighting, with a dominant spicy oak note interspersed with flavors of rich milk chocolate, earth, baker’s spices, cinnamon and creamy almonds. There is some nice vanilla sweetness on the retrohale, along with a significant amount of black pepper, and I am picking up some noticeable spice on my tongue, although it seems to be receding as the first third continues. The draw is excellent so far, and while the burn is not razor sharp, it is far from needing any correcting. Strength-wise, the Futuro struggles to hit the medium mark by the end of the first third, and smoke production coming off of the foot is about average. There is a bit less vanilla sweetness in the profile in the second third of the Futuro, along with less pepper on the retrohale. The profile becomes noticeably smoother, with a dominant creamy almond flavor replacing the oak note at the forefront, followed by flavors of dark chocolate, oak, barnyard, hay and bitter espresso bean",
+    "url": "https://halfwheel.com/futuro-seleccion-109/98259/",
+    "title": "Futuro Selección 109"
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "Nicaragua",
+   "wrapper": "Nicaraguan Corojo 99",
+   "binder": "Nicaraguan Criollo 98",
+   "filler": "Nicaraguan Corojo 98 & Corojo 99",
+   "ring": "52",
+   "strength_felt": "medium"
   }
  },
  "warped-isla-del-cocodrilo": {
@@ -64275,12 +64813,30 @@
    "official": [],
    "review": []
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [],
+    "text": "Late in 2020, Warped shipped the second batch of the Maestro del Tiempo 6102R, a special version of the regular Maestro del Tiempo line. It differs from the line in a few different ways. First, it’s limited, with this being only the second release following the original in 2016. Second, it’s sold in rather unique packaging with a secondary  Selección de Warped band and boxes of 100 instead of the normal 25. Finally—and perhaps most importantly—it’s a tweaked version of the blend. While it remains a Nicaraguan puro like the regular Maestro del Tiempo, the 6102R includes medio tiempo tobaccos from Estelí. Medio tiempo is a priming of tobacco—the way a plant is divided into sections vertically—that is found above the ligero priming, typically the highest priming. It’s only found on certain plans and only some growers go through the effort of classifying it separately from ligero. Given its position on the plant, medio tiempo should be the strongest tobacco found on the plants where it grows. The second batch of 6102R seems pretty much identical to the first batch. It’s still offered in a 5 1/4 x 48 size with the secondary band and packaged in cabinets of 100. The only official change is that the price is now $12.50 per cigar compared to $10.50 for the first release. Kyle Gellis, Warped’s founder, declined to say how many boxes were shipped as part of the 2020 release, though the first batch was limited to 150 boxes. Here’s what I said when I reviewed the original Maestro del Tiempo 6102R in November 2016 : The Maestro del Tiempo 6102R is a good cigar, but it has its flaws. My experience with three cigars showed similar flavors, though the draws and the packing of the cigars was noticeably different, which I imagine helps to explain the varying burn issues. I haven’t smoked any of the other sizes, so I’m interested to see how the untweaked blend tastes; if it’s anything like this, I’ll be glad to smoke some more. Fans of Warped will be drawn to the secondary band that signifies this cigar’s special place within the Maestro del Tiempo line, and that’s probably for the better. Upon closer examination, it’s apparent that this cigar has far more veins than a typical cig",
+    "url": "https://halfwheel.com/maestro-del-tiempo-6102r-2020/386114/",
+    "title": "Maestro del Tiempo 6102R (2020)"
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "Nicaragua",
+   "wrapper": "Nicaragua (Corojo 99 Jalapa)",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua (Criollo 98 & Corojo 99)",
+   "length": "5 1/4 Inches",
+   "ring": "48"
   }
  },
  "warped-nicotina": {
@@ -64350,14 +64906,76 @@
   "name": "Serie Gran Reserva 1988 GR88",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cream",
+    "earth",
+    "leather",
+    "espresso",
+    "toast",
+    "coffee",
+    "cocoa",
+    "clove",
+    "molasses",
+    "sweet",
+    "white_pepper",
+    "pepper",
+    "almond",
+    "bread",
+    "dark_chocolate",
+    "oak",
+    "cinnamon",
+    "grass",
+    "tea",
+    "citrus",
+    "hay"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "cream",
+     "earth",
+     "leather",
+     "espresso",
+     "toast",
+     "coffee",
+     "cocoa",
+     "clove",
+     "molasses",
+     "sweet",
+     "white_pepper",
+     "pepper",
+     "almond",
+     "bread",
+     "dark_chocolate",
+     "oak",
+     "cinnamon",
+     "grass",
+     "tea",
+     "citrus",
+     "hay"
+    ],
+    "text": "Starting out, the Warped Serie Gran Reserva 1988 features a combination of dominant flavors, including creamy earth and creamy leather, followed up closely by notes of freshly roasted coffee beans, corn, cocoa nibs and cloves. In addition, there is a blast of maple sweetness that is present on the retrohale in the first few puffs, where it combines very nicely with some white pepper that is also noticeable, although both begin to recede a bit almost immediately. Both the burn and draw are excellent so far, and smoke production coming from the foot is about average, albeit very dense. At this point, the overall strength of the Warped 1988 is rising slowly, ending the first third still a very long ways from the medium mark. The maple sweetness really ramps up during the second third of the Serie Gran Reserva 1988, joining a new creamy almond flavor pulled over from the cold draw and leather note as the dominant flavors in the profile. Other notes of toasted bread, bitter dark chocolate, espresso beans, oak and slight cinnamon flit in and out as well, although none of them come close to the strength of the dominant flavors at any point. While some white pepper is still obvious on the retrohale, I am also to picking up a new slight saltiness on my lips that begins after the burn passes the halfway point. Construction-wise, the burn and draw continue to impress, while the smoke production has actually increased noticeably from the foot. In terms of strength, the Warped 1988 really begins to show signs of life right before the end of the second third, hitting a post close to medium before stalling out. Thankfully, both the white pepper and the saltiness have increased in the final third of the Serie Gran Reserva 1988, helping to show off the complexity of the profile that features the now-familiar dominant combination of creamy almonds and oak. Secondary flavors of dried tea leaves, slight citrus, creamy leather, dark chocolate, hay and cocoa nibs are also present, and while the maple sweetness is still very noticeable, it is not as strong as it was during the second third. While the draw remains top notch, I am forced to touch up the burn a couple of times right near",
+    "url": "https://halfwheel.com/warped-serie-gran-reserva-1988/281546/",
+    "title": "Warped Serie Gran Reserva 1988"
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "Nicaragua",
+   "wrapper": "Nicaragua",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "length": "5 1/4 Inches",
+   "ring": "50"
   }
  },
  "warped-devil-s-hands": {
@@ -64427,14 +65045,75 @@
   "name": "Venture 1492",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "clove",
+    "pepper",
+    "espresso",
+    "toast",
+    "coffee",
+    "leather",
+    "cinnamon",
+    "earth",
+    "hay",
+    "almond",
+    "bread",
+    "molasses",
+    "sweet",
+    "cedar",
+    "nuts",
+    "mineral",
+    "cocoa",
+    "cream",
+    "citrus",
+    "grass"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "clove",
+     "pepper",
+     "espresso",
+     "toast",
+     "coffee",
+     "leather",
+     "cinnamon",
+     "earth",
+     "hay",
+     "almond",
+     "bread",
+     "molasses",
+     "sweet",
+     "cedar",
+     "nuts",
+     "mineral",
+     "cocoa",
+     "cream",
+     "citrus",
+     "grass"
+    ],
+    "text": "After I light the foot, very distinct flavors of anise and black pepper start the Venture 1492 off, but they are quickly overtaken by a combination of roasted coffee beans and leather. Secondary notes of cinnamon, earth, dry straw, almonds and toasted bread flit in and out, while the retrohale features quite a bit of black pepper and less obvious maple sweetness, the former of which seems to be getting stronger as the first third burns down. Flavor ends the first third at a solid medium, body is at mild-plus and the strength hits a point just under the medium mark. So far, there are not any issues whatsoever with construction. There are some changes during the second third of the cigar, as the anise flavor that I noted from the first few puffs is once again strong enough to take the top spot in the profile, although it is joined by a distinct cedar note just before the halfway point. Additional flavors of leather, sourdough bread, cinnamon, generic nuts, espresso beans and light lemongrass make themselves known at various points, and while I pick up a metallic note on the finish on two of the cigars, it does not stick around long enough to have a negative impact on either cigar. There is also slightly more maple sweetness on the retrohale, although the amount of black pepper remains the same. Flavor increases slightly to a point just over medium, while both the body and strength also see increases to just under medium and a solid medium, respectively. However, although the draws and smoke production continue to be excellent, one of the major changes compared to the first third involves the burn, as two of the three cigars need a minor correction with my lighter to stay on track. A combination of powdery cocoa nibs and creamy cedar easily outpace flavors of roasted coffee beans, leather tack, citrus peel, toasted bread, almonds and a slight vegetal note. While I was hoping that the maple sweetness on the retrohale would continue to increase, that did not end up being the case. Flavor stays put at a point just over medium and the body ends up firmly at medium, but the main story is the strength, which increases significantly to land at medium-full by the time I pu",
+    "url": "https://halfwheel.com/venture-1492-gran-corona/423032/",
+    "title": "Venture 1492 Gran Corona"
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "Dominican Republic",
+   "wrapper": "Mexico (San Andrés)",
+   "binder": "Dominican Republic",
+   "filler": "Dominican Republic & Nicaragua",
+   "length": "5 1/2 Inches",
+   "ring": "48",
+   "strength_felt": "medium"
   }
  },
  "west-tampa-tobacco-co-black": {
@@ -64507,14 +65186,83 @@
   "name": "Honduras",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "sweet",
+    "nuts",
+    "pepper",
+    "leather",
+    "grass",
+    "tea",
+    "earth",
+    "musty",
+    "cream",
+    "spice",
+    "hay",
+    "dark_chocolate",
+    "cocoa",
+    "oak",
+    "coffee",
+    "dried_fruit",
+    "molasses",
+    "bread",
+    "almond",
+    "cinnamon",
+    "toast",
+    "mineral",
+    "espresso",
+    "brown_sugar"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "sweet",
+     "nuts",
+     "pepper",
+     "leather",
+     "grass",
+     "tea",
+     "earth",
+     "musty",
+     "cream",
+     "spice",
+     "hay",
+     "dark_chocolate",
+     "cocoa",
+     "oak",
+     "coffee",
+     "dried_fruit",
+     "molasses",
+     "bread",
+     "almond",
+     "cinnamon",
+     "toast",
+     "mineral",
+     "espresso",
+     "brown_sugar"
+    ],
+    "text": "Reddish-brown wrappers cover all three of the Zino Honduras Robusto cigars. While the first cigar features plenty of oil and is silky smooth to the touch, the wrappers on the other two cigars are significantly rougher and have less oil present. Each cigar has some light mottling, and they are all extremely firm when squeezed. There are veins visible on each cigar, but only the first one has one that protrudes enough to take notice of. A sweet but generic nuttiness leads the aromas emanating from the wrappers, followed by pepper, leather, tea leaves, earth, barnyard and creamy woodiness. A smell that reminds me of brewed sweet tea is the strongest scent coming from foot of the first and second cigars, while the last cigar has a strong nutmeg note, followed by dry straw, dark chocolate, and oak. After straight cuts, the cold draws bring flavors of creamy oak, coffee grounds, raisin sweetness, earth, baker’s spices, and leather tack. All three cigars start with a blast of maple syrup sweetness, black pepper, and a touch of spice, but after about 10 puffs, the profiles diverge slightly. The first and third cigars feature main flavors of toasted sourdough bread and oak, along with secondary flavors of almonds, plain oatmeal, cocoa nibs, earth and light cinnamon. The second cigar has a combination of roasted peanuts and earth, followed by coffee beans, cinnamon, chalk, oak, creamy leather, and a slight vegetal note. All three cigars feature a bitter espresso note on the finish to varying degrees, while the retrohales feature a combination of light red pepper and brown sugar sweetness. Flavor ends the first third at full, the body hits a point about halfway between mild and medium, and the strength lands at a solid medium. When it comes to construction, the burn lines are a bit wavier than I would like, but they never came close to needing correcting, while the draw resistance and smoke production are excellent. During the second third, main flavors of creamy almonds and oak take over the top spots in the profile. At various points, secondary flavors of cinnamon, earth, pencil lead, creamy hay, potato chips and dark chocolate show up; right around the halfway point of ",
+    "url": "https://halfwheel.com/zino-honduras-robusto/478174/",
+    "title": "Zino Honduras Robusto"
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
+  },
+  "vitolas": [],
+  "specs": {
+   "country": "Honduras",
+   "wrapper": "Ecuador",
+   "binder": "Honduras",
+   "filler": "Honduras",
+   "length": "5 Inches",
+   "ring": "54",
+   "strength_felt": "medium"
   }
  },
  "zino-nicaragua": {
@@ -65342,7 +66090,12 @@
     "honey",
     "bread",
     "spice",
-    "floral"
+    "floral",
+    "pepper",
+    "woody",
+    "leather",
+    "white_pepper",
+    "earth"
    ]
   },
   "note_sources": [
@@ -65364,10 +66117,25 @@
      "https://farehamwinecellar.co.uk/?p=78118",
      "https://www.cigarsense.com/?p=32059"
     ]
+   },
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "pepper",
+     "woody",
+     "leather",
+     "white_pepper",
+     "bread",
+     "earth"
+    ],
+    "text": "There’s no delay getting to the flavor profile of the Cohiba Medio Siglo, as a knotted bunch of tastes and aromas jump off the cigar, with a good bit of black pepper, wood, leather and a touch of sourness being the most prominent. The cigar puts off a good amount of smoke early on, though it dissipates fairly quickly, even without the help of a slight breeze. The burn line is also progressing remarkably quick, as within just about 10 minutes of smoking I already nearly an inch of ash, enough to make me want to tap it off. Thankfully the cigar takes care of it for me, leaving less than an inch until the band will need to be removed. While the flavors early on need a bit of time to untangle themselves, retrohales are fairly straightforward with plentiful amounts of white pepper. For a cigar with plenty of flavor intensity, the overall strength is medium at best, as the lingering effect on my palate and system is relatively mild. After a bit of a flavor roller coaster to start, the Cohiba Media Siglo straightens itself out, settling into a medium bodied and medium strength profile, though leaning more towards medium-plus in both areas. The black pepper has become a bit more prominent, with a dry background of wood and cereal grain cradling it. Retrohales are punchy by way of white pepper, but there is a sharper, more potent edge to them that almost burns the nostrils at times. There’s also just a bit of earthy gruffness coming into the cigar as the burn line approaches the band, giving it a bit more robustness than it has shown earlier. The combustion and burn line remain fantastic as the cigar motors through the midpoint, with the flavor picking up a bit of creaminess once the band needs to come off. The bridge from second third to final third is one of the highlights of the cigar, as all the notes from the start are now in harmony, and thankfully without any of the sourness. The flavor warms up a bit with the core approaching, and I find myself slowing down just a bit, as the first two thirds burned in just about 30 minutes and I want to savor what the Cohiba Media Siglo is offering. The burn line goes off track for the first time with less than two inches to go,",
+    "url": "https://halfwheel.com/cohiba-medio-siglo-preproduction/110352/",
+    "title": "Cohiba Medio Siglo (Preproduction)"
    }
   ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "cuban": true,
    "coh_stocked": true,
@@ -65378,8 +66146,15 @@
    "ring_gauge": "52",
    "strength": "Medium",
    "factory_vitola": "Medio Siglo",
-   "strength_felt": "medium-full"
-  }
+   "strength_felt": "medium-full",
+   "country": "Cuba",
+   "wrapper": "Cuba",
+   "binder": "Cuba",
+   "filler": "Cuba",
+   "length": "4 Inches",
+   "ring": "52"
+  },
+  "vitolas": []
  },
  "cohiba-genios": {
   "id": "cohiba-genios",
@@ -69117,7 +69892,23 @@
     "cedar",
     "clove",
     "floral",
-    "caramel"
+    "caramel",
+    "hay",
+    "nuts",
+    "bread",
+    "pepper",
+    "oak",
+    "citrus",
+    "sweet",
+    "leather",
+    "butter",
+    "spice",
+    "white_pepper",
+    "coffee",
+    "toast",
+    "espresso",
+    "earth",
+    "musty"
    ]
   },
   "note_sources": [
@@ -69139,10 +69930,39 @@
      "https://www.cgarsltd.co.uk/hoyo-monterrey-double-coronas-cigar-cabinet-p-201.html?page=2",
      "https://www.cigarsense.com/?p=31373"
     ]
+   },
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "hay",
+     "nuts",
+     "bread",
+     "floral",
+     "pepper",
+     "oak",
+     "citrus",
+     "sweet",
+     "leather",
+     "butter",
+     "cream",
+     "spice",
+     "white_pepper",
+     "coffee",
+     "toast",
+     "espresso",
+     "caramel",
+     "earth",
+     "cedar",
+     "musty"
+    ],
+    "text": "It’s chewy. The Hoyo de Monterrey Double Coronas Gran Reserva Cosecha 2013 starts with a list of flavors that is not exotic—woods, Lay’s potato chips, metallic, sweetness, hay—but the texture of the flavors is so chewy that it’s a remarkably different experience than most cigars. The chewiness and contrasting other textures also create a layered sensation that only a minority of cigars can have. About 10 minutes into the cigar, a chewy nuttiness leads the profile in the sense it’s both the strongest flavor I taste but also the one that hits my palate first. It’s followed by popcorn, a bread cracker that reminds me of the Chex Mix breadstick, some beef meatiness, unsweet floral flavors and some black pepper. The finish has popcorn, oak, black pepper, mild citrus sweetness and mild leather. Retrohales have a softer peanut butter flavor followed by pineapple sweetness, creaminess and a spicy white pepper. The finish has oatmeal, pine, leather, coffee, white pepper on the tongue and black pepper in the nose. Flavor is bouncing between medium-full and full, body is medium-full and strength is medium. There are many Cuban cigars that have construction issues, fortunately, the first third of this cigar is not one of them. After a few false starts in the first third, the bread flavor joins the nuttiness as one of the now two leading flavors of the Hoyo de Monterrey. Like the nuttiness, the bread flavor has an incredible amount of chewy texture to it. There’s burnt espresso, burnt caramel, some sweetness, earthiness and white pepper as secondary flavors. Something in the profile is always changing, maybe a flavor adds itself or one flavor gets weaker. No two puffs are identical, though the hour or so I spend smoking through the second third is pretty homogenous all things considered. The finish has a unique nut mixture joined by a milky creaminess. The latter is an incredibly lifelike flavor, it really coats my mouth similar to if I had just finished a glass of milk. There’s also white pepper and some less burnt caramel. Retrohales have cedar over oak, damp woods, leather, brown butter, saltiness and dry fall leaves. As the transition to the finish happens, there’s some ",
+    "url": "https://halfwheel.com/hoyo-de-monterrey-double-coronas-gran-reserva-cosecha-2013/417529/",
+    "title": "Hoyo de Monterrey Double Coronas Gran Reserva Cosecha 2013"
    }
   ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "cuban": true,
    "coh_stocked": true,
@@ -69153,8 +69973,15 @@
    "ring_gauge": "49",
    "strength": "Light",
    "factory_vitola": "Prominentes",
-   "strength_felt": "mild-medium"
-  }
+   "strength_felt": "mild-medium",
+   "country": "Cuba",
+   "wrapper": "Cuba",
+   "binder": "Cuba",
+   "filler": "Cuba",
+   "length": "7 5/8 Inches",
+   "ring": "49"
+  },
+  "vitolas": []
  },
  "hoyo-de-monterrey-epicure-no-2": {
   "id": "hoyo-de-monterrey-epicure-no-2",
@@ -70347,7 +71174,19 @@
     "nuts",
     "cedar",
     "honey",
-    "leather"
+    "leather",
+    "citrus",
+    "almond",
+    "sweet",
+    "hay",
+    "earth",
+    "cocoa",
+    "white_pepper",
+    "pepper",
+    "caramel",
+    "butter",
+    "spice",
+    "espresso"
    ]
   },
   "note_sources": [
@@ -70368,10 +71207,34 @@
      "https://www.cubancigarwebsite.com/cigar/h-upmann/sir-winston",
      "https://www.cigarslover.com/h-upmann-sir-winston/"
     ]
+   },
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "citrus",
+     "leather",
+     "cream",
+     "almond",
+     "sweet",
+     "hay",
+     "earth",
+     "cocoa",
+     "white_pepper",
+     "pepper",
+     "caramel",
+     "nuts",
+     "butter",
+     "spice",
+     "espresso"
+    ],
+    "text": "Starting out, the main flavor in the Gran Reserva’s profile follows both the aroma and the cold draw almost exactly, with distinct orange peel easily taking the top spot followed by lesser notes of leather, creamy almonds, celery, sweet hay, earth and milk chocolate. Thick and dense smoke coats my mouth with every puff, and the retrohale is full of both white pepper and a massive caramel candy sweetness, both of which seem to be getting stronger as the first third burns down. Construction-wise, the burn is excellent so far with no hint of needing attention, while the draw is excellent after a simple straight cut, and there is more than enough thick, white smoke emanating from the foot. The strength is virtually nonexistent so far and barely hits a point between mild and medium by the end of the first third. Creamy and sweet flavors dominate the second third of the Sir Winston Gran Reserva Cosecha 2011, with a strong peanut butter flavor pushing the orange peel note off the mountain, while the latter flavor has been totally replaced by a cranberry tartness that is evident almost exclusively on the finish. Other flavors of nutmeg, baker’s spices, leather, milk chocolate, espresso beans, sweet hay and earth flit in and out while the retrohale is full of the same white pepper and creamy caramel candy sweetness. In terms of construction, the draw continues to give me the optimum amount of resistance, but the burn gets out of hand early on in the third, meaning I am forced to touch it up a couple of times to get it back on track. In addition, there is not much change in the overall strength levels, with the cigar again failing to hit the medium mark, although it does seem to be noticeably increasing just as the second third ends. While the final third seems to combine most of the aforementioned flavors into its profile, it sadly comes at a cost: the peanut butter, orange peel and cranberry notes are all quite a bit less distant and none occupy the dominant spot. That is also the case with the secondary notes—a list that includes leather, cocoa nibs, fresh espresso beans, sweet hay and gritty earth—although the lack of distinctness with those flavors as well as a reduc",
+    "url": "https://halfwheel.com/h-upmann-sir-winston-gran-reserva-cosecha-2011/370418/",
+    "title": "H. Upmann Sir Winston Gran Reserva Cosecha 2011"
    }
   ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "cuban": true,
    "coh_stocked": false,
@@ -70382,8 +71245,15 @@
    "ring_gauge": "47",
    "strength": "Light to Medium",
    "factory_vitola": "Julieta No.2",
-   "strength_felt": "medium"
-  }
+   "strength_felt": "medium",
+   "country": "Cuba",
+   "wrapper": "Cuba",
+   "binder": "Cuba",
+   "filler": "Cuba",
+   "length": "7 Inches",
+   "ring": "47"
+  },
+  "vitolas": []
  },
  "h-upmann-no-2": {
   "id": "h-upmann-no-2",
@@ -70718,7 +71588,9 @@
     "spice",
     "cedar",
     "cream",
-    "woody"
+    "woody",
+    "grass",
+    "sweet"
    ]
   },
   "note_sources": [
@@ -70740,10 +71612,22 @@
      "https://grapeexpectations.com.mv/product/belicosos-finos/",
      "https://www.cigarsense.com/?p=30382"
     ]
+   },
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "grass",
+     "cocoa",
+     "sweet"
+    ],
+    "text": "Not that it’s a bad thing, and certainly a good bit of it has to do with FDA regulations on new cigars coming to market. But it has definitely become a trend as of late. Such is the case for the Le Carême Belicosos Finos, which debuted in 2018 as the fifth vitola in the line, which got its release in 2016. The idea for the cigar is attributed to Miguel Schoedel, Crowned Heads’ national sales manager. The size is one that is popular with Jon Huber, who called the Bolívar Belicosos Finos one of his “desert island cigars,” which seemingly figured into the project getting the green light. The cigar is a 5 1/2 x 52 belicoso that uses a Connecticut broadleaf wrapper, Ecuadorian Sumatra binder and fillers from Nicaragua, though it doesn’t get the trunk press as it goes through the production process at E.P. Carrillo’s Tabacalera La Alianza S.A. in the Dominican Republic. Released in March 2018, the cigar would go on to claim the #2 spot on halfwheel’s  Top 25 of 2018 list, falling just .09 points behind the Joya de Nicaragua No. 1 . Note: The following shows the various Le Carême vitolas. Some of these cigars may have been released after this post was originally published. The list was last updated on May 4, 2023. It would return in 2019, shipping in June with most of the details the same but two noticeable changes. The pricing on the cigar didn’t change, remaining at $10, but production has gone up from 1,500 boxes of 12 cigars to 2,500 boxes of 12, or 18,000 cigars to 30,000 total cigars. Here’s what I said about the Le Carême Belicosos Finos 2018 LE when I reviewed it in April 2018 : Circling back to my opening line of this review, I now wish that the Le Carême hadn’t fallen off my radar, as this is quite a good blend. It’s much more delicate and nuanced than I expected, though never lacks in flavor, with complexity keeping up at seemingly every turn. While the comparison to a chocolate soufflé may be a bit of an overstatement, there are certainly times when the cigar echoes the dish, yet never becomes so egregious in its attempts to deliver the flavor that it tastes overly sweet or forced. While there certainly aren’t enough of the Belicosos Finos to go around, it’",
+    "url": "https://halfwheel.com/le-careme-belicosos-finos-2019-le/367473/",
+    "title": "Le Carême Belicosos Finos 2019 LE"
    }
   ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "cuban": true,
    "coh_stocked": true,
@@ -70754,8 +71638,15 @@
    "ring_gauge": "52",
    "strength": "Full",
    "factory_vitola": "Campanas",
-   "strength_felt": "full"
-  }
+   "strength_felt": "full",
+   "country": "Dominican Republic",
+   "wrapper": "U.S.A. (Connecticut Broadleaf)",
+   "binder": "Ecuador (Sumatra)",
+   "filler": "Nicaragua",
+   "length": "5 1/2 Inches",
+   "ring": "52"
+  },
+  "vitolas": []
  },
  "bolivar-tubos-no-2": {
   "id": "bolivar-tubos-no-2",
@@ -71774,7 +72665,14 @@
     "earth",
     "bread",
     "floral",
-    "cocoa"
+    "cocoa",
+    "pepper",
+    "cream",
+    "citrus",
+    "white_pepper",
+    "toast",
+    "nuts",
+    "oak"
    ]
   },
   "note_sources": [
@@ -71796,10 +72694,28 @@
      "https://cigarobsession.com/?p=43434",
      "https://robertgraham1874.com/product/trinidad-esmeralda-cigar/"
     ]
+   },
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "bread",
+     "pepper",
+     "cream",
+     "citrus",
+     "white_pepper",
+     "toast",
+     "woody",
+     "nuts",
+     "oak"
+    ],
+    "text": "The first puff of the Trinidad Esmeralda starts with a good amount of toasty pepper, but it quickly backs off from thoughts of a big, pepper-laden start. There’s a creamy texture to the smoke, even if I’m not getting much in the way of the corresponding flavor. It’s a bit dense out of the gate, save for some mild but noticeable pepper on the retrohale, which is where I also find a bit of orange rind. There’s no harshness or anything that would suggest much youth, even though the cigars have a box code that is just about 15 months prior to my smoking them. Just as I am about to take the first photo, the aroma picks up a ton of white pepper, getting bright in my nose right before I look through the viewfinder. It was also fortunate as the ash dropped off about 30 seconds after the picture was taken. The ash dropped off at nearly the same point and with the same lack of warning as the first cigar. I must note that this is a cigar where the retrohales add a lot to the experience and work well with the flavor, With so much creaminess in the first third, flavor checks in around medium, though the pepper can spike it up at times and if you retrohale frequently make the combination more medium-plus. Body is medium-plus while strength is medium-minus. Construction is generally very good, though the draw occasionally feels a bit soft. If there is one place where the Trinidad Esmeralda seems to shine, it is on retrohales. While the flavor may be a bit muted at times, after that first clump of ash drops off the retrohales have come alive. Speaking of the flavor, it continues to be a fairly mild combination of creaminess, white toast and subtle black pepper, which seems a bit off from the somewhat stronger profile I have associated with Trinidad and leads me to wonder if the added filler might be mellowing things out. Around the midpoint, the cigar picks up a bit of a campfire aroma as the toast turns into a smoky, woody combination while also showing a bit of warm mixed nuts. There’s also a shift towards black pepper, which starts the suggestion of some charred wood. Much like at the start of this section, I find myself retrohaling a bit more than normal in an attempt to li",
+    "url": "https://halfwheel.com/trinidad-esmeralda/387397/",
+    "title": "Trinidad Esmeralda"
    }
   ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "cuban": true,
    "coh_stocked": true,
@@ -71810,8 +72726,15 @@
    "ring_gauge": "53",
    "strength": "Medium",
    "factory_vitola": "Dinora",
-   "strength_felt": "medium"
-  }
+   "strength_felt": "medium",
+   "country": "Cuba",
+   "wrapper": "Cuba",
+   "binder": "Cuba",
+   "filler": "Cuba",
+   "length": "5 7/10 Inches",
+   "ring": "53"
+  },
+  "vitolas": []
  },
  "trinidad-media-luna": {
   "id": "trinidad-media-luna",
@@ -71826,7 +72749,15 @@
     "butter",
     "woody",
     "leather",
-    "bread"
+    "bread",
+    "cream",
+    "sweet",
+    "citrus",
+    "cherry",
+    "white_pepper",
+    "pepper",
+    "cocoa",
+    "tea"
    ]
   },
   "note_sources": [
@@ -71848,10 +72779,31 @@
      "https://therake.com/default/stories/cigar-of-the-week-media-luna",
      "https://mitchellswine.co.uk/?p=942"
     ]
+   },
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "nuts",
+     "cream",
+     "sweet",
+     "citrus",
+     "cherry",
+     "white_pepper",
+     "pepper",
+     "cocoa",
+     "leather",
+     "butter",
+     "earth",
+     "tea"
+    ],
+    "text": "The Media Luna starts with layers of nuts to the point where it seems a bit mushy. There’s some creaminess behind the nuts but it does little in the way of helping to avoid the finish from drying out the mouth. The nuttiness departs after a few minutes and the profile shifts to a mixture of sweetness, woods and orange peels. I can detect that the Trinidad is young, as the flavors lack a certain crispness and there are signs of other flavors that just aren’t developed yet. Retrohales have a bit more refinement with a crisp apple, some lemon, white rice and white pepper. Flavor is nearly full, body is medium-full and strength is medium-plus. The draw varies—one cigar has a great draw, one has a slightly tight draw and a third has a tight draw—but otherwise construction is great with a ton of smoke production and a solid burn. Things come alive quite a bit in the second third. The flavors from the first third get more intense and detailed, though outside of a return of the layers of nuts, there’s actually not anything new in terms of what I’m detecting in the mouth. But the story is much different for the flavors that I’m picking up through the nose. There’s an Oreo-like chocolate, nuttiness and leather. The finish is similar to the first puffs—tons of different nutty sensations—along with some butter-like cream and an acidic fruitiness. Flavor is full, body is medium-full and strength is medium-full. Construction remains the same as it was in the first third with one exception, the cigar that was sort of borderline tight has gotten worse and is now firmly in the tight category. Despite that, smoke production off the foot remains great and when I work for it, I can get plenty of smoke in the mouth. The Trinidad Media Luna gets a bit more interesting upfront, the nuttiness and sweetness are now joined by a generic earthiness, peanut butter cookies and black tea. Unfortunately, the flavors aren’t as detailed as I’d like them to be—certainly not as good as the second third—and the profile is starting to get harsher. Retrohales have nuttiness, some minor harshness, acidity and a watered-down red wine. The finish has a unique saltiness along with some more of the nuttin",
+    "url": "https://halfwheel.com/trinidad-media-luna/375635/",
+    "title": "Trinidad Media Luna"
    }
   ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "cuban": true,
    "coh_stocked": true,
@@ -71862,8 +72814,15 @@
    "ring_gauge": "50",
    "strength": "Medium",
    "factory_vitola": "Marinas",
-   "strength_felt": "medium"
-  }
+   "strength_felt": "medium",
+   "country": "Cuba",
+   "wrapper": "Cuba",
+   "binder": "Cuba",
+   "filler": "Cuba",
+   "length": "4 1/2 Inches",
+   "ring": "50"
+  },
+  "vitolas": []
  },
  "trinidad-topes": {
   "id": "trinidad-topes",
@@ -72431,10 +73390,18 @@
      "https://farehamwinecellar.co.uk/?p=1009760",
      "https://robertgraham1874.com/?p=15171"
     ]
+   },
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [],
+    "text": "Unfortunately though you’re going to have a very hard time finding them in stock anywhere. After having seen how discontinue-happy Habanos S.A. is with the LGC line, it wouldn’t surprise me at all that this is only a precursor to the No.4’s discontinuation. Let’s review what I wrote last week about the La Gloria Cubana marca and a little about its history: The La Gloria Cubana marca is an old one, although not nearly the oldest marca still in existence today. Established in 1885 by the Sociedad Cabañas y Castro, the La Gloria Cubana name switched hands a few times and was even discontinued once in the 1900’s before being revived and rolled again at the Partagás factory in 1965. The marca has been rolled there ever since, however ,many vitolas have fallen to the discontinuation ax along the way. With only two regular production vitolas for the entire marca it has one of the smallest current lines for all of Habanos S.A. tying with a few other marcas but being beaten out by Diplomáticos, which only has one vitola left. The two remaining cigars are the Medaille d’Or No.2 and the Medaille d’Or No.4. La Gloria Cubana seems to have more defeats in the discontinuation war against smaller ring gauge cigars than other marcas, losing the following vitolas all within the last decade: Without going into the special releases, there isn’t a single La Gloria Cubana (current production or discontinuation) that breaches the 50 RG mark. The noticeable trend towards larger ring gauges by Habanos S.A. is quite blatant in the fact that this long standing skinny marca is now punched up with every single special release since 2008 being 50 RG or higher with the exception of the 2009 Cuba Edición Regional which was 48 RG. You would think that the medium strength Vuelta Abajo region tobacco would be allowed to shine with a high wrapper-to-filler/binder ratio in the smaller RG, but year after year you see more small RG cigars fall by the wayside. The Medaille d’Or No.4 comes in 8-9-8 box of 25, although it also used to come in a Boite Nature box of 10 until that was discontinued in 2003. The No.3 came in both types of boxes as well and with a nine year gap between the discontinuation of ",
+    "url": "https://halfwheel.com/review-la-gloria-cubana-medaille-dor-no-4/27513/",
+    "title": "La Gloria Cubana Medaille d’Or No.4"
    }
   ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "cuban": true,
    "coh_stocked": true,
@@ -72445,8 +73412,14 @@
    "ring_gauge": "32",
    "strength": "Medium",
    "factory_vitola": "Palmitas",
-   "strength_felt": "medium"
-  }
+   "strength_felt": "medium",
+   "country": "Cuba",
+   "wrapper": "Cuba",
+   "binder": "Cuba",
+   "filler": "Cuba",
+   "ring": "32"
+  },
+  "vitolas": []
  },
  "la-gloria-cubana-turquinos": {
   "id": "la-gloria-cubana-turquinos",
@@ -73771,7 +74744,11 @@
     "dried_fruit",
     "leather",
     "cocoa",
-    "floral"
+    "floral",
+    "woody",
+    "pepper",
+    "sweet",
+    "caramel"
    ]
   },
   "note_sources": [
@@ -73793,10 +74770,25 @@
      "https://watchcollectinglifestyle.com/home/vegas-robaina-famosos-cigar-review",
      "https://www.cigarsense.com/?p=29742"
     ]
+   },
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "woody",
+     "spice",
+     "pepper",
+     "leather",
+     "sweet",
+     "caramel"
+    ],
+    "text": "It is quite a small line of cigars, and it currently consists of only five standard production cigars. The Famosos is a 5 x 48 box-pressed cigar with an extremely light brown wrapper that has no oil at all and feels quite dry to the touch. In fact, the wrapper was so light in color, I wanted to show a photo next to a few other cigars. Here it is next to a  Don Pepin Firecracker , a Camacho Liberty 2005, and a  Viaje TNT . The Famoso is very firm when squeezed and the wrapper smells faintly of tobacco and aged wood. It surprises me quite a bit with an amazing amount of spice and pepper in the first third, more so at the end of the first third, especially considering the color of the wrapper and the reputation that the Robaina cigars have for being a milder blend. Dominant flavors are a fairly spicy wood, leather, and aged tobacco. The flavor turns very mild in the second third, but pick back up in the last third with a creamier, sweet profile that is quite pleasant. I even thought I tasted some caramel at one point. The spice from the first third never returns. The burn is so-so. I have to touch it up multiple times, but nothing too bad; however, the draw is great for the whole smoke. The ash is fairly ugly as well, but says on for over an inch every time. It has a very dry finish, but nothing over the top in that regard either. The final smoking time was one hour and 30 minutes. One other note: it has been said by many people that the Vegas Robaina line of cigars does not use the same tobacco as the farm-rolled cigars by the actual Robaina farm. I don’t know which is true for sure, but I will say that there is a huge difference in flavor and profile between this cigar and the Robaina Family El Padrino .",
+    "url": "https://halfwheel.com/vegas-robaina-famosos-original-release-1997/9615/",
+    "title": "Vegas Robaina Famosos (1997)"
    }
   ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "cuban": true,
    "coh_stocked": true,
@@ -73807,8 +74799,14 @@
    "ring_gauge": "48",
    "strength": "Medium to Full",
    "factory_vitola": "Hermosos No.4",
-   "strength_felt": "medium-full"
-  }
+   "strength_felt": "medium-full",
+   "country": "Cuba",
+   "wrapper": "Cuba",
+   "binder": "Cuba",
+   "filler": "Cuba",
+   "ring": "48"
+  },
+  "vitolas": []
  },
  "vegueros-entretiempos": {
   "id": "vegueros-entretiempos",
@@ -73917,7 +74915,10 @@
     "woody",
     "pepper",
     "spice",
-    "leather"
+    "leather",
+    "white_pepper",
+    "vanilla",
+    "grass"
    ]
   },
   "note_sources": [
@@ -73938,10 +74939,25 @@
      "https://www.cubancigarwebsite.com/cigar/vegueros/tapados",
      "https://cigarobsession.com/?p=39542"
     ]
+   },
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "spice",
+     "white_pepper",
+     "pepper",
+     "vanilla",
+     "woody",
+     "grass"
+    ],
+    "text": "Once lit, the first third starts out with spice, a touch of white pepper, some grassiness and light hints of vanilla. The draw is right in the middle of ideal, producing plenty of smoke with each draw, while it dies off to a trickle between. The burn isn’t perfect, but it’s even enough and shows signs of correcting itself. While the ash isn’t very dense, it holds on to around three quarters of an inch before dropping off. The spice, light pepper, grassiness and vanilla continue to mix together nicely, without any specific flavor really jutting towards the front. As I move into the second third, the spice and grassiness continues, with a light wood note joining the pepper somewhat in the background. The burn has evened itself up some, though it still remains slightly ragged. While the ash still holds on solidly, the ash has started to flake a little, though it’s not overly annoying. A little of the cigar’s youth starts to poke its head out, with a touch of ammonia harshness adding itself into the mix, though it’s not overwhelmingly unpleasant. The final third sees the ammonia disappear and the spice increase, though the cigar seems to start burning a little hotter, despite taking it at a slow pace. Pepper, wood and light grass are still present, though definitely more towards the background. The burn line has evened up to the point though where I would call it even, though it’s still slightly short of razor sharp. Despite some slight harshness from the heat, I smoke the Tapados down until it burns my fingers, still getting nice spice, grass and pepper notes until the very end.",
+    "url": "https://halfwheel.com/vegueros-tapados/86803/",
+    "title": "Vegueros Tapados"
    }
   ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-24",
   "seed": {
    "cuban": true,
    "coh_stocked": true,
@@ -73951,8 +74967,14 @@
    "length_in": "4.7",
    "ring_gauge": "46",
    "strength": "Full",
-   "strength_felt": "medium-full"
-  }
+   "strength_felt": "medium-full",
+   "country": "Cuba",
+   "wrapper": "Cuba",
+   "binder": "Cuba",
+   "filler": "Cuba",
+   "ring": "46"
+  },
+  "vitolas": []
  },
  "vegueros-centrofinos": {
   "id": "vegueros-centrofinos",
@@ -74720,7 +75742,17 @@
     "grass",
     "hay",
     "woody",
-    "tea"
+    "tea",
+    "cocoa",
+    "cream",
+    "oak",
+    "leather",
+    "musty",
+    "citrus",
+    "caramel",
+    "sweet",
+    "nuts",
+    "white_pepper"
    ]
   },
   "note_sources": [
@@ -74741,6 +75773,31 @@
      "https://cigar-coop.com/2019/11/cigar-review-montecristo-linea-1935-maltes.html",
      "https://www.cigarinspector.com/ci/cigar-review-montecristo-maltes-linea-1935/"
     ]
+   },
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "cocoa",
+     "cream",
+     "oak",
+     "hay",
+     "leather",
+     "coffee",
+     "musty",
+     "citrus",
+     "caramel",
+     "sweet",
+     "nuts",
+     "white_pepper",
+     "pepper",
+     "grass",
+     "tea"
+    ],
+    "text": "The Montecristo Linea 1935 starts off the first third immediately with dominant flavors of both earth and dark cocoa nibs, followed closely behind by other notes of creamy oak, hay, leather, coffee beans and barnyard. There is some very obvious citrus on the finish, along with some distinct caramel sweetness on the retrohale that really sets each other off nicely. Construction-wise, both the burn and the draw are excellent so far, and the smoke production is massive off of the foot, although it starts to wane a bit as I get closer to the second third. The overall strength starts off halfway between mild and medium but quickly ramps up to close to medium by the time the first third comes to an end. Both the citrus on the finish and the caramel sweetness on the retrohale continue to be factors in the overall profile during the second third of the Linea 1935 Maltés, but the dominant flavors have switched a bit, with a creamy oak note taking the top spot. Immediately following are flavors of peanuts, leather, ground coffee and earth, along with just a touch of white pepper that comes and goes. While the draw continues to impress, the burn has become just a little problematic, forcing me to touch it up once to prevent it from getting out of control, and the smoke production remains quite high. Strength-wise, the Montecristo Linea 1935 hits a solid medium by the midway point of the cigar, but seems to stall out there for the rest of the second third. The final third of the Montecristo Linea 1935 seems to fall apart a bit in terms of the distinctness of the flavors, although it does the same creamy oak note from the second third still dominant as well as the citrus on the finish and slightly less caramel sweetness on the retrohale. There is still some black pepper in the profile, as well as other flavors of earth, tea leaves, peanuts, leather and coffee beans. The draw remains excellent, while the burn has evened out nicely and the smoke production continues to be well above average. The overall strength starts to increase up noticeably in the last inch or so, and does hit a point noticeably above the medium mark before I put the nub down with about an inch to go.",
+    "url": "https://halfwheel.com/montecristo-linea-1935-maltes-preproduction/146616/",
+    "title": "Montecristo Linea 1935 Maltés (Preproduction)"
    }
   ],
   "verified": false,
@@ -74748,9 +75805,16 @@
    "cuban": true
   },
   "specs": {
-   "strength_felt": "medium-full"
+   "strength_felt": "medium-full",
+   "country": "Cuba",
+   "wrapper": "Cuba",
+   "binder": "Cuba",
+   "filler": "Cuba",
+   "length": "6 1/2 Inches",
+   "ring": "55"
   },
-  "updated": "2026-10-06"
+  "updated": "2026-10-24",
+  "vitolas": []
  },
  "montecristo-linea-1935-leyenda": {
   "id": "montecristo-linea-1935-leyenda",
@@ -75164,7 +76228,22 @@
     "nuts",
     "honey",
     "sweet",
-    "spice"
+    "spice",
+    "brown_sugar",
+    "pepper",
+    "floral",
+    "cedar",
+    "cocoa",
+    "espresso",
+    "grass",
+    "citrus",
+    "cinnamon",
+    "bread",
+    "earth",
+    "leather",
+    "hay",
+    "clove",
+    "musty"
    ]
   },
   "note_sources": [
@@ -75185,6 +76264,34 @@
      "https://www.zigarren.zone/en/wp-json/wp/v2/posts/43108",
      "https://www.cigarsense.com/?p=32124"
     ]
+   },
+   {
+    "source": "review:halfwheel",
+    "vitola": "",
+    "tags": [
+     "brown_sugar",
+     "sweet",
+     "pepper",
+     "spice",
+     "floral",
+     "cedar",
+     "cocoa",
+     "espresso",
+     "grass",
+     "citrus",
+     "cinnamon",
+     "bread",
+     "earth",
+     "leather",
+     "hay",
+     "nuts",
+     "clove",
+     "musty",
+     "white_pepper"
+    ],
+    "text": "The first third of the Quai d’Orsay begins with a blast of brown sugar sweetness combined with black pepper and slight spice on my tongue, all of which morph into a combination of floral and aged cedar that has no problem dominating the profile. Additional notes include cocoa nibs, espresso beans, grass, lemon meringue sweetness, cinnamon and bread, with a touch of cinnamon bringing up the rear. Construction-wise, the draw is excellent after a simple straight cut, while the burn is giving me no issues so far and smoke production from the foot is plentiful. In terms of strength, the Senadores starts out light but increases enough to leave the mild range behind by the end of the first third. There are some major shifts in the profile of the Quai d’Orsay Senadores during the second third, starting with the dominant flavors, which now include toast and earth followed by notes of cinnamon, leather, hay, peanuts, cocoa nibs, anise, barnyard and a touch of floral that flit in and out. In addition, there is a distinct saltiness on my lips as well as a graham cracker sweetness and white pepper combination on the retrohale. Both the draw and the burn continue to impress, and while the overall strength has no problems coming close to the medium mark by time the second third comes to an end. Although the toast note continues to be dominant during the final third of the Quai d’Orsay, the hay flavor from the first two thirds increases significantly, followed by flavors of cocoa nibs, cinnamon, floral, leather, earth and slight citrus in varying amounts. The graham cracker sweetness continues to be a factor on the retrohale though there is a bit more white pepper as well. The saltiness on my lips that was so prevalent in the second third has receded quite a bit. The draw continues to give me no issues, but the burn becomes increasingly problematic resulting in a couple of touchups in quick succession. Finally, the overall strength increases enough to put the Senadores well into the medium range—and perhaps just a bit above that—by the time I put the nub down with less than an inch remaining.",
+    "url": "https://halfwheel.com/quai-dorsay-senadores-el-2019/378415/",
+    "title": "Quai d’Orsay Senadores (EL 2019)"
    }
   ],
   "verified": false,
@@ -75192,9 +76299,16 @@
    "cuban": true
   },
   "specs": {
-   "strength_felt": "mild-medium"
+   "strength_felt": "mild-medium",
+   "country": "Cuba",
+   "wrapper": "Cuba",
+   "binder": "Cuba",
+   "filler": "Cuba",
+   "length": "6 3/16 Inches",
+   "ring": "48"
   },
-  "updated": "2026-10-06"
+  "updated": "2026-10-24",
+  "vitolas": []
  },
  "por-larranaga-picadores": {
   "id": "por-larranaga-picadores",
