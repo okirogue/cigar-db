@@ -14,6 +14,7 @@ TOKEN = os.environ["TOKEN"]
 PROJECT = os.environ["PROJECT"]
 BASE = f"https://firestore.googleapis.com/v1/projects/{PROJECT}/databases/(default)/documents"
 UID6, OUT = sys.argv[1], sys.argv[2]
+FULL = os.environ.get("FULL", "") == "true"  # 운영자 본인 확인용: 메모·장소·페어링 포함
 
 
 def get(url):
@@ -101,7 +102,9 @@ backup = {
         {
             "cigar_id": l.get("cigar_id"), "cigar_name": l.get("cigar_name"), "vitola": l.get("vitola"), "date": l.get("date"),
             "score": l.get("score"), "tags": [t for t in str(l.get("tags") or "").split(",") if t],
-            "note_start": None, "note_mid": None, "note_end": None, "summary": None, "place": None, "pairing": None,
+            "note_start": l.get("note_start") if FULL else None, "note_mid": l.get("note_mid") if FULL else None,
+            "note_end": l.get("note_end") if FULL else None, "summary": l.get("summary") if FULL else None,
+            "place": l.get("place") if FULL else None, "pairing": l.get("pairing") if FULL else None,
             **({"stock_price": l["stock_price"]} if l.get("stock_price") is not None else {}),
             **({"stock_currency": l["stock_currency"]} if l.get("stock_currency") else {}),
             **({"stock_added": l["stock_added"]} if l.get("stock_added") else {}),

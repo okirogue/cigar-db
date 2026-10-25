@@ -10,6 +10,10 @@ on:
       pubkey:
         description: "결과 암호화용 RSA 공개키 (PEM, base64 한 줄). 받는 쪽 개인키로만 풀 수 있음"
         required: true
+      full:
+        description: "메모·장소·페어링까지 포함 (운영자 본인 기록 확인용)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -32,6 +36,7 @@ jobs:
         env:
           TOKEN: ${{ steps.gcp-auth.outputs.access_token }}
           PROJECT: myhumidor-2482d
+          FULL: ${{ inputs.full }}
         run: python3 .github/scripts/export_user.py "${{ inputs.uid }}" backup.json
       - name: Encrypt + push to branch debug-export
         env:
