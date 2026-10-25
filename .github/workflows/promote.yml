@@ -1,0 +1,61 @@
+name: play-promote
+
+# 알파에 올라간 빌드를 프로덕션(또는 다른 트랙)으로 승격. dry=true 면 검증만.
+on:
+  workflow_dispatch:
+    inputs:
+      version_code:
+        description: "승격할 versionCode (= 빌드 번호)"
+        required: true
+      track:
+        description: "대상 트랙"
+        default: production
+      rollout:
+        description: "단계적 출시 비율 (1 = 전체)"
+        default: "1"
+      dry:
+        description: "true 면 validate 만"
+        default: "true"
+      note_ko:
+        description: "출시 노트 (한국어)"
+        default: ""
+      note_en:
+        description: "Release notes (English)"
+        default: ""
+
+permissions:
+  contents: read
+  issues: write
+  id-token: write
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: google-github-actions/auth@v2
+        id: gcp-auth
+        with:
+          workload_identity_provider: projects/878079125373/locations/global/workloadIdentityPools/github/providers/github
+          service_account: play-publisher@myhumidor-2482d.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/androidpublisher
+      - name: Promote
+        env:
+          TOKEN: ${{ steps.gcp-auth.outputs.access_token }}
+          PKG: com.okirogue.cigar_log
+          NOTE_KO: ${{ inputs.note_ko }}
+          NOTE_EN: ${{ inputs.note_en }}
+        run: |
+          ARGS="--rollout ${{ inputs.rollout }}"
+          [ "${{ inputs.dry }}" = "true" ] && ARGS="$ARGS --dry"
+          python3 .github/scripts/play_promote.py "${{ inputs.track }}" "${{ inputs.version_code }}" $ARGS 2>&1 | tee out.txt
+      - name: Comment result
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          NUM=$(gh issue list --label stats --state open --json number --jq '.[0].number' || true)
+          { echo "### play-promote ${{ inputs.track }} ← ${{ inputs.version_code }} (dry=${{ inputs.dry }}) · run ${{ github.run_id }}"; echo '```'; tail -n 60 out.txt; echo '```'; } > body.md
+          [ -n "$NUM" ] && gh issue comment "$NUM" --body-file body.md || true
