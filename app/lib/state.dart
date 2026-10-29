@@ -41,6 +41,11 @@ class AppState extends ChangeNotifier {
     await ShareStats.instance.syncOnStart(logs);
     // 운영자 동기화(켜져 있을 때만): 올리고 받기
     await Sync.instance.syncNow();
+    // 시가 DB 원격 갱신 (스토어 업데이트 없이 DB 만 새로): 바뀌면 화면 갱신
+    if (await repo.refreshRemote()) {
+      _recompute();
+      notifyListeners();
+    }
   }
 
   Future<void> reload() async {

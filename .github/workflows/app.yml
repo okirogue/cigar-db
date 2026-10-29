@@ -229,10 +229,12 @@ jobs:
           {
             rm -rf docs/app && mkdir -p docs/app
             cp -r app/build/web/. docs/app/
+            # 시가 DB 원격 갱신본 (앱이 시작 때 meta.json 의 rev 를 보고 더 새것이면 받아 감)
+            mkdir -p docs/db && cp app/assets/cigars.json docs/db/cigars.json && cp app/assets/db_meta.json docs/db/meta.json
             touch docs/.nojekyll
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add -f docs/app docs/.nojekyll
+            git add -f docs/app docs/db docs/.nojekyll
             # 의존성 잠금: 플러그인이 매 빌드마다 조용히 올라가지 않게 (b48 shared_preferences 사고 재발 방지)
             git add -f app/pubspec.lock
             git status --short | head -20

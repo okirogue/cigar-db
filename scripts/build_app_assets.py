@@ -3,6 +3,8 @@
 앱에는 노트 원문(text)은 넣지 않고 태그/스펙/평점만 넣는다.
 실행: python3 scripts/build_app_assets.py
 """
+import datetime
+import hashlib
 import json
 import pathlib
 
@@ -70,6 +72,18 @@ tag_out = {
     ]
 }
 json.dump(tag_out, open(OUT / "tags.json", "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+
+# 원격 갱신용 메타 (앱이 docs/db/meta.json 의 rev 와 비교). rev = 생성 시각(UTC ISO)
+raw = (OUT / "cigars.json").read_bytes()
+sha = hashlib.sha256(raw).hexdigest()[:16]
+try:
+    prev = json.load(open(OUT / "db_meta.json"))
+except Exception:  # noqa
+    prev = {}
+# 내용이 같으면 rev 유지 (앱이 쓸데없이 다시 받지 않게)
+rev = prev["rev"] if prev.get("sha") == sha else datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+meta = {"rev": rev, "sha": sha, "count": len(out)}
+json.dump(meta, open(OUT / "db_meta.json", "w"), separators=(",", ":"))
 
 n_notes = sum(1 for x in out if x["official"] or x["review"])
 print(f"cigars {len(out)} (with notes {n_notes}) → {OUT/'cigars.json'} {(OUT/'cigars.json').stat().st_size//1024} KB")

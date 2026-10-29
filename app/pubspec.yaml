@@ -41,6 +41,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/cigars.json
+    - assets/db_meta.json
     - assets/tags.json
     - assets/brand/play_icon_512.png
   fonts:

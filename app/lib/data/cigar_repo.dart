@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 
 import '../models/cigar.dart';
+import 'remote_db.dart';
 
 /// assets/cigars.json · tags.json 을 메모리에 올려 두는 중앙 DB.
 class CigarRepo {
@@ -14,6 +15,9 @@ class CigarRepo {
   List<TagGroup> _groups = [];
   Map<String, TagDef> _tagById = {};
   bool _loaded = false;
+  final List<Cigar> _customs = []; // 사용자 직접 추가 (원격 DB 교체 때 다시 붙임)
+  String rev = ''; // 지금 쓰는 DB 판 (build_app_assets.py 실행 시각). 번들 or 캐시 or 원격
+  String source = 'bundle'; // bundle | cache | remote
 
   bool get loaded => _loaded;
   List<Cigar> get all => _cigars;
@@ -23,13 +27,23 @@ class CigarRepo {
   Future<void> load() async {
     if (_loaded) return;
     final raw = await rootBundle.loadString('assets/cigars.json');
-    final list = (jsonDecode(raw) as List).cast<Map<String, dynamic>>();
-    _cigars = list.map(Cigar.fromJson).toList();
-    _byId = {for (final c in _cigars) c.id: c};
-    // 병합된 옛 id → 새 항목 (기존 기록·재고가 계속 연결되게)
-    for (final c in _cigars) {
-      for (final old in c.legacyIds) {
-        _byId.putIfAbsent(old, () => c);
+    var bundleRev = '';
+    try {
+      bundleRev = (jsonDecode(await rootBundle.loadString('assets/db_meta.json')) as Map<String, dynamic>)['rev'] as String? ?? '';
+    } catch (_) {}
+    _apply(raw, bundleRev, 'bundle');
+    // 전에 받아 둔 원격 본이 번들보다 새것이면 그걸 쓴다 (앱 업데이트로 번들이 더 새것이 되면 캐시 폐기)
+    final cached = await RemoteDb.instance.readCache();
+    if (cached != null) {
+      final crev = (cached.$1['rev'] ?? '') as String;
+      if (crev.compareTo(bundleRev) > 0) {
+        try {
+          _apply(cached.$2, crev, 'cache');
+        } catch (_) {
+          await RemoteDb.instance.clearCache();
+        }
+      } else {
+        await RemoteDb.instance.clearCache();
       }
     }
 
@@ -50,6 +64,43 @@ class CigarRepo {
     _loaded = true;
   }
 
+  /// JSON 원문 → 메모리. 파싱 실패 시 throw (호출자가 이전 상태 유지).
+  void _apply(String raw, String newRev, String src) {
+    final list = (jsonDecode(raw) as List).cast<Map<String, dynamic>>();
+    final cigars = list.map(Cigar.fromJson).toList();
+    if (cigars.isEmpty) throw StateError('empty db');
+    final byId = {for (final c in cigars) c.id: c};
+    // 병합된 옛 id → 새 항목 (기존 기록·재고가 계속 연결되게)
+    for (final c in cigars) {
+      for (final old in c.legacyIds) {
+        byId.putIfAbsent(old, () => c);
+      }
+    }
+    for (final c in _customs) {
+      if (!byId.containsKey(c.id)) {
+        cigars.add(c);
+        byId[c.id] = c;
+      }
+    }
+    _cigars = cigars;
+    _byId = byId;
+    rev = newRev;
+    source = src;
+  }
+
+  /// 서버에 더 새 DB 가 있으면 받아서 바꿔 끼운다. 바뀌었으면 true (호출자가 화면 갱신).
+  Future<bool> refreshRemote() async {
+    final got = await RemoteDb.instance.fetchIfNewer(rev, _cigars.length);
+    if (got == null) return false;
+    try {
+      _apply(got.$2, (got.$1['rev'] ?? '') as String, 'remote');
+      return true;
+    } catch (_) {
+      await RemoteDb.instance.clearCache();
+      return false;
+    }
+  }
+
   Cigar? byId(String id) => _byId[id];
 
   /// 사용자가 직접 추가한 시가 (앱 시작 시 로컬 DB에서, 추가 시 즉시)
@@ -57,6 +108,7 @@ class CigarRepo {
 
   void addCustom(Cigar c) {
     if (_byId.containsKey(c.id)) return;
+    _customs.add(c);
     _cigars.add(c);
     _byId[c.id] = c;
   }

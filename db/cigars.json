@@ -30163,15 +30163,62 @@
   "name": "New Cuba Corojo",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "cinnamon",
+    "spice",
+    "cedar",
+    "grass",
+    "sweet",
+    "earth",
+    "bread",
+    "pepper",
+    "toast",
+    "butter"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "cinnamon",
+     "spice",
+     "cedar",
+     "grass",
+     "sweet",
+     "earth",
+     "bread",
+     "pepper",
+     "toast",
+     "butter"
+    ],
+    "text": "Casas Fumando review (Toro): Nicaraguan corojo wrapper, binder and filler (Nicaraguan puro). Cold draw cinnamon and nutmeg; first third cedar, grass and some sweetness shifting to pencil shavings, earth and a thick yeast note; middle third caramelized sugar dominant followed by pepper, pencil shavings and yeast; final third the same with a char note. Spice light to medium, medium at the finish. Retailer (Smoke Inn): medium strength, sweet and oily tobacco; Robusto 5x50, Toro 6x50, Churchill 7x48, Titan 6x60.",
+    "confidence": "high",
+    "urls": [
+     "https://www.casasfumando.com/aganorsa-leaf-new-cuba-corojo-toro/",
+     "https://www.smokeinn.com/New-Cuba-Corojo-by-Aganorsa/"
+    ]
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-10-30",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
-  }
+  },
+  "specs": {
+   "wrapper": "Nicaraguan Corojo",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "strength": "medium",
+   "country": "Nicaragua"
+  },
+  "vitolas": [
+   "Robusto 5x50",
+   "Toro 6x50",
+   "Churchill 7x48",
+   "Titan 6x60"
+  ]
  },
  "aganorsa-leaf-new-cuba-maduro": {
   "id": "aganorsa-leaf-new-cuba-maduro",
@@ -32219,11 +32266,20 @@
    }
   ],
   "verified": false,
-  "updated": "2026-10-17",
+  "updated": "2026-10-30",
   "seed": {
    "shops": "cigarplace",
    "cuban": false
-  }
+  },
+  "vitolas": [
+   "Double Corona 7.6x49",
+   "Fuente Fuente 5.6x46",
+   "Perfecxion No.2 6.25x52",
+   "Perfecxion X 6.25x48",
+   "Petit Lancero 6.3x39",
+   "Reserva d'Chateau 7x48",
+   "Robusto 5.25x50"
+  ]
  },
  "arturo-fuente-opus-x-angels-share": {
   "id": "arturo-fuente-opus-x-angels-share",
@@ -71480,16 +71536,24 @@
    }
   ],
   "verified": false,
-  "updated": "2026-10-17",
+  "updated": "2026-10-30",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
   },
-  "vitolas": [],
+  "vitolas": [
+   "Chubby",
+   "Grand Master 5.5x52",
+   "Low Rider",
+   "Robusto",
+   "Stretch"
+  ],
   "specs": {
-   "binder": "and finishes off with a Connecticut Ecuador",
-   "filler": "Dominican , Peruvian",
-   "strength": "mild to medium"
+   "binder": "Connecticut (USA)",
+   "filler": "Dominican Republic, Peru",
+   "strength": "mild to medium",
+   "wrapper": "Ecuadorian Connecticut",
+   "country": "Dominican Republic"
   },
   "aliases": [
    "platinum scepter series"
@@ -106530,5 +106594,293 @@
    "filler": "Habano San Andrés"
   },
   "updated": "2026-10-17"
+ },
+ "la-aroma-de-cuba": {
+  "id": "la-aroma-de-cuba",
+  "brand": "La Aroma de Cuba",
+  "name": "Original",
+  "notes": {
+   "official": [],
+   "review": [
+    "toast",
+    "nuts",
+    "clove"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "toast",
+     "nuts",
+     "clove"
+    ],
+    "text": "Cigar Aficionado (Top 25 of 2025, #23, 93 pts, Robusto 5 1/4 x 54): strong and complex with an ample draw and even burn; opulent notes of roasted peanut and toasted chestnut, hints of licorice and minerals. Connecticut broadleaf wrapper over Nicaraguan binder and filler, made by Ashton at My Father Cigars (Estelí). Full bodied; a bargain at $7.25.",
+    "confidence": "high",
+    "urls": [
+     "https://www.cigaraficionado.com/top25cigar/la-aroma-de-cuba-robusto-2025"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Robusto",
+   "Toro",
+   "Churchill",
+   "Corona",
+   "Monarch"
+  ],
+  "specs": {
+   "wrapper": "Connecticut Broadleaf (USA)",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "strength": "full",
+   "country": "Nicaragua"
+  },
+  "updated": "2026-10-30",
+  "aliases": [],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "sencillo-black-edicion-limitada-2024": {
+  "id": "sencillo-black-edicion-limitada-2024",
+  "brand": "Sencillo",
+  "name": "Black Edición Limitada 2024",
+  "notes": {
+   "official": [
+    "sweet"
+   ],
+   "review": []
+  },
+  "note_sources": [
+   {
+    "source": "shop:manual",
+    "vitola": "",
+    "tags": [
+     "sweet"
+    ],
+    "text": "Retailer (Mardo Cigars) copy: limited edition 2024 release of Sencillo Black. Nicaraguan Habano Colorado wrapper, Nicaraguan binder, Honduran filler; medium strength, subtly savory and mildly sweet profile. Gigante 6 x 60 and Robusto sizes.",
+    "confidence": "medium",
+    "urls": [
+     "https://mardocigars.com/products/sencillo-black-gigante-edicion-limitada2023"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Gigante 6x60",
+   "Robusto"
+  ],
+  "specs": {
+   "wrapper": "Nicaraguan Habano Colorado",
+   "binder": "Nicaragua",
+   "filler": "Honduras",
+   "strength": "medium"
+  },
+  "updated": "2026-10-30",
+  "aliases": [],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "oliva-free-will": {
+  "id": "oliva-free-will",
+  "brand": "Oliva",
+  "name": "Free Will",
+  "notes": {
+   "official": [],
+   "review": [
+    "musty",
+    "cocoa",
+    "cream",
+    "hay",
+    "vanilla",
+    "coffee",
+    "leather",
+    "earth",
+    "brown_sugar",
+    "sweet",
+    "nuts",
+    "spice"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "musty",
+     "cocoa",
+     "cream",
+     "hay",
+     "vanilla",
+     "coffee",
+     "leather",
+     "earth",
+     "brown_sugar",
+     "sweet",
+     "nuts",
+     "spice"
+    ],
+    "text": "Bespoke Unit review (Corona Gorda 5.6 x 46, CigarPage.com exclusive made by Oliva at Tabolisa, Estelí): Ecuadorian Habano wrapper, Condega Habano binder, Nicaraguan Habano fillers from Condega, Ometepe and Jalapa. Uniquely strong, full bodied throughout. Cold foot barnyard, chocolate, cream; dry draw hay, vanilla, coffee. First third leather, earth, vanilla; second third earth, milk chocolate, brown sugar; final third nuttiness, leather, bitter coffee; spice on the retrohale. About $94 per box of 20.",
+    "confidence": "high",
+    "urls": [
+     "https://bespokeunit.com/articles/cigars/free-will-oliva/"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Corona Gorda 5.6x46"
+  ],
+  "specs": {
+   "wrapper": "Ecuadorian Habano",
+   "binder": "Nicaraguan Habano (Condega)",
+   "filler": "Nicaragua (Condega, Ometepe, Jalapa)",
+   "strength": "full",
+   "country": "Nicaragua"
+  },
+  "updated": "2026-10-30",
+  "aliases": [],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "oscar-valladares-leaf-by-oscar-10th-anniversary-criollo": {
+  "id": "oscar-valladares-leaf-by-oscar-10th-anniversary-criollo",
+  "brand": "Oscar Valladares",
+  "name": "Leaf by Oscar 10th Anniversary Criollo",
+  "notes": {
+   "official": [],
+   "review": [
+    "sweet"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "sweet"
+    ],
+    "text": "halfwheel (Top 25 of 2023, #12, 91 pts, Toro 6 x 52): Honduran criollo wrapper from La Florida (Jamastran) under the signature tobacco-leaf outer wrap, Honduran binder and filler. Rich, meaty savory notes alongside sweet fruit aromas, with a good balance of sweet and savory; loses some complexity as it progresses. Also in Sixty 6 x 60. $11.50 per cigar.",
+    "confidence": "high",
+    "urls": [
+     "https://halfwheel.com/top25/12-leaf-by-oscar-10th-anniversary-criollo-toro/"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Toro 6x52",
+   "Sixty 6x60"
+  ],
+  "specs": {
+   "wrapper": "Honduran Criollo (Jamastran)",
+   "binder": "Honduras",
+   "filler": "Honduras",
+   "strength": "medium to full",
+   "country": "Honduras"
+  },
+  "updated": "2026-10-30",
+  "aliases": [],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "la-flor-dominicana-la-nox": {
+  "id": "la-flor-dominicana-la-nox",
+  "brand": "La Flor Dominicana",
+  "name": "La Nox",
+  "notes": {
+   "official": [],
+   "review": [
+    "butter",
+    "woody",
+    "sweet",
+    "nuts",
+    "cedar",
+    "clove"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "butter",
+     "woody",
+     "sweet",
+     "nuts",
+     "cedar",
+     "clove"
+    ],
+    "text": "Cigar Aficionado (Aug 2023, 92 pts, Toro 6 1/2 x 50): dark, oily cigar with a woody, sweet quality; candied walnut, cedar, a little clove and anise, with a finish like an aperitif; even burn. Brazilian (Mata Fina) wrapper, Mexican binder, Dominican filler. Medium to full. $13.20.",
+    "confidence": "high",
+    "urls": [
+     "https://www.cigaraficionado.com/ratings/24623/name/la-flor-dominicana-la-nox-toro"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Toro 6.5x50",
+   "Petite La Nox 5x44"
+  ],
+  "specs": {
+   "wrapper": "Brazil (Mata Fina)",
+   "binder": "Mexico",
+   "filler": "Dominican Republic",
+   "strength": "medium to full",
+   "country": "Dominican Republic"
+  },
+  "updated": "2026-10-30",
+  "aliases": [],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "partagas-club": {
+  "id": "partagas-club",
+  "brand": "Partagás",
+  "name": "Club",
+  "notes": {
+   "official": [
+    "earth"
+   ],
+   "review": []
+  },
+  "note_sources": [
+   {
+    "source": "shop:manual",
+    "vitola": "",
+    "tags": [
+     "earth"
+    ],
+    "text": "Retailer (Smoke King) copy: machine-made Cuban cigarillo, 96 mm x 22 ring gauge, 100% Cuban Vuelta Abajo tobacco, sold in packs of 20. Full flavoured with deep earthy notes.",
+    "confidence": "medium",
+    "urls": [
+     "https://www.smoke-king.co.uk/products/box-of-20-partagas-club-cuban-cigars"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Club (cigarillo 96mm x 22)"
+  ],
+  "specs": {
+   "strength": "full",
+   "country": "Cuba",
+   "length": "96 mm",
+   "ring": "22",
+   "type": "machine-made cigarillo"
+  },
+  "updated": "2026-10-30",
+  "aliases": [],
+  "seed": {
+   "cuban": true
+  }
  }
 }
