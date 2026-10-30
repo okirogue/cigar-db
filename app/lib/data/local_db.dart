@@ -20,15 +20,20 @@ class LocalDb {
   static const maxHumidors = 3; // 무료 기본 한도 (UI엔 안내 안 띄움)
 
   Database? _db;
+  Future<Database>? _opening; // 동시 호출 시 한 번만 연다
 
   Future<Database> get db async {
     if (_db != null) return _db!;
+    return _opening ??= _open();
+  }
+
+  Future<Database> _open() async {
     // 웹: IndexedDB 위에 올라간 sqlite (sqflite_common_ffi_web). API 는 동일.
     if (kIsWeb) databaseFactory = databaseFactoryFfiWeb;
     final path = kIsWeb ? 'cigar_log.db' : p.join(await getDatabasesPath(), 'cigar_log.db');
     _db = await openDatabase(
       path,
-      version: 9,
+      version: 10,
       onUpgrade: (d, oldV, newV) async {
         if (oldV < 2) await d.execute(_customDdl);
         if (oldV < 3) await d.execute('ALTER TABLE logs ADD COLUMN summary TEXT');
@@ -53,6 +58,7 @@ class LocalDb {
         }
         if (oldV < 8) await _migrateV8(d);
         if (oldV < 9) await d.execute(_wishDdl);
+        if (oldV < 10) await _createIndexes(d);
       },
       onCreate: (d, v) async {
         await d.execute('''
@@ -105,9 +111,26 @@ class LocalDb {
         await d.execute(_tombDdl);
         await d.insert('humidors', {'name': tr('내 휴미더', 'My humidor'), 'sort_order': 0, 'sid': newSid(), 'updated': now});
         await d.execute(_wishDdl);
+        await _createIndexes(d);
       },
     );
     return _db!;
+  }
+
+  /// v10: 자주 쓰는 조회 경로 인덱스 (다이어리 날짜순, 시가별 기록, 휴미더별 재고, 동기화의 sid 조회)
+  static Future<void> _createIndexes(Database d) async {
+    for (final ddl in [
+      'CREATE INDEX IF NOT EXISTS idx_logs_date ON logs(date)',
+      'CREATE INDEX IF NOT EXISTS idx_logs_cigar ON logs(cigar_id)',
+      'CREATE INDEX IF NOT EXISTS idx_logs_sid ON logs(sid)',
+      'CREATE INDEX IF NOT EXISTS idx_stock_humidor ON stock(humidor_id)',
+      'CREATE INDEX IF NOT EXISTS idx_stock_sid ON stock(sid)',
+      'CREATE INDEX IF NOT EXISTS idx_wish_cigar ON wishlist(cigar_id)',
+      'CREATE INDEX IF NOT EXISTS idx_wish_sid ON wishlist(sid)',
+      'CREATE INDEX IF NOT EXISTS idx_humidors_sid ON humidors(sid)',
+    ]) {
+      await d.execute(ddl);
+    }
   }
 
   // 사용자가 직접 추가한 시가(DB에 없는 한정판 등). json = Cigar.fromJson 형식 그대로.

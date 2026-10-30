@@ -428,8 +428,10 @@ void openLogSheet(BuildContext context, SmokeLog log) {
                       ),
                     );
                     if (ok == true) {
-                      await LogPhotos.instance.deleteAll(log.photos);
                       await st.db.deleteLog(log.id);
+                      try {
+                        await LogPhotos.instance.deleteAll(log.photos);
+                      } catch (_) {}
                       ShareStats.instance.remove(log.id);
                       await st.reload();
                       if (ctx.mounted) Navigator.pop(ctx);

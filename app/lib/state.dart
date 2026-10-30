@@ -30,21 +30,32 @@ class AppState extends ChangeNotifier {
     await reload();
     ready = true;
     notifyListeners();
+    // 이하는 부가 작업: 하나가 실패해도 다음으로 (앱은 이미 떠 있음)
     // 뱃지 기준선: 지금 딴 것들을 "본 것"으로 저장 (업데이트로 늘어난 뱃지에 폭죽이 몰아서 안 터지게)
-    await Badges.takeNew(this);
+    await _guard(() => Badges.takeNew(this));
     if (LocalDb.scoresRescaled) {
       LocalDb.scoresRescaled = false;
       // 점수 스케일 변경분을 서버 공유본에도 반영 (공유 꺼져 있으면 내부에서 무시)
-      await ShareStats.instance.backfill(logs);
+      await _guard(() => ShareStats.instance.backfill(logs));
     }
     // 집계 기본 ON: 아직 안 올린 기존 기록·전송 실패분을 조용히 올림
-    await ShareStats.instance.syncOnStart(logs);
+    await _guard(() => ShareStats.instance.syncOnStart(logs));
     // 운영자 동기화(켜져 있을 때만): 올리고 받기
-    await Sync.instance.syncNow();
+    await _guard(() => Sync.instance.syncNow());
     // 시가 DB 원격 갱신 (스토어 업데이트 없이 DB 만 새로): 바뀌면 화면 갱신
-    if (await repo.refreshRemote()) {
-      _recompute();
-      notifyListeners();
+    await _guard(() async {
+      if (await repo.refreshRemote()) {
+        _recompute();
+        notifyListeners();
+      }
+    });
+  }
+
+  Future<void> _guard(Future<void> Function() f) async {
+    try {
+      await f();
+    } catch (e) {
+      debugPrint('AppState.init step failed: $e');
     }
   }
 
@@ -104,7 +115,37 @@ class AppState extends ChangeNotifier {
     return out;
   }
 
+  String _recoKey = '';
+
+  /// 추천 재계산은 입력(기록·재고·DB 판)이 바뀌었을 때만 — reload 마다 시가 2,600개를 훑지 않게
   void _recompute() {
+    final key = StringBuffer(repo.rev)
+      ..write('|')
+      ..write(logs.length);
+    for (final l in logs) {
+      key
+        ..write(';')
+        ..write(l.id)
+        ..write(':')
+        ..write(l.cigarId)
+        ..write(':')
+        ..write(l.date)
+        ..write(':')
+        ..write(l.score)
+        ..write(':')
+        ..write(l.tags.length);
+    }
+    key.write('|');
+    for (final s in allStock) {
+      if (s.qty > 0) {
+        key
+          ..write(s.cigarId)
+          ..write(',');
+      }
+    }
+    final k = key.toString();
+    if (k == _recoKey && profile != null) return;
+    _recoKey = k;
     profile = TasteProfile.build(logs, repo);
     final stockIds = allStock.where((s) => s.qty > 0).map((s) => s.cigarId).toSet();
     final all = Recommender(repo).forMe(profile!, smokedIds, limit: 40, stockIds: stockIds);
