@@ -87,6 +87,7 @@ installs = collection("installs")
 sugg = collection("cigar_suggestions")
 quota = collection("scan_quota")
 feedback = collection("feedback")
+places = collection("place_suggestions")
 
 # 운영자 동기화 상태: users/<uid>/{humidors,stock,logs,custom} 문서 수 (내용은 안 읽음)
 def _list_users():
@@ -126,6 +127,8 @@ for s_ in sugg:
     s_["uid"] = canon(s_.get("uid"))
 for f_ in feedback:
     f_["uid"] = canon(f_.get("uid"))
+for p_ in places:
+    p_["uid"] = canon(p_.get("uid"))
 # installs: 로그인하며 흡수된 익명 문서는 뺀다 (b48+ 'absorbed'). 문서 id 'UID~플랫폼' 은 같은 사람의 기기별 문서.
 _absorbed = {a for i in installs for a in (i.get("absorbed") or [])}
 installs = [i for i in installs if i["_id"] not in _absorbed]
@@ -145,6 +148,17 @@ for old6, new6 in UID_ALIASES.items():
         installs.remove(o)
     elif o and not n:
         o["_id"] = new6 + o["_id"][6:]
+
+# installs: 같은 UID 의 옛 'UID' 문서(익명 시절)와 새 'UID~플랫폼' 문서가 같이 있으면 한 기기로 합침 (같은 플랫폼 우선)
+for bare in [i for i in installs if not i.get("_dev")]:
+    sibs = [i for i in installs if i.get("_dev") and i["_uid"] == bare["_uid"]]
+    if not sibs:
+        continue
+    n = next((i for i in sibs if i.get("platform") == bare.get("platform")), sibs[0])
+    n["days"] = sorted(set(n.get("days") or []) | set(bare.get("days") or []))
+    n["first"] = min(filter(None, [n.get("first"), bare.get("first")]))
+    n["last"] = max(filter(None, [n.get("last"), bare.get("last")]))
+    installs.remove(bare)
 
 # ---- 사용자 ----
 uids = {l.get("uid") for l in logs}
@@ -296,6 +310,18 @@ if sugg:
     for s in sorted(sugg, key=lambda s: s.get("_updated") or "", reverse=True):
         L.append(f"| {(s.get('_updated') or '')[:10]} | {short(s.get('uid'))} | {s.get('brand')} | {s.get('line')} | {s.get('vitola') or ''} | "
                  f"{s.get('country') or ''} | {s.get('strength') or ''} | {s.get('wrapper') or ''} | {(s.get('note') or '')[:80]} |")
+else:
+    L.append("- 없음")
+L.append("")
+L.append(f"### 장소 제안 ({len(places)}건)")
+if places:
+    L.append("| 날짜 | 사용자 | 언어 | 상호명 | 유형 | 흡연 | 시가판매 | 별점 | 위치 | 코멘트 |")
+    L.append("|---|---|---|---|---|---|---|--:|---|---|")
+    for p_ in sorted(places, key=lambda x: x.get("_updated") or "", reverse=True):
+        loc = f"[{p_['lat']:.5f},{p_['lng']:.5f}](https://www.google.com/maps/search/?api=1&query={p_['lat']:.6f},{p_['lng']:.6f})" if p_.get("lat") is not None and p_.get("lng") is not None else ""
+        txt = (p_.get("comment") or "").replace("|", "¦").replace("\n", " ")
+        L.append(f"| {(p_.get('_updated') or '')[:10]} | {short(p_.get('uid'))} | {p_.get('lang') or ''} | {(p_.get('name') or '')[:60]} | {', '.join(p_.get('kinds') or [])} | "
+                 f"{', '.join(p_.get('smoking') or [])} | {p_.get('sells') or ''} | {p_.get('rating') or ''} | {loc} | {txt[:120]} |")
 else:
     L.append("- 없음")
 L.append("")

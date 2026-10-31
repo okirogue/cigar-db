@@ -16,12 +16,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// rev 는 build_app_assets.py 실행 시각(ISO, UTC) — 문자열 비교로 신구를 가린다.
 /// 받은 본은 로컬에 캐시 (모바일: 앱 지원 폴더 파일, 웹: SharedPreferences) 해서 다음 시작부터 바로 쓴다.
 class RemoteDb {
-  RemoteDb._();
-  static final instance = RemoteDb._();
+  /// [file] 서버·캐시 파일 이름 (cigars | places), [metaFile] 서버 meta 이름
+  RemoteDb._(this.file, this.metaFile);
+  static final instance = RemoteDb._('cigars', 'meta.json');
+  static final places = RemoteDb._('places', 'places_meta.json');
 
+  final String file, metaFile;
   static const base = 'https://okirogue.github.io/cigar-db/db';
-  static const _kMeta = 'db_cache_meta';
-  static const _kJson = 'db_cache_json';
+  String get _kMeta => file == 'cigars' ? 'db_cache_meta' : '${file}_cache_meta';
+  String get _kJson => file == 'cigars' ? 'db_cache_json' : '${file}_cache_json';
 
   /// 로컬 캐시 (meta, cigars json 원문). 없으면 null.
   Future<(Map<String, dynamic>, String)?> readCache() async {
@@ -33,7 +36,7 @@ class RemoteDb {
         return (jsonDecode(m) as Map<String, dynamic>, j);
       }
       final d = await _dir();
-      final mf = File(p.join(d.path, 'meta.json')), jf = File(p.join(d.path, 'cigars.json'));
+      final mf = File(p.join(d.path, '$file.meta.json')), jf = File(p.join(d.path, '$file.json'));
       if (!await mf.exists() || !await jf.exists()) return null;
       return (jsonDecode(await mf.readAsString()) as Map<String, dynamic>, await jf.readAsString());
     } catch (e) {
@@ -50,8 +53,8 @@ class RemoteDb {
       return;
     }
     final d = await _dir();
-    await File(p.join(d.path, 'cigars.json')).writeAsString(json, flush: true);
-    await File(p.join(d.path, 'meta.json')).writeAsString(jsonEncode(meta), flush: true);
+    await File(p.join(d.path, '$file.json')).writeAsString(json, flush: true);
+    await File(p.join(d.path, '$file.meta.json')).writeAsString(jsonEncode(meta), flush: true);
   }
 
   Future<void> clearCache() async {
@@ -63,7 +66,10 @@ class RemoteDb {
         return;
       }
       final d = await _dir();
-      if (await d.exists()) await d.delete(recursive: true);
+      for (final n in ['$file.json', '$file.meta.json']) {
+        final f = File(p.join(d.path, n));
+        if (await f.exists()) await f.delete();
+      }
     } catch (_) {}
   }
 
@@ -78,7 +84,7 @@ class RemoteDb {
   /// 네트워크 실패는 모두 삼킨다 (오프라인 정상 동작).
   Future<(Map<String, dynamic>, String)?> fetchIfNewer(String currentRev, int currentCount) async {
     try {
-      final r = await http.get(Uri.parse('$base/meta.json?t=${DateTime.now().millisecondsSinceEpoch ~/ 600000}')).timeout(const Duration(seconds: 8));
+      final r = await http.get(Uri.parse('$base/$metaFile?t=${DateTime.now().millisecondsSinceEpoch ~/ 600000}')).timeout(const Duration(seconds: 8));
       if (r.statusCode != 200) return null;
       final meta = jsonDecode(r.body) as Map<String, dynamic>;
       final rev = (meta['rev'] ?? '') as String;
@@ -86,7 +92,7 @@ class RemoteDb {
       final count = (meta['count'] as num?)?.toInt() ?? 0;
       // 안전장치: 항목이 크게 줄어든 본은 안 받는다 (배포 사고 방지)
       if (count < currentCount * 0.9) return null;
-      final jr = await http.get(Uri.parse('$base/cigars.json?v=${Uri.encodeComponent(rev)}')).timeout(const Duration(seconds: 30));
+      final jr = await http.get(Uri.parse('$base/$file.json?v=${Uri.encodeComponent(rev)}')).timeout(const Duration(seconds: 30));
       if (jr.statusCode != 200) return null;
       final body = utf8.decode(jr.bodyBytes);
       final list = jsonDecode(body);

@@ -9,6 +9,7 @@ import '../theme.dart';
 import 'detail_screen.dart';
 import 'wishlist_sheet.dart';
 import 'custom_cigar_sheet.dart';
+import 'places_view.dart';
 
 /// 탐색: 시가 검색 → 상세. 검색 전엔 내가 피운/보유한 시가와 브랜드 바로가기.
 class ExploreScreen extends StatefulWidget {
@@ -22,6 +23,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
   String _q = '';
   bool _cubanOnly = false;
   bool _notesOnly = false;
+  bool _places = false; // 시가 | 장소
 
   @override
   void dispose() {
@@ -46,8 +48,29 @@ class _ExploreScreenState extends State<ExploreScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(tr('탐색', 'Explore'), style: const TextStyle(fontSize: 24)),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: SegmentedButton<bool>(
+              style: ButtonStyle(
+                visualDensity: VisualDensity.compact,
+                textStyle: WidgetStatePropertyAll(const TextStyle(fontSize: 12)),
+                side: WidgetStatePropertyAll(const BorderSide(color: C.line)),
+                backgroundColor: WidgetStateProperty.resolveWith((s) => s.contains(WidgetState.selected) ? C.accent : Colors.white),
+                foregroundColor: WidgetStateProperty.resolveWith((s) => s.contains(WidgetState.selected) ? Colors.white : C.text),
+              ),
+              showSelectedIcon: false,
+              segments: [
+                ButtonSegment(value: false, label: Text(tr('시가', 'Cigars'))),
+                ButtonSegment(value: true, label: Text(tr('장소', 'Places'))),
+              ],
+              selected: {_places},
+              onSelectionChanged: (v) => setState(() => _places = v.first),
+            ),
+          ),
+        ],
       ),
-      body: Column(children: [
+      body: _places ? const PlacesView() : Column(children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
           child: Row(children: [

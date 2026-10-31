@@ -25,6 +25,8 @@ dependencies:
   google_sign_in: ^7.1.0
   image_picker: ^1.1.2
   http: ^1.2.2
+  url_launcher: ^6.3.1
+  geolocator: ^13.0.2
   package_info_plus: ^8.1.0
 
 dev_dependencies:
@@ -38,6 +40,8 @@ flutter:
   assets:
     - assets/cigars.json
     - assets/db_meta.json
+    - assets/places.json
+    - assets/places_meta.json
     - assets/tags.json
     - assets/brand/play_icon_512.png
   fonts:
