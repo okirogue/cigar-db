@@ -1,0 +1,41 @@
+name: db-publish
+
+# 시가 DB·장소 목록만 바뀌었을 때: 앱 빌드 없이 docs/db/ 로 배포 (앱이 시작 때 받아 감)
+on:
+  push:
+    branches: [main]
+    paths:
+      - "app/assets/cigars.json"
+      - "app/assets/db_meta.json"
+      - "app/assets/places.json"
+      - "app/assets/places_meta.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: app-web-deploy
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Copy to docs/db and push
+        run: |
+          set -euo pipefail
+          mkdir -p docs/db
+          cp app/assets/cigars.json docs/db/cigars.json
+          cp app/assets/db_meta.json docs/db/meta.json
+          cp app/assets/places.json docs/db/places.json
+          cp app/assets/places_meta.json docs/db/places_meta.json
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f docs/db
+          if git diff --cached --quiet; then echo "db unchanged"; exit 0; fi
+          git commit -m "db: publish $(cat app/assets/db_meta.json | tr -d '\n' | cut -c1-60) [skip ci]"
+          git pull --rebase --autostash origin main
+          git push origin HEAD:main

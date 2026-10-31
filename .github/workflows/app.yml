@@ -6,6 +6,12 @@ on:
       - "app/**"
       - ".github/workflows/app.yml"
       - ".github/scripts/**"
+    paths-ignore:
+      # DB·장소 데이터만 바뀐 푸시는 db-publish.yml 이 docs/db 로 배포 (앱 빌드 불필요)
+      - "app/assets/cigars.json"
+      - "app/assets/db_meta.json"
+      - "app/assets/places.json"
+      - "app/assets/places_meta.json"
   workflow_dispatch:
 
 permissions:
