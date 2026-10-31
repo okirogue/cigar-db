@@ -64,7 +64,8 @@ def main():
         if r.get("error"):
             errors += 1
             print("ERR", r["name"], r["error"]); continue
-        tags = extract_tags(r["note_text"])
+        # 브랜드 단위 설명문(habanos 등)은 라인별 노트 태그로 쓰지 않는다 (올리바 'full-bodied' 보일러플레이트 사고 재발 방지)
+        tags = [] if r.get("tags_off") else extract_tags(r["note_text"])
         sid = slug(r["brand"], r["name"])
         e = db.setdefault(sid, {"id": sid, "brand": r["brand"], "name": r["name"],
                                 "notes": {"official": [], "review": []},
@@ -78,6 +79,9 @@ def main():
                 src["url"] = r["review_url"]; src["title"] = r.get("review_title")
             if r.get("score") is not None:
                 src["score"] = r["score"]
+            if r.get("brand_level"):
+                src["brand_level"] = True
+                src["confidence"] = "low"
             e["note_sources"].append(src)
         if r.get("score") is not None:
             e.setdefault("ratings", {})[r["source"].split(":")[1]] = {"score": r["score"], "url": r.get("review_url")}
