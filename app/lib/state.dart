@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'data/badges.dart';
 import 'data/cigar_repo.dart';
 import 'data/local_db.dart';
+import 'data/place_repo.dart';
 import 'data/share_stats.dart';
 import 'data/sync.dart';
 import 'data/recommender.dart';
@@ -24,6 +25,7 @@ class AppState extends ChangeNotifier {
   Future<void> init() async {
     Sync.instance.attach(this);
     await repo.load();
+    await _guard(PlaceRepo.instance.load);
     for (final j in await db.customCigars()) {
       repo.addCustom(Cigar.fromJson(j));
     }
@@ -48,6 +50,9 @@ class AppState extends ChangeNotifier {
         _recompute();
         notifyListeners();
       }
+    });
+    await _guard(() async {
+      if (await PlaceRepo.instance.refreshRemote()) notifyListeners();
     });
   }
 

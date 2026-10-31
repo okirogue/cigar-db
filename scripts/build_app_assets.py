@@ -85,6 +85,19 @@ rev = prev["rev"] if prev.get("sha") == sha else datetime.datetime.now(datetime.
 meta = {"rev": rev, "sha": sha, "count": len(out)}
 json.dump(meta, open(OUT / "db_meta.json", "w"), separators=(",", ":"))
 
+# 장소 목록 (db/places.json → assets/places.json 그대로) + 메타
+praw = (ROOT / "db" / "places.json").read_bytes() if (ROOT / "db" / "places.json").exists() else b"[]"
+places = json.loads(praw)
+(OUT / "places.json").write_bytes(json.dumps(places, ensure_ascii=False, separators=(",", ":")).encode())
+psha = hashlib.sha256((OUT / "places.json").read_bytes()).hexdigest()[:16]
+try:
+    pprev = json.load(open(OUT / "places_meta.json"))
+except Exception:  # noqa
+    pprev = {}
+prev_rev = pprev["rev"] if pprev.get("sha") == psha else datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+json.dump({"rev": prev_rev, "sha": psha, "count": len(places)}, open(OUT / "places_meta.json", "w"), separators=(",", ":"))
+print(f"places {len(places)} → {OUT/'places.json'}")
+
 n_notes = sum(1 for x in out if x["official"] or x["review"])
 print(f"cigars {len(out)} (with notes {n_notes}) → {OUT/'cigars.json'} {(OUT/'cigars.json').stat().st_size//1024} KB")
 print(f"tags {sum(len(g['tags']) for g in tag_out['groups'])} → {OUT/'tags.json'}")

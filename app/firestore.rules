@@ -42,6 +42,22 @@ service cloud.firestore {
       allow read, update, delete: if false;
     }
 
+    // 장소(시가 바·라운지·카페) 제안: 로그인(익명 포함)한 사용자가 새 문서만 추가. 검수 후 db/places.json 으로.
+    match /place_suggestions/{id} {
+      allow create: if request.auth != null
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.name is string && request.resource.data.name.size() > 0 && request.resource.data.name.size() <= 80
+        && request.resource.data.kinds is list && request.resource.data.kinds.size() >= 1 && request.resource.data.kinds.size() <= 3
+        && request.resource.data.smoking is list && request.resource.data.smoking.size() <= 2
+        && request.resource.data.sells is string && request.resource.data.sells.size() <= 8
+        && request.resource.data.comment is string && request.resource.data.comment.size() <= 400
+        && request.resource.data.rating is int && request.resource.data.rating >= 0 && request.resource.data.rating <= 5
+        && (!('lat' in request.resource.data) || request.resource.data.lat is number)
+        && (!('lng' in request.resource.data) || request.resource.data.lng is number)
+        && request.resource.data.keys().hasOnly(['uid', 'name', 'kinds', 'smoking', 'sells', 'comment', 'rating', 'lat', 'lng', 'lang', 'platform', 'build', 'created']);
+      allow read, update, delete: if false;
+    }
+
     // 익명 기록 공유: 문서 id는 "<uid>_<logId>", 본인 것만 쓰기. 읽기는 로그인(익명)한 누구나(카페 평점 집계용).
     match /log_stats/{id} {
       allow read: if request.auth != null;

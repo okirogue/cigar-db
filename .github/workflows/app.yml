@@ -231,6 +231,7 @@ jobs:
             cp -r app/build/web/. docs/app/
             # 시가 DB 원격 갱신본 (앱이 시작 때 meta.json 의 rev 를 보고 더 새것이면 받아 감)
             mkdir -p docs/db && cp app/assets/cigars.json docs/db/cigars.json && cp app/assets/db_meta.json docs/db/meta.json
+            cp app/assets/places.json docs/db/places.json && cp app/assets/places_meta.json docs/db/places_meta.json
             touch docs/.nojekyll
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
