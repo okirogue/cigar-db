@@ -4,6 +4,7 @@ import 'data/badges.dart';
 import 'data/cigar_repo.dart';
 import 'data/local_db.dart';
 import 'data/place_repo.dart';
+import 'data/place_reviews.dart';
 import 'data/share_stats.dart';
 import 'data/sync.dart';
 import 'data/recommender.dart';
@@ -54,6 +55,7 @@ class AppState extends ChangeNotifier {
     await _guard(() async {
       if (await PlaceRepo.instance.refreshRemote()) notifyListeners();
     });
+    await _guard(PlaceReviews.instance.loadAll);
   }
 
   Future<void> _guard(Future<void> Function() f) async {

@@ -58,6 +58,19 @@ service cloud.firestore {
       allow read, update, delete: if false;
     }
 
+    // 장소 별점·코멘트: 문서 id "<uid>_<placeId>" 본인 것만 쓰기(장소당 하나, 덮어쓰기=수정). 읽기는 로그인(익명)한 누구나.
+    match /place_reviews/{id} {
+      allow read: if request.auth != null;
+      allow create, update: if request.auth != null
+        && id == request.auth.uid + '_' + request.resource.data.place_id
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.place_id is string && request.resource.data.place_id.size() > 0 && request.resource.data.place_id.size() <= 80
+        && request.resource.data.rating is int && request.resource.data.rating >= 1 && request.resource.data.rating <= 5
+        && request.resource.data.comment is string && request.resource.data.comment.size() <= 200
+        && request.resource.data.keys().hasOnly(['uid', 'place_id', 'rating', 'comment', 'lang', 'platform', 'build', 'updated']);
+      allow delete: if request.auth != null && id.matches('^' + request.auth.uid + '_.*$');
+    }
+
     // 익명 기록 공유: 문서 id는 "<uid>_<logId>", 본인 것만 쓰기. 읽기는 로그인(익명)한 누구나(카페 평점 집계용).
     match /log_stats/{id} {
       allow read: if request.auth != null;

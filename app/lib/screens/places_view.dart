@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../data/place_repo.dart';
+import '../data/place_reviews.dart';
 import '../l10n.dart';
 import '../models/place.dart';
+import '../state.dart';
 import '../theme.dart';
+import 'place_detail_sheet.dart';
 import 'place_suggest_sheet.dart';
 
 /// 탐색 › 장소: 국가 › 도시별 목록, "내 주변" 거리순, 장소 제안. 탭하면 구글맵.
@@ -53,7 +57,15 @@ class _PlacesViewState extends State<PlacesView> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<AppState>(); // 원격 목록 갱신(notifyListeners) 때 다시 그리기
     final all = repo.all.where(_pass).toList();
+    return ListenableBuilder(
+      listenable: PlaceReviews.instance,
+      builder: (context, _) => _body(context, all),
+    );
+  }
+
+  Widget _body(BuildContext context, List<Place> all) {
     return Column(children: [
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -154,21 +166,15 @@ class _PlaceRow extends StatelessWidget {
   final String? trailing;
   const _PlaceRow({required this.place, this.trailing});
 
-  static String kindLabel(String k) => switch (k) {
-        'bar' => tr('바', 'Bar'),
-        'lounge' => tr('라운지', 'Lounge'),
-        'cafe' => tr('카페', 'Café'),
-        _ => k,
-      };
-
   @override
   Widget build(BuildContext context) {
     final p = place;
+    final (avg, n) = PlaceReviews.instance.summary(p.id);
     final sub = <String>[
       p.kinds.map(kindLabel).join('·'),
       if (p.smoking.isNotEmpty) p.smoking.map((s) => s == 'indoor' ? tr('실내', 'Indoor') : tr('실외', 'Outdoor')).join('·'),
       if (p.sells == 'yes') tr('시가 판매', 'Sells cigars'),
-      if (p.rating != null) '★ ${p.rating!.toStringAsFixed(1)} (${p.ratingCount})',
+      if (avg != null) '★ ${avg.toStringAsFixed(1)} ($n)' else if (n > 0) tr('평가 $n', '$n rated'),
     ];
     final note = L10n.isKo ? p.note : p.noteEn;
     return Padding(
@@ -176,7 +182,7 @@ class _PlaceRow extends StatelessWidget {
       child: Card(
         child: InkWell(
           borderRadius: BorderRadius.circular(14),
-          onTap: () => launchUrl(Uri.parse(p.mapsLink), mode: LaunchMode.externalApplication),
+          onTap: () => showPlaceDetail(context, p),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
             child: Row(children: [
@@ -195,8 +201,12 @@ class _PlaceRow extends StatelessWidget {
                 ]),
               ),
               if (trailing != null) Text(trailing!, style: const TextStyle(fontSize: 12, color: C.sub)),
-              const SizedBox(width: 6),
-              const Icon(Icons.map_outlined, color: C.hint, size: 18),
+              IconButton(
+                visualDensity: VisualDensity.compact,
+                tooltip: tr('구글맵', 'Google Maps'),
+                icon: const Icon(Icons.map_outlined, color: C.accent, size: 22),
+                onPressed: () => launchUrl(Uri.parse(p.mapsLink), mode: LaunchMode.externalApplication),
+              ),
             ]),
           ),
         ),

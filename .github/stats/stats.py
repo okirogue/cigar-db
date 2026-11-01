@@ -88,6 +88,7 @@ sugg = collection("cigar_suggestions")
 quota = collection("scan_quota")
 feedback = collection("feedback")
 places = collection("place_suggestions")
+previews = collection("place_reviews")
 
 # 운영자 동기화 상태: users/<uid>/{humidors,stock,logs,custom} 문서 수 (내용은 안 읽음)
 def _list_users():
@@ -129,6 +130,8 @@ for f_ in feedback:
     f_["uid"] = canon(f_.get("uid"))
 for p_ in places:
     p_["uid"] = canon(p_.get("uid"))
+for r_ in previews:
+    r_["uid"] = canon(r_.get("uid"))
 # installs: 로그인하며 흡수된 익명 문서는 뺀다 (b48+ 'absorbed'). 문서 id 'UID~플랫폼' 은 같은 사람의 기기별 문서.
 _absorbed = {a for i in installs for a in (i.get("absorbed") or [])}
 installs = [i for i in installs if i["_id"] not in _absorbed]
@@ -322,6 +325,22 @@ if places:
         txt = (p_.get("comment") or "").replace("|", "¦").replace("\n", " ")
         L.append(f"| {(p_.get('_updated') or '')[:10]} | {short(p_.get('uid'))} | {p_.get('lang') or ''} | {(p_.get('name') or '')[:60]} | {', '.join(p_.get('kinds') or [])} | "
                  f"{', '.join(p_.get('smoking') or [])} | {p_.get('sells') or ''} | {p_.get('rating') or ''} | {loc} | {txt[:120]} |")
+else:
+    L.append("- 없음")
+L.append("")
+L.append(f"### 장소 평가 ({len(previews)}건)")
+if previews:
+    _byp = defaultdict(list)
+    for r_ in previews:
+        _byp[r_.get("place_id") or "?"].append(r_)
+    L.append("| 장소 | 평가 | 평균 | 최근 코멘트 (사용자 · 별점 · 날짜) |")
+    L.append("|---|--:|--:|---|")
+    for pid, rs in sorted(_byp.items(), key=lambda kv: -len(kv[1])):
+        rated = [r for r in rs if r.get("rating")]
+        avg = f"{sum(r['rating'] for r in rated) / len(rated):.1f}" if rated else ""
+        recent = sorted(rs, key=lambda r: r.get("_updated") or "", reverse=True)[:3]
+        cm = "<br>".join(f"{short(r.get('uid'))} ★{r.get('rating')} {(r.get('_updated') or '')[:10]}: {(r.get('comment') or '').replace('|', '¦')[:80]}" for r in recent)
+        L.append(f"| {pid} | {len(rs)} | {avg} | {cm} |")
 else:
     L.append("- 없음")
 L.append("")

@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import '../l10n.dart';
 import '../models/local.dart';
 import '../data/photos.dart';
+import 'crop_screen.dart';
 import '../data/analytics.dart';
 import '../data/badges.dart';
 import '../data/share_stats.dart';
@@ -218,7 +219,7 @@ class _RecordScreenState extends State<RecordScreen> {
                 const SizedBox(height: 10),
                 // 사진 (폰 안에만 저장)
                 if (LogPhotos.supported) ...[
-                  _PhotoRow(photos: _photos, onAdd: _addPhoto, onRemove: (n) => setState(() => _photos.remove(n))),
+                  _PhotoRow(photos: _photos, onAdd: _addPhoto, onRemove: (n) => setState(() => _photos.remove(n)), onTap: _recrop),
                   const SizedBox(height: 14),
                 ],
 
@@ -384,10 +385,30 @@ class _RecordScreenState extends State<RecordScreen> {
     );
     if (gallery == null) return;
     try {
-      final name = await LogPhotos.instance.pick(gallery: gallery);
-      if (name != null && mounted) setState(() => _photos.add(name));
+      final bytes = await LogPhotos.instance.pickBytes(gallery: gallery);
+      if (bytes == null || !mounted) return;
+      final cropped = await cropPhoto(context, bytes);
+      if (cropped == null || !mounted) return;
+      final name = await LogPhotos.instance.saveBytes(cropped);
+      if (mounted) setState(() => _photos.add(name));
     } catch (_) {
       if (mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(tr('사진을 가져오지 못했어요', 'Could not get the photo'))));
+    }
+  }
+
+  /// 기존 사진 틀 다시 맞추기: 새 파일로 저장하고 목록에서 교체 (원래 파일은 저장 때 정리)
+  Future<void> _recrop(String name) async {
+    final bytes = await LogPhotos.instance.readBytes(name);
+    if (bytes == null || !mounted) return;
+    final cropped = await cropPhoto(context, bytes);
+    if (cropped == null || !mounted) return;
+    final newName = await LogPhotos.instance.saveBytes(cropped);
+    if (!_origPhotos.contains(name)) await LogPhotos.instance.delete(name); // 이번에 추가한 사진이면 바로 정리
+    if (mounted) {
+      setState(() {
+        final i = _photos.indexOf(name);
+        if (i >= 0) _photos[i] = newName;
+      });
     }
   }
 
@@ -533,7 +554,8 @@ class _PhotoRow extends StatelessWidget {
   final List<String> photos;
   final VoidCallback onAdd;
   final ValueChanged<String> onRemove;
-  const _PhotoRow({required this.photos, required this.onAdd, required this.onRemove});
+  final ValueChanged<String> onTap; // 썸네일 탭 → 틀 다시 맞추기
+  const _PhotoRow({required this.photos, required this.onAdd, required this.onRemove, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -544,13 +566,17 @@ class _PhotoRow extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 8),
             child: Stack(children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: FutureBuilder<File>(
-                  future: LogPhotos.instance.file(n),
-                  builder: (_, snap) => snap.hasData
-                      ? Image.file(snap.data!, width: 72, height: 72, fit: BoxFit.cover)
-                      : Container(width: 72, height: 72, color: C.chip),
+              GestureDetector(
+                onTap: () => onTap(n),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: FutureBuilder<File>(
+                    key: ValueKey(n),
+                    future: LogPhotos.instance.file(n),
+                    builder: (_, snap) => snap.hasData
+                        ? Image.file(snap.data!, width: 128, height: 72, fit: BoxFit.cover)
+                        : Container(width: 128, height: 72, color: C.chip),
+                  ),
                 ),
               ),
               Positioned(

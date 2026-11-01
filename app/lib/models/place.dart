@@ -13,6 +13,7 @@ class Place {
   final String cityEn;
   final double lat, lng;
   final String? mapsUrl; // 구글맵 링크 (없으면 좌표로 연다)
+  final String? address;
   final String note; // 운영자 메모 (ko)
   final String noteEn;
   final double? rating; // 3명 이상일 때만 값
@@ -31,6 +32,7 @@ class Place {
     required this.lat,
     required this.lng,
     this.mapsUrl,
+    this.address,
     this.note = '',
     this.noteEn = '',
     this.rating,
@@ -50,6 +52,7 @@ class Place {
         lat: (j['lat'] as num).toDouble(),
         lng: (j['lng'] as num).toDouble(),
         mapsUrl: j['maps_url'] as String?,
+        address: j['address'] as String?,
         note: (j['note'] ?? '') as String,
         noteEn: (j['note_en'] ?? j['note'] ?? '') as String,
         rating: (j['rating'] as num?)?.toDouble(),

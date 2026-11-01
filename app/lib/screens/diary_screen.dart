@@ -547,8 +547,10 @@ class _PhotoStrip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final single = photos.length == 1;
+    // 사진은 16:9 틀로 저장되므로 같은 비율로 보여준다 (잘림 없음)
+    final w = MediaQuery.of(context).size.width - 40;
     return SizedBox(
-      height: single ? 220 : 160,
+      height: single ? w * 9 / 16 : 120,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: photos.length,
@@ -556,7 +558,7 @@ class _PhotoStrip extends StatelessWidget {
         itemBuilder: (_, i) => FutureBuilder<File>(
           future: LogPhotos.instance.file(photos[i]),
           builder: (ctx, snap) {
-            if (!snap.hasData) return Container(width: 160, decoration: BoxDecoration(color: C.chip, borderRadius: BorderRadius.circular(12)));
+            if (!snap.hasData) return Container(width: single ? w : 213, decoration: BoxDecoration(color: C.chip, borderRadius: BorderRadius.circular(12)));
             final f = snap.data!;
             return GestureDetector(
               onTap: () => showDialog<void>(
@@ -570,8 +572,8 @@ class _PhotoStrip extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: single
-                    ? SizedBox(width: MediaQuery.of(ctx).size.width - 40, child: Image.file(f, fit: BoxFit.cover))
-                    : Image.file(f, width: 160, height: 160, fit: BoxFit.cover),
+                    ? SizedBox(width: w, child: Image.file(f, fit: BoxFit.cover))
+                    : Image.file(f, width: 213, height: 120, fit: BoxFit.cover),
               ),
             );
           },

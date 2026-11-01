@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:image_picker/image_picker.dart';
@@ -42,6 +43,38 @@ class LogPhotos {
       await File(x.path).delete(); // 캐시 사본 정리
     } catch (_) {}
     return name;
+  }
+
+  /// 카메라/갤러리에서 고른 사진의 바이트 (틀 맞추기 화면으로 넘기기 전). 취소하면 null.
+  Future<Uint8List?> pickBytes({bool gallery = false}) async {
+    final x = await ImagePicker().pickImage(
+      source: gallery ? ImageSource.gallery : ImageSource.camera,
+      maxWidth: 2000,
+      maxHeight: 2000,
+      imageQuality: 90,
+    );
+    if (x == null) return null;
+    final bytes = await x.readAsBytes();
+    try {
+      await File(x.path).delete();
+    } catch (_) {}
+    return bytes;
+  }
+
+  /// 바이트를 photos/ 에 새 파일로 저장하고 이름 반환
+  Future<String> saveBytes(Uint8List bytes) async {
+    final name = '${DateTime.now().millisecondsSinceEpoch}.jpg';
+    await File(p.join((await dir).path, name)).writeAsBytes(bytes, flush: true);
+    return name;
+  }
+
+  Future<Uint8List?> readBytes(String name) async {
+    try {
+      final f = await file(name);
+      return await f.exists() ? await f.readAsBytes() : null;
+    } catch (_) {
+      return null;
+    }
   }
 
   Future<void> delete(String name) async {
