@@ -539,7 +539,16 @@ void openLogSheet(BuildContext context, SmokeLog log) {
     );
 }
 
-/// 기록 상세의 사진 띠 (가로 스크롤, 탭하면 크게)
+void _showFull(BuildContext ctx, File f) => showDialog<void>(
+      context: ctx,
+      builder: (d) => Dialog(
+        backgroundColor: Colors.black,
+        insetPadding: const EdgeInsets.all(8),
+        child: GestureDetector(onTap: () => Navigator.pop(d), child: InteractiveViewer(child: Image.file(f, fit: BoxFit.contain))),
+      ),
+    );
+
+/// 기록 상세의 사진 띠 (한 장이면 비율대로 크게, 여러 장이면 가로 스크롤 썸네일, 탭하면 크게)
 class _PhotoStrip extends StatelessWidget {
   final List<String> photos;
   const _PhotoStrip({required this.photos});
@@ -547,10 +556,29 @@ class _PhotoStrip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final single = photos.length == 1;
-    // 사진은 16:9 틀로 저장되므로 같은 비율로 보여준다 (잘림 없음)
     final w = MediaQuery.of(context).size.width - 40;
+    if (single) {
+      // 한 장이면 사진 비율 그대로 (너무 길면 최대 높이까지만), 탭하면 크게
+      return FutureBuilder<File>(
+        future: LogPhotos.instance.file(photos.first),
+        builder: (ctx, snap) {
+          if (!snap.hasData) return Container(height: 200, decoration: BoxDecoration(color: C.chip, borderRadius: BorderRadius.circular(12)));
+          final f = snap.data!;
+          return GestureDetector(
+            onTap: () => _showFull(ctx, f),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: ConstrainedBox(
+                constraints: BoxConstraints(maxHeight: w * 1.25),
+                child: Image.file(f, width: w, fit: BoxFit.cover, alignment: Alignment.center),
+              ),
+            ),
+          );
+        },
+      );
+    }
     return SizedBox(
-      height: single ? w * 9 / 16 : 120,
+      height: 140,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: photos.length,
@@ -558,22 +586,13 @@ class _PhotoStrip extends StatelessWidget {
         itemBuilder: (_, i) => FutureBuilder<File>(
           future: LogPhotos.instance.file(photos[i]),
           builder: (ctx, snap) {
-            if (!snap.hasData) return Container(width: single ? w : 213, decoration: BoxDecoration(color: C.chip, borderRadius: BorderRadius.circular(12)));
+            if (!snap.hasData) return Container(width: 140, decoration: BoxDecoration(color: C.chip, borderRadius: BorderRadius.circular(12)));
             final f = snap.data!;
             return GestureDetector(
-              onTap: () => showDialog<void>(
-                context: ctx,
-                builder: (d) => Dialog(
-                  backgroundColor: Colors.black,
-                  insetPadding: const EdgeInsets.all(8),
-                  child: GestureDetector(onTap: () => Navigator.pop(d), child: InteractiveViewer(child: Image.file(f, fit: BoxFit.contain))),
-                ),
-              ),
+              onTap: () => _showFull(ctx, f),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
-                child: single
-                    ? SizedBox(width: w, child: Image.file(f, fit: BoxFit.cover))
-                    : Image.file(f, width: 213, height: 120, fit: BoxFit.cover),
+                child: Image.file(f, width: 140, height: 140, fit: BoxFit.cover),
               ),
             );
           },
