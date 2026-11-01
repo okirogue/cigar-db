@@ -351,13 +351,13 @@ else:
 L.append("")
 L.append(f"### 장소 제안 ({len(places)}건)")
 if places:
-    L.append("| 날짜 | 사용자 | 언어 | 상호명 | 유형 | 흡연 | 시가판매 | 별점 | 위치 | 코멘트 |")
-    L.append("|---|---|---|---|---|---|---|--:|---|---|")
+    L.append("| 날짜 | 사용자 | 언어 | 상호명 | 유형 | 흡연 | 시가판매 | 별점 | 위치 | 코멘트 | 문서 id |")
+    L.append("|---|---|---|---|---|---|---|--:|---|---|---|")
     for p_ in sorted(places, key=lambda x: x.get("_updated") or "", reverse=True):
         loc = f"[{p_['lat']:.5f},{p_['lng']:.5f}](https://www.google.com/maps/search/?api=1&query={p_['lat']:.6f},{p_['lng']:.6f})" if p_.get("lat") is not None and p_.get("lng") is not None else ""
         txt = (p_.get("comment") or "").replace("|", "¦").replace("\n", " ")
         L.append(f"| {(p_.get('_updated') or '')[:10]} | {short(p_.get('uid'))} | {p_.get('lang') or ''} | {(p_.get('name') or '')[:60]} | {', '.join(p_.get('kinds') or [])} | "
-                 f"{', '.join(p_.get('smoking') or [])} | {p_.get('sells') or ''} | {p_.get('rating') or ''} | {loc} | {txt[:120]} |")
+                 f"{', '.join(p_.get('smoking') or [])} | {p_.get('sells') or ''} | {p_.get('rating') or ''} | {loc} | {txt[:120]} | `{p_['_id']}` |")
 else:
     L.append("- 없음")
 L.append("")

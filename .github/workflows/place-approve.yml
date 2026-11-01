@@ -1,0 +1,51 @@
+name: place-approve
+
+# 장소 제안 승인: 제안자의 별점·코멘트를 등록된 장소의 첫 리뷰로 옮기고 결과는 통계 이슈에 댓글로.
+on:
+  workflow_dispatch:
+    inputs:
+      suggestion_id:
+        description: "place_suggestions 문서 id"
+        required: true
+      place_id:
+        description: "places.json 의 장소 id"
+        required: true
+      dry:
+        description: "true 면 실제로 안 쓰고 계획만"
+        default: "true"
+
+permissions:
+  contents: read
+  issues: write
+  id-token: write
+
+jobs:
+  approve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Auth to Google Cloud (WIF)
+        id: gcp-auth
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/878079125373/locations/global/workloadIdentityPools/github/providers/github
+          service_account: play-publisher@myhumidor-2482d.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/cloud-platform
+      - name: Move suggestion rating/comment to review
+        env:
+          TOKEN: ${{ steps.gcp-auth.outputs.access_token }}
+          PROJECT: myhumidor-2482d
+        run: |
+          ARGS=""
+          [ "${{ inputs.dry }}" = "true" ] && ARGS="--dry"
+          python3 .github/scripts/place_review_from_suggestion.py "${{ inputs.suggestion_id }}" "${{ inputs.place_id }}" $ARGS 2>&1 | tee out.txt
+      - name: Comment result
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          NUM=$(gh issue list --label stats --state open --json number --jq '.[0].number' || true)
+          { echo "### place-approve (dry=${{ inputs.dry }}) · run ${{ github.run_id }}"; echo '```'; tail -n 80 out.txt; echo '```'; } > body.md
+          [ -n "$NUM" ] && gh issue comment "$NUM" --body-file body.md || true

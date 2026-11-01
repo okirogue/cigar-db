@@ -121,16 +121,16 @@ class PillChip extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(16),
+      // alignment 를 쓰면 Wrap 안에서 가로로 꽉 차 버려서(바운디드 폭이면 Container 가 확장) 내용 크기만큼만 잡는다
       child: Container(
         height: 32,
         padding: const EdgeInsets.symmetric(horizontal: 12),
-        alignment: Alignment.center,
         decoration: BoxDecoration(
           color: bg,
           borderRadius: BorderRadius.circular(16),
           border: selected ? null : Border.all(color: C.line),
         ),
-        child: Text(label, style: TextStyle(fontSize: 12, color: selected ? Colors.white : C.text)),
+        child: Center(widthFactor: 1, child: Text(label, style: TextStyle(fontSize: 12, color: selected ? Colors.white : C.text))),
       ),
     );
   }
