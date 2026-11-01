@@ -53,7 +53,6 @@ class _CropScreenState extends State<_CropScreen> {
             aspectRatio: photoAspect,
             interactive: true, // 틀은 고정, 사진을 밀고 확대
             fixCropRect: true,
-            initialSize: 1.0,
             baseColor: Colors.black,
             maskColor: Colors.black.withValues(alpha: 0.6),
             cornerDotBuilder: (_, __) => const SizedBox.shrink(),
