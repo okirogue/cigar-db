@@ -237,6 +237,39 @@ for i, r in enumerate(ranking[:40], 1):
 if len(ranking) > 40:
     L.append(f"| … | 외 {len(ranking) - 40}종 | | | | |")
 L.append("")
+# ---- 평점순 (2명 이상 피운 시가) + 노트 선호 ----
+L.append("### 평점순 (2명 이상 기록한 시가)")
+_multi = sorted([r for r in ranking if r["people"] >= 2], key=lambda r: (-r["avg"], -r["people"]))
+if _multi:
+    L.append("| # | 시가 | 평균 | 사람 | 기록 | 노트 |")
+    L.append("|--:|---|--:|--:|--:|---|")
+    for i, r in enumerate(_multi, 1):
+        L.append(f"| {i} | {r['name']} | {r['avg']:.1f} | {r['people']} | {r['logs']} | {', '.join(r['top_tags'][:4])} |")
+else:
+    L.append("- 없음")
+L.append("")
+L.append("### 노트 선호 (공유 기록 전체, 운영자 제외)")
+_op = next((u for u in uids if u and u.startswith("sZlitQ")), None)
+_tag_all, _tag_hi, _tag_lo, _tag_users = Counter(), Counter(), Counter(), defaultdict(set)
+for l in logs:
+    if l.get("uid") == _op:
+        continue
+    sc = score10(l.get("score"))
+    for t in (l.get("tags") or []):
+        _tag_all[t] += 1
+        _tag_users[t].add(l.get("uid"))
+        if sc >= 8.5:
+            _tag_hi[t] += 1
+        elif sc < 7:
+            _tag_lo[t] += 1
+if _tag_all:
+    L.append("| 노트 | 언급 | 사람 | 8.5점↑ 기록에서 | 7점 미만에서 |")
+    L.append("|---|--:|--:|--:|--:|")
+    for t, n in _tag_all.most_common(20):
+        L.append(f"| {t} | {n} | {len(_tag_users[t])} | {_tag_hi[t]} | {_tag_lo[t]} |")
+else:
+    L.append("- 없음")
+L.append("")
 L.append("### 최근 기록 25건")
 L.append("| 갱신 | 사용자 | 언어 | 시가 | 비톨라 | 점수 | 태그 |")
 L.append("|---|---|---|---|---|--:|---|")
