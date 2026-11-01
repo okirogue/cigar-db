@@ -6,9 +6,8 @@ import 'package:flutter/material.dart';
 import '../l10n.dart';
 import '../theme.dart';
 
-/// 사진 틀 맞추기: 고정 비율(16:9) 틀 안에서 사진을 밀고 확대해 원하는 부분을 고른다.
-/// 확인하면 틀 안 영역만 JPEG 바이트로 돌려주고, 취소하면 null.
-const photoAspect = 16 / 9;
+/// 사진 틀 맞추기: 박스 모서리를 끌어 크기·비율을 자유롭게 바꾸고(갤러리처럼), 원하면 1:1·4:3·16:9·9:16 고정.
+/// 확인하면 박스 안 영역만 돌려주고, 취소하면 null.
 
 Future<Uint8List?> cropPhoto(BuildContext context, Uint8List bytes) {
   return Navigator.push<Uint8List>(context, MaterialPageRoute(fullscreenDialog: true, builder: (_) => _CropScreen(bytes)));
@@ -24,6 +23,9 @@ class _CropScreen extends StatefulWidget {
 class _CropScreenState extends State<_CropScreen> {
   final _ctl = CropController();
   bool _busy = false;
+  double? _aspect; // null = 자유
+
+  static const _presets = <(String, double?)>[('자유', null), ('1:1', 1.0), ('4:3', 4 / 3), ('16:9', 16 / 9), ('9:16', 9 / 16)];
 
   @override
   Widget build(BuildContext context) {
@@ -50,12 +52,10 @@ class _CropScreenState extends State<_CropScreen> {
           child: Crop(
             image: widget.bytes,
             controller: _ctl,
-            aspectRatio: photoAspect,
-            interactive: true, // 틀은 고정, 사진을 밀고 확대
-            fixCropRect: true,
+            aspectRatio: _aspect,
+            initialRectBuilder: InitialRectBuilder.withSizeAndRatio(size: 0.92, aspectRatio: _aspect),
             baseColor: Colors.black,
             maskColor: Colors.black.withValues(alpha: 0.6),
-            cornerDotBuilder: (_, __) => const SizedBox.shrink(),
             onCropped: (result) {
               if (!mounted) return;
               switch (result) {
@@ -72,8 +72,26 @@ class _CropScreenState extends State<_CropScreen> {
           top: false,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(20, 10, 20, 12),
-            child: Text(tr('두 손가락으로 확대하고 끌어서 원하는 부분을 틀에 맞춰 주세요', 'Pinch to zoom and drag to fit the part you want inside the frame'),
-                textAlign: TextAlign.center, style: const TextStyle(color: Colors.white70, fontSize: 12)),
+            child: Column(mainAxisSize: MainAxisSize.min, children: [
+              Wrap(spacing: 8, children: [
+                for (final (label, a) in _presets)
+                  ChoiceChip(
+                    label: Text(label == '자유' ? tr('자유', 'Free') : label, style: TextStyle(fontSize: 12, color: _aspect == a ? Colors.black : Colors.white)),
+                    selected: _aspect == a,
+                    selectedColor: C.gold,
+                    backgroundColor: Colors.white12,
+                    side: BorderSide.none,
+                    showCheckmark: false,
+                    onSelected: (_) => setState(() {
+                      _aspect = a;
+                      _ctl.aspectRatio = a;
+                    }),
+                  ),
+              ]),
+              const SizedBox(height: 8),
+              Text(tr('박스 모서리를 끌어 크기를 바꾸고, 박스를 옮겨 원하는 부분을 골라주세요', 'Drag the corners to resize the box and move it over the part you want'),
+                  textAlign: TextAlign.center, style: const TextStyle(color: Colors.white70, fontSize: 12)),
+            ]),
           ),
         ),
       ]),

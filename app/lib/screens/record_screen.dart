@@ -574,8 +574,8 @@ class _PhotoRow extends StatelessWidget {
                     key: ValueKey(n),
                     future: LogPhotos.instance.file(n),
                     builder: (_, snap) => snap.hasData
-                        ? Image.file(snap.data!, width: 128, height: 72, fit: BoxFit.cover)
-                        : Container(width: 128, height: 72, color: C.chip),
+                        ? Image.file(snap.data!, width: 72, height: 72, fit: BoxFit.cover)
+                        : Container(width: 72, height: 72, color: C.chip),
                   ),
                 ),
               ),
