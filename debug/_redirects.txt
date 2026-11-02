@@ -1,0 +1,2 @@
+https://m.place.naver.com/place/1976789110/home -> https://m.place.naver.com/restaurant/1976789110/home
+https://m.place.naver.com/restaurant/1976789110/home -> https://m.place.naver.com/restaurant/1976789110/home
