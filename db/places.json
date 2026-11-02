@@ -76,5 +76,57 @@
   "rating_count": 1,
   "added": "2026-11-01",
   "source": "suggestion"
+ },
+ {
+  "id": "kr-daegu-veriest-cigar",
+  "name": "베리스트 시가",
+  "name_en": "Veriest Cigar",
+  "kinds": [
+   "lounge"
+  ],
+  "smoking": [
+   "indoor",
+   "outdoor"
+  ],
+  "sells": "yes",
+  "country": "KR",
+  "city": "대구",
+  "city_en": "Daegu",
+  "lat": 35.8537846,
+  "lng": 128.6002694,
+  "maps_url": "https://www.google.com/maps/search/?api=1&query=35.8537846,128.6002694&query_place_id=ChIJgztaiAfjZTURJoAdWqM-2XM",
+  "address": "대구 남구 이천로28길 69 1층",
+  "note": "시가 판매 라운지. 실내·실외 자리",
+  "note_en": "Cigar shop & lounge, indoor and outdoor seating",
+  "rating": null,
+  "rating_count": 0,
+  "added": "2026-11-02",
+  "source": "suggestion"
+ },
+ {
+  "id": "kr-daegu-azt-cigar-bar",
+  "name": "아지트 시가바 (AZT)",
+  "name_en": "AZT Cigar Bar",
+  "kinds": [
+   "bar"
+  ],
+  "smoking": [
+   "indoor"
+  ],
+  "sells": "yes",
+  "country": "KR",
+  "city": "대구",
+  "city_en": "Daegu",
+  "lat": 35.856497,
+  "lng": 128.5095871,
+  "maps_url": "https://www.google.com/maps/search/?api=1&query=35.856497,128.5095871",
+  "naver_url": "https://map.naver.com/p/entry/place/1976789110",
+  "address": "대구 달서구 이곡공원로1길 70 1층",
+  "note": "위스키·하이볼 바 + 별도 시가룸(예약 필수, 1인 차지에 음료 1잔 포함, 외부 시가 반입 시 요금). 월 휴무",
+  "note_en": "Whisky & highball bar with a separate cigar room (reservation required; per-person charge incl. one drink; fee for outside cigars). Closed Mondays",
+  "rating": null,
+  "rating_count": 0,
+  "added": "2026-11-02",
+  "source": "suggestion"
  }
 ]
