@@ -26,8 +26,9 @@ jobs:
           for u in $URLS; do
             i=$((i+1))
             name=$(echo "$u" | sed -E 's#https?://##; s#[^A-Za-z0-9._-]+#_#g' | cut -c1-80)
-            curl -sSL --max-time 60 -A "Mozilla/5.0 (cigar-db-bot)" "$u" -o "debug/$name" || echo "FAILED $u"
+            eff=$(curl -sSL --max-time 60 -A "Mozilla/5.0 (cigar-db-bot)" "$u" -o "debug/$name" -w '%{url_effective}') || echo "FAILED $u"
             echo "$u -> debug/$name $(stat -c %s "debug/$name" 2>/dev/null || echo 0) bytes"
+            echo "$u -> $eff" >> debug/_redirects.txt
           done
           exit 0
       - name: Commit
