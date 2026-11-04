@@ -32,10 +32,18 @@ jobs:
           token_format: access_token
           access_token_scopes: https://www.googleapis.com/auth/cloud-platform
 
+      - name: Previous report (for delta)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          NUM=$(gh issue list --label stats --state open --json number --jq '.[0].number' || true)
+          [ -n "$NUM" ] && gh api "repos/${{ github.repository }}/issues/$NUM" --jq .body > prev_body.md || true
+
       - name: Collect
         env:
           TOKEN: ${{ steps.gcp-auth.outputs.access_token }}
           PROJECT: myhumidor-2482d
+          PREV_BODY: prev_body.md
         run: |
           python3 .github/stats/stats.py stats.md stats.json
           cat stats.md >> "$GITHUB_STEP_SUMMARY"

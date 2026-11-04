@@ -200,9 +200,64 @@ ranking.sort(key=lambda r: (-r["people"], -r["logs"], -r["avg"]))
 # ---- 최근 기록 ----
 recent = sorted(logs, key=lambda l: l.get("_updated") or "", reverse=True)[:25]
 
+# ---- 지난 집계 대비 변화 (사람이 세지 않게 스크립트가 직접) ----
+# 이전 리포트 본문(PREV_BODY 파일) 끝의 <!-- snapshot {...} --> 를 읽어 id 집합으로 비교한다.
+import re as _re
+_prev = {}
+_pb = os.environ.get("PREV_BODY")
+if _pb and os.path.exists(_pb):
+    _m = _re.search(r"<!-- snapshot (\{.*?\}) -->\s*$", open(_pb, encoding="utf-8").read(), flags=_re.S)
+    if _m:
+        try:
+            _prev = json.loads(_m.group(1))
+        except Exception:  # noqa
+            _prev = {}
+_snap = {
+    "at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
+    "logs": {l["_id"]: f"{short(l.get('uid'))}|{l.get('cigar_name') or ''}|{l.get('vitola') or ''}|{score10(l.get('score'))}" for l in logs},
+    "installs": {i["_id"]: f"{i.get('platform') or ''}|{i.get('lang') or ''}|{i.get('build') or ''}" for i in installs},
+    "sugg": sorted(x["_id"] for x in sugg),
+    "feedback": sorted(x["_id"] for x in feedback),
+    "places": sorted(x["_id"] for x in places),
+    "reviews": {r["_id"]: f"{short(r.get('uid'))}|{r.get('place_id')}|{r.get('rating')}" for r in previews},
+    "users": sorted(short(u) for u in uids if u),
+}
+_delta = []
+if _prev:
+    _pl, _pi = _prev.get("logs", {}), _prev.get("installs", {})
+    _new_logs = [(k, v) for k, v in _snap["logs"].items() if k not in _pl]
+    _chg_logs = [(k, v) for k, v in _snap["logs"].items() if k in _pl and _pl[k] != v]
+    _del_logs = [k for k in _pl if k not in _snap["logs"]]
+    _new_inst = [(k, v) for k, v in _snap["installs"].items() if k not in _pi]
+    _new_users = [u for u in _snap["users"] if u not in set(_prev.get("users", []))]
+    _new_sugg = [k for k in _snap["sugg"] if k not in set(_prev.get("sugg", []))]
+    _new_fb = [k for k in _snap["feedback"] if k not in set(_prev.get("feedback", []))]
+    _new_pl = [k for k in _snap["places"] if k not in set(_prev.get("places", []))]
+    _pr = _prev.get("reviews", {})
+    _new_rev = [(k, v) for k, v in _snap["reviews"].items() if k not in _pr or _pr[k] != v]
+    _delta.append(f"### 지난 집계({_prev.get('at', '?')}) 이후 변화")
+    _delta.append(f"- 기록 **{len(_pl)} → {len(_snap['logs'])}** (+{len(_new_logs)}" + (f", 수정 {len(_chg_logs)}" if _chg_logs else "") + (f", 삭제 {len(_del_logs)}" if _del_logs else "") + ")")
+    for _k, _v in sorted(_new_logs, key=lambda kv: kv[1]):
+        _u, _c, _vt, _sc = _v.split("|")
+        _delta.append(f"  - 신규: {_u} · {_c}{(' ' + _vt) if _vt else ''} · {_sc}")
+    for _k, _v in _chg_logs:
+        _u, _c, _vt, _sc = _v.split("|")
+        _delta.append(f"  - 수정: {_u} · {_c}{(' ' + _vt) if _vt else ''} · {_sc}")
+    _delta.append(f"- 기기 **{len(_pi)} → {len(_snap['installs'])}** (+{len(_new_inst)})" + ("" if not _new_inst else ": " + ", ".join(f"{short(k)} ({v.replace('|', '·')})" for k, v in _new_inst)))
+    _delta.append(f"- 공유 사용자 **{len(_prev.get('users', []))} → {len(_snap['users'])}**" + (f" (+{', '.join(_new_users)})" if _new_users else ""))
+    _delta.append(f"- DB 제안 +{len(_new_sugg)} · 장소 제안 +{len(_new_pl)} · 장소 평가 +{len(_new_rev)} · 피드백 +{len(_new_fb)}")
+    for _k, _v in _new_rev:
+        _u, _pid, _r = _v.split("|")
+        _delta.append(f"  - 장소 평가: {_u} · {_pid} · ★{_r}")
+else:
+    _delta.append("### 지난 집계 이후 변화")
+    _delta.append("- (이전 스냅샷 없음 — 다음 집계부터 표시)")
+
 # ---- 마크다운 ----
 L = []
 L.append(f"## MyHumidor 운영 통계 · {today.isoformat()}")
+L.append("")
+L.extend(_delta)
 L.append("")
 L.append("### 사용자")
 L.append(f"- 기록 공유 중인 사람(익명 UID): **{len(uids)}명** — " + ", ".join(f"{k} {v}" for k, v in lang_users.most_common()))
@@ -378,6 +433,8 @@ else:
     L.append("- 없음")
 L.append("")
 L.append("_자동 생성 (stats.yml). 익명 UID 앞 6자리만 표시._")
+L.append("")
+L.append("<!-- snapshot " + json.dumps(_snap, ensure_ascii=False, separators=(",", ":")) + " -->")
 
 md = "\n".join(L)
 open(OUT_MD, "w", encoding="utf-8").write(md)
