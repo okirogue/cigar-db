@@ -329,7 +329,7 @@ L.append("### 최근 기록 25건")
 L.append("| 갱신 | 사용자 | 언어 | 시가 | 비톨라 | 점수 | 태그 |")
 L.append("|---|---|---|---|---|--:|---|")
 for l in recent:
-    L.append(f"| {(l.get('_updated') or '')[:10]} | {short(l.get('uid'))} | {l.get('lang') or '-'} | {l.get('cigar_name')} | "
+    L.append(f"| {(l.get('_updated') or '')[:16].replace('T', ' ')}Z | {short(l.get('uid'))} | {l.get('lang') or '-'} | {l.get('cigar_name')} | "
              f"{l.get('vitola') or ''} | {score10(l.get('score')):.1f} | {', '.join(l.get('tags') or [])[:60]} |")
 L.append("")
 L.append("### 실행 기록 (installs, UID별)")
