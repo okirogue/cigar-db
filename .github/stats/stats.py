@@ -174,6 +174,7 @@ lang_users = Counter(uid_lang.values())
 inst_platform = Counter(i.get("platform", "?") for i in installs)
 inst_version = Counter(f"{i.get('platform','?')} b{i.get('build','?')}" for i in installs)
 inst_lang = Counter(i.get("lang", "?") for i in installs)
+inst_cross = Counter((i.get("platform", "?"), i.get("lang", "?")) for i in installs)
 active7 = sum(1 for i in installs if (i.get("last") or "")[:10] >= (today - dt.timedelta(days=7)).isoformat())
 
 # ---- 기록 ----
@@ -266,6 +267,13 @@ if installs:
     L.append(f"- 앱 실행 기록(installs): **{len(installs)}대** · 최근 7일 활성 {active7}대")
     L.append("  - 플랫폼: " + ", ".join(f"{k} {v}" for k, v in inst_platform.most_common()))
     L.append("  - 언어: " + ", ".join(f"{k} {v}" for k, v in inst_lang.most_common()))
+    L.append("")
+    L.append("  | 플랫폼 \\ 언어 | " + " | ".join(k for k, _ in inst_lang.most_common()) + " | 계 |")
+    L.append("  |---|" + "--:|" * (len(inst_lang) + 1))
+    for pf, n in inst_platform.most_common():
+        L.append(f"  | {pf} | " + " | ".join(str(inst_cross[(pf, lg)]) for lg, _ in inst_lang.most_common()) + f" | {n} |")
+    L.append("  | 계 | " + " | ".join(str(v) for _, v in inst_lang.most_common()) + f" | {len(installs)} |")
+    L.append("")
     L.append("  - 버전: " + ", ".join(f"{k} ×{v}" for k, v in sorted(inst_version.items())))
 else:
     L.append("- 앱 실행 기록(installs): 아직 없음 (②번 업데이트 배포 후 쌓임)")
