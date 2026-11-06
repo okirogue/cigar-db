@@ -6103,7 +6103,8 @@
   "notes": {
    "official": [
     "earth",
-    "espresso"
+    "espresso",
+    "sweet"
    ],
    "review": []
   },
@@ -6116,6 +6117,22 @@
      "espresso"
     ],
     "text": "Experience Liga Privada No. 9—The Broadleaf Bully. Bold, smooth, and complex with deep notes of earth and espresso in a majestic Broadleaf wrapper. Each blend better than the last, the ninth and final emerged as our definitive favorite through its unrivaled complexity and rewarding layers of flavor. This robust, unique flavor is a direct result of the Stalk-Cut, Stalk-Cured process that transforms the Broadleaf wrapper to a once-in-a-lifetime experience. 9 delivers the pinnacle of Connecticut Broadleaf experiences, layering deep, meaty notes of earth and espresso with a long, remarkable finish. Exploring the subtle taste profile differences between different sizes is a great way to learn more about your favorite blend or switch up your experience."
+   },
+   {
+    "source": "official:stg",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "espresso",
+     "sweet"
+    ],
+    "text": "Earthy , Espresso , Sweetness Available. Learn about Liga Privada No. 9 Cigars. Check out reviews and get details on No. 9"
+   },
+   {
+    "source": "shop:cigarplace",
+    "vitola": "",
+    "tags": [],
+    "text": "Liga Privada No. 9 is among the most coveted and sought-after maduro cigars on the market today. It is the sister cigar of the famous T52 and has garnered much attention and numerous accolades since its inception years ago, including multiple 90+ ratings in Cigar Aficionado , a spot on numerous Top 25 lists, and recognition as one of the best cigars Jonathan Drew has ever taken credit for. Originally intended for use only in the private humidors of the head honchos at Drew Estate down in Nicaragua, No. 9 is an extraordinarily rich mash-up of some of the world's finest tobaccos. This includes a top shelf mixture of Honduran and Nicaraguan fillers, a plantation grown Brazilian Mata Fina binder for added flavor, and a jet-black Connecticut Broadleaf Oscuro Ligero wrapper. Only a small handful of rollers at Drew Estate are certified to roll the Liga Privada series, so there is never a question regarding the quality of the end product."
    }
   ],
   "verified": false,
@@ -6129,11 +6146,18 @@
     "Toro 6x52",
     "Belicoso 6x52",
     "Corona Doble 7x54"
-   ]
+   ],
+   "binder": "Brazilian Mata Fina",
+   "filler": "Honduran , Nicaraguan"
   },
-  "updated": "2026-10-06",
+  "updated": "2026-11-06",
   "aliases": [
+   "LP9",
+   "Liga Privada No. 9",
    "liga privada liga privada no 9"
+  ],
+  "legacy_ids": [
+   "liga-privada-no-9"
   ]
  },
  "drew-estate-liga-privada-liga-privada-papas-fritas": {
@@ -46580,15 +46604,59 @@
   "name": "Piece Unique",
   "notes": {
    "official": [],
-   "review": []
+   "review": [
+    "bread",
+    "cedar",
+    "cocoa",
+    "coffee",
+    "cream",
+    "earth",
+    "pepper",
+    "tea"
+   ]
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "cedar",
+     "pepper",
+     "earth",
+     "coffee",
+     "cream",
+     "bread",
+     "cocoa",
+     "tea"
+    ],
+    "text": "Cigar Aficionado news (Oct 2024): Gellis Family Cigars by Kyle Gellis of Warped; 6 x 52, Ecuadoran Connecticut shade wrapper, Nicaraguan binder, Nicaraguan and Dominican filler, rolled at Tabacalera La Isla (Dominican Republic) and aged a year in Spanish cedar; medium-bodied; limited edition of 500 boxes of 15 at $40 per cigar. Developing Palates team review: medium to medium-full; first third cedar, pepper and earth with dark coffee; second third creamy and cedar-forward with bread and chocolate notes; final third turns bitter and tannic for some reviewers.",
+    "confidence": "high",
+    "urls": [
+     "https://www.cigaraficionado.com/article/gellis-family-piece-unique-coming-next-month",
+     "https://developingpalates.com/reviews/cigar-reviews/team-cigar-review-gellis-piece-unique/"
+    ]
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-11-06",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
-  }
+  },
+  "specs": {
+   "wrapper": "Ecuadorian Connecticut Shade",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua, Dominican Republic",
+   "strength": "medium",
+   "country": "Dominican Republic"
+  },
+  "vitolas": [
+   "Toro 6x52"
+  ],
+  "aliases": [
+   "Warped Gellis Family",
+   "겔리스 피스 유니크"
+  ]
  },
  "gellis-family-saunter": {
   "id": "gellis-family-saunter",
@@ -57119,49 +57187,6 @@
   "seed": {
    "shops": "cigarplace",
    "cuban": false
-  }
- },
- "liga-privada-no-9": {
-  "id": "liga-privada-no-9",
-  "brand": "Liga Privada",
-  "name": "No. 9",
-  "notes": {
-   "official": [
-    "earth",
-    "espresso",
-    "sweet"
-   ],
-   "review": []
-  },
-  "note_sources": [
-   {
-    "source": "official:stg",
-    "vitola": "",
-    "tags": [
-     "earth",
-     "espresso",
-     "sweet"
-    ],
-    "text": "Earthy , Espresso , Sweetness Available. Learn about Liga Privada No. 9 Cigars. Check out reviews and get details on No. 9"
-   },
-   {
-    "source": "shop:cigarplace",
-    "vitola": "",
-    "tags": [],
-    "text": "Liga Privada No. 9 is among the most coveted and sought-after maduro cigars on the market today. It is the sister cigar of the famous T52 and has garnered much attention and numerous accolades since its inception years ago, including multiple 90+ ratings in Cigar Aficionado , a spot on numerous Top 25 lists, and recognition as one of the best cigars Jonathan Drew has ever taken credit for. Originally intended for use only in the private humidors of the head honchos at Drew Estate down in Nicaragua, No. 9 is an extraordinarily rich mash-up of some of the world's finest tobaccos. This includes a top shelf mixture of Honduran and Nicaraguan fillers, a plantation grown Brazilian Mata Fina binder for added flavor, and a jet-black Connecticut Broadleaf Oscuro Ligero wrapper. Only a small handful of rollers at Drew Estate are certified to roll the Liga Privada series, so there is never a question regarding the quality of the end product."
-   }
-  ],
-  "verified": false,
-  "updated": "2026-10-17",
-  "seed": {
-   "shops": "cigarpage+cigarplace",
-   "cuban": false
-  },
-  "vitolas": [],
-  "specs": {
-   "binder": "Brazilian Mata Fina",
-   "filler": "Honduran , Nicaraguan",
-   "strength": "medium to full"
   }
  },
  "liga-privada-t52": {
@@ -108061,6 +108086,250 @@
   },
   "updated": "2026-10-30",
   "aliases": [],
+  "seed": {
+   "cuban": true
+  }
+ },
+ "davidoff-chefs-edition-2025": {
+  "id": "davidoff-chefs-edition-2025",
+  "brand": "Davidoff",
+  "name": "Chefs Edition 2025",
+  "notes": {
+   "official": [],
+   "review": [
+    "bread",
+    "caramel",
+    "cedar",
+    "cocoa",
+    "coffee",
+    "cream",
+    "earth",
+    "leather",
+    "pepper",
+    "sweet",
+    "woody"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "pepper",
+     "caramel",
+     "bread",
+     "cedar",
+     "cream",
+     "leather",
+     "woody",
+     "earth",
+     "coffee",
+     "cocoa",
+     "sweet"
+    ],
+    "text": "halfwheel review (87 pts, Toro 6 1/4 x 52): Ecuadorian wrapper, Mexican binder, Dominican filler including piloto aged five years in yagua and 15-year-old San Vicente. Mild to medium-minus. Black pepper, popcorn and caramel corn, rustic bread, cedar, creaminess, belt leather, light aromatic wood, graham cracker, earthiness, instant coffee, chocolate milkshake and dry wood; flavor simplifies and loses some sweetness in the final third. 17,500 boxes of 10; $55 per cigar.",
+    "confidence": "high",
+    "urls": [
+     "https://halfwheel.com/davidoff-chefs-edition-2025/455517/"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Toro 6.25x52"
+  ],
+  "specs": {
+   "wrapper": "Ecuador",
+   "binder": "Mexico",
+   "filler": "Dominican Republic",
+   "strength": "mild to medium",
+   "country": "Dominican Republic"
+  },
+  "updated": "2026-11-06",
+  "aliases": [
+   "Chef's Edition",
+   "쉐프 에디션"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "davidoff-year-of-the-horse-2026": {
+  "id": "davidoff-year-of-the-horse-2026",
+  "brand": "Davidoff",
+  "name": "Year of the Horse 2026",
+  "notes": {
+   "official": [],
+   "review": [
+    "earth",
+    "nuts",
+    "sweet"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "nuts",
+     "sweet"
+    ],
+    "text": "halfwheel (Top 25 of 2025, #16, 91 pts, 6 1/2 x 55 gran toro): Ecuadorian wrapper and binder, Dominican filler. Earth, nuttiness and the classic Davidoff mushroom note; reviewers noted sweetness — honeycomb for one, a patisserie-like flavor for another. Limited edition of 17,500 boxes of 10, released November 2025; $65 per cigar.",
+    "confidence": "high",
+    "urls": [
+     "https://halfwheel.com/top25/16-davidoff-limited-edition-2026-year-of-the-horse/"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Gran Toro 6.5x55"
+  ],
+  "specs": {
+   "wrapper": "Ecuador",
+   "binder": "Ecuador",
+   "filler": "Dominican Republic",
+   "strength": "medium",
+   "country": "Dominican Republic"
+  },
+  "updated": "2026-11-06",
+  "aliases": [
+   "Limited Edition 2026",
+   "말의 해"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "davidoff-aniversario-no-1-limited-edition-2023": {
+  "id": "davidoff-aniversario-no-1-limited-edition-2023",
+  "brand": "Davidoff",
+  "name": "Aniversario No. 1 Limited Edition 2023",
+  "notes": {
+   "official": [],
+   "review": [
+    "bread",
+    "butter",
+    "cinnamon",
+    "citrus",
+    "cocoa",
+    "coffee",
+    "cream",
+    "dark_chocolate",
+    "earth",
+    "espresso",
+    "grass",
+    "hay",
+    "leather",
+    "nuts",
+    "pepper",
+    "spice",
+    "sweet",
+    "tea",
+    "toast",
+    "white_pepper"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "espresso",
+     "earth",
+     "spice",
+     "nuts",
+     "butter",
+     "cream",
+     "hay",
+     "bread",
+     "leather",
+     "cinnamon",
+     "dark_chocolate",
+     "cocoa",
+     "white_pepper",
+     "pepper",
+     "sweet",
+     "citrus",
+     "coffee",
+     "toast",
+     "grass",
+     "tea"
+    ],
+    "text": "halfwheel review (92 pts, Double Corona 8 2/3 x 48): Ecuadorian Connecticut-seed wrapper, Ecuadorian binder, Dominican piloto viso, San Vicente viso and San Vicente Mejorado viso filler. Strength just under medium building to just over medium; body mild-plus to just under medium; flavor medium-plus to full. Opens with espresso-like bitterness, earth and light spice; peanut butter and creamy hay become the main flavors with yeast, toasted bread, leather, cinnamon and dark chocolate; white pepper and fondant sweetness on the retrohale; second third adds a brief grapefruit note, oatmeal, brewed coffee and slight charred meat; final third dry tea leaves, pizza crust, coffee beans, cocoa nibs and cinnamon. 6,500 boxes of 10; $64 per cigar.",
+    "confidence": "high",
+    "urls": [
+     "https://halfwheel.com/davidoff-aniversario-no-1-limited-edition-collection/432712"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Double Corona 8.66x48"
+  ],
+  "specs": {
+   "wrapper": "Ecuadorian Connecticut",
+   "binder": "Ecuador",
+   "filler": "Dominican Republic (piloto, San Vicente)",
+   "strength": "medium",
+   "country": "Dominican Republic"
+  },
+  "updated": "2026-11-06",
+  "aliases": [
+   "Aniversario No.1 LE",
+   "애니버사리오 No.1"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "la-flor-de-cano-selectos-no-3": {
+  "id": "la-flor-de-cano-selectos-no-3",
+  "brand": "La Flor de Cano",
+  "name": "Selectos No. 3 (Edición Regional Reino Unido)",
+  "notes": {
+   "official": [],
+   "review": [
+    "floral",
+    "leather",
+    "spice",
+    "sweet"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "leather",
+     "sweet",
+     "floral",
+     "spice"
+    ],
+    "text": "Cigar Inspector (Jan 2025): UK Regional Edition in the Cervantes (Lonsdale) format, 6 1/2 x 42, 125,000 cigars in 5,000 numbered slide-lid boxes of 25, medium-bodied. Retailer (C.Gars) customer notes: thick smoke with a leathery character giving way to sweet floral notes and a spicy finish; even draw, about 45-60 minutes.",
+    "confidence": "medium",
+    "urls": [
+     "https://cigarinspector.com/?p=83606",
+     "https://www.cgarsltd.co.uk/flor-cano-selectos-regional-edition-cigar-single-pri-61987.html"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Cervantes 6.5x42"
+  ],
+  "specs": {
+   "strength": "medium",
+   "country": "Cuba",
+   "length": "6.5",
+   "ring": "42"
+  },
+  "updated": "2026-11-06",
+  "aliases": [
+   "Selectos No.3 UK RE",
+   "셀렉토스 No.3"
+  ],
   "seed": {
    "cuban": true
   }
