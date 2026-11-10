@@ -108434,5 +108434,51 @@
   "seed": {
    "cuban": false
   }
+ },
+ "romeo-y-julieta-puritos": {
+  "id": "romeo-y-julieta-puritos",
+  "brand": "Romeo y Julieta",
+  "name": "Puritos",
+  "notes": {
+   "official": [],
+   "review": [
+    "coffee"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "coffee"
+    ],
+    "text": "Habanos machine-made cigarillo (Cuban tobacco): Romeo y Julieta Puritos, about 106 mm x 29 ring (4 1/4 x 26-29 by retailer listings), packs of 5, around 15 minutes. Retailer (C.Gars) listing: light to medium strength. Customer notes: mild, pleasant smoke with coffee notes and little aftertaste.",
+    "confidence": "low",
+    "urls": [
+     "https://www.cgarsltd.co.uk/romeo-julieta-puritos-pack-cigars-p-15265.html"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Puritos 4.25x29"
+  ],
+  "specs": {
+   "strength": "mild to medium",
+   "country": "Cuba",
+   "length": "4.25",
+   "ring": "29",
+   "type": "machine-made cigarillo"
+  },
+  "updated": "2026-11-11",
+  "aliases": [
+   "RyJ Puritos",
+   "Furitos",
+   "푸리토스",
+   "로미오 푸리토"
+  ],
+  "seed": {
+   "cuban": true
+  }
  }
 }
