@@ -114,6 +114,11 @@ writes = []
 for n, s in plan:
     fields = {k: fv(v) for k, v in s.items()}
     fields["updated"] = fv(now)
-    writes.append({"update": {"name": n, "fields": fields}, "updateMask": {"fieldPaths": list(fields)}})
+    writes.append({
+        "update": {"name": n, "fields": fields},
+        "updateMask": {"fieldPaths": list(fields)},
+        # 앱 운영자 동기화는 synced(서버 시각) 기준으로 받아가므로 같이 갱신해야 폰에 반영된다
+        "updateTransforms": [{"fieldPath": "synced", "setToServerValue": "REQUEST_TIME"}],
+    })
 req("POST", f"{BASE}:commit", {"writes": writes})
 print(f"updated {len(writes)} docs")
