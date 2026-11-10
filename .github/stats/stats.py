@@ -442,7 +442,10 @@ else:
 L.append("")
 L.append("_자동 생성 (stats.yml). 익명 UID 앞 6자리만 표시._")
 L.append("")
-L.append("<!-- snapshot " + json.dumps(_snap, ensure_ascii=False, separators=(",", ":")) + " -->")
+# 정기(schedule) 실행은 스냅샷을 갱신하지 않는다 — "지난 집계 이후 변화"는 운영자가 직접 돌린(workflow_dispatch) 시점 기준으로만 누적
+import os as _os
+_keep = _prev if (_os.environ.get("GITHUB_EVENT_NAME") == "schedule" and _prev) else _snap
+L.append("<!-- snapshot " + json.dumps(_keep, ensure_ascii=False, separators=(",", ":")) + " -->")
 
 md = "\n".join(L)
 open(OUT_MD, "w", encoding="utf-8").write(md)
