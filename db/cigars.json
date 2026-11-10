@@ -108333,5 +108333,106 @@
   "seed": {
    "cuban": true
   }
+ },
+ "bandolero-premium": {
+  "id": "bandolero-premium",
+  "brand": "Bandolero",
+  "name": "Premium",
+  "notes": {
+   "official": [],
+   "review": [
+    "tobacco",
+    "earth",
+    "cedar",
+    "cream",
+    "pepper",
+    "sweet"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "tobacco",
+     "earth",
+     "cedar",
+     "cream",
+     "pepper",
+     "sweet"
+    ],
+    "text": "Cigar Coop review (Oct 2025, Bravos 5 1/4 x 52, 88 pts): Selected Tobacco's Bandolero Premium, made by Tabacos de Costa Rica in Puriscal, Costa Rica. Ecuadorian Habano 2000 wrapper, Nicaraguan binder, Nicaraguan ligero and Peruvian filler. Medium strength, medium body. Natural tobacco, earth, cedar, cream and fruit early with no dominant note; cedar and earth take the lead by the midpoint with black pepper and cedar on the retrohale; cream fades and black pepper builds through the second third; final third cedar and earth with black pepper, fruit and natural tobacco adding some sweetness. Vitolas: Ironicos 4 1/2 x 50, Bravos 5 1/4 x 52, Magnificos 6 x 55 (boxes of 25).",
+    "confidence": "high",
+    "urls": [
+     "https://cigar-coop.com/2025/10/bandolero-premium-bravos-by-selected-tobacco-cigar-review.html"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Ironicos 4.5x50",
+   "Bravos 5.25x52",
+   "Magnificos 6x55"
+  ],
+  "specs": {
+   "wrapper": "Ecuadorian Habano 2000",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua (ligero), Peru",
+   "strength": "medium",
+   "country": "Costa Rica"
+  },
+  "updated": "2026-11-10",
+  "aliases": [
+   "Selected Tobacco Bandolero Premium",
+   "Bandolero Magnificos",
+   "반돌레로"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "arturo-fuente-black-pink-vintage-1960-s-series": {
+  "id": "arturo-fuente-black-pink-vintage-1960-s-series",
+  "brand": "Arturo Fuente",
+  "name": "Black Pink Vintage 1960's Series",
+  "notes": {
+   "official": [],
+   "review": []
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [],
+    "text": "Cigar Aficionado / Cigar Inspector / Cigar Coop news (2025-2026): Rare Pink Vintage 1960's Black Pink, an extension of the Vintage 1960's Series but a completely different blend from the Rare Pink. Dark Connecticut-grown Habano-seed wrapper over Dominican tobaccos from Chateau de la Fuente; made at Tabacalera A. Fuente y Cia. Described by the company as a darker, richer, earthier take on the Rare Pink while keeping its complexity. Limited production; small TAA allocation in early 2026, first wide shipment October 2026. No published tasting review yet. Vitolas: Signature 6 x 46 ($13.53), Work of Art 4 7/8 x 60 perfecto ($14.08), Happy Ending 5 1/2 x 53 ($16.12), Black Panther 6 5/8 x 55 ($22.72).",
+    "confidence": "low",
+    "urls": [
+     "https://www.cigaraficionado.com/articles/fuente-s-black-pinks-heading-to-retailers",
+     "https://cigarinspector.com/?p=84652",
+     "https://cigar-coop.com/2026/10/arturo-fuente-vintage-1960s-black-pink-heading-for-release-cigar-news.html"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Signature 6x46",
+   "Work of Art 4.875x60",
+   "Happy Ending 5.5x53",
+   "Black Panther 6.625x55"
+  ],
+  "specs": {
+   "wrapper": "Connecticut-grown Habano (dark)",
+   "filler": "Dominican Republic",
+   "country": "Dominican Republic"
+  },
+  "updated": "2026-11-10",
+  "aliases": [
+   "Black Pink",
+   "Rare Pink Black Pink",
+   "블랙 핑크"
+  ],
+  "seed": {
+   "cuban": false
+  }
  }
 }
