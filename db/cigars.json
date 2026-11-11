@@ -108480,5 +108480,674 @@
   "seed": {
    "cuban": true
   }
+ },
+ "ave-maria-lionheart": {
+  "id": "ave-maria-lionheart",
+  "brand": "Ave Maria",
+  "name": "Lionheart",
+  "notes": {
+   "official": [],
+   "review": [
+    "toast",
+    "nuts",
+    "cedar",
+    "spice",
+    "cocoa",
+    "leather",
+    "coffee",
+    "citrus",
+    "pepper"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "toast",
+     "nuts",
+     "cedar",
+     "spice",
+     "cocoa",
+     "leather",
+     "coffee",
+     "citrus",
+     "pepper"
+    ],
+    "text": "Cigars International product page and Blind Man's Puff blind review (2019, 91/100): CI-exclusive line rolled at AJ Fernandez (Nicaragua), sun grown Habano wrapper over Nicaraguan binder with Brazilian, Mexican and Nicaraguan long-filler. Mild-medium to medium. Roasted cashew and pistachio up front, then cedar, baking spice, cocoa, leather, coffee, citrus and a mild pepper kick.",
+    "confidence": "high",
+    "urls": [
+     "https://www.cigarsinternational.com/product/ave-maria-lionheart/AVT-PM.html",
+     "https://blindmanspuff.com/?p=41562"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Marshal 6x48",
+   "Earl 5.5x54",
+   "Bishop 5.7x56",
+   "Chancellor 5.9x60"
+  ],
+  "specs": {
+   "wrapper": "Sun Grown Habano",
+   "binder": "Nicaragua",
+   "filler": "Brazil, Mexico, Nicaragua",
+   "strength": "mild to medium",
+   "country": "Nicaragua"
+  },
+  "updated": "2026-11-12",
+  "aliases": [
+   "Lion Heart",
+   "라이언하트"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "ave-maria-divinia": {
+  "id": "ave-maria-divinia",
+  "brand": "Ave Maria",
+  "name": "Divinia",
+  "notes": {
+   "official": [],
+   "review": [
+    "cedar",
+    "espresso",
+    "cocoa",
+    "toast",
+    "nuts",
+    "almond",
+    "pepper",
+    "cream",
+    "dried_fruit",
+    "sweet"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "cedar",
+     "espresso",
+     "cocoa",
+     "toast",
+     "nuts",
+     "almond",
+     "pepper",
+     "cream",
+     "dried_fruit",
+     "sweet"
+    ],
+    "text": "Retailer descriptions plus Katman review (2015, 94/100, box-pressed Toro): super-premium Ave Maria by AJ Fernandez, Nicaraguan Habano sun grown wrapper, Nicaraguan binder, aged Cuban-seed Nicaraguan long-filler, each cigar in a cedar coffin. Medium-full building to full. Espresso, cocoa, roasted nuts (cashew, almond), cedar, red pepper, creaminess, malt and dried fruit with a sweet, peppery finish. Perfecto is the Morning Star 5x58 box-pressed double figurado.",
+    "confidence": "medium",
+    "urls": [
+     "https://www.pipesandcigars.com/product/ave-maria-divinia/AVD-PM.html",
+     "https://kohnhed.com/?p=16635"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Toro 6x54 (box-pressed, tubo)",
+   "Morning Star Perfecto 5x58"
+  ],
+  "specs": {
+   "wrapper": "Nicaraguan Habano Sun Grown",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua (Cuban-seed)",
+   "strength": "medium to full",
+   "country": "Nicaragua"
+  },
+  "updated": "2026-11-12",
+  "aliases": [
+   "디비니아"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "ave-maria-argentum": {
+  "id": "ave-maria-argentum",
+  "brand": "Ave Maria",
+  "name": "Argentum",
+  "notes": {
+   "official": [],
+   "review": [
+    "espresso",
+    "cocoa",
+    "cedar",
+    "leather",
+    "sweet",
+    "spice"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "espresso",
+     "cocoa",
+     "cedar",
+     "leather",
+     "sweet",
+     "spice"
+    ],
+    "text": "Retailer description (Pipes and Cigars / Cigars International): Connecticut Broadleaf-wrapped Ave Maria made by AJ Fernandez in Nicaragua, dark oily Broadleaf wrapper over Nicaraguan binder with Honduran and Cuban-seed Nicaraguan long-filler. Medium-full with a strong opening burst; espresso, cocoa, cedar, leather and sweet spices with light spice throughout. Launched in the Morning Star perfecto 5x58.",
+    "confidence": "medium",
+    "urls": [
+     "https://pipesandcigars.com/product/ave-maria-argentum/AVJ-PM.html",
+     "https://www.cigarsinternational.com/product/ave-maria-argentum/AVJ-PM.html"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Morning Star Perfecto 5x58",
+   "Robusto 4.9x52",
+   "Double Robusto 5.5x54",
+   "Gordo 6x60",
+   "Gordo Extra 7x58"
+  ],
+  "specs": {
+   "wrapper": "Connecticut Broadleaf",
+   "binder": "Nicaragua",
+   "filler": "Honduras, Nicaragua (Cuban-seed)",
+   "strength": "medium to full",
+   "country": "Nicaragua"
+  },
+  "updated": "2026-11-12",
+  "aliases": [
+   "아르겐툼"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "ave-maria-immaculata": {
+  "id": "ave-maria-immaculata",
+  "brand": "Ave Maria",
+  "name": "Immaculata",
+  "notes": {
+   "official": [],
+   "review": [
+    "leather",
+    "cedar",
+    "bread",
+    "cream",
+    "white_pepper",
+    "pepper",
+    "caramel",
+    "hay",
+    "vanilla",
+    "citrus",
+    "coffee"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "leather",
+     "cedar",
+     "bread",
+     "cream",
+     "white_pepper",
+     "pepper",
+     "caramel",
+     "hay",
+     "vanilla",
+     "citrus",
+     "coffee"
+    ],
+    "text": "Pipes and Cigars / Cigars International description plus Kaplowitz Media (2016) and Effortless Gent reviews: the mellow Ave Maria — golden Ecuadorian Connecticut shade wrapper over Nicaraguan binder and Cuban-seed Nicaraguan long-filler, blended by AJ Fernandez in Nicaragua. Mild to mild-medium, smooth-bodied. Leather, cedar, toast, cream, a hint of white pepper; reviewers also found caramel, toasted white bread, hay, vanilla, ginger and a late lemon-rind citrus and light coffee note.",
+    "confidence": "high",
+    "urls": [
+     "https://www.pipesandcigars.com/p/ave-maria-immaculata-cigars/1475347/",
+     "https://kaplowitz.blogspot.com/2016/08/ave-maria-immaculata-cigar-review.html",
+     "https://effortlessgent.com/ave-maria-immaculata/"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Robusto 5x52",
+   "Toro 6x50",
+   "Belicoso 6x54",
+   "Gordo 6x60",
+   "Churchill 7x48"
+  ],
+  "specs": {
+   "wrapper": "Ecuadorian Connecticut",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua (Cuban-seed)",
+   "strength": "mild to medium",
+   "country": "Nicaragua"
+  },
+  "updated": "2026-11-12",
+  "aliases": [
+   "imaculata",
+   "이마쿨라타"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "mark-twain-memoir": {
+  "id": "mark-twain-memoir",
+  "brand": "Mark Twain",
+  "name": "Memoir",
+  "notes": {
+   "official": [],
+   "review": [
+    "butter",
+    "coffee",
+    "spice",
+    "cream",
+    "hay",
+    "cedar"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "butter",
+     "coffee",
+     "spice",
+     "cream",
+     "hay",
+     "cedar"
+    ],
+    "text": "Retailer description (Cigars International house brand; Mike's Cigars, CI): Nicaraguan-made maduro with an oily Pennsylvania Broadleaf Maduro wrapper over Nicaraguan binder and filler. Medium to full. Coffee, spice, cream, hay and cedar. No independent review found.",
+    "confidence": "medium",
+    "urls": [
+     "https://mikescigars.com/cigars/brands/mark-twain/mark-twain-memoir",
+     "https://www.cigarsinternational.com/product/mark-twain-memoir/CI-002-MTX-PM.html"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "No. 1 Double Corona 7.25x54",
+   "No. 2 Gordo 6x60",
+   "No. 3 Robusto 5x54"
+  ],
+  "specs": {
+   "wrapper": "Pennsylvania Broadleaf Maduro",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "strength": "medium to full",
+   "country": "Nicaragua"
+  },
+  "updated": "2026-11-12",
+  "aliases": [
+   "마크 트웨인 메모아"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "mark-twain-the-press": {
+  "id": "mark-twain-the-press",
+  "brand": "Mark Twain",
+  "name": "The Press",
+  "notes": {
+   "official": [],
+   "review": [
+    "bread",
+    "earth",
+    "oak",
+    "leather",
+    "nuts",
+    "spice",
+    "sweet"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "bread",
+     "earth",
+     "oak",
+     "leather",
+     "nuts",
+     "spice",
+     "sweet"
+    ],
+    "text": "Retailer description (Cigars International / Thompson Cigar): box-pressed blend made in the Dominican Republic with an Ecuador Sumatra wrapper, Honduran binder and Honduran-Nicaraguan long-filler. Medium (to medium-full). Toasty-smooth profile of earth, oak and leather; Thompson adds nuts and a spicy sweetness. No independent review found.",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarsinternational.com/product/mark-twain-the-press/MT3-PM.html",
+     "https://www.thompsoncigar.com/p/mark-twain-the-press-no-3/2043168/"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "No. 1 Robusto Extra 5.5x60",
+   "No. 2 Toro Gordo 6x60",
+   "No. 3 Double Corona 7x56"
+  ],
+  "specs": {
+   "wrapper": "Ecuador Sumatra",
+   "binder": "Honduras",
+   "filler": "Honduras, Nicaragua",
+   "strength": "medium",
+   "country": "Dominican Republic"
+  },
+  "updated": "2026-11-12",
+  "aliases": [
+   "Twain The Press",
+   "더 프레스"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "mark-twain-riverboat": {
+  "id": "mark-twain-riverboat",
+  "brand": "Mark Twain",
+  "name": "Riverboat",
+  "notes": {
+   "official": [],
+   "review": [
+    "earth",
+    "woody",
+    "bread",
+    "cedar",
+    "oak",
+    "sweet",
+    "spice"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "woody",
+     "bread",
+     "cedar",
+     "oak",
+     "sweet",
+     "spice"
+    ],
+    "text": "Retailer description (Cigars International, CigarBid, Mike's Cigars): Nicaraguan-made barber pole twisting a Connecticut shade wrapper with a Maduro wrapper over Nicaraguan binder and long-filler. Medium-bodied with a subtle boldness; earth, wood, toast, cedar, oak and sweet spice. No independent review found.",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarsinternational.com/p/mark-twain-riverboat/2037076/",
+     "https://mikescigars.com/cigars/brands/mark-twain/mark-twain-riverboat"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Robusto 5x50",
+   "Toro 6x50",
+   "Churchill 7x50"
+  ],
+  "specs": {
+   "wrapper": "Connecticut Shade + Maduro (barber pole)",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "strength": "medium",
+   "country": "Nicaragua"
+  },
+  "updated": "2026-11-12",
+  "aliases": [
+   "Twain Riverboat",
+   "리버보트"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "brick-house-fumas": {
+  "id": "brick-house-fumas",
+  "brand": "Brick House",
+  "name": "Fumas",
+  "notes": {
+   "official": [],
+   "review": [
+    "earth",
+    "leather",
+    "nuts",
+    "spice",
+    "sweet"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "leather",
+     "nuts",
+     "spice",
+     "sweet"
+    ],
+    "text": "Retailer description (Pipes and Cigars, Cigar Place, Cigars Direct): J.C. Newman's value bundle version of Brick House, made in Nicaragua with a sun grown Sumatra wrapper over Nicaraguan binder and a mixed-filler 'Cuban sandwich' core of Nicaraguan leaf left over from the regular Brick House lines. Medium-bodied; earth and leather up front, nuttiness, Nicaraguan spice and a natural sweetness emerging after the first third.",
+    "confidence": "medium",
+    "urls": [
+     "https://www.pipesandcigars.com/product/brick-house-fumas/BKF-PM.html",
+     "https://www.cigarplace.biz/all-brands/brick-house/brick-house-fumas.html"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Robusto 5x54",
+   "Toro 6x52",
+   "Sixty 6x60",
+   "Churchill 7.25x50"
+  ],
+  "specs": {
+   "wrapper": "Sun Grown Sumatra",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua (mixed filler)",
+   "strength": "medium",
+   "country": "Nicaragua"
+  },
+  "updated": "2026-11-12",
+  "aliases": [
+   "Fumas Sun Grown",
+   "푸마스"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "gurkha-governor-s-private-blend": {
+  "id": "gurkha-governor-s-private-blend",
+  "brand": "Gurkha",
+  "name": "Governor's Private Blend",
+  "notes": {
+   "official": [],
+   "review": [
+    "cedar",
+    "spice",
+    "coffee",
+    "caramel",
+    "sweet"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "cedar",
+     "spice",
+     "coffee",
+     "caramel",
+     "sweet"
+    ],
+    "text": "Retailer description (Cigars International / Thompson / CigarBid): Ecuadorian Habano wrapper over a Dominican binder with Corojo long-filler (spec tables list Colombian), made in the Dominican Republic. Medium-bodied. Cedar, spice and coffee with occasional caramel sweetness. Catalog line sold mainly through the CI family; the perfecto is the Double Perfecto 6x60.",
+    "confidence": "medium",
+    "urls": [
+     "https://cigarsinternational.com/p/gurkha-governors-private-blend-cigars/1509924/",
+     "https://www.thompsoncigar.com/p/gurkha-governors-private-blend-xo/2025646/"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Robusto",
+   "Double Perfecto 6x60",
+   "XO 6x60"
+  ],
+  "specs": {
+   "wrapper": "Ecuadorian Habano",
+   "binder": "Dominican Republic",
+   "filler": "Corojo",
+   "strength": "medium",
+   "country": "Dominican Republic"
+  },
+  "updated": "2026-11-12",
+  "aliases": [
+   "Governors Select",
+   "Governor's Select",
+   "거버너스"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "nica-libre-ash-clay": {
+  "id": "nica-libre-ash-clay",
+  "brand": "Nica Libre",
+  "name": "Ash & Clay",
+  "notes": {
+   "official": [],
+   "review": [
+    "earth",
+    "leather",
+    "bread",
+    "cocoa",
+    "toast",
+    "spice",
+    "sweet"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "earth",
+     "leather",
+     "bread",
+     "cocoa",
+     "toast",
+     "spice",
+     "sweet"
+    ],
+    "text": "Retailer description (Cigars International house brand, launched 2025): Nicaraguan blend built around volcanic Ometepe island tobacco — Ecuadorian Habano wrapper, Ometepe binder, long-filler from Condega, Ometepe, Jalapa and Estelí. Medium to full. Earth, leather, bread and a touch of cocoa with a smoky undertone, baking spice and noticeable sweetness; smooth, consistent burn. The 6x60 is sold as Double Toro.",
+    "confidence": "high",
+    "urls": [
+     "https://www.cigarsinternational.com/product/nica-libre-ash-and-clay/NLY-PM.html",
+     "https://www.cigarbid.com/a/nica-libre-ash-clay-toro/5790210/"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Robusto 5x52",
+   "Toro 6x52",
+   "Double Toro 6x60"
+  ],
+  "specs": {
+   "wrapper": "Ecuadorian Habano",
+   "binder": "Nicaragua (Ometepe)",
+   "filler": "Nicaragua (Condega, Ometepe, Jalapa, Estelí)",
+   "strength": "medium to full",
+   "country": "Nicaragua"
+  },
+  "updated": "2026-11-12",
+  "aliases": [
+   "Ash and Clay",
+   "애쉬 앤 클레이"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "nica-libre-maduro": {
+  "id": "nica-libre-maduro",
+  "brand": "Nica Libre",
+  "name": "Maduro",
+  "notes": {
+   "official": [],
+   "review": [
+    "coffee",
+    "earth",
+    "dark_chocolate",
+    "cocoa",
+    "pepper",
+    "cedar",
+    "espresso",
+    "leather",
+    "spice",
+    "sweet",
+    "cream"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "coffee",
+     "earth",
+     "dark_chocolate",
+     "cocoa",
+     "pepper",
+     "cedar",
+     "espresso",
+     "leather",
+     "spice",
+     "sweet",
+     "cream"
+    ],
+    "text": "Retailer description (Cigars International, CigarBid, Best Cigar Prices) plus Kohnhed blog review: the core box-pressed Nica Libre — San Andrés Maduro wrapper, Nicaraguan Habano binder, aged Nicaraguan long-filler, handmade in Nicaragua (reviewer identifies it as an AJ Fernandez blend). Medium-bodied. Coffee and earth with dark chocolate and a bold, somewhat peppery finish; cedar, espresso, leather, cocoa, pepper spice, sweetness, creaminess and a nougat-like finish in the torpedo review. Not the separate Nica Libre Oliva Maduro.",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarsinternational.com/product/nica-libre/NLF-PM.html",
+     "https://kohnhed.com/?p=3532"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Corona",
+   "Robusto",
+   "Toro 6x54 (box-pressed)",
+   "Torpedo 6x52",
+   "Double Toro 6x60"
+  ],
+  "specs": {
+   "wrapper": "San Andrés Maduro",
+   "binder": "Nicaraguan Habano",
+   "filler": "Nicaragua",
+   "strength": "medium",
+   "country": "Nicaragua"
+  },
+  "updated": "2026-11-12",
+  "aliases": [
+   "Nica Libre (original)",
+   "니카 리브레 마두로"
+  ],
+  "seed": {
+   "cuban": false
+  }
  }
 }
