@@ -109147,5 +109147,191 @@
   "seed": {
    "cuban": false
   }
+ },
+ "viaje-jalapeno": {
+  "id": "viaje-jalapeno",
+  "brand": "Viaje",
+  "name": "Jalapeño (Pepper Series)",
+  "notes": {
+   "official": [],
+   "review": [
+    "grass",
+    "pepper",
+    "earth",
+    "mineral",
+    "cocoa",
+    "toast",
+    "citrus",
+    "brown_sugar",
+    "sweet",
+    "cinnamon",
+    "spice",
+    "coffee",
+    "cedar"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "grass",
+     "pepper",
+     "earth",
+     "mineral",
+     "cocoa",
+     "toast",
+     "citrus",
+     "brown_sugar",
+     "sweet",
+     "cinnamon",
+     "spice",
+     "coffee",
+     "cedar"
+    ],
+    "text": "Not infused — a petit figurado in green foil shaped like a jalapeño (Pepper Series, 2015); PHAT Jalapeño is the larger 5 3/16 x 55 batch and PHAT Purple Jalapeño (2021) the third generation. Blend undisclosed; retailers list Honduran binder and filler, made at Raíces Cubanas in Danlí, Honduras. halfwheel review of the original (83 pts): earth then building black pepper with a jalapeño-like tingle, dirt and black pepper with chalk in the middle, faint chocolate, campfire aroma and a minty retrohale to close; medium-full. Tiny Tim review of PHAT (93.75): citrus, chocolate, brown sugar, cinnamon, nutmeg, coffee and black pepper opening, nutmeg and cedar mid, chocolate and black coffee with lingering pepper to close, body ramping to very full.",
+    "confidence": "medium",
+    "urls": [
+     "https://halfwheel.com/viaje-jalapeno/84080/",
+     "https://tinytimblog.blogspot.com/2020/03/viaje-phat-jalapeno-5-316-x-55.html",
+     "https://atlanticcigar.com/viaje-pepper-series-phat-jalapeno-figurado/"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Jalapeño Petit Perfecto 4.875x51",
+   "PHAT Jalapeño Figurado 5.19x55",
+   "PHAT Purple Jalapeño 5.19x55"
+  ],
+  "specs": {
+   "binder": "Honduras",
+   "filler": "Honduras",
+   "strength": "medium to full",
+   "country": "Honduras"
+  },
+  "updated": "2026-11-13",
+  "aliases": [
+   "PHAT Jalapeño",
+   "Phat Jalapeno",
+   "Viaje Jalapeno",
+   "할라피뇨"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "rojas-breakfast-tacos-maduro": {
+  "id": "rojas-breakfast-tacos-maduro",
+  "brand": "Rojas Cigars",
+  "name": "Breakfast Tacos Maduro",
+  "notes": {
+   "official": [],
+   "review": [
+    "cream",
+    "coffee",
+    "bread",
+    "caramel",
+    "pepper",
+    "earth",
+    "musty",
+    "molasses",
+    "sweet"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "cream",
+     "coffee",
+     "bread",
+     "caramel",
+     "pepper",
+     "earth",
+     "musty",
+     "molasses",
+     "sweet"
+    ],
+    "text": "halfwheel news (TPE 2023; ring bumped 46→50 in 2023, $6, 30-count bundles): Mexican San Andrés maduro wrapper over Nicaraguan binder and filler grown and fermented by Rojas Cigars, rolled at Noel Rojas's factory in Estelí. Klaro Cigars review (4.6/5): full strength; bitter and milky mocha, graham cracker, toffee, black pepper and dried red pepper flake with an earthy funk in the first half, flavors muted in the second half, then intense peppercorn and chili, bitter coffee grounds and molasses sweetness at the end. Retailers list medium-full.",
+    "confidence": "high",
+    "urls": [
+     "https://halfwheel.com/rojas-cigars-to-debut-breakfast-tacos-at-tpe-announces-price-increase-to-street-tacos/417710",
+     "https://halfwheel.com/rojas-cigars-raises-price-of-street-tacos-increases-ring-gauge-on-breakfast-tacos/431129",
+     "https://klarocigars.com/blogs/expert-reviews/rojas-cigars-breakfast-tacos-maduro-review"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Petit Salomon 4.5x50"
+  ],
+  "specs": {
+   "wrapper": "Mexican San Andrés Maduro",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "strength": "medium to full",
+   "country": "Nicaragua"
+  },
+  "updated": "2026-11-13",
+  "aliases": [
+   "Breakfast Tacos",
+   "브렉퍼스트 타코"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "hondurenos-maduro": {
+  "id": "hondurenos-maduro",
+  "brand": "Hondureños",
+  "name": "Maduro",
+  "notes": {
+   "official": [],
+   "review": [
+    "honey",
+    "earth",
+    "spice",
+    "sweet"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "honey",
+     "earth",
+     "spice",
+     "sweet"
+    ],
+    "text": "Retailer description only (CigarPage / Field Supply): Hondureños are unbanded factory overruns from Raíces Cubanas in Danlí, Honduras (the factory behind Alec Bradley, Viaje and Illusione) — surplus production of existing blends in odd or discontinued sizes, Honduran long filler, sold in 20-count bundles in Maduro, Habano, Criollo and Cuban Honey versions. Medium-bodied, earthy and slightly spicy-sweet; flavor varies by vitola. Corona Gorda dimensions not published.",
+    "confidence": "low",
+    "urls": [
+     "https://www.cigarpage.com/hondurenos-maduro.html",
+     "https://www.fieldsupply.com/hondurenos-maduro.html"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Corona Gorda",
+   "Short Robusto 4.1x51"
+  ],
+  "specs": {
+   "wrapper": "Maduro",
+   "filler": "Honduras",
+   "strength": "medium",
+   "country": "Honduras"
+  },
+  "updated": "2026-11-13",
+  "aliases": [
+   "Hondurenos",
+   "온두레뇨스"
+  ],
+  "seed": {
+   "cuban": false
+  }
  }
 }
