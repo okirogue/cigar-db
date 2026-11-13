@@ -65492,17 +65492,19 @@
   "notes": {
    "official": [],
    "review": [
-    "earth",
-    "toast",
-    "espresso",
+    "bread",
+    "caramel",
     "coffee",
+    "cream",
+    "earth",
+    "espresso",
+    "grass",
+    "molasses",
     "musty",
     "nuts",
     "pepper",
-    "cream",
     "sweet",
-    "grass",
-    "bread",
+    "toast",
     "white_pepper"
    ]
   },
@@ -65527,10 +65529,32 @@
     "text": "Despite not noticing any issues with the airflow resistance during the cold draws, each cigar has a pretty tight first draw. I find that lots of cigars with a perfecto-shaped foot tighten once lit and then open as the wider parts of the cigar start burning. Flavor-wise, those first puffs deliver muddy earthy flavors with accents of charcoal, burnt coffee, damp tree bark, fall leaves and walnuts. One cigar imparts a burning sensation on the side of my tongue, more like an alcohol burn than one from pepper. I also notice that the seams on each cigar aren’t tight as there always seems to be at least one spot where smoke is leaking from a part of the cigar that is neither the head nor foot. Earthiness, frequently damp earthiness but sometimes more charred, leads the Rojas Breakfast Tacos Maduro’s first third. Underneath are contrasting flavors that range from burnt woods and burnt waffle cone flavors to a Thousand Island dressing-like creaminess that packs sweet, fruity and vegetal accents. Unfortunately, I find the former is always stronger than the latter, frequently drowning out the creamier flavors. The finish reminds me of a relatively fresh loaf of white bread—one with the perfect audible crack—until the finish gets bitter due to the burnt flavors. Pepper emerges as well, though it’s quite minor compared to the retrohales. When I blow out smoke through my nose, a very distinct and sharp flavor of green pepper, more akin to a jalapeño than say a poblano, overwhelms my nostrils. There are some toasty flavors, but it’s probably 95 percent pepper. That pepper flavor trails off and, eventually, earthiness remerges while white pepper and tartness latch onto the sides of my tongue. Flavor is close to full, body is medium and strength is medium-full. While I avoid any reasons to deduct points for construction issues during the first third, I wouldn’t describe the construction as very good. The cigar really lives on the edge when it comes to staying lit and requires me to be very consistent about taking a puff every minute or so. Even occasionally taking an extra 30 seconds between puffs has an immediate, negative impact on combustion to the point where I decide not to",
     "url": "https://halfwheel.com/rojas-breakfast-tacos-maduro/423511/",
     "title": "Rojas Breakfast Tacos Maduro"
+   },
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "cream",
+     "coffee",
+     "bread",
+     "caramel",
+     "pepper",
+     "earth",
+     "musty",
+     "molasses",
+     "sweet"
+    ],
+    "text": "halfwheel news (TPE 2023; ring bumped 46→50 in 2023, $6, 30-count bundles): Mexican San Andrés maduro wrapper over Nicaraguan binder and filler grown and fermented by Rojas Cigars, rolled at Noel Rojas's factory in Estelí. Klaro Cigars review (4.6/5): full strength; bitter and milky mocha, graham cracker, toffee, black pepper and dried red pepper flake with an earthy funk in the first half, flavors muted in the second half, then intense peppercorn and chili, bitter coffee grounds and molasses sweetness at the end. Retailers list medium-full.",
+    "confidence": "high",
+    "urls": [
+     "https://halfwheel.com/rojas-cigars-to-debut-breakfast-tacos-at-tpe-announces-price-increase-to-street-tacos/417710",
+     "https://halfwheel.com/rojas-cigars-raises-price-of-street-tacos-increases-ring-gauge-on-breakfast-tacos/431129",
+     "https://klarocigars.com/blogs/expert-reviews/rojas-cigars-breakfast-tacos-maduro-review"
+    ]
    }
   ],
   "verified": false,
-  "updated": "2026-10-24",
+  "updated": "2026-11-13",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
@@ -65541,9 +65565,18 @@
    "binder": "Nicaragua",
    "filler": "Nicaragua",
    "length": "4 1/2 Inches",
-   "ring": "42",
-   "strength_felt": "medium to full"
-  }
+   "ring": "50 (46 until 2023)",
+   "strength_felt": "medium to full",
+   "strength": "medium to full"
+  },
+  "vitolas": [
+   "Petit Salomon 4.5x50"
+  ],
+  "aliases": [
+   "Breakfast Tacos Maduro",
+   "Rojas Cigars Breakfast Tacos",
+   "브렉퍼스트 타코"
+  ]
  },
  "rojas-havana-nights": {
   "id": "rojas-havana-nights",
@@ -109155,7 +109188,6 @@
   "notes": {
    "official": [],
    "review": [
-    "grass",
     "pepper",
     "earth",
     "mineral",
@@ -109175,7 +109207,6 @@
     "source": "review:manual",
     "vitola": "",
     "tags": [
-     "grass",
      "pepper",
      "earth",
      "mineral",
@@ -109221,68 +109252,6 @@
    "cuban": false
   }
  },
- "rojas-breakfast-tacos-maduro": {
-  "id": "rojas-breakfast-tacos-maduro",
-  "brand": "Rojas Cigars",
-  "name": "Breakfast Tacos Maduro",
-  "notes": {
-   "official": [],
-   "review": [
-    "cream",
-    "coffee",
-    "bread",
-    "caramel",
-    "pepper",
-    "earth",
-    "musty",
-    "molasses",
-    "sweet"
-   ]
-  },
-  "note_sources": [
-   {
-    "source": "review:manual",
-    "vitola": "",
-    "tags": [
-     "cream",
-     "coffee",
-     "bread",
-     "caramel",
-     "pepper",
-     "earth",
-     "musty",
-     "molasses",
-     "sweet"
-    ],
-    "text": "halfwheel news (TPE 2023; ring bumped 46→50 in 2023, $6, 30-count bundles): Mexican San Andrés maduro wrapper over Nicaraguan binder and filler grown and fermented by Rojas Cigars, rolled at Noel Rojas's factory in Estelí. Klaro Cigars review (4.6/5): full strength; bitter and milky mocha, graham cracker, toffee, black pepper and dried red pepper flake with an earthy funk in the first half, flavors muted in the second half, then intense peppercorn and chili, bitter coffee grounds and molasses sweetness at the end. Retailers list medium-full.",
-    "confidence": "high",
-    "urls": [
-     "https://halfwheel.com/rojas-cigars-to-debut-breakfast-tacos-at-tpe-announces-price-increase-to-street-tacos/417710",
-     "https://halfwheel.com/rojas-cigars-raises-price-of-street-tacos-increases-ring-gauge-on-breakfast-tacos/431129",
-     "https://klarocigars.com/blogs/expert-reviews/rojas-cigars-breakfast-tacos-maduro-review"
-    ]
-   }
-  ],
-  "verified": false,
-  "vitolas": [
-   "Petit Salomon 4.5x50"
-  ],
-  "specs": {
-   "wrapper": "Mexican San Andrés Maduro",
-   "binder": "Nicaragua",
-   "filler": "Nicaragua",
-   "strength": "medium to full",
-   "country": "Nicaragua"
-  },
-  "updated": "2026-11-13",
-  "aliases": [
-   "Breakfast Tacos",
-   "브렉퍼스트 타코"
-  ],
-  "seed": {
-   "cuban": false
-  }
- },
  "hondurenos-maduro": {
   "id": "hondurenos-maduro",
   "brand": "Hondureños",
@@ -109290,7 +109259,6 @@
   "notes": {
    "official": [],
    "review": [
-    "honey",
     "earth",
     "spice",
     "sweet"
@@ -109301,7 +109269,6 @@
     "source": "review:manual",
     "vitola": "",
     "tags": [
-     "honey",
      "earth",
      "spice",
      "sweet"
