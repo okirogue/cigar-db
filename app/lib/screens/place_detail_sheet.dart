@@ -85,25 +85,40 @@ class _PlaceDetailState extends State<_PlaceDetail> {
               if (note.isNotEmpty) ...[const SizedBox(height: 10), Text(note, style: const TextStyle(fontSize: 14, height: 1.4))],
               if (p.address != null && p.address!.isNotEmpty) ...[const SizedBox(height: 6), SubText(p.address!)],
               const SizedBox(height: 14),
-              Row(children: [
-                Expanded(
+              Builder(builder: (context) {
+                final mapBtn = Expanded(
                   child: OutlinedButton.icon(
                     style: OutlinedButton.styleFrom(side: const BorderSide(color: Color(0xFFB8A999)), foregroundColor: C.accent),
                     icon: const Icon(Icons.map_outlined, size: 18),
                     onPressed: () => launchUrl(Uri.parse(p.mapsLink), mode: LaunchMode.externalApplication),
                     label: Text(tr('구글맵', 'Google Maps')),
                   ),
-                ),
-                const SizedBox(width: 10),
-                Expanded(
+                );
+                final rateBtn = Expanded(
                   child: FilledButton.icon(
                     style: FilledButton.styleFrom(backgroundColor: C.accent),
                     icon: Icon(mine == null ? Icons.star_border : Icons.edit, size: 18),
                     onPressed: _write,
                     label: Text(mine == null ? tr('평가·코멘트', 'Rate & comment') : tr('내 평가 수정', 'Edit my review')),
                   ),
-                ),
-              ]),
+                );
+                final hasNaver = p.naverLink != null;
+                if (!hasNaver) return Row(children: [mapBtn, const SizedBox(width: 10), rateBtn]);
+                // 한국 장소(또는 네이버 링크 있음)면 지도 버튼 두 개를 한 줄에, 평가는 아래 전체 폭
+                final naverBtn = Expanded(
+                  child: OutlinedButton.icon(
+                    style: OutlinedButton.styleFrom(side: const BorderSide(color: Color(0xFFB8A999)), foregroundColor: C.accent),
+                    icon: const Icon(Icons.place_outlined, size: 18),
+                    onPressed: () => launchUrl(Uri.parse(p.naverLink!), mode: LaunchMode.externalApplication),
+                    label: Text(tr('네이버지도', 'Naver Map')),
+                  ),
+                );
+                return Column(children: [
+                  Row(children: [mapBtn, const SizedBox(width: 10), naverBtn]),
+                  const SizedBox(height: 8),
+                  Row(children: [rateBtn]),
+                ]);
+              }),
               const SizedBox(height: 18),
               Row(children: [
                 Text(tr('평가', 'Reviews'), style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),

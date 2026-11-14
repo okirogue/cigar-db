@@ -285,7 +285,7 @@ class _MoveQtyDialog extends StatefulWidget {
 }
 
 class _MoveQtyDialogState extends State<_MoveQtyDialog> {
-  late int _n = widget.item.qty;
+  int _n = 1; // 기본 1개부터 — '전부' 버튼으로 전량
   @override
   Widget build(BuildContext context) {
     final max = widget.item.qty;

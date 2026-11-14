@@ -17,7 +17,7 @@ class LocalDb {
   LocalDb._();
   static final LocalDb instance = LocalDb._();
 
-  static const maxHumidors = 3; // 무료 기본 한도 (UI엔 안내 안 띄움)
+  static const maxHumidors = 5; // 기본 한도 (2026-11 3→5) (UI엔 안내 안 띄움)
 
   Database? _db;
   Future<Database>? _opening; // 동시 호출 시 한 번만 연다

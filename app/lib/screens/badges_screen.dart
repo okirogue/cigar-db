@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 import '../data/badges.dart';
@@ -135,6 +136,7 @@ class _BadgesScreenState extends State<BadgesScreen> {
               ]),
             ]),
           ),
+          if (L10n.isKo) ...[const SizedBox(height: 12), const _CafeBanner()],
           const SizedBox(height: 14),
 
           // 도감
@@ -422,6 +424,52 @@ class _LangToggle extends StatelessWidget {
           const Padding(padding: EdgeInsets.symmetric(horizontal: 4), child: Text('·', style: TextStyle(fontSize: 11, color: C.hint))),
           Text('EN', style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: ko ? C.hint : C.accent)),
         ]),
+      ),
+    );
+  }
+}
+
+/// 한국어 사용자용 카페 배너 — 네이버 카페 Cigar Aficionados (정보 공유 커뮤니티 링크, 판매·구매 문구 없음)
+class _CafeBanner extends StatelessWidget {
+  const _CafeBanner();
+  static const _url = 'https://m.cafe.naver.com/cigaraficionado';
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: () => launchUrl(Uri.parse(_url), mode: LaunchMode.externalApplication),
+        child: Ink(
+          padding: const EdgeInsets.fromLTRB(14, 12, 12, 12),
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(colors: [Color(0xFFFBF7F0), Color(0xFFF1E7D8)], begin: Alignment.topLeft, end: Alignment.bottomRight),
+            border: Border.all(color: const Color(0xFFE3D3B8)),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Row(children: [
+            Container(
+              width: 42,
+              height: 42,
+              decoration: BoxDecoration(color: C.text, borderRadius: BorderRadius.circular(12)),
+              child: const Icon(Icons.chat_bubble_outline, color: C.gold, size: 20),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                RichText(
+                  text: const TextSpan(style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: C.text), children: [
+                    TextSpan(text: '시가 정보는 '),
+                    TextSpan(text: 'Cigar Aficionados', style: TextStyle(color: Color(0xFF8A6A3A))),
+                  ]),
+                ),
+                const SizedBox(height: 2),
+                const Text('네이버 카페 · 시연기 · 보관 팁 · 정모 소식', style: TextStyle(fontSize: 11.5, color: Color(0xFF8C7E70))),
+              ]),
+            ),
+            const Icon(Icons.chevron_right, color: Color(0xFFB8A58A)),
+          ]),
+        ),
       ),
     );
   }

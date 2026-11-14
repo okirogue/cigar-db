@@ -13,6 +13,7 @@ class Place {
   final String cityEn;
   final double lat, lng;
   final String? mapsUrl; // 구글맵 링크 (없으면 좌표로 연다)
+  final String? naverUrl; // 네이버지도 링크 (있을 때만 버튼)
   final String? address;
   final String note; // 운영자 메모 (ko)
   final String noteEn;
@@ -32,6 +33,7 @@ class Place {
     required this.lat,
     required this.lng,
     this.mapsUrl,
+    this.naverUrl,
     this.address,
     this.note = '',
     this.noteEn = '',
@@ -52,6 +54,7 @@ class Place {
         lat: (j['lat'] as num).toDouble(),
         lng: (j['lng'] as num).toDouble(),
         mapsUrl: j['maps_url'] as String?,
+        naverUrl: j['naver_url'] as String?,
         address: j['address'] as String?,
         note: (j['note'] ?? '') as String,
         noteEn: (j['note_en'] ?? j['note'] ?? '') as String,
@@ -60,6 +63,8 @@ class Place {
       );
 
   /// 구글맵 열기 URL (앱 설치돼 있으면 앱으로, 아니면 웹)
+  /// 네이버지도: 등록된 링크가 있으면 그걸, 없어도 한국 장소면 상호명 검색으로 연다
+  String? get naverLink => (naverUrl != null && naverUrl!.isNotEmpty) ? naverUrl : (country == 'KR' ? 'https://map.naver.com/p/search/${Uri.encodeComponent(name)}' : null);
   String get mapsLink => mapsUrl ?? 'https://www.google.com/maps/search/?api=1&query=${lat.toStringAsFixed(6)},${lng.toStringAsFixed(6)}';
 
   /// 두 좌표 사이 거리 (km, 하버사인)
