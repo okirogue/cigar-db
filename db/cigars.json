@@ -109300,5 +109300,330 @@
   "seed": {
    "cuban": false
   }
+ },
+ "blackbird-jackdaw": {
+  "id": "blackbird-jackdaw",
+  "brand": "Blackbird",
+  "name": "Jackdaw",
+  "notes": {
+   "official": [],
+   "review": [
+    "cedar",
+    "pepper",
+    "spice",
+    "toast",
+    "nuts",
+    "sweet",
+    "cream",
+    "clove",
+    "cinnamon",
+    "leather",
+    "citrus",
+    "grass",
+    "hay",
+    "butter"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "cedar",
+     "pepper",
+     "spice",
+     "toast",
+     "nuts",
+     "sweet",
+     "cream",
+     "clove",
+     "cinnamon",
+     "leather",
+     "citrus",
+     "grass",
+     "hay",
+     "butter"
+    ],
+    "text": "Stogie Press (94) and Cigar World reviews: Ecuadorian Connecticut Shade wrapper over Indonesian binder with Dominican, Nicaraguan Corojo 99 and US filler, made at Tabacalera Robles in Tamboril, Dominican Republic; debuted 2019. Mild to medium. Cedar, light pepper, baking spice, roasted nuts, sweet cream, allspice, mild cinnamon, leather and a touch of citrus; grassy hay and butter pre-light.",
+    "confidence": "high",
+    "urls": [
+     "https://stogiepress.com/cigar-review-blackbird-cigar-co-jackdaw-robusto-rated-94/",
+     "https://www.cigarworld.com/cigars/review/blackbird-jackdaw-gran-toro/"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Robusto 5x50",
+   "Gran Toro 6x54",
+   "Corona 6x44"
+  ],
+  "specs": {
+   "wrapper": "Ecuadorian Connecticut Shade",
+   "binder": "Indonesia",
+   "filler": "Dominican Republic, Nicaragua, USA",
+   "strength": "mild to medium",
+   "country": "Dominican Republic"
+  },
+  "updated": "2026-11-18",
+  "aliases": [
+   "Blackbird Cigar Co. Jackdaw",
+   "잭도우"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "famous-nicaraguan-selection-3000": {
+  "id": "famous-nicaraguan-selection-3000",
+  "brand": "Famous Smoke Shop",
+  "name": "Nicaraguan Selection 3000",
+  "notes": {
+   "official": [],
+   "review": [
+    "spice",
+    "earth",
+    "woody",
+    "toast",
+    "nuts",
+    "sweet",
+    "espresso",
+    "pepper"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "spice",
+     "earth",
+     "woody",
+     "toast",
+     "nuts",
+     "sweet",
+     "espresso",
+     "pepper"
+    ],
+    "text": "Famous Smoke Shop house brand (Cigar Advisor description): dark Ecuadorian Habano wrapper over Nicaraguan binder and long-filler from Estelí, Condega and Jalapa, made in Nicaragua. Medium to full. Spice up front, then earth, wood and roasted nuts, caramelized sweetness and espresso past the midpoint, black pepper in an intense final third. Bundles of 20. Sister lines: 1000 (Connecticut Broadleaf), 2000.",
+    "confidence": "medium",
+    "urls": [
+     "https://www.famous-smoke.com/brand/famous+nicaraguan+selection+3000+cigars",
+     "https://www.famous-smoke.com/cigaradvisor/cigar-of-the-week-nicaraguan-selection-3000-torpedo"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Torpedo 5.5x54",
+   "Toro 5.5x54",
+   "Robusto 5x54",
+   "Gordo 6x60",
+   "Presidente 7x52"
+  ],
+  "specs": {
+   "wrapper": "Ecuadorian Habano",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua (Estelí, Condega, Jalapa)",
+   "strength": "medium to full",
+   "country": "Nicaragua"
+  },
+  "updated": "2026-11-18",
+  "aliases": [
+   "Famous Nic",
+   "Famous Nicaraguan 3000"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "victor-sinclair-triple-corojo": {
+  "id": "victor-sinclair-triple-corojo",
+  "brand": "Victor Sinclair",
+  "name": "Triple Corojo",
+  "notes": {
+   "official": [],
+   "review": [
+    "spice",
+    "earth",
+    "cocoa",
+    "pepper",
+    "clove",
+    "cherry",
+    "sweet",
+    "cedar",
+    "oak",
+    "toast"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "spice",
+     "earth",
+     "cocoa",
+     "pepper",
+     "clove",
+     "cherry",
+     "sweet",
+     "cedar",
+     "oak",
+     "toast"
+    ],
+    "text": "Blind Man's Puff review (Robusto, 89): Corojo-seed wrapper, binder and filler — Brazilian Corojo wrapper over Dominican Corojo binder and filler, made at Tabacalera Victor Sinclair in the Dominican Republic (retailers list Dominican/Nicaraguan filler). Medium to medium-full. Baker's spice, earthy tobacco, cocoa, light pepper, nutmeg and clove-like spice, a cherry tinge and sweet cedar finish; retailers add oak sweetness and a charcoal-like finish.",
+    "confidence": "high",
+    "urls": [
+     "https://blindmanspuff.com/blind-cigar-review-victor-sinclair-triple-corojo-robusto-2/",
+     "https://www.cigarsinternational.com/product/victor-sinclair-triple-corojo/4CB-PM.html"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Toro 6x50",
+   "Robusto 5.5x50",
+   "Torpedo",
+   "Gordo"
+  ],
+  "specs": {
+   "wrapper": "Brazilian Corojo",
+   "binder": "Dominican Corojo",
+   "filler": "Dominican Republic, Nicaragua (Corojo)",
+   "strength": "medium to full",
+   "country": "Dominican Republic"
+  },
+  "updated": "2026-11-18",
+  "aliases": [
+   "Victor Sinclair Corojo",
+   "트리플 코로호"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "gran-habano-gh2-habano": {
+  "id": "gran-habano-gh2-habano",
+  "brand": "Gran Habano",
+  "name": "GH2 Habano",
+  "notes": {
+   "official": [],
+   "review": [
+    "cocoa",
+    "pepper",
+    "earth",
+    "nuts",
+    "mineral",
+    "leather",
+    "spice",
+    "hay",
+    "woody"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "cocoa",
+     "pepper",
+     "earth",
+     "nuts",
+     "mineral",
+     "leather",
+     "spice",
+     "hay",
+     "woody"
+    ],
+    "text": "Famous Smoke Cigar Advisor (Corona Gorda 8.3/10) and brand guide: value line separate from the numbered core lines — Nicaraguan Habano wrapper over Nicaraguan binder and filler, handmade in Honduras at G.R. Tabacaleras Unidas (Danlí) by George Rico; a Connecticut version also exists. Medium building to medium-full. Cocoa, mild pepper, earth and nuts with a bitter-chocolate finish; salt, leather and meaty notes with spice rising late; Cigar Obsession found dry chocolate, hay and wood.",
+    "confidence": "medium",
+    "urls": [
+     "https://www.famous-smoke.com/cigaradvisor/gh2-corona-gorda",
+     "https://www.famous-smoke.com/cigaradvisor/cigar-advisor-guide-gran-habano-cigars"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Robusto 5x50",
+   "Corona Gorda 5.625x46",
+   "Epicure 5.5x54",
+   "Toro"
+  ],
+  "specs": {
+   "wrapper": "Nicaraguan Habano",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "strength": "medium to full",
+   "country": "Honduras"
+  },
+  "updated": "2026-11-18",
+  "aliases": [
+   "GH2",
+   "Gran Habano #2",
+   "그란 하바노 GH2"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "arganese-maduro": {
+  "id": "arganese-maduro",
+  "brand": "Arganese",
+  "name": "Maduro",
+  "notes": {
+   "official": [],
+   "review": [
+    "cocoa",
+    "earth",
+    "sweet",
+    "pepper",
+    "coffee",
+    "woody"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "cocoa",
+     "earth",
+     "sweet",
+     "pepper",
+     "coffee",
+     "woody"
+    ],
+    "text": "Retailer description (Cigars International, Cigar Place) for the current bundle blend: dark Connecticut Broadleaf maduro wrapper over Nicaraguan binder and filler, made in Nicaragua; medium to medium-full. Cocoa-forward opening moving to earth, natural sweetness and light pepper — a classic chocolatey maduro. The original 2007-08 Dominican blend (Brazilian Mata Fina wrapper, Stogie Review) showed sweet pepper, coffee, bitter chocolate and wood.",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarsinternational.com/shop/arganese-brand/1701024/",
+     "https://www.cigarplace.biz/all-brands/arganese.html",
+     "https://stogiereview.com/2008/01/18/arganese-maduro-chairman/"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Torpedo 6.5x54",
+   "Toro 6x52",
+   "Robusto 5x50",
+   "Churchill 7x50"
+  ],
+  "specs": {
+   "wrapper": "Connecticut Broadleaf Maduro",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "strength": "medium to full",
+   "country": "Nicaragua"
+  },
+  "updated": "2026-11-18",
+  "aliases": [
+   "아르가네제 마두로"
+  ],
+  "seed": {
+   "cuban": false
+  }
  }
 }

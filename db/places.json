@@ -128,5 +128,30 @@
   "rating_count": 0,
   "added": "2026-11-02",
   "source": "suggestion"
+ },
+ {
+  "id": "gb-london-james-j-fox",
+  "name": "James J. Fox",
+  "name_en": "James J. Fox",
+  "kinds": [
+   "lounge"
+  ],
+  "smoking": [
+   "indoor"
+  ],
+  "sells": "yes",
+  "country": "GB",
+  "city": "런던",
+  "city_en": "London",
+  "lat": 51.5063889,
+  "lng": -0.1388889,
+  "maps_url": "https://maps.app.goo.gl/4yG8UCcDQQwNywWt7",
+  "address": "19 St James's St, London SW1A 1ES, UK",
+  "note": "1787년부터 이어온 시가 상점. 2층 샘플링 라운지(구매 시가 흡연), 지하에 처칠 관련 담배 박물관",
+  "note_en": "Cigar merchant since 1787. Upstairs sampling lounge for cigars bought in store; small tobacco museum downstairs with Churchill memorabilia",
+  "rating": null,
+  "rating_count": 0,
+  "added": "2026-11-18",
+  "source": "suggestion:sZlitQ"
  }
 ]
