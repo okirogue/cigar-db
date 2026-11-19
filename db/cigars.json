@@ -28557,12 +28557,15 @@
   "notes": {
    "official": [],
    "review": [
-    "earth",
-    "spice",
-    "white_pepper",
-    "pepper",
+    "bread",
     "cocoa",
-    "leather"
+    "earth",
+    "leather",
+    "nuts",
+    "pepper",
+    "spice",
+    "tea",
+    "white_pepper"
    ]
   },
   "note_sources": [
@@ -28592,21 +28595,41 @@
      "leather"
     ],
     "text": "1875 by Romeo y Julieta is an all-new addition to the already world-famous Romeo y Julieta lineup of cigars. Not to be confused with the other 1875 cigars such as the Original line and Reserve line, 1875 by Romeo y Julieta is brand new, released in 2014 as a retailer exclusive, and blended from scratch using Dominican filler and binder tobaccos and a gorgeous Indonesian shade wrapper leaf. Like other cigars from the famous Flor de Copan factory, 1875 is always consistent in construction, flavor, and overall enjoyability. Perhaps made to mimic the classic Romeo y Julieta Cuban cigars, 1875 by Romeo y Julieta starts off with a spicy blast of white pepper, which stays with the smoke throughout the duration of the cigar. Along the way, a bouquet of earth and tobacco flavors coat the palate and are accompanied by hints of cocoa and leather. Medium to full-bodied, 1875 by Romeo y Julieta makes a great starter cigar for a beginner looking to get into premium cigars. In addition, experienced aficionados will appreciate the rich history of the brand and the all-new flavor profile. 1875 pairs nicely with bourbon and scotch, making it a wonderful after-dinner treat. Other cigars by the famed brand, such as the original 1875 line and the 1875 Reserve , are also worth trying, as they are what made Romeo y Julieta what it is today. Always catering to the most discriminating palates, Romeo y Julieta has hit another one out of the ballpark with 1875."
+   },
+   {
+    "source": "review:manual",
+    "vitola": "Exhibición No. 3",
+    "tags": [
+     "tea",
+     "bread",
+     "nuts",
+     "leather"
+    ],
+    "text": "Cigar Aficionado rating (Exhibición No. 3 Toro 6x50, 89 pts): Indonesian Shade wrapper, Dominican binder and filler, made in the Dominican Republic (Altadis). Mild to medium. Tea, toast and walnut with hints of leather.",
+    "confidence": "high",
+    "urls": [
+     "https://www.cigaraficionado.com/ratings/15813/name/romeo-y-julieta-1875-exhibicion-no-3-toro"
+    ]
    }
   ],
   "verified": false,
-  "vitolas": [],
-  "updated": "2026-10-17",
+  "vitolas": [
+   "Bully 5x50",
+   "Cedro Deluxe No. 2 5.5x44",
+   "Churchill 7x50",
+   "Exhibición No. 3 (Toro) 6x50"
+  ],
+  "updated": "2026-11-19",
   "seed": {
    "shops": "cigarpage+cigarplace",
    "cuban": false
   },
   "specs": {
    "country": "Dominican Republic",
-   "wrapper": "Indonesian TBN",
-   "binder": "Dominican",
-   "filler": "Dominican",
-   "strength": "full",
+   "wrapper": "Indonesian Shade",
+   "binder": "Dominican Republic",
+   "filler": "Dominican Republic",
+   "strength": "mild to medium",
    "vitolas": [
     "Cedro Deluxe #2 5 1/2x44",
     "Cedro Deluxe #1 6 1/2x44",
@@ -28621,7 +28644,12 @@
     "Belicoso 6 1/8x52",
     "Numero Dos en Tubo 6 1/8x52"
    ]
-  }
+  },
+  "aliases": [
+   "1875 Exhibicion No.3",
+   "Exhibición No. 3",
+   "로미오 1875"
+  ]
  },
  "romeo-y-julieta-1875-connecticut-nicaragua": {
   "id": "romeo-y-julieta-1875-connecticut-nicaragua",

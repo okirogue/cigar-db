@@ -153,5 +153,30 @@
   "rating_count": 0,
   "added": "2026-11-18",
   "source": "suggestion:sZlitQ"
+ },
+ {
+  "id": "tw-taipei-roofinn",
+  "name": "ROOFINN",
+  "name_en": "ROOFINN",
+  "kinds": [
+   "bar"
+  ],
+  "smoking": [
+   "indoor"
+  ],
+  "sells": "yes",
+  "country": "TW",
+  "city": "타이베이",
+  "city_en": "Taipei",
+  "lat": 25.0406218,
+  "lng": 121.500059,
+  "maps_url": "https://maps.app.goo.gl/Q5NByqZMJujC1P4h6",
+  "address": "No. 37, Section 1, Xiyuan Rd, Wanhua District, Taipei (2F)",
+  "note": "완화구 골목 안 2층 위스키·시가 바. 입구는 골목 들어가 왼쪽 첫 문, 계단 위",
+  "note_en": "Second-floor whisky & cigar bar in Wanhua; entrance is the first door on the left down the alley, then upstairs",
+  "rating": null,
+  "rating_count": 0,
+  "added": "2026-11-19",
+  "source": "suggestion:sZlitQ"
  }
 ]
