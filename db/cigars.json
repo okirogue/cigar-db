@@ -7444,7 +7444,9 @@
    "cuban": false
   },
   "aliases": [
-   "la duena"
+   "la duena",
+   "La Duena",
+   "My Father La Duena"
   ]
  },
  "my-father-my-father-blue": {
@@ -29517,7 +29519,11 @@
    "strength": "Medium to Full",
    "factory_vitola": "Pirámides",
    "strength_felt": "medium"
-  }
+  },
+  "aliases": [
+   "Unicos",
+   "Vegas Robaina Unicos"
+  ]
  },
  "vegueros-centrogordos": {
   "id": "vegueros-centrogordos",
@@ -38640,7 +38646,11 @@
   "seed": {
    "shops": "cigarplace",
    "cuban": false
-  }
+  },
+  "aliases": [
+   "Senor Esugars",
+   "Cornelius & Anthony Senor Esugars"
+  ]
  },
  "crowned-heads-broadway": {
   "id": "crowned-heads-broadway",
@@ -38942,7 +38952,11 @@
    "length": "5 Inches",
    "ring": "56",
    "strength_felt": "mild"
-  }
+  },
+  "aliases": [
+   "Las Calaveras Edicion Limitada 2025",
+   "Crowned Heads Las Calaveras Edicion Limitada 2025"
+  ]
  },
  "crowned-heads-lawless-yellow-rose": {
   "id": "crowned-heads-lawless-yellow-rose",
@@ -45562,7 +45576,11 @@
   "seed": {
    "shops": "cigarpage",
    "cuban": false
-  }
+  },
+  "aliases": [
+   "Miami Edicion Limitada",
+   "Florida Man Miami Edicion Limitada"
+  ]
  },
  "fonseca-classic": {
   "id": "fonseca-classic",
@@ -58418,7 +58436,11 @@
    "length": "6 1/2 Inches",
    "ring": "54",
    "strength_felt": "medium"
-  }
+  },
+  "aliases": [
+   "1935 Anniversary Edicion Doble Diamante Red",
+   "Montecristo 1935 Anniversary Edicion Doble Diamante Red"
+  ]
  },
  "montecristo-1935-edicion-nicaragua-diamante": {
   "id": "montecristo-1935-edicion-nicaragua-diamante",
@@ -71885,7 +71907,11 @@
    "factory_vitola": "Julieta No.2",
    "strength_felt": "medium-full"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Esplendidos",
+   "Cohiba Esplendidos"
+  ]
  },
  "cohiba-exquisitos": {
   "id": "cohiba-exquisitos",
@@ -72042,7 +72068,11 @@
    "ring_gauge": "54",
    "strength": "Medium to Full",
    "factory_vitola": "Pirámides Extra"
-  }
+  },
+  "aliases": [
+   "Piramides Extra",
+   "Cohiba Piramides Extra"
+  ]
  },
  "cohiba-ambar": {
   "id": "cohiba-ambar",
@@ -72599,7 +72629,11 @@
    "ring_gauge": "52",
    "strength": "Medium to Full",
    "factory_vitola": "Mágicos"
-  }
+  },
+  "aliases": [
+   "Magicos",
+   "Cohiba Magicos"
+  ]
  },
  "cohiba-secretos": {
   "id": "cohiba-secretos",
@@ -73828,7 +73862,11 @@
    "ring_gauge": "53",
    "strength": "Full",
    "factory_vitola": "Sobresalientes"
-  }
+  },
+  "aliases": [
+   "Maltes",
+   "Montecristo Maltes"
+  ]
  },
  "montecristo-leyenda": {
   "id": "montecristo-leyenda",
@@ -74024,7 +74062,11 @@
    "factory_vitola": "Hermosos No.4",
    "strength_felt": "medium"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Exhibicion No.4",
+   "Romeo y Julieta Exhibicion No.4"
+  ]
  },
  "romeo-y-julieta-belicosos": {
   "id": "romeo-y-julieta-belicosos",
@@ -74822,7 +74864,11 @@
    "ring_gauge": "40",
    "strength": "Medium",
    "factory_vitola": "Coronitas"
-  }
+  },
+  "aliases": [
+   "Regalias de Londres",
+   "Romeo y Julieta Regalias de Londres"
+  ]
  },
  "romeo-y-julieta-coronitas-en-cedro": {
   "id": "romeo-y-julieta-coronitas-en-cedro",
@@ -75190,7 +75236,11 @@
    "ring_gauge": "40",
    "strength": "Full",
    "factory_vitola": "Petit Cetros"
-  }
+  },
+  "aliases": [
+   "Partagas",
+   "Partagas Aristocrats"
+  ]
  },
  "partagas-coronas-junior": {
   "id": "partagas-coronas-junior",
@@ -75250,7 +75300,11 @@
    "factory_vitola": "Coronitas",
    "strength_felt": "medium-full"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Partagas",
+   "Partagas Coronas Junior"
+  ]
  },
  "partagas-coronas-senior": {
   "id": "partagas-coronas-senior",
@@ -75299,7 +75353,11 @@
    "ring_gauge": "42",
    "strength": "Full",
    "factory_vitola": "Eminentes"
-  }
+  },
+  "aliases": [
+   "Partagas",
+   "Partagas Coronas Senior"
+  ]
  },
  "partagas-habaneros": {
   "id": "partagas-habaneros",
@@ -75348,7 +75406,11 @@
    "ring_gauge": "39",
    "strength": "Full",
    "factory_vitola": "Belvederes"
-  }
+  },
+  "aliases": [
+   "Partagas",
+   "Partagas Habaneros"
+  ]
  },
  "partagas-lusitanias": {
   "id": "partagas-lusitanias",
@@ -75410,7 +75472,11 @@
    "factory_vitola": "Prominentes",
    "strength_felt": "full"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Partagas",
+   "Partagas Lusitanias"
+  ]
  },
  "partagas-mille-fleurs": {
   "id": "partagas-mille-fleurs",
@@ -75473,7 +75539,11 @@
    "factory_vitola": "Marevas",
    "strength_felt": "medium"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Partagas",
+   "Partagas Mille Fleurs"
+  ]
  },
  "partagas-de-luxe": {
   "id": "partagas-de-luxe",
@@ -75522,7 +75592,12 @@
    "ring_gauge": "40",
    "strength": "Full",
    "factory_vitola": "Cremas"
-  }
+  },
+  "aliases": [
+   "Partagas",
+   "Partagas de Luxe",
+   "Partagas Partagas de Luxe"
+  ]
  },
  "partagas-petit-coronas-especiales": {
   "id": "partagas-petit-coronas-especiales",
@@ -75571,7 +75646,11 @@
    "ring_gauge": "42",
    "strength": "Full",
    "factory_vitola": "Eminentes"
-  }
+  },
+  "aliases": [
+   "Partagas",
+   "Partagas Petit Coronas Especiales"
+  ]
  },
  "partagas-presidentes": {
   "id": "partagas-presidentes",
@@ -75620,7 +75699,11 @@
    "ring_gauge": "47",
    "strength": "Full",
    "factory_vitola": "Tacos"
-  }
+  },
+  "aliases": [
+   "Partagas",
+   "Partagas Presidentes"
+  ]
  },
  "partagas-shorts": {
   "id": "partagas-shorts",
@@ -75682,7 +75765,11 @@
    "factory_vitola": "Minutos",
    "strength_felt": "medium-full"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Partagas",
+   "Partagas Shorts"
+  ]
  },
  "partagas-super-partagas": {
   "id": "partagas-super-partagas",
@@ -75731,7 +75818,12 @@
    "ring_gauge": "40",
    "strength": "Full",
    "factory_vitola": "Cremas"
-  }
+  },
+  "aliases": [
+   "Partagas",
+   "Super Partagas",
+   "Partagas Super Partagas"
+  ]
  },
  "partagas-8-9-8": {
   "id": "partagas-8-9-8",
@@ -75793,7 +75885,11 @@
    "factory_vitola": "Dalias",
    "strength_felt": "medium-full"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Partagas",
+   "Partagas 8-9-8"
+  ]
  },
  "partagas-serie-d-no-4": {
   "id": "partagas-serie-d-no-4",
@@ -75856,7 +75952,11 @@
    "factory_vitola": "Robustos",
    "strength_felt": "medium-full"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Partagas",
+   "Partagas Serie D No.4"
+  ]
  },
  "partagas-serie-d-no-5": {
   "id": "partagas-serie-d-no-5",
@@ -75919,7 +76019,11 @@
    "factory_vitola": "D No.5",
    "strength_felt": "medium-full"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Partagas",
+   "Partagas Serie D No.5"
+  ]
  },
  "partagas-serie-d-no-6": {
   "id": "partagas-serie-d-no-6",
@@ -75981,7 +76085,11 @@
    "factory_vitola": "D No.6",
    "strength_felt": "full"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Partagas",
+   "Partagas Serie D No.6"
+  ]
  },
  "partagas-serie-e-no-2": {
   "id": "partagas-serie-e-no-2",
@@ -76044,7 +76152,11 @@
    "factory_vitola": "Duke",
    "strength_felt": "medium-full"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Partagas",
+   "Partagas Serie E No.2"
+  ]
  },
  "partagas-serie-p-no-2": {
   "id": "partagas-serie-p-no-2",
@@ -76108,7 +76220,11 @@
    "factory_vitola": "Pirámides",
    "strength_felt": "medium-full"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Partagas",
+   "Partagas Serie P No.2"
+  ]
  },
  "partagas-culebras": {
   "id": "partagas-culebras",
@@ -76168,7 +76284,11 @@
    "factory_vitola": "Culebras",
    "strength_felt": "full"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Partagas",
+   "Partagas Culebras"
+  ]
  },
  "partagas-maduro-no-1": {
   "id": "partagas-maduro-no-1",
@@ -76231,7 +76351,11 @@
    "factory_vitola": "Discretos",
    "strength_felt": "medium-full"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Partagas",
+   "Partagas Maduro No.1"
+  ]
  },
  "partagas-maduro-no-2": {
   "id": "partagas-maduro-no-2",
@@ -76276,7 +76400,11 @@
    "ring_gauge": "55",
    "strength": "Full",
    "factory_vitola": "Short Pirámides"
-  }
+  },
+  "aliases": [
+   "Partagas",
+   "Partagas Maduro No.2"
+  ]
  },
  "partagas-maduro-no-3": {
   "id": "partagas-maduro-no-3",
@@ -76321,7 +76449,11 @@
    "ring_gauge": "50",
    "strength": "Full",
    "factory_vitola": "Maduro No.3"
-  }
+  },
+  "aliases": [
+   "Partagas",
+   "Partagas Maduro No.3"
+  ]
  },
  "partagas-capitols": {
   "id": "partagas-capitols",
@@ -76370,7 +76502,11 @@
    "ring_gauge": "42",
    "strength": "Full",
    "factory_vitola": "Marevas"
-  }
+  },
+  "aliases": [
+   "Partagas",
+   "Partagas Capitols"
+  ]
  },
  "partagas-salomones-lcdh": {
   "id": "partagas-salomones-lcdh",
@@ -76419,7 +76555,11 @@
    "ring_gauge": "57",
    "strength": "Full",
    "factory_vitola": "Salomón"
-  }
+  },
+  "aliases": [
+   "Partagas",
+   "Partagas Salomones (LCDH)"
+  ]
  },
  "partagas-aliados-lcdh": {
   "id": "partagas-aliados-lcdh",
@@ -76468,7 +76608,11 @@
    "ring_gauge": "45",
    "strength": "Full",
    "factory_vitola": "Delirios"
-  }
+  },
+  "aliases": [
+   "Partagas",
+   "Partagas Aliados (LCDH)"
+  ]
  },
  "partagas-maestro": {
   "id": "partagas-maestro",
@@ -76503,7 +76647,11 @@
    "strength": "Full",
    "factory_vitola": "Deleites"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Partagas",
+   "Partagas Maestro"
+  ]
  },
  "partagas-origen": {
   "id": "partagas-origen",
@@ -76538,7 +76686,11 @@
    "strength": "Full",
    "factory_vitola": "Bondadosos"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Partagas",
+   "Partagas Origen"
+  ]
  },
  "partagas-rito": {
   "id": "partagas-rito",
@@ -76573,7 +76725,11 @@
    "strength": "Full",
    "factory_vitola": "Gustosos"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Partagas",
+   "Partagas Rito"
+  ]
  },
  "hoyo-de-monterrey-double-coronas": {
   "id": "hoyo-de-monterrey-double-coronas",
@@ -77097,7 +77253,11 @@
    "ring_gauge": "38",
    "strength": "Light",
    "factory_vitola": "Trabucos"
-  }
+  },
+  "aliases": [
+   "Le Hoyo du Depute",
+   "Hoyo de Monterrey Le Hoyo du Depute"
+  ]
  },
  "hoyo-de-monterrey-le-hoyo-de-san-juan": {
   "id": "hoyo-de-monterrey-le-hoyo-de-san-juan",
@@ -77268,7 +77428,11 @@
     "Le Hoyo de Rio Seco (Aromosos) 5 1/2x56"
    ]
   },
-  "research_note": "Full name is 'Le Hoyo de Rio Seco' (Linea Le Hoyo). Habanos positions it as lower strength; CA rates medium, Cigar Obsession medium-full body. 'mild to medium' chosen per Habanos; 'medium' is also defensible. 'graham cracker' mapped to bread; 'chocolate' to dark_chocolate."
+  "research_note": "Full name is 'Le Hoyo de Rio Seco' (Linea Le Hoyo). Habanos positions it as lower strength; CA rates medium, Cigar Obsession medium-full body. 'mild to medium' chosen per Habanos; 'medium' is also defensible. 'graham cracker' mapped to bread; 'chocolate' to dark_chocolate.",
+  "aliases": [
+   "Le Hoyo de Rio Seco",
+   "Hoyo de Monterrey Le Hoyo de Rio Seco"
+  ]
  },
  "hoyo-de-monterrey-souvenir-de-luxe": {
   "id": "hoyo-de-monterrey-souvenir-de-luxe",
@@ -78364,15 +78528,14 @@
   "notes": {
    "official": [],
    "review": [
-    "leather",
-    "earth",
-    "cocoa",
-    "spice",
     "cedar",
+    "cinnamon",
+    "cocoa",
     "cream",
-    "woody",
-    "grass",
-    "sweet"
+    "earth",
+    "leather",
+    "spice",
+    "woody"
    ]
   },
   "note_sources": [
@@ -78396,20 +78559,23 @@
     ]
    },
    {
-    "source": "review:halfwheel",
+    "source": "review:manual",
     "vitola": "",
     "tags": [
-     "grass",
+     "woody",
+     "spice",
      "cocoa",
-     "sweet"
+     "cinnamon"
     ],
-    "text": "Not that it’s a bad thing, and certainly a good bit of it has to do with FDA regulations on new cigars coming to market. But it has definitely become a trend as of late. Such is the case for the Le Carême Belicosos Finos, which debuted in 2018 as the fifth vitola in the line, which got its release in 2016. The idea for the cigar is attributed to Miguel Schoedel, Crowned Heads’ national sales manager. The size is one that is popular with Jon Huber, who called the Bolívar Belicosos Finos one of his “desert island cigars,” which seemingly figured into the project getting the green light. The cigar is a 5 1/2 x 52 belicoso that uses a Connecticut broadleaf wrapper, Ecuadorian Sumatra binder and fillers from Nicaragua, though it doesn’t get the trunk press as it goes through the production process at E.P. Carrillo’s Tabacalera La Alianza S.A. in the Dominican Republic. Released in March 2018, the cigar would go on to claim the #2 spot on halfwheel’s  Top 25 of 2018 list, falling just .09 points behind the Joya de Nicaragua No. 1 . Note: The following shows the various Le Carême vitolas. Some of these cigars may have been released after this post was originally published. The list was last updated on May 4, 2023. It would return in 2019, shipping in June with most of the details the same but two noticeable changes. The pricing on the cigar didn’t change, remaining at $10, but production has gone up from 1,500 boxes of 12 cigars to 2,500 boxes of 12, or 18,000 cigars to 30,000 total cigars. Here’s what I said about the Le Carême Belicosos Finos 2018 LE when I reviewed it in April 2018 : Circling back to my opening line of this review, I now wish that the Le Carême hadn’t fallen off my radar, as this is quite a good blend. It’s much more delicate and nuanced than I expected, though never lacks in flavor, with complexity keeping up at seemingly every turn. While the comparison to a chocolate soufflé may be a bit of an overstatement, there are certainly times when the cigar echoes the dish, yet never becomes so egregious in its attempts to deliver the flavor that it tastes overly sweet or forced. While there certainly aren’t enough of the Belicosos Finos to go around, it’",
-    "url": "https://halfwheel.com/le-careme-belicosos-finos-2019-le/367473/",
-    "title": "Le Carême Belicosos Finos 2019 LE"
+    "text": "Cigar Inspector user reviews (Campana 5 1/2 x 52): full-flavoured and strong for most, building toward the end — mild woody opening with a little spice, wood, fruit and spice in the middle, richer and stronger in the final third; another reviewer found rich chocolate cake then dark rum with a cinnamon finish. Bolívar's flagship; also released as Reserva Cosecha 2016.",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigarinspector.com/?p=12987"
+    ]
    }
   ],
   "verified": false,
-  "updated": "2026-10-24",
+  "updated": "2026-11-19",
   "seed": {
    "cuban": true,
    "coh_stocked": true,
@@ -78418,16 +78584,16 @@
   "specs": {
    "length_in": "5.5",
    "ring_gauge": "52",
-   "strength": "Full",
+   "strength": "full",
    "factory_vitola": "Campanas",
-   "strength_felt": "full",
-   "country": "Dominican Republic",
-   "wrapper": "U.S.A. (Connecticut Broadleaf)",
-   "binder": "Ecuador (Sumatra)",
-   "filler": "Nicaragua",
-   "length": "5 1/2 Inches",
+   "country": "Cuba",
+   "length": "5.5",
    "ring": "52"
-  }
+  },
+  "aliases": [
+   "Bolivar",
+   "Bolivar Belicosos Finos"
+  ]
  },
  "bolivar-tubos-no-2": {
   "id": "bolivar-tubos-no-2",
@@ -78474,7 +78640,11 @@
    "ring_gauge": "42",
    "strength": "Full",
    "factory_vitola": "Marevas"
-  }
+  },
+  "aliases": [
+   "Bolivar",
+   "Bolivar Tubos No.2"
+  ]
  },
  "bolivar-coronas-junior": {
   "id": "bolivar-coronas-junior",
@@ -78536,7 +78706,11 @@
    "factory_vitola": "Minutos",
    "strength_felt": "medium-full"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Bolivar",
+   "Bolivar Coronas Junior"
+  ]
  },
  "bolivar-petit-coronas": {
   "id": "bolivar-petit-coronas",
@@ -78598,7 +78772,11 @@
    "factory_vitola": "Marevas",
    "strength_felt": "medium"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Bolivar",
+   "Bolivar Petit Coronas"
+  ]
  },
  "bolivar-royal-coronas": {
   "id": "bolivar-royal-coronas",
@@ -78607,13 +78785,20 @@
   "notes": {
    "official": [],
    "review": [
-    "earth",
-    "leather",
-    "cocoa",
     "cedar",
-    "spice",
+    "cocoa",
+    "coffee",
+    "cream",
+    "earth",
+    "grass",
+    "hay",
+    "leather",
+    "musty",
+    "nuts",
     "pepper",
-    "cream"
+    "spice",
+    "sweet",
+    "woody"
    ]
   },
   "note_sources": [
@@ -78645,10 +78830,34 @@
     "title": "Habanos S.A. — Bolívar brand",
     "brand_level": true,
     "confidence": "low"
+   },
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "leather",
+     "sweet",
+     "hay",
+     "musty",
+     "coffee",
+     "nuts",
+     "cream",
+     "woody",
+     "spice",
+     "pepper",
+     "cocoa",
+     "cedar",
+     "grass"
+    ],
+    "text": "Blind Man's Puff blind review (92, Robusto 4 7/8 x 50): medium strength and body throughout. Aroma of leather, sweet hay and barnyard. First third mocha, leather, coffee and nuts with sweet cream, then wood and warm spice (one panelist got an early pepper blast that faded); second third creamy smoke, nutmeg-like spice, cocoa-laced coffee and crisp cedar; final third pepper returns with lighter coffee, more cocoa, hay and grassy cedar, spice intensifying. Retailers list full strength; about 45-60 minutes.",
+    "confidence": "high",
+    "urls": [
+     "https://blindmanspuff.com/bolivar-cuba-royal-corona-score-92/"
+    ]
    }
   ],
   "verified": false,
-  "updated": "2026-10-31",
+  "updated": "2026-11-19",
   "seed": {
    "cuban": true,
    "coh_stocked": true,
@@ -78657,11 +78866,18 @@
   "specs": {
    "length_in": "4.9",
    "ring_gauge": "50",
-   "strength": "Full",
+   "strength": "medium to full",
    "factory_vitola": "Robustos",
-   "strength_felt": "medium-full"
+   "strength_felt": "medium-full",
+   "country": "Cuba"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Bolivar",
+   "Bolivar Royal Coronas",
+   "Royal Corona",
+   "볼리바르 로열 코로나"
+  ]
  },
  "bolivar-libertador-lcdh": {
   "id": "bolivar-libertador-lcdh",
@@ -78708,7 +78924,11 @@
    "ring_gauge": "54",
    "strength": "Full",
    "factory_vitola": "Sublimes"
-  }
+  },
+  "aliases": [
+   "Bolivar",
+   "Bolivar Libertador (LCDH)"
+  ]
  },
  "bolivar-new-gold-medal-lcdh": {
   "id": "bolivar-new-gold-medal-lcdh",
@@ -78754,7 +78974,11 @@
    "length_in": "6.5",
    "ring_gauge": "48",
    "strength": "Full"
-  }
+  },
+  "aliases": [
+   "Bolivar",
+   "Bolivar New Gold Medal (LCDH)"
+  ]
  },
  "punch-coronations": {
   "id": "punch-coronations",
@@ -79056,7 +79280,11 @@
    "factory_vitola": "Minutos",
    "strength_felt": "medium"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Ramon Allones",
+   "Ramon Allones Small Club Coronas"
+  ]
  },
  "ramon-allones-specially-selected": {
   "id": "ramon-allones-specially-selected",
@@ -79119,7 +79347,11 @@
    "factory_vitola": "Robustos",
    "strength_felt": "medium-full"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Ramon Allones",
+   "Ramon Allones Specially Selected"
+  ]
  },
  "ramon-allones-gigantes": {
   "id": "ramon-allones-gigantes",
@@ -79182,7 +79414,11 @@
    "factory_vitola": "Prominentes",
    "strength_felt": "medium-full"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Ramon Allones",
+   "Ramon Allones Gigantes"
+  ]
  },
  "ramon-allones-superiores-lcdh": {
   "id": "ramon-allones-superiores-lcdh",
@@ -79229,7 +79465,11 @@
    "ring_gauge": "46",
    "strength": "Full",
    "factory_vitola": "Coronas Gordas"
-  }
+  },
+  "aliases": [
+   "Ramon Allones",
+   "Ramon Allones Allones Superiores (LCDH)"
+  ]
  },
  "ramon-allones-no-3": {
   "id": "ramon-allones-no-3",
@@ -79276,7 +79516,11 @@
    "ring_gauge": "52",
    "strength": "Full",
    "factory_vitola": "Nobleza"
-  }
+  },
+  "aliases": [
+   "Ramon Allones",
+   "Ramon Allones Allones No.3"
+  ]
  },
  "trinidad-fundadores": {
   "id": "trinidad-fundadores",
@@ -79574,7 +79818,11 @@
    "factory_vitola": "Torres",
    "strength_felt": "medium"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Vigia",
+   "Trinidad Vigia"
+  ]
  },
  "trinidad-esmeralda": {
   "id": "trinidad-esmeralda",
@@ -80197,7 +80445,11 @@
    "factory_vitola": "Marevas",
    "strength_felt": "mild-medium"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Por Larranaga",
+   "Por Larranaga Petit Coronas"
+  ]
  },
  "por-larranaga-montecarlos": {
   "id": "por-larranaga-montecarlos",
@@ -80242,7 +80494,11 @@
    "ring_gauge": "33",
    "strength": "Light to Medium",
    "factory_vitola": "Deliciosos"
-  }
+  },
+  "aliases": [
+   "Por Larranaga",
+   "Por Larranaga Montecarlos"
+  ]
  },
  "por-larranaga-picadores-lcdh": {
   "id": "por-larranaga-picadores-lcdh",
@@ -80287,7 +80543,11 @@
    "ring_gauge": "48",
    "strength": "Light to Medium",
    "factory_vitola": "Hermosos No.4"
-  }
+  },
+  "aliases": [
+   "Por Larranaga",
+   "Por Larranaga Picadores (LCDH)"
+  ]
  },
  "por-larranaga-galanes": {
   "id": "por-larranaga-galanes",
@@ -80332,7 +80592,11 @@
    "ring_gauge": "52",
    "strength": "Light to Medium",
    "factory_vitola": "Galanes"
-  }
+  },
+  "aliases": [
+   "Por Larranaga",
+   "Por Larranaga Galanes"
+  ]
  },
  "la-gloria-cubana-medaille-d-or-no-4": {
   "id": "la-gloria-cubana-medaille-d-or-no-4",
@@ -80531,7 +80795,12 @@
    "ring_gauge": "46",
    "strength": "Medium to Full",
    "factory_vitola": "Coronas Gordas"
-  }
+  },
+  "aliases": [
+   "Juan Lopez",
+   "Seleccion No.1",
+   "Juan Lopez Seleccion No.1"
+  ]
  },
  "juan-lopez-seleccion-no-2": {
   "id": "juan-lopez-seleccion-no-2",
@@ -80594,7 +80863,12 @@
    "factory_vitola": "Robustos",
    "strength_felt": "medium-full"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Juan Lopez",
+   "Seleccion No.2",
+   "Juan Lopez Seleccion No.2"
+  ]
  },
  "juan-lopez-seleccion-especial-lcdh": {
   "id": "juan-lopez-seleccion-especial-lcdh",
@@ -80639,7 +80913,12 @@
    "ring_gauge": "52",
    "strength": "Medium to Full",
    "factory_vitola": "Fortunas"
-  }
+  },
+  "aliases": [
+   "Juan Lopez",
+   "Seleccion Especial (LCDH)",
+   "Juan Lopez Seleccion Especial (LCDH)"
+  ]
  },
  "el-rey-del-mundo-choix-supreme": {
   "id": "el-rey-del-mundo-choix-supreme",
@@ -80702,7 +80981,11 @@
    "factory_vitola": "Hermosos No.4",
    "strength_felt": "mild-medium"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Choix Supreme",
+   "El Rey del Mundo Choix Supreme"
+  ]
  },
  "el-rey-del-mundo-demi-tasse": {
   "id": "el-rey-del-mundo-demi-tasse",
@@ -80868,7 +81151,11 @@
    "factory_vitola": "Pirámides",
    "strength_felt": "medium"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Diplomaticos",
+   "Diplomaticos No.2"
+  ]
  },
  "diplomaticos-cancilleres": {
   "id": "diplomaticos-cancilleres",
@@ -80913,7 +81200,11 @@
    "ring_gauge": "50",
    "strength": "Medium to Full",
    "factory_vitola": "Centrofinos"
-  }
+  },
+  "aliases": [
+   "Diplomaticos",
+   "Diplomaticos Cancilleres"
+  ]
  },
  "cuaba-divinos": {
   "id": "cuaba-divinos",
@@ -81140,7 +81431,11 @@
    "factory_vitola": "Salomón",
    "strength_felt": "medium-full"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Salomon",
+   "Cuaba Salomon"
+  ]
  },
  "la-flor-de-cano-petit-coronas": {
   "id": "la-flor-de-cano-petit-coronas",
@@ -81269,7 +81564,11 @@
    "factory_vitola": "Marevas",
    "strength_felt": "mild"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Rafael Gonzalez",
+   "Rafael Gonzalez Petit Coronas"
+  ]
  },
  "rafael-gonzalez-perlas": {
   "id": "rafael-gonzalez-perlas",
@@ -81331,7 +81630,11 @@
    "factory_vitola": "Perlas",
    "strength_felt": "mild"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Rafael Gonzalez",
+   "Rafael Gonzalez Perlas"
+  ]
  },
  "rafael-gonzalez-panetelas-extra": {
   "id": "rafael-gonzalez-panetelas-extra",
@@ -81368,7 +81671,11 @@
    "ring_gauge": "37",
    "strength": "Light",
    "factory_vitola": "Vegueritos"
-  }
+  },
+  "aliases": [
+   "Rafael Gonzalez",
+   "Rafael Gonzalez Panetelas Extra"
+  ]
  },
  "rafael-gonzalez-coronas-de-lonsdales": {
   "id": "rafael-gonzalez-coronas-de-lonsdales",
@@ -81405,7 +81712,11 @@
    "ring_gauge": "48",
    "strength": "Light",
    "factory_vitola": "Hermosos No.4"
-  }
+  },
+  "aliases": [
+   "Rafael Gonzalez",
+   "Rafael Gonzalez Coronas de Lonsdales"
+  ]
  },
  "fonseca-cosacos": {
   "id": "fonseca-cosacos",
@@ -81664,7 +81975,12 @@
    "factory_vitola": "Minutos",
    "strength_felt": "medium"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "San Cristobal de la Habana",
+   "El Principe",
+   "San Cristobal de la Habana El Principe"
+  ]
  },
  "san-cristobal-de-la-habana-la-fuerza": {
   "id": "san-cristobal-de-la-habana-la-fuerza",
@@ -81726,7 +82042,11 @@
    "factory_vitola": "Gorditos",
    "strength_felt": "medium"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "San Cristobal de la Habana",
+   "San Cristobal de la Habana La Fuerza"
+  ]
  },
  "san-cristobal-de-la-habana-la-punta": {
   "id": "san-cristobal-de-la-habana-la-punta",
@@ -81763,7 +82083,11 @@
    "ring_gauge": "52",
    "strength": "Light to Medium",
    "factory_vitola": "Campanas"
-  }
+  },
+  "aliases": [
+   "San Cristobal de la Habana",
+   "San Cristobal de la Habana La Punta"
+  ]
  },
  "san-cristobal-de-la-habana-prado-lcdh": {
   "id": "san-cristobal-de-la-habana-prado-lcdh",
@@ -81800,7 +82124,11 @@
    "ring_gauge": "50",
    "strength": "Light to Medium",
    "factory_vitola": "Petit Pirámides"
-  }
+  },
+  "aliases": [
+   "San Cristobal de la Habana",
+   "San Cristobal de la Habana Prado (LCDH)"
+  ]
  },
  "sancho-panza-belicosos": {
   "id": "sancho-panza-belicosos",
@@ -82043,7 +82371,11 @@
    "ring_gauge": "46",
    "strength": "Full",
    "factory_vitola": "Mañanitas"
-  }
+  },
+  "aliases": [
+   "Mananitas",
+   "Vegueros Mananitas"
+  ]
  },
  "vegueros-tapados": {
   "id": "vegueros-tapados",
@@ -82496,7 +82828,11 @@
     "Cremas 5 3/8x40"
    ]
   },
-  "research_note": "Only one proper review found (CigarsLover, mild-to-medium); UK retailers list it as medium-to-full. Strength set to 'mild to medium' per the review; treat as medium if you prefer retailer data. No halfwheel/Aficionado review of this vitola found."
+  "research_note": "Only one proper review found (CigarsLover, mild-to-medium); UK retailers list it as medium-to-full. Strength set to 'mild to medium' per the review; treat as medium if you prefer retailer data. No halfwheel/Aficionado review of this vitola found.",
+  "aliases": [
+   "Jose L. Piedra",
+   "Jose L. Piedra Brevas"
+  ]
  },
  "jose-l-piedra-cazadores": {
   "id": "jose-l-piedra-cazadores",
@@ -82558,7 +82894,11 @@
    "factory_vitola": "Cazadores JLP",
    "strength_felt": "medium"
   },
-  "vitolas": []
+  "vitolas": [],
+  "aliases": [
+   "Jose L. Piedra",
+   "Jose L. Piedra Cazadores"
+  ]
  },
  "jose-l-piedra-conservas": {
   "id": "jose-l-piedra-conservas",
@@ -82605,7 +82945,11 @@
    "ring_gauge": "44",
    "strength": "Medium to Full",
    "factory_vitola": "Conservas JLP"
-  }
+  },
+  "aliases": [
+   "Jose L. Piedra",
+   "Jose L. Piedra Conservas"
+  ]
  },
  "jose-l-piedra-cremas": {
   "id": "jose-l-piedra-cremas",
@@ -82652,7 +82996,11 @@
    "ring_gauge": "40",
    "strength": "Medium to Full",
    "factory_vitola": "Cremas JLP"
-  }
+  },
+  "aliases": [
+   "Jose L. Piedra",
+   "Jose L. Piedra Cremas"
+  ]
  },
  "jose-l-piedra-petit-caballeros": {
   "id": "jose-l-piedra-petit-caballeros",
@@ -82748,7 +83096,11 @@
     "Cremas 5 3/8x40"
    ]
   },
-  "research_note": "Strength: halfwheel says just under medium, CigarsLover says medium, UK retailers list medium-to-full; 'medium' chosen. Habanos describes JLP as hand-made short filler (tripa corta), not machine-made. Box count recently reduced from 25 to 12. habanos.com brand page could not be fetched (provenance b"
+  "research_note": "Strength: halfwheel says just under medium, CigarsLover says medium, UK retailers list medium-to-full; 'medium' chosen. Habanos describes JLP as hand-made short filler (tripa corta), not machine-made. Box count recently reduced from 25 to 12. habanos.com brand page could not be fetched (provenance b",
+  "aliases": [
+   "Jose L. Piedra",
+   "Jose L. Piedra Petit Caballeros"
+  ]
  },
  "cohiba-behike-52": {
   "id": "cohiba-behike-52",
@@ -106774,7 +107126,8 @@
   "updated": "2026-10-14",
   "aliases": [
    "Alfonso Gran Seleccion",
-   "Gran Seleccion Exclusivos"
+   "Gran Seleccion Exclusivos",
+   "Gran Seleccion"
   ],
   "seed": {
    "shops": "user-suggestion",
@@ -107948,7 +108301,10 @@
    "strength": "medium"
   },
   "updated": "2026-10-30",
-  "aliases": [],
+  "aliases": [
+   "Black Edicion Limitada 2024",
+   "Sencillo Black Edicion Limitada 2024"
+  ],
   "seed": {
    "cuban": false
   }
@@ -108146,7 +108502,10 @@
    "type": "machine-made cigarillo"
   },
   "updated": "2026-10-30",
-  "aliases": [],
+  "aliases": [
+   "Partagas",
+   "Partagas Club"
+  ],
   "seed": {
    "cuban": true
   }
@@ -108389,7 +108748,9 @@
   "updated": "2026-11-06",
   "aliases": [
    "Selectos No.3 UK RE",
-   "셀렉토스 No.3"
+   "셀렉토스 No.3",
+   "Selectos No. 3 (Edicion Regional Reino Unido)",
+   "La Flor de Cano Selectos No. 3 (Edicion Regional Reino Unido)"
   ],
   "seed": {
    "cuban": true
@@ -109274,7 +109635,9 @@
    "PHAT Jalapeño",
    "Phat Jalapeno",
    "Viaje Jalapeno",
-   "할라피뇨"
+   "할라피뇨",
+   "Jalapeno (Pepper Series)",
+   "Viaje Jalapeno (Pepper Series)"
   ],
   "seed": {
    "cuban": false
@@ -109323,7 +109686,8 @@
   "updated": "2026-11-13",
   "aliases": [
    "Hondurenos",
-   "온두레뇨스"
+   "온두레뇨스",
+   "Hondurenos Maduro"
   ],
   "seed": {
    "cuban": false
