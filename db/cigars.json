@@ -25325,47 +25325,16 @@
   "notes": {
    "official": [],
    "review": [
-    "mineral",
-    "musty",
-    "earth",
-    "pepper",
-    "cinnamon",
-    "clove",
-    "nuts",
-    "cream",
-    "grass",
-    "spice",
-    "cocoa",
-    "sweet",
     "cedar",
+    "cocoa",
+    "cream",
+    "dried_fruit",
+    "spice",
     "vanilla",
-    "woody",
-    "dried_fruit"
+    "woody"
    ]
   },
   "note_sources": [
-   {
-    "source": "review:dojo",
-    "vitola": "5⅝″ × 46 (Corona Gorda)",
-    "tags": [
-     "mineral",
-     "musty",
-     "earth",
-     "pepper",
-     "cinnamon",
-     "clove",
-     "nuts",
-     "cream",
-     "grass",
-     "spice",
-     "cocoa",
-     "sweet"
-    ],
-    "text": "Oddly, the cigar starts off with a very pronounced mineral note, with a little bit of damp earth and pepper. The retrohale in the early stage has the cinnamon and clove in it that was detected in the pre-light, along with a fairly sharp red pepper. As the cigar burns along, the earth notes fade a little bit, and clove, along with walnut shell, become prominent. The mineral note present at first light still lingers vividly on the tongue. The draw is just about on the money, maybe just a slight bit on the loose side. This leads to a heavy smoke output, being quite easy to get a mouthful of the creamy smoke and enjoy the flavors at hand. Moving along, there is a definite change in profile as the cigar builds noticeably in body and strength. The vegetal note that was noticed in the pre-light appears. This enhances the strength of the red pepper and pushes the cinnamon and clove to the background, but not out of the picture. The aspect of the profile that surprises me, at this point, arrives on the finish—being a creamy-yet-bitter chai spice that sits all the way across the back of the tongue. This is further enhanced by hints of cocoa, adding a little sweetness to the experience. The burn and draw have been right on point, and it is obvious that care was taken in the construction of this cigar. Heading down the home stretch, we get yet another profile change, though a little more subtle than the first. Vegetal notes fade and the chai and cocoa move to the front. The mineral note on the retrohale fades to the background, with the cinnamon moving to the front. The cigar finishes in pretty much this same manner, with the pepper returning for a sharp burn in the last few puffs. The cigar smoked flawlessly from start to finish, with a solid burn line and minimal waviness.",
-    "score": 89,
-    "url": "https://cigardojo.com/2020/11/hoyo-de-monterrey-epicure-seleccion-no-1/",
-    "title": "Hoyo de Monterrey Epicure Selección No.1"
-   },
    {
     "source": "review:manual",
     "tags": [
@@ -25397,17 +25366,15 @@
   ],
   "specs": {
    "vitola": "5⅝″ × 46 (Corona Gorda)",
-   "wrapper": "Honduras (Cuban Seed)",
-   "binder": "Honduras (Cuban Seed)",
-   "filler": "Honduras (Cuban Seed)",
    "factory": "Honduran American Tobacco S.A. (Honduras) Production: Regular Production",
    "length_in": "5.6",
    "ring_gauge": "46",
    "strength": "Light",
    "factory_vitola": "Coronas Gordas",
-   "strength_felt": "medium"
+   "strength_felt": "medium",
+   "country": "Cuba"
   },
-  "updated": "2026-10-06",
+  "updated": "2026-11-19",
   "seed": {
    "cuban": true,
    "coh_stocked": true,
@@ -29136,13 +29103,13 @@
   "notes": {
    "official": [],
    "review": [
-    "nuts",
-    "earth",
-    "coffee",
-    "spice",
-    "leather",
     "bread",
-    "cinnamon"
+    "cinnamon",
+    "coffee",
+    "earth",
+    "leather",
+    "nuts",
+    "spice"
    ]
   },
   "note_sources": [
@@ -29169,17 +29136,11 @@
      "https://bespokeunit.com/articles/cigars/romeo-y-julieta-petit-churchill/",
      "https://mitchellswine.co.uk/?p=930"
     ]
-   },
-   {
-    "source": "official:altadis",
-    "vitola": "",
-    "tags": [],
-    "text": "A twist to the well-known story of excellent, smoother cigars. The passion burns within, now brighter than ever. ROMEO by Romeo y Julieta – Altadis USA – Crafting Cigars Great Since 1918 Romeo by Romeo y Julieta is a bold and robust cigar unlike any Romeo y Julieta to come before it. Made with the rarest and finest tobaccos carefully selected and delicately aged, Romeo cigars are meticulously crafted by a special team of the most accomplished artisans at the famed Tabacalera de García factory. The select Dark Ecuadorian Habano wrapper is handpicked for its dark, rich color and robust taste. The slightly mellow Dominican Piloto binder works harmoniously with the bold wrapper, and the unique filler blend of Dominican Piloto and Olor tobaccos completes this wonderfully complex full-bodied cigar that culminates in an unforgettable smoking experience."
    }
   ],
   "verified": false,
   "vitolas": [],
-  "updated": "2026-10-06",
+  "updated": "2026-11-19",
   "seed": {
    "cuban": true,
    "coh_stocked": false,
@@ -29191,10 +29152,7 @@
    "strength": "Medium",
    "factory_vitola": "Julieta No.6",
    "strength_felt": "medium",
-   "country": "Dominican Republic",
-   "wrapper": "Ecudorian Habano",
-   "binder": "Dominican Piloto",
-   "filler": "Dominican Piloto and Olor",
+   "country": "Cuba",
    "vitolas": [
     "Piramides 6 1/8x52",
     "Robusto 5x54",
@@ -110013,6 +109971,238 @@
   "updated": "2026-11-18",
   "aliases": [
    "아르가네제 마두로"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "caldwell-mooncake": {
+  "id": "caldwell-mooncake",
+  "brand": "Caldwell",
+  "name": "Mooncake",
+  "notes": {
+   "official": [],
+   "review": [
+    "oak",
+    "bread",
+    "toast",
+    "nuts",
+    "cream"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "oak",
+     "bread",
+     "toast",
+     "nuts",
+     "cream"
+    ],
+    "text": "Cigar Coop / Cigar Dojo news (Sept 2026): limited seasonal release — a Connecticut Shade-wrapped version of the Yellow Cake blend (binder/filler undisclosed; retailers list Dominican Republic). Single 5 x 50 Robusto, 2,400 five-packs at $7.50 per cigar. Mild-plus; retailer tasting notes: oak, toasted bread and roasted cashew over a creamy base, with the Connecticut's smoother, sweeter character. No review-site score yet.",
+    "confidence": "medium",
+    "urls": [
+     "https://cigar-coop.com/2026/09/caldwell-mooncake-announced-cigar-news.html",
+     "https://cigardojo.com/2026/09/caldwell-mooncake-arrives-as-limited-seasonal-release/"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Robusto 5x50"
+  ],
+  "specs": {
+   "wrapper": "Connecticut Shade",
+   "strength": "mild to medium",
+   "country": "Dominican Republic"
+  },
+  "updated": "2026-11-19",
+  "aliases": [
+   "문케이크",
+   "Yellow Cake Connecticut"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "padilla-fumas-maduro": {
+  "id": "padilla-fumas-maduro",
+  "brand": "Padilla",
+  "name": "Fumas Maduro",
+  "notes": {
+   "official": [],
+   "review": [
+    "spice",
+    "earth",
+    "cocoa",
+    "leather",
+    "woody",
+    "espresso",
+    "pepper"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "spice",
+     "earth",
+     "cocoa",
+     "leather",
+     "woody",
+     "espresso",
+     "pepper"
+    ],
+    "text": "Holt's Clubhouse review (Robusto 5x50) and retailer descriptions: Padilla's value mixed-filler ('Cuban sandwich') line made in Honduras — Honduran Habano Maduro wrapper, Nicaraguan binder, Nicaraguan and Honduran filler. Medium to medium-full. Chocolaty, spicy and earthy smoke with dark cocoa, jalapeño-like spice, leather and wood on a long earthy finish; Famous lists cocoa, espresso, earth and a hint of pepper. About $2-2.50 per cigar.",
+    "confidence": "medium",
+    "urls": [
+     "https://www.holts.com/clubhouse/node/1032",
+     "https://www.famous-smoke.com/padilla-fumas-maduro-toro-cigars-maduro-pack-of-10"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Robusto 5x50",
+   "Toro 6x50"
+  ],
+  "specs": {
+   "wrapper": "Honduran Habano Maduro",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua, Honduras (mixed filler)",
+   "strength": "medium to full",
+   "country": "Honduras"
+  },
+  "updated": "2026-11-19",
+  "aliases": [
+   "파디야 푸마스 마두로"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "el-septimo-emperor-collection-augustus": {
+  "id": "el-septimo-emperor-collection-augustus",
+  "brand": "El Septimo",
+  "name": "The Emperor Collection Augustus (Connecticut)",
+  "notes": {
+   "official": [],
+   "review": [
+    "cedar",
+    "hay",
+    "cream",
+    "floral",
+    "cinnamon",
+    "nuts"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "cedar",
+     "hay",
+     "cream",
+     "floral",
+     "cinnamon",
+     "nuts"
+    ],
+    "text": "Cigar Coop news (PCA 2022) and retailer sheets: the 5 x 52 Robusto of El Septimo's Emperor Collection, the brand's first Connecticut-seed-wrapped line, rolled at its Costa Rica factory with tobacco aged about five years (blend undisclosed; most retailers list Costa Rican leaf). Mild to medium — the lightest, creamiest El Septimo. Retailer notes: cedar, hay and cream with light floral hints and occasional cinnamon nuttiness; about 45 minutes. $10 per cigar. Originally sold as 'Augustus Cesar'.",
+    "confidence": "medium",
+    "urls": [
+     "https://cigar-coop.com/2022/07/cigar-news-el-septimo-geneva-to-introduce-the-emperor-collection.html",
+     "https://www.cgarsltd.co.uk/septimo-the-emperor-collection-augustus-cesar-connecticut-cigar-box-p-58722.html"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Robusto 5x52"
+  ],
+  "specs": {
+   "wrapper": "Connecticut-seed",
+   "strength": "mild to medium",
+   "country": "Costa Rica"
+  },
+  "updated": "2026-11-19",
+  "aliases": [
+   "Augustus Cesar",
+   "Emperor Augustus",
+   "엠페러 아우구스투스"
+  ],
+  "seed": {
+   "cuban": false
+  }
+ },
+ "el-septimo-emperor-collection-alexander-iii": {
+  "id": "el-septimo-emperor-collection-alexander-iii",
+  "brand": "El Septimo",
+  "name": "The Emperor Collection Alexander III (Connecticut)",
+  "notes": {
+   "official": [],
+   "review": [
+    "hay",
+    "white_pepper",
+    "pepper",
+    "nuts",
+    "leather",
+    "earth",
+    "coffee",
+    "cedar",
+    "dark_chocolate",
+    "cocoa",
+    "cream",
+    "butter",
+    "citrus",
+    "spice"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "",
+    "tags": [
+     "hay",
+     "white_pepper",
+     "pepper",
+     "nuts",
+     "leather",
+     "earth",
+     "coffee",
+     "cedar",
+     "dark_chocolate",
+     "cocoa",
+     "cream",
+     "butter",
+     "citrus",
+     "spice"
+    ],
+    "text": "halfwheel review (80): the 6 x 54 Toro of the Emperor Collection, Connecticut-seed wrapper, rolled at El Septimo's Costa Rica factory, five-year-aged tobacco (blend undisclosed). Medium flavor, just-under-medium strength, mild-plus body: hay, white pepper, peanuts, leather, sourdough, earth, coffee grounds, cedar and dark chocolate; one sample had construction problems and acrid bitterness. Retailers describe it as creamy, buttery and silky with cashew and light orange-spice notes. $15 per cigar. A separate Alexander III Maduro (Ecuadorian Habano wrapper, Nov 2026) is a different, bolder blend.",
+    "confidence": "high",
+    "urls": [
+     "https://halfwheel.com/el-septimo-the-emperor-collection-alexander-iii/420253",
+     "https://cigar-coop.com/2022/07/cigar-news-el-septimo-geneva-to-introduce-the-emperor-collection.html"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Toro 6x54"
+  ],
+  "specs": {
+   "wrapper": "Connecticut-seed",
+   "strength": "mild to medium",
+   "country": "Costa Rica"
+  },
+  "updated": "2026-11-19",
+  "aliases": [
+   "Alexander III",
+   "Emperor Alexander",
+   "엠페러 알렉산더 3세"
   ],
   "seed": {
    "cuban": false
