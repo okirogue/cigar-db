@@ -178,5 +178,30 @@
   "rating_count": 0,
   "added": "2026-11-19",
   "source": "suggestion:sZlitQ"
+ },
+ {
+  "id": "sg-singapore-quaich-bar-collector",
+  "name": "Quaich Bar Collector",
+  "name_en": "Quaich Bar Collector",
+  "kinds": [
+   "bar"
+  ],
+  "smoking": [
+   "indoor"
+  ],
+  "sells": "yes",
+  "country": "SG",
+  "city": "싱가포르",
+  "city_en": "Singapore",
+  "lat": 1.2899036,
+  "lng": 103.835146,
+  "maps_url": "https://maps.app.goo.gl/?q=Quaich+Bar+Collector+390A+Havelock+Rd",
+  "address": "390A Havelock Rd, Waterfront Plaza (Grand Copthorne Waterfront), Singapore 169664",
+  "note": "2007년 시작한 위스키 바(글라스 500종+). 시가 판매, 실내 흡연 가능. 가격대 높음. 17:00~01:00(금·토 02:00)",
+  "note_en": "Whisky bar since 2007 with 500+ whiskies by the glass. Sells cigars, indoor smoking. Pricey. 5pm–1am (Fri/Sat 2am)",
+  "rating": null,
+  "rating_count": 0,
+  "added": "2026-11-22",
+  "source": "suggestion:sZlitQ"
  }
 ]
