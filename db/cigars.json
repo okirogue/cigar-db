@@ -110207,5 +110207,69 @@
   "seed": {
    "cuban": false
   }
+ },
+ "arturo-fuente-flor-fina-858": {
+  "id": "arturo-fuente-flor-fina-858",
+  "brand": "Arturo Fuente",
+  "name": "Flor Fina 8-5-8",
+  "notes": {
+   "official": [],
+   "review": [
+    "nuts",
+    "dark_chocolate",
+    "cocoa",
+    "sweet",
+    "spice",
+    "mineral"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "8-5-8 6.25x47",
+    "tags": [
+     "nuts",
+     "dark_chocolate",
+     "sweet",
+     "spice",
+     "mineral"
+    ],
+    "text": "Cigar Aficionado (Apr 2015, 87 pts): Toro 6 1/4 x 47, Cameroon wrapper, Dominican binder and filler, mild-medium. Early oily notes give way to roasted chestnuts and bittersweet chocolate; finish somewhat flinty. Neptune Cigar: a smooth, mild cigar with a sweet and spicy profile. Classic Fuente Cameroon line in the house 8-5-8 (6 x 47) size; also offered in Maduro, Sun Grown and Claro wrappers.",
+    "confidence": "medium",
+    "urls": [
+     "https://www.cigaraficionado.com/ratings/17811/name/arturo-fuente-flor-fina-8-5-8-toro",
+     "https://neptunecigar.com/cigars/arturo-fuente-858"
+    ]
+   }
+  ],
+  "ratings": {
+   "ca": {
+    "score": 87,
+    "url": "https://www.cigaraficionado.com/ratings/17811/name/arturo-fuente-flor-fina-8-5-8-toro"
+   }
+  },
+  "verified": false,
+  "vitolas": [
+   "8-5-8 6x47"
+  ],
+  "specs": {
+   "wrapper": "Cameroon",
+   "binder": "Dominican Republic",
+   "filler": "Dominican Republic",
+   "country": "Dominican Republic",
+   "strength": "Mild-Medium"
+  },
+  "updated": "2026-11-22",
+  "aliases": [
+   "858",
+   "8-5-8",
+   "Flor Fina 858",
+   "Flor Fina 8-5-8 Natural",
+   "Natural 858",
+   "플로르 피나 858"
+  ],
+  "seed": {
+   "cuban": false
+  }
  }
 }
