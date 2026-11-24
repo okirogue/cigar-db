@@ -110271,5 +110271,67 @@
   "seed": {
    "cuban": false
   }
+ },
+ "esteban-carreras-187-maduro": {
+  "id": "esteban-carreras-187-maduro",
+  "brand": "Esteban Carreras",
+  "name": "187 Maduro",
+  "notes": {
+   "official": [],
+   "review": [
+    "cedar",
+    "spice",
+    "cocoa",
+    "dark_chocolate",
+    "woody",
+    "earth",
+    "mineral"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:manual",
+    "vitola": "Toro 6x50",
+    "tags": [
+     "cedar",
+     "spice",
+     "cocoa",
+     "dark_chocolate",
+     "woody",
+     "earth",
+     "mineral"
+    ],
+    "text": "Cigar Coop (2010): Nicaraguan Maduro wrapper, Nicaraguan binder/filler (Tabacalera Carreras, Estelí). Medium to full. Initial salt shifting to cedar spice with cocoa, wood and earth; cocoa turns to sweeter chocolate at the halfway point, cedar spice returns in the final third; soft finish, burns cool. Verdict 'Nice to Have'. Cigar Century flavor tags: chocolate, earth, fruit, coffee. Sizes include Toro 6x50, Torpedo 6.75x52, Corona 5.5x42 and a petit 4x38.",
+    "confidence": "medium",
+    "urls": [
+     "https://cigar-coop.com/2010/11/cigar-review-esteban-carreras-187.html",
+     "https://www.cigarcentury.com/en/cigars/esteban-carreras-187-toro"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Petit 4x38",
+   "Corona 5.5x42",
+   "Toro 6x50",
+   "Torpedo 6.75x52"
+  ],
+  "specs": {
+   "wrapper": "Nicaragua (Maduro)",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "country": "Nicaragua",
+   "strength": "Medium-Full"
+  },
+  "updated": "2026-11-24",
+  "aliases": [
+   "187",
+   "187 Maduro",
+   "Esteban Carreras 187",
+   "에스테반 카레라스 187"
+  ],
+  "seed": {
+   "cuban": false
+  }
  }
 }
