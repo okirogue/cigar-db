@@ -140,7 +140,7 @@ for sid, a in adds:
     fields["updated"] = fv(now)
     fields["deleted"] = fv(False)
     writes.append({
-        "update": {"name": f"{BASE}/users/{uid}/stock/{sid}", "fields": fields},
+        "update": {"name": f"projects/{PROJECT}/databases/(default)/documents/users/{uid}/stock/{sid}", "fields": fields},
         "updateTransforms": [{"fieldPath": "synced", "setToServerValue": "REQUEST_TIME"}],
     })
 req("POST", f"{BASE}:commit", {"writes": writes})
