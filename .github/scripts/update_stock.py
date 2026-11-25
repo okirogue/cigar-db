@@ -4,9 +4,12 @@
 env: TOKEN (cloud-platform), PROJECT
 usage: update_stock.py <uid_prefix6> <edits.json> [--dry]
 
-edits.json: [{"match": {"cigar_id": "zino-platinum-scepter", "vitola": null}, "set": {"vitola": "Grand Master"}}]
+edits.json: [{"match": {"cigar_id": "zino-platinum-scepter", "vitola": null}, "set": {"vitola": "Grand Master"}},
+             {"add": {"humidor": "휴대용", "cigar_id": "punch", "cigar_name": "Punch Punch", "vitola": "Coronas Gordas",
+                      "qty": 25, "price_per_stick": 48057, "currency": "KRW", "added_date": "2026-11-25", "memo": ""}}]
   match: 모든 키가 일치하는 재고 문서(삭제 안 된 것)만. 값 null 은 "비어 있음(null/'')" 매치.
   set:   바꿀 필드. updated 는 자동으로 지금 시각 → 앱 운영자 동기화가 받아간다.
+  add:   새 재고 문서. humidor 는 이름(users/<uid>/humidors 에서 sid 로 바꿈), 나머지는 앱 stock 필드 그대로.
 """
 import json
 import os
@@ -85,12 +88,32 @@ for d in collection(f"users/{uid}/stock"):
         continue
     stock.append((d["name"], {k: val(v) for k, v in f.items()}))
 print(f"uid={uid} stock docs={len(stock)} dry={DRY}")
+humidors = {}
+for d in collection(f"users/{uid}/humidors"):
+    f = d.get("fields", {})
+    if val(f.get("deleted", {})) is True:
+        continue
+    humidors[val(f.get("name", {}))] = d["name"].rsplit("/", 1)[-1]
 
 with open(EDITS_PATH, encoding="utf-8") as fh:
     edits = json.load(fh)
 now = int(time.time() * 1000)
 plan = []
+adds = []
+import secrets
 for e in edits:
+    if "add" in e:
+        a = dict(e["add"])
+        hname = a.pop("humidor")
+        if hname not in humidors:
+            raise SystemExit(f"humidor not found: {hname} (have {list(humidors)})")
+        a["humidor_sid"] = humidors[hname]
+        a.setdefault("currency", "KRW")
+        a.setdefault("memo", "")
+        sid = secrets.token_hex(8)
+        print(f"add {hname} | {a.get('cigar_name')} | {a.get('vitola') or ''} | x{a.get('qty')} | {a.get('price_per_stick')} {a.get('currency')} → stock/{sid}")
+        adds.append((sid, a))
+        continue
     m, s = e["match"], e["set"]
     hits = [(n, f) for n, f in stock if all((f.get(k) in (None, "")) if v is None else f.get(k) == v for k, v in m.items())]
     print(f"match {m} → {len(hits)} docs")
@@ -98,8 +121,8 @@ for e in edits:
         print(f"  {f.get('cigar_name')} | {f.get('vitola') or ''} | x{f.get('qty')} | {f.get('added_date')}  SET {s}")
         plan.append((n, s))
 
-if DRY or not plan:
-    print("nothing written" if not plan else "dry run: nothing written")
+if DRY or not (plan or adds):
+    print("nothing written" if not (plan or adds) else "dry run: nothing written")
     raise SystemExit(0)
 
 writes = []
@@ -112,5 +135,13 @@ for n, s in plan:
         # 앱 운영자 동기화는 synced(서버 시각) 기준으로 받아가므로 같이 갱신해야 폰에 반영된다
         "updateTransforms": [{"fieldPath": "synced", "setToServerValue": "REQUEST_TIME"}],
     })
+for sid, a in adds:
+    fields = {k: fv(v) for k, v in a.items()}
+    fields["updated"] = fv(now)
+    fields["deleted"] = fv(False)
+    writes.append({
+        "update": {"name": f"{BASE}/users/{uid}/stock/{sid}", "fields": fields},
+        "updateTransforms": [{"fieldPath": "synced", "setToServerValue": "REQUEST_TIME"}],
+    })
 req("POST", f"{BASE}:commit", {"writes": writes})
-print(f"updated {len(writes)} docs")
+print(f"updated {len(plan)} docs, added {len(adds)} docs")
