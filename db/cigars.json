@@ -65589,18 +65589,68 @@
  "rojas-havana-nights": {
   "id": "rojas-havana-nights",
   "brand": "Rojas",
-  "name": "Havana Nights",
+  "name": "Havana Nights Maduro",
   "notes": {
-   "official": [],
+   "official": [
+    "cream",
+    "coffee",
+    "vanilla",
+    "cocoa",
+    "pepper",
+    "cinnamon",
+    "caramel",
+    "leather",
+    "nuts",
+    "dark_chocolate"
+   ],
    "review": []
   },
-  "note_sources": [],
+  "note_sources": [
+   {
+    "source": "official:cigarfederation",
+    "vitola": "Toro 6x50",
+    "tags": [
+     "cream",
+     "coffee",
+     "vanilla",
+     "cocoa",
+     "pepper",
+     "cinnamon",
+     "caramel",
+     "leather",
+     "nuts",
+     "dark_chocolate"
+    ],
+    "text": "Cigar Federation: San Andrés Maduro wrapper, Nicaraguan binder/filler, full-bodied, med/full strength. 1st third creamy dairy, coffee, vanilla, cocoa, raw sugar, black pepper; 2nd third cinnamon, caramel, leather, toasted nuts, graham cracker, white pepper; last third dark chocolate, sweet tea, red pepper, toasted almond. Sizes Toro 6x50, Lancero 7x38 (also Robusto via CigarPage). Online-only line; also Connecticut and Habano wrappers.",
+    "confidence": "medium",
+    "urls": [
+     "https://store.cigarfederation.com/products/hav-nt"
+    ]
+   }
+  ],
   "verified": false,
-  "updated": "2026-10-06",
+  "updated": "2026-11-28",
   "seed": {
    "shops": "cigarpage",
    "cuban": false
-  }
+  },
+  "vitolas": [
+   "Robusto 5x50",
+   "Toro 6x50",
+   "Lancero 7x38"
+  ],
+  "specs": {
+   "wrapper": "Mexico (San Andrés Maduro)",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "country": "Nicaragua",
+   "strength": "Medium-Full"
+  },
+  "aliases": [
+   "Havana Nights",
+   "Havana Nights San Andres",
+   "하바나 나이츠 마두로"
+  ]
  },
  "rojas-quiet-morning": {
   "id": "rojas-quiet-morning",
@@ -110331,6 +110381,134 @@
    "에스테반 카레라스 187"
   ],
   "seed": {
+   "cuban": false
+  }
+ },
+ "rojas-havana-nights-connecticut": {
+  "id": "rojas-havana-nights-connecticut",
+  "brand": "Rojas",
+  "name": "Havana Nights Connecticut",
+  "notes": {
+   "official": [],
+   "review": [
+    "cedar",
+    "hay",
+    "citrus",
+    "white_pepper",
+    "honey"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:leafenthusiast",
+    "vitola": "Toro 6x50",
+    "tags": [
+     "cedar",
+     "hay",
+     "citrus",
+     "white_pepper"
+    ],
+    "text": "Leaf Enthusiast: Ecuadorian Connecticut Shade wrapper, Nicaraguan Habano binder, Nicaraguan long-filler (Condega, Jalapa, Somoto). Mild-to-medium. Cold draw cedar and hay with light earth and white pepper; smoke hay and citrus with a light peppery finish; retrohale pepper with natural tobacco. ~$5, 'a solidly good cigar for the price'.",
+    "confidence": "medium",
+    "urls": [
+     "https://www.leafenthusiast.com/cigar-review-rojas-havana-nights-connecticut/"
+    ]
+   },
+   {
+    "source": "review:user",
+    "vitola": "Toro",
+    "tags": [
+     "cedar",
+     "white_pepper",
+     "honey",
+     "citrus"
+    ],
+    "text": "MyHumidor user PF95Lh 8.5/10: cedar, white pepper, honey, citrus.",
+    "confidence": "low",
+    "urls": []
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Robusto 5x50",
+   "Toro 6x50",
+   "Lancero 7x38"
+  ],
+  "specs": {
+   "wrapper": "Ecuador (Connecticut Shade)",
+   "binder": "Nicaragua (Habano)",
+   "filler": "Nicaragua (Condega, Jalapa, Somoto)",
+   "country": "Nicaragua",
+   "strength": "Mild-Medium"
+  },
+  "updated": "2026-11-28",
+  "aliases": [
+   "Havana Nights CT",
+   "Havana Nights Connecticut Shade",
+   "하바나 나이츠 코네티컷"
+  ],
+  "seed": {
+   "shops": "cigarpage",
+   "cuban": false
+  }
+ },
+ "rojas-havana-nights-habano": {
+  "id": "rojas-havana-nights-habano",
+  "brand": "Rojas",
+  "name": "Havana Nights Habano",
+  "notes": {
+   "official": [],
+   "review": [
+    "cedar",
+    "cinnamon",
+    "honey",
+    "cocoa",
+    "nuts",
+    "citrus",
+    "toast"
+   ]
+  },
+  "note_sources": [
+   {
+    "source": "review:user",
+    "vitola": "Toro",
+    "tags": [
+     "cedar",
+     "cinnamon",
+     "honey",
+     "cocoa",
+     "nuts",
+     "citrus",
+     "toast"
+    ],
+    "text": "Habano-wrapper version of the online-only Havana Nights line (Cigar Federation/CigarPage): Nicaraguan binder and filler, medium. MyHumidor user PF95Lh 9.0/10: cedar, cinnamon, honey, cocoa, nuts, citrus, toast.",
+    "confidence": "low",
+    "urls": [
+     "https://store.cigarfederation.com/products/hav-nt"
+    ]
+   }
+  ],
+  "verified": false,
+  "vitolas": [
+   "Robusto 5x50",
+   "Toro 6x50",
+   "Lancero 7x38"
+  ],
+  "specs": {
+   "wrapper": "Ecuador (Habano)",
+   "binder": "Nicaragua",
+   "filler": "Nicaragua",
+   "country": "Nicaragua",
+   "strength": "Medium"
+  },
+  "updated": "2026-11-28",
+  "aliases": [
+   "Havana Nights Habano",
+   "Havana Nights Havano",
+   "하바나 나이츠 하바노"
+  ],
+  "seed": {
+   "shops": "cigarpage",
    "cuban": false
   }
  }
