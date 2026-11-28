@@ -445,6 +445,20 @@ L.append("")
 # 정기(schedule) 실행은 스냅샷을 갱신하지 않는다 — "지난 집계 이후 변화"는 운영자가 직접 돌린(workflow_dispatch) 시점 기준으로만 누적
 import os as _os
 _keep = _prev if (_os.environ.get("GITHUB_EVENT_NAME") == "schedule" and _prev) else _snap
+# 그래프용 전체 일별 시계열 (런칭 이후): 기록 수 · 실행 기기 수 · 신규 기기 수 · 신규 공유자 수
+_first_log = {}
+for l in logs:
+    _u = (l.get("_updated") or "")[:10]
+    _o = l.get("uid") or ""
+    if _u and _o and (_o not in _first_log or _u < _first_log[_o]):
+        _first_log[_o] = _u
+_daily = {
+    "logs": dict(sorted(by_day.items())),
+    "active": dict(sorted(act_day.items())),
+    "new_devices": dict(sorted(Counter((i.get("first") or "")[:10] for i in installs if i.get("first")).items())),
+    "new_sharers": dict(sorted(Counter(_first_log.values()).items())),
+}
+L.append("<!-- daily " + json.dumps(_daily, separators=(",", ":")) + " -->")
 L.append("<!-- snapshot " + json.dumps(_keep, ensure_ascii=False, separators=(",", ":")) + " -->")
 
 md = "\n".join(L)
