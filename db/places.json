@@ -203,5 +203,57 @@
   "rating_count": 0,
   "added": "2026-11-22",
   "source": "suggestion:sZlitQ"
+ },
+ {
+  "id": "kr-gwangju-le-bain-bongseon",
+  "name": "르뱅 봉선점",
+  "name_en": "Le Bain Bongseon",
+  "kinds": [
+   "bar"
+  ],
+  "smoking": [
+   "indoor"
+  ],
+  "sells": "yes",
+  "country": "KR",
+  "city": "광주",
+  "city_en": "Gwangju",
+  "lat": 35.1279353,
+  "lng": 126.9081555,
+  "maps_url": "https://www.google.com/maps/search/?api=1&query=35.1279353,126.9081555&query_place_id=ChIJm1O1PACLcTURTTDHcwiLVoY",
+  "address": "광주 남구 봉선1로 27 1층",
+  "phone": "010-5800-9222",
+  "note": "위스키 바 + 시가룸 2개. 시가 판매. 19:00~02:00. 시가룸은 전화 예약 필수",
+  "note_en": "Whisky bar with 2 cigar rooms, sells cigars. 7pm–2am. Cigar rooms by phone reservation",
+  "rating": null,
+  "rating_count": 0,
+  "added": "2026-11-28",
+  "source": "suggestion:PF95Lh"
+ },
+ {
+  "id": "kr-cheongju-play-with-namu",
+  "name": "플레이 위드 나무",
+  "name_en": "Play with Namu",
+  "kinds": [
+   "bar"
+  ],
+  "smoking": [
+   "indoor"
+  ],
+  "sells": "yes",
+  "country": "KR",
+  "city": "청주",
+  "city_en": "Cheongju",
+  "lat": 36.644183,
+  "lng": 127.4905961,
+  "maps_url": "https://www.google.com/maps/search/?api=1&query=36.644183,127.4905961",
+  "address": "충북 청주시 상당구 대성로213번길 21 1층",
+  "phone": "0507-1439-7899",
+  "note": "바 테이블만, 최대 8명. 시가 판매. 16:00~04:00(사장님과 협의 가능)",
+  "note_en": "Bar seating only, max 8. Sells cigars. 4pm–4am (flexible by arrangement)",
+  "rating": null,
+  "rating_count": 0,
+  "added": "2026-11-28",
+  "source": "suggestion:PF95Lh"
  }
 ]
