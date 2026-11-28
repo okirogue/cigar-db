@@ -119,7 +119,7 @@ class CigarRepo {
 
   /// 단어 단위 AND 검색. 결과는 브랜드 일치 > 이름 일치 순.
   List<Cigar> search(String query, {int limit = 40}) {
-    final q = query.trim().toLowerCase();
+    final q = foldAccents(query.trim().toLowerCase());
     if (q.isEmpty) return const [];
     final words = q.split(RegExp(r'\s+')).where((w) => w.isNotEmpty).toList();
     final scored = <(int, Cigar)>[];
@@ -133,9 +133,9 @@ class CigarRepo {
       }
       if (!ok) continue;
       var score = 0;
-      final full = c.fullName.toLowerCase();
+      final full = foldAccents(c.fullName.toLowerCase());
       if (full.startsWith(q)) score += 100;
-      if (c.brand.toLowerCase().startsWith(words.first)) score += 20;
+      if (foldAccents(c.brand.toLowerCase()).startsWith(words.first)) score += 20;
       if (c.hasNotes) score += 5;
       scored.add((score, c));
     }

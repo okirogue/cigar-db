@@ -4,7 +4,9 @@ import 'package:provider/provider.dart';
 import '../l10n.dart';
 import '../state.dart';
 import '../theme.dart';
+import '../data/photos.dart';
 import 'picker_screen.dart';
+import 'stock_photo.dart';
 
 /// 시가 입고: 시가 선택 → 비톨라 → 수량 → 구매가(선택) → 입고일 → 휴미더
 class AddStockScreen extends StatefulWidget {
@@ -28,6 +30,7 @@ class _AddStockScreenState extends State<AddStockScreen> {
   String _cur = 'USD';
   late DateTime _date = DateTime.now();
   late int _humidorId = widget.initialHumidorId;
+  String? _photo; // 재고 사진 (기기 로컬)
 
   @override
   void initState() {
@@ -212,6 +215,37 @@ class _AddStockScreenState extends State<AddStockScreen> {
                           if (d != null) setState(() => _date = d);
                         },
                       ),
+                      if (LogPhotos.supported) ...[
+                        const SizedBox(height: 12),
+                        // 사진 (안드로이드만, 기기에만 저장)
+                        SubText(tr('사진 (선택)', 'Photo (optional)')),
+                        const SizedBox(height: 4),
+                        Row(children: [
+                          StockThumb(photo: _photo, size: 56, onTap: _photo == null ? null : () => showStockPhoto(context, _photo!)),
+                          const SizedBox(width: 10),
+                          OutlinedButton.icon(
+                            icon: Icon(_photo == null ? Icons.add_a_photo_outlined : Icons.cached, size: 16),
+                            label: Text(_photo == null ? tr('사진 넣기', 'Add photo') : tr('바꾸기', 'Change')),
+                            onPressed: () async {
+                              final n = await pickStockPhoto(context);
+                              if (n == null || !mounted) return;
+                              final old = _photo;
+                              setState(() => _photo = n);
+                              if (old != null) await LogPhotos.instance.delete(old);
+                            },
+                          ),
+                          if (_photo != null)
+                            IconButton(
+                              icon: const Icon(Icons.close, size: 18),
+                              onPressed: () async {
+                                final old = _photo!;
+                                setState(() => _photo = null);
+                                await LogPhotos.instance.delete(old);
+                              },
+                            ),
+                        ]),
+                        SubText(tr('사진은 이 기기에만 저장돼요 (동기화·백업 안 됨)', 'Photos stay on this device only (not synced or backed up)')),
+                      ],
                     ]),
                   ),
                 ),
@@ -279,6 +313,7 @@ class _AddStockScreenState extends State<AddStockScreen> {
       pricePerStick: _pricePerStick,
       currency: _saveCurrency,
       addedDate: ymd(_date),
+      photo: _photo,
     );
     // 위시리스트에 있던 시가면 입고했으니 뺀다
     if (st.inWishlist(_pick!.id)) await st.db.deleteWishByCigar(_pick!.id);

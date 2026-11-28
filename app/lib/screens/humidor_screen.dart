@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../data/photos.dart';
 import '../l10n.dart';
 import '../models/local.dart';
 import '../state.dart';
@@ -8,6 +9,7 @@ import '../theme.dart';
 import 'add_stock_screen.dart';
 import 'detail_screen.dart';
 import 'record_screen.dart';
+import 'stock_photo.dart';
 import 'wishlist_sheet.dart';
 
 enum StockSort { added, qty, aging }
@@ -435,7 +437,7 @@ class _StockCard extends StatelessWidget {
           padding: const EdgeInsets.all(14),
           child: Row(
             children: [
-              const CigarThumb(),
+              StockThumb(photo: item.photo, onTap: item.photo == null ? null : () => showStockPhoto(context, item.photo!, title: item.cigarName)),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -490,6 +492,33 @@ class _StockCard extends StatelessWidget {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen(cigar: cigar)));
               },
             ),
+          if (LogPhotos.supported)
+            ListTile(
+              leading: const Icon(Icons.add_a_photo_outlined),
+              title: Text(item.photo == null ? tr('사진 넣기', 'Add photo') : tr('사진 바꾸기', 'Change photo')),
+              subtitle: Text(tr('이 기기에만 저장돼요', 'Stored on this device only')),
+              onTap: () async {
+                Navigator.pop(ctx);
+                final n = await pickStockPhoto(context);
+                if (n == null) return;
+                final old = item.photo;
+                await st.db.setStockPhoto(item.id, n);
+                if (old != null && await st.db.stockPhotoRefs(old) == 0) await LogPhotos.instance.delete(old);
+                await st.reload();
+              },
+            ),
+          if (LogPhotos.supported && item.photo != null)
+            ListTile(
+              leading: const Icon(Icons.hide_image_outlined),
+              title: Text(tr('사진 지우기', 'Remove photo')),
+              onTap: () async {
+                Navigator.pop(ctx);
+                final old = item.photo!;
+                await st.db.setStockPhoto(item.id, null);
+                if (await st.db.stockPhotoRefs(old) == 0) await LogPhotos.instance.delete(old);
+                await st.reload();
+              },
+            ),
           if (st.humidors.length > 1)
             ListTile(
               leading: const Icon(Icons.drive_file_move_outline),
@@ -521,6 +550,7 @@ class _StockCard extends StatelessWidget {
             onTap: () async {
               Navigator.pop(ctx);
               await st.db.deleteStock(item.id);
+              if (item.photo != null && await st.db.stockPhotoRefs(item.photo!) == 0) await LogPhotos.instance.delete(item.photo!);
               await st.reload();
             },
           ),

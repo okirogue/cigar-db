@@ -92,13 +92,32 @@ class Cigar {
 
   String get country => cuban ? '쿠바' : '';
 
-  /// 검색용 소문자 문자열
-  late final String searchText = [
+  /// 검색용 소문자 문자열 (악센트 제거: Bolívar → bolivar, Hoyo Épicure → epicure)
+  late final String searchText = foldAccents([
     brand,
     name,
     ...aliases,
     if (cuban) 'cuba cuban 쿠바 쿠반',
-  ].join(' ').toLowerCase();
+  ].join(' ').toLowerCase());
+}
+
+const _accentMap = {
+  'á': 'a', 'à': 'a', 'â': 'a', 'ä': 'a', 'ã': 'a', 'å': 'a',
+  'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
+  'í': 'i', 'ì': 'i', 'î': 'i', 'ï': 'i',
+  'ó': 'o', 'ò': 'o', 'ô': 'o', 'ö': 'o', 'õ': 'o', 'ø': 'o',
+  'ú': 'u', 'ù': 'u', 'û': 'u', 'ü': 'u',
+  'ñ': 'n', 'ç': 'c', 'ý': 'y', 'ÿ': 'y', 'ß': 'ss', 'æ': 'ae', 'œ': 'oe',
+};
+
+/// 라틴 악센트 문자를 기본 알파벳으로 (소문자 입력 가정). 검색어·검색 대상 양쪽에 적용.
+String foldAccents(String s) {
+  final sb = StringBuffer();
+  for (final r in s.runes) {
+    final ch = String.fromCharCode(r);
+    sb.write(_accentMap[ch] ?? ch);
+  }
+  return sb.toString();
 }
 
 /// 노트 태그 사전 (assets/tags.json)

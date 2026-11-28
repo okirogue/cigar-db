@@ -29,6 +29,7 @@ class StockItem {
   final String currency; // 'KRW' | 'USD' ...
   final String addedDate; // yyyy-MM-dd
   final String? memo;
+  final String? photo; // 기기 로컬 사진 파일 이름 (photos/ 아래), 동기화·백업 제외
   final String sid;
   final int updated;
 
@@ -43,6 +44,7 @@ class StockItem {
     this.currency = 'KRW',
     required this.addedDate,
     this.memo,
+    this.photo,
     this.sid = '',
     this.updated = 0,
   });
@@ -58,6 +60,7 @@ class StockItem {
         currency: (m['currency'] as String?) ?? 'KRW',
         addedDate: m['added_date'] as String,
         memo: m['memo'] as String?,
+        photo: m['photo'] as String?,
         sid: (m['sid'] as String?) ?? '',
         updated: (m['updated'] as int?) ?? 0,
       );

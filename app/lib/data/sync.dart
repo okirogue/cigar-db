@@ -275,7 +275,7 @@ class Sync {
   Map<String, dynamic> _toCloud(String t, Map<String, Object?> r, Map<int, String> hum, Map<int, String> stk) {
     final m = <String, dynamic>{'deleted': false, 'synced': FieldValue.serverTimestamp()};
     for (final e in r.entries) {
-      if (e.key == 'id' || e.key == 'sid' || e.key == 'photos') continue; // 사진은 동기화 안 함
+      if (e.key == 'id' || e.key == 'sid' || e.key == 'photos' || e.key == 'photo') continue; // 사진은 동기화 안 함
       m[e.key] = e.value;
     }
     if (t == 'stock') {

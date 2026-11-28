@@ -33,7 +33,7 @@ class LocalDb {
     final path = kIsWeb ? 'cigar_log.db' : p.join(await getDatabasesPath(), 'cigar_log.db');
     _db = await openDatabase(
       path,
-      version: 10,
+      version: 11,
       onUpgrade: (d, oldV, newV) async {
         if (oldV < 2) await d.execute(_customDdl);
         if (oldV < 3) await d.execute('ALTER TABLE logs ADD COLUMN summary TEXT');
@@ -59,6 +59,7 @@ class LocalDb {
         if (oldV < 8) await _migrateV8(d);
         if (oldV < 9) await d.execute(_wishDdl);
         if (oldV < 10) await _createIndexes(d);
+        if (oldV < 11) await d.execute('ALTER TABLE stock ADD COLUMN photo TEXT'); // 재고 사진 (기기 로컬 파일 이름, 동기화 안 함)
       },
       onCreate: (d, v) async {
         await d.execute('''
@@ -82,7 +83,8 @@ class LocalDb {
             added_date TEXT NOT NULL,
             memo TEXT,
             sid TEXT,
-            updated INTEGER NOT NULL DEFAULT 0
+            updated INTEGER NOT NULL DEFAULT 0,
+            photo TEXT
           )''');
         await d.execute('''
           CREATE TABLE logs(
@@ -342,8 +344,10 @@ class LocalDb {
     int? pricePerStick,
     String currency = 'KRW',
     required String addedDate,
+    String? photo,
   }) async {
     return (await db).insert('stock', {
+      'photo': photo,
       'humidor_id': humidorId,
       'cigar_id': cigarId,
       'cigar_name': cigarName,
@@ -360,6 +364,17 @@ class LocalDb {
   Future<void> changeQty(int stockId, int delta) async {
     final d = await db;
     await d.rawUpdate('UPDATE stock SET qty = MAX(0, qty + ?), updated = ? WHERE id=?', [delta, now, stockId]);
+  }
+
+  /// 재고 사진 지정/해제 (사진은 기기 로컬 파일, 서버 동기화 안 함)
+  Future<void> setStockPhoto(int stockId, String? name) async {
+    await (await db).update('stock', {'photo': name, 'updated': now}, where: 'id=?', whereArgs: [stockId]);
+  }
+
+  /// 이 사진 이름을 쓰는 재고 줄 수 (옮기기로 나뉜 줄끼리 공유할 수 있음)
+  Future<int> stockPhotoRefs(String name) async {
+    final v = await (await db).rawQuery('SELECT COUNT(*) AS c FROM stock WHERE photo=?', [name]);
+    return (v.first['c'] as int?) ?? 0;
   }
 
   Future<void> deleteStock(int stockId) async {
@@ -403,6 +418,7 @@ class LocalDb {
           'currency': src.currency,
           'added_date': src.addedDate,
           'memo': src.memo,
+          'photo': src.photo,
           'sid': newSid(),
           'updated': now,
         });
