@@ -25,7 +25,7 @@ Future<String?> pickStockPhoto(BuildContext context) async {
     if (bytes == null || !context.mounted) return null;
     final cropped = await cropPhoto(context, bytes);
     if (cropped == null) return null;
-    return LogPhotos.instance.saveBytes(cropped);
+    return await LogPhotos.instance.saveBytes(cropped);
   } catch (_) {
     if (context.mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(tr('사진을 가져오지 못했어요', 'Could not get the photo'))));
     return null;
